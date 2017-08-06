@@ -16,8 +16,6 @@ The following links can be referred to for more information regarding setup.
 
 ## Laravel:
 
-https://laravel.com/docs/4.2/quick
-
 https://laravel.com/docs/5.4/installation
 
 ## Vultr:
