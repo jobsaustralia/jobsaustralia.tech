@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    You're using JobsAustralia.tech as a <em>Job Seeker</em>. <a href="https://employ.jobsaustralia.tech">Change to Employer</a>.
+                    You're using JobsAustralia.tech as a <em>Job Seeker</em>. <a href="https://employ.jobsaustralia.tech/register">Change to Employer</a>.
                 </div>
             </div>
             <div class="panel panel-default">

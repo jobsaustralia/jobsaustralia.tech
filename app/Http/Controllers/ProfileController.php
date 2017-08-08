@@ -17,7 +17,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show profile.
      *
      * @return \Illuminate\Http\Response
      */
