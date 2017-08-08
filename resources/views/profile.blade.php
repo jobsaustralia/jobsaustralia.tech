@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome!</div>
+                <div class="panel-heading">Profile</div>
 
                 <div class="panel-body">
-                    The quick brown fox jumps over the lazy dog.
+                    This is your profile.
                 </div>
             </div>
         </div>
