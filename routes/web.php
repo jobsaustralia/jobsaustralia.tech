@@ -21,6 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
