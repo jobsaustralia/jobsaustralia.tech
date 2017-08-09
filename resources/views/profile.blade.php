@@ -14,7 +14,13 @@
                         <a href="#">Change password.</a>
                     </p>
                     <p>
-                        <a href="#">Delete account.</a>
+                        <a href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"> 
+                            Delete account.
+                        </a>
+
+                        <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </p>
                 </div>
             </div>
