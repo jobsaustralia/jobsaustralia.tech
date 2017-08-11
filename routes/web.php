@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
