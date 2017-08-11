@@ -11,12 +11,16 @@
                     <p>Name: {{ Auth::user()->name }}</p>
                     <p>Email: {{ Auth::user()->email }}</p>
                     <p>
-                        <a href="#">Change password.</a>
+                        <button id="change-password">
+                            Change password
+                        </button>
                     </p>
                     <p>
-                        <a href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"> 
+                        <button id="confirm-delete"> 
                             Delete account.
-                        </a>
+                        </button>
+
+                        <p id="confirm-delete-prompt" style="display: none;">Confirm deletion: <a href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I really want to delete my account.</a></p>
 
                         <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
