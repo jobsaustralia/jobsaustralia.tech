@@ -10,8 +10,8 @@
                 <div class="panel-body">
                     <p>Name: {{ Auth::user()->name }}</p>
                     <p>Email: {{ Auth::user()->email }}</p>
-					<p>Sector: {{ Auth::user()->sector }}</p>
 					<p>Location: {{ Auth::user()->location }}</p>
+                    <p>Sector: {{ Auth::user()->sector }}</p>
                     <p>
                         <button id="change-password">
                             Change password
