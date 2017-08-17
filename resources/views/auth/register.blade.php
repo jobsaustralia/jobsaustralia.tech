@@ -108,14 +108,16 @@
 
                         <hr>
 
-						<h2 align="center">Skills</h2>
+						<h4 align="center">Skills</h4>
+
+                        <p align="center">Please select any skills you have (by self assessment).</p>
 
                         <!-- Skill: Java -->
 						<div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">
                             <label for="java" class="col-md-4 control-label">Java</label>
 
                             <div class="col-md-1">
-                                <input id="java" type="checkbox" class="form-control" name="java" value="{{ old('java') }}" autofocus>
+                                <input id="java" type="checkbox" class="form-control" name="java" value="1" autofocus>
 							
                                 @if ($errors->has('java'))
                                     <span class="help-block">
