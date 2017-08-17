@@ -47,15 +47,15 @@
                         </div>
 						
                         <!-- Job Title -->
-						<div class="form-group{{ $errors->has('job-title') ? ' has-error' : '' }}">
-                            <label for="job-title" class="col-md-4 control-label">Job Title</label>
+						<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Job Title</label>
 
                             <div class="col-md-6">
-                                <input id="job-title" type="text" class="form-control" name="job-title" value="{{ old('job-title') }}" required autofocus>
+                                <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
 
-                                @if ($errors->has('job-title'))
+                                @if ($errors->has('title'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('job-title') }}</strong>
+                                        <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -77,15 +77,15 @@
                         </div>
 						
                         <!-- Experience -->
-						<div class="form-group{{ $errors->has('overall-exp') ? ' has-error' : '' }}">
-                            <label for="overall-exp" class="col-md-4 control-label">Overall Experience (in years)</label>
+						<div class="form-group{{ $errors->has('experience') ? ' has-error' : '' }}">
+                            <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
 
                             <div class="col-md-6">
-                                <input id="overall-exp" type="text" class="form-control" name="overall-exp" value="{{ old('overall-exp') }}" required autofocus>
+                                <input id="experience" type="text" class="form-control" name="experience" value="{{ old('experience') }}" required autofocus>
 
-                                @if ($errors->has('overall-exp'))
+                                @if ($errors->has('experience'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('overall-exp') }}</strong>
+                                        <strong>{{ $errors->first('experience') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -276,60 +276,60 @@
 						</div>
 					   
                         <!-- Skill: Windows Server -->
-						<div class="form-group{{ $errors->has('win-server') ? ' has-error' : '' }}">
-                            <label for="win-server" class="col-md-4 control-label">Windows Server</label>
+						<div class="form-group{{ $errors->has('winserver') ? ' has-error' : '' }}">
+                            <label for="winserver" class="col-md-4 control-label">Windows Server</label>
 
                             <div class="col-md-1">
-                                <input id="win-server" type="checkbox" class="form-control" name="win-server" value="{{ old('win-server') }}" autofocus>
+                                <input id="winserver" type="checkbox" class="form-control" name="winserver" value="{{ old('winserver') }}" autofocus>
 							
-                                @if ($errors->has('win-server'))
+                                @if ($errors->has('winserver'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('win-server') }}</strong>
+                                        <strong>{{ $errors->first('winserver') }}</strong>
                                     </span>
                                 @endif
                             </div>
 						</div>
 						
                         <!-- Skill: Windows Desktop -->
-						<div class="form-group{{ $errors->has('win-desktop') ? ' has-error' : '' }}">
-                            <label for="win-desktop" class="col-md-4 control-label">Windows Desktop</label>
+						<div class="form-group{{ $errors->has('windesktop') ? ' has-error' : '' }}">
+                            <label for="windesktop" class="col-md-4 control-label">Windows Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="win-desktop" type="checkbox" class="form-control" name="win-desktop" value="{{ old('win-desktop') }}" autofocus>
+                                <input id="windesktop" type="checkbox" class="form-control" name="windesktop" value="{{ old('win-desktop') }}" autofocus>
 							
-                                @if ($errors->has('win-desktop'))
+                                @if ($errors->has('windesktop'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('win-desktop') }}</strong>
+                                        <strong>{{ $errors->first('windesktop') }}</strong>
                                     </span>
                                 @endif
                             </div>
 						</div>
 						
                         <!-- Skill: Linux Desktop -->
-						<div class="form-group{{ $errors->has('linux-desktop') ? ' has-error' : '' }}">
-                            <label for="linux-desktop" class="col-md-4 control-label">Linux Desktop</label>
+						<div class="form-group{{ $errors->has('linuxdesktop') ? ' has-error' : '' }}">
+                            <label for="linuxdesktop" class="col-md-4 control-label">Linux Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="linux-desktop" type="checkbox" class="form-control" name="linux-desktop" value="{{ old('linux-desktop') }}" autofocus>
+                                <input id="linuxdesktop" type="checkbox" class="form-control" name="linuxdesktop" value="{{ old('linuxdesktop') }}" autofocus>
 							
-                                @if ($errors->has('linus-desktop'))
+                                @if ($errors->has('linuxdesktop'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('linux-desktop') }}</strong>
+                                        <strong>{{ $errors->first('linuxdesktop') }}</strong>
                                     </span>
                                 @endif
                             </div>
 						</div>
 						
                         <!-- Skill: MacOS Desktop -->
-						<div class="form-group{{ $errors->has('macos-desktop') ? ' has-error' : '' }}">
-                            <label for="macos-desktop" class="col-md-4 control-label">MacOS Desktop</label>
+						<div class="form-group{{ $errors->has('macosdesktop') ? ' has-error' : '' }}">
+                            <label for="macosdesktop" class="col-md-4 control-label">MacOS Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="macos-desktop" type="checkbox" class="form-control" name="macos-desktop" value="{{ old('macos-desktop') }}" autofocus>
+                                <input id="macosdesktop" type="checkbox" class="form-control" name="macosdesktop" value="{{ old('macosdesktop') }}" autofocus>
 							
-                                @if ($errors->has('macos-desktop'))
+                                @if ($errors->has('macosdesktop'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('macos-desktop') }}</strong>
+                                        <strong>{{ $errors->first('macosdesktop') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -396,15 +396,15 @@
 						</div>
 						
                         <!-- Skill: Microsoft Office -->
-						<div class="form-group{{ $errors->has('microsoft-office') ? ' has-error' : '' }}">
-                            <label for="microsoft-office" class="col-md-4 control-label">Microsoft Office</label>
+						<div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
+                            <label for="office" class="col-md-4 control-label">Microsoft Office</label>
 
                             <div class="col-md-1">
-                                <input id="microsoft-office" type="checkbox" class="form-control" name="microsoft-office" value="{{ old('microsoft-office') }}" autofocus>
+                                <input id="office" type="checkbox" class="form-control" name="office" value="{{ old('office') }}" autofocus>
 							
-                                @if ($errors->has('microsoft-office'))
+                                @if ($errors->has('office'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('microsoft-office') }}</strong>
+                                        <strong>{{ $errors->first('office') }}</strong>
                                     </span>
                                 @endif
                             </div>
