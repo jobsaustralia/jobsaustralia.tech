@@ -10,6 +10,10 @@
                 <div class="panel-body">
                     <p>Name: {{ Auth::user()->name }}</p>
                     <p>Email: {{ Auth::user()->email }}</p>
+					<p>Job Title: {{ Auth::user()->job-title }}</p>
+					<p>Sector: {{ Auth::user()->sector }}</p>
+					<p>Overall Experience (in years): {{ Auth::user()->overall-exp }}</p>
+					<p>Location: {{ Auth::user()->location }}</p>
                     <p>
                         <button id="change-password">
                             Change password
