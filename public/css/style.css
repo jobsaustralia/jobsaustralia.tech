@@ -1,0 +1,96 @@
+h5.footer {
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    background-color: #2b4065;
+}
+
+
+ul.footernav {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #95abce;
+    margin-top: auto;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#header {
+   padding:0px;
+}
+
+ul.toptitle {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #blue;
+    margin-top: 0px;
+   display: block;
+    color: white;
+    text-align: center;
+    padding: 1px 15px;
+    text-decoration: none;
+}
+
+ul.footernav li {
+    float: left;
+}
+
+ul.footernav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1px 15px;
+    text-decoration: none;
+}
+
+ul.footernav li a:hover:not(.active) {background-color: #2b4065;}
+ul.footernav li a.active {background-color: #2b4065;}
+ul.footernav li.right {float: right;}
+
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+
+
+#content {
+    padding-bottom:0px; /* Height of the footer element */
+}
+
+.container {
+   position:relative;
+   padding-bottom: 10px;
+}
+
+html {
+    position: relative;
+}
+
+body {
+     margin: 0 0 100px; /* bottom = footer height */
+}
+
+#footer {
+    background-color:#2b4065;
+    width:100%;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+h3 {
+    margin-top: 6px;
+}
+
+h5 {
+   font-weight: bold !important;
+}
+
+li {
+    list-style-type: none;
+}
