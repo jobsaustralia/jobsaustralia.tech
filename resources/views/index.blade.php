@@ -17,7 +17,7 @@
 
             <!-- Panel 2 -->
             <div class="panel panel-default">
-            	<div class="panel-heading"> <i class="fa fa-users" aria-hidden="true" style="font-size: 30px"></i> We're here for you</div>
+            	<div class="panel-heading"> <i class="fa fa-users" aria-hidden="true" style="font-size: 30px"></i> We're Here For You</div>
 
             	<div class="panel-body">
                     <p> Match your skills and strengths with current job vacancies.</p>
