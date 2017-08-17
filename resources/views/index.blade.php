@@ -17,6 +17,10 @@
                 <div class="panel-heading">Welcome!</div>
 
                 <div class="panel-body">
+                    <p>
+                        <i class="fa fa-bath" aria-hidden="true" style="font-size: 30px"></i>
+                    </p>
+
                     The quick brown dog jumps over the lazy fox.
                 </div>
             </div>
