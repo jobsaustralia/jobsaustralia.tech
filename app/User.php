@@ -14,11 +14,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password', 'job-title', 'location', 'sector', 'overall-exp', 'java', 'python', 'c', 'c-sharp', 'c-plus', 'php',
-        'html', 'css', 'javascript', 'sql', 'unix', 'win-server', 'win-desktop', 'linux-desktop', 'macos-desktop', 'pearl', 'bash', 'batch',
-        'cisco', 'microsoft-office', 'r', 'go', 'ruby', 'asp', 'scala',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'job-title', 'location', 'sector', 'overall-exp', 'java', 'python', 'c', 'c-sharp', 'c-plus', 'php', 'html', 'css', 'javascript', 'sql', 'unix', 'win-server', 'win-desktop', 'linux-desktop', 'macos-desktop', 'pearl', 'bash', 'batch', 'cisco', 'microsoft-office', 'r', 'go', 'ruby', 'asp', 'scala'];
 
     /**
      * The attributes that should be hidden for arrays.

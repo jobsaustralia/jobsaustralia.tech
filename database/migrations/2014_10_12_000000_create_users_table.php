@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('job-title');
             $table->string('sector');
             $table->string('overall-exp');
+            
             /* Skills */
             $table->string('java');
             $table->string('python');
