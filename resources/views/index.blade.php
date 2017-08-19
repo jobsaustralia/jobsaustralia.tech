@@ -33,7 +33,7 @@
             	<p> <b>Step 2:</b> Creat your own profile without having to submit your resume or cover letter. However, it is recommended that you pay high attention to listing your IT skills.</p>
             	<p> <b>Step 3:</b> Wait for your notifications whenever we find you a great match with an employer ! </p>
             	</div>
-            </div> 
+            </div>
         </div>
     </div>
 </div>
