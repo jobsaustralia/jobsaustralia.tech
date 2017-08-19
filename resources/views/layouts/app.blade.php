@@ -80,9 +80,10 @@
         </nav>
 
         @yield('content')
-    <footer>
-        <p>Copyright © JobsAustralia.tech 2017 &bull; <a href="https://github.com/jobsaustralia/">GitHub</a> &bull; <a href="LICENSE">License</a></p>
-    </footer>
+        <footer>
+            <p>Copyright © JobsAustralia.tech 2017 &bull; <a href="https://github.com/jobsaustralia/">GitHub</a> &bull; <a href="LICENSE">License</a></p>
+        </footer>
+    </div> 
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
