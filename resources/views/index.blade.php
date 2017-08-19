@@ -4,8 +4,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            
-            
             <!-- Panel 1 -->
             <div class="panel panel-default">
                 <div class="panel-heading"> <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> Welcome!</div>
