@@ -21,7 +21,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" pattern="[a-zA-Z ]+" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -51,7 +51,7 @@
                             <label for="title" class="col-md-4 control-label">Job Title</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
+                                <input id="title" type="text" class="form-control" name="title" pattern="[a-zA-Z ]+" value="{{ old('title') }}" required autofocus>
 
                                 @if ($errors->has('title'))
                                     <span class="help-block">
@@ -66,7 +66,7 @@
                             <label for="sector" class="col-md-4 control-label">Sector</label>
 
                             <div class="col-md-6">
-                                <input id="sector" type="text" class="form-control" name="sector" value="{{ old('sector') }}" required autofocus>
+                                <input id="sector" type="text" class="form-control" name="sector" pattern="[a-zA-Z ]+" value="{{ old('sector') }}" required autofocus>
 
                                 @if ($errors->has('sector'))
                                     <span class="help-block">
@@ -81,7 +81,7 @@
                             <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
 
                             <div class="col-md-6">
-                                <input id="experience" type="text" class="form-control" name="experience" value="{{ old('experience') }}" required autofocus>
+                                <input id="experience" type="number" min="0" max="50" class="form-control" name="experience" value="{{ old('experience') }}" required autofocus>
 
                                 @if ($errors->has('experience'))
                                     <span class="help-block">
@@ -96,7 +96,7 @@
                             <label for="location" class="col-md-4 control-label">Location</label>
 
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') }}" required autofocus>
+                                <input id="location" type="text" class="form-control" name="location" pattern="[a-zA-Z ]+" value="{{ old('location') }}" required autofocus>
 
                                 @if ($errors->has('location'))
                                     <span class="help-block">
