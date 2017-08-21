@@ -42,14 +42,14 @@ class EmployeeController extends Controller
     }
 
     public function jobs(){
-    $jobs = DB::table('users')
+    $jobs = DB::table('jobs')
     ->Join('jobs','users.id','jobs.company_id')
     ->get();
     return view('profile.jobs', compact('jobs'));
   }
 
   public function job($id){
-    $jobs = DB::table('users')
+    $jobs = DB::table('jobs')
     ->leftJoin('jobs','users.id','jobs.company_id')
     ->where('jobs.id',$id)
     ->get();
