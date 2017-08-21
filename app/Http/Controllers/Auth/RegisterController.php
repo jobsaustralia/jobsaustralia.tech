@@ -242,7 +242,7 @@ class RegisterController extends Controller
             $hasScala = "false";
         }
 
-        return User::create([
+          $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'title' => $data['title'],
@@ -276,5 +276,7 @@ class RegisterController extends Controller
             'asp' => $hasASP,
             'scala' => $hasScala
         ]);
+          Profile::create(['user_id' => $user->id]);
+        return $user;
     }
 }
