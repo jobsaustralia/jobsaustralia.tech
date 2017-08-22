@@ -20,11 +20,11 @@ Route::get('/', function (){
 
 Route::get('/support', function (){
     return view('support');
-});
+})->name('support');
 
 Route::get('/contact', function (){
     return view('contact');
-});
+})->name('contact');
 
 Auth::routes();
 
