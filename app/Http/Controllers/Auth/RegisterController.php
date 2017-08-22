@@ -242,7 +242,7 @@ class RegisterController extends Controller
             $hasScala = "false";
         }
 
-          return = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'title' => $data['title'],
