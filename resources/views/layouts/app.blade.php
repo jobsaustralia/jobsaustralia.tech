@@ -74,6 +74,8 @@
                                 </ul>
                             </li>
                         @endif
+                            <li><a href="{{ route('support') }}">Support</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
