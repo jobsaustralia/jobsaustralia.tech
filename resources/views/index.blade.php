@@ -9,7 +9,7 @@
                 <div class="panel-heading"> <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> <b>WELCOME!</b></div>
 
                 <div class="panel-body">
-                    <p> Jobsaustralia.tech is a job-matching website based in Melbourne, Australia focusing in the field of Information Technology, Computer Science and Software Engineering.</p>
+                    <p> Jobsaustralia.tech is a job-matching website based in Melbourne, Australia focusing in the field of Information Technology, Computer Science and Software Engineering.blah blah blah</p>
                 </div>
             </div>
 
