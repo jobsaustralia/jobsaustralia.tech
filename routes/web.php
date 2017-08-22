@@ -34,8 +34,7 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
 
-/* Example - Return all models in JSON format. */
-Route::get('/matches', function (){	
-	/* Obviously, we'll do this with Jobs. */
-	return User::all();
+/* Example - Return all jobs in JSON format. */
+Route::get('/all-jobs', function (){
+	return Job::all();
 });
