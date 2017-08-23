@@ -59,7 +59,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('support') }}">Support</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                         <!-- Authentication Links -->
