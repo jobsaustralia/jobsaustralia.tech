@@ -26,7 +26,7 @@ class User extends Authenticatable
     ];
     
         public function edit($id)
- {
+{
        $user = User::findOrFail($id);
        return view('edit');
  }

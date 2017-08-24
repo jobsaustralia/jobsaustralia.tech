@@ -31,7 +31,7 @@ Route::get('/contact', function (){
 
 
 /* GET Controller Routes */
-=======
+
 Route::get('/edit', function (){
     return view('edit');
 })->name('edit');
