@@ -59,6 +59,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (!Auth::guest())
+                            <li><a href="{{ route('matches') }}">Matches</a></li>
+                        @endif
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('support') }}">Support</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
@@ -107,5 +111,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    @if(Request::path() === 'matches')
+        <script src="{{ asset('js/match.js') }}"></script>
+    @endif
 </body>
 </html>
