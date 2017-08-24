@@ -45,6 +45,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+Route::get('/matches', 'JobController@index')->name('matches');
+
 /* Authentication Routes */
 
 Auth::routes();
