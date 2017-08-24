@@ -11,8 +11,7 @@
 |
 */
 
-// Remove this after changes.
-use App\User;
+/* GET Routes */
 
 Route::get('/', function (){
     return view('index');
@@ -30,15 +29,14 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
-Auth::routes();
+/* GET Controller Routes */
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
+/* Authentication Routes */
 
-/* Example - Return all jobs in JSON format. */
-Route::get('/all-jobs', function (){
-	return Job::all();
-});
+Auth::routes();
+
+Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
