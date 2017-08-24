@@ -30,6 +30,16 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
+Route::get('/edit', function (){
+    return view('edit');
+})->name('edit');
+
+Route::get('/profile/update/{id}', [
+        'as' => 'edit',
+        'uses' => 'profileController@update'
+    ]);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
