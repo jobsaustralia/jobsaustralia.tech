@@ -16,6 +16,8 @@
                         <button id="change-password">
                             Change password
                         </button>
+
+                        <p id="change-password-message" style="display: none;">To change your password, Logout and select "Forgot Your Password".</p>
                     </p>
                     <p>
                         <button id="confirm-delete"> 
