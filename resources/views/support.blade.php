@@ -5,61 +5,33 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">	Contact Us</div>
+                <div class="panel-heading">	FAQs</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                    <h3> Setting An Account </h3>
+                    <p><b>I forgot my password. What could I do ?</b></p>
+                    <p> Don't worry, it happens to everyone. Click the ‘Forgot Your Password ?’ link at the sign in section to enter your email and we'll send you a link to reset your password.</p>
+                    <p><b>How do I update my information ?</b></p>
+                    <p> Once you have logged in to your account, click on the drop down arrow next to your name in the top right of the page, and select Settings.</p>
+                </div>
+            </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="title" class="col-md-4 control-label">Name</label>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3> Applying For A Job </h3>
+                    <p><b>What does JobsAustralia.tech do with my application ?</b></p>
+                    <p>We send your application directly to the employer. Unfortunately, we don’t 
+					take any part in the recruitment process so if you want to check your application or ask 
+					further questions, it's best to contact the employer directly.</p>
+                </div>
+            </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="message" class="col-md-4 control-label">Message</label>
-
-                            <div class="col-md-6">
-									<textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>
-									</textarea>
-                                @if ($errors->has('message'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('message') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send enquiry
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3> Technical Issues </h3>
+                    <p><b>Getting an error message or having trouble loading a page ?</b></p>
+                    <p> Try clearing your browsing history following these instructions -> http://www.refreshyourcache.com/en/home/</p>
+                    <p><b>Tried everything and still having trouble ?</b></p>
+                    <p> Fill in the form to let us know what is going on. Be sure to include as much information about the issue as you can, including: your operating system, web browser and version, anti-virus software you have installed and the page that you encountered the error on.</p>
                 </div>
             </div>
         </div>
