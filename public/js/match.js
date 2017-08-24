@@ -1,3 +1,4 @@
+/* Function to print job to panel. */
 function printJob(title, description){
 	var display = document.getElementById("jobs");
 
@@ -22,5 +23,3 @@ $.getJSON( "api/jobs", function(data){
 		printJob(data[i].title, data[i].description);
 	}
 });
-
-
