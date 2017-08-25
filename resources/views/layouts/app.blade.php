@@ -104,7 +104,7 @@
         @yield('content')
         <br><br>
         <footer>
-            <p>Copyright © JobsAustralia.tech 2017 &bull; <a href="https://github.com/jobsaustralia/">GitHub</a> &bull; <a href="LICENSE">License</a></p>
+            <p>Copyright © JobsAustralia.tech 2017 &bull; <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/jobsaustralia/">GitHub</a> &bull; <a href="LICENSE">License</a></p>
         </footer>
     </div> 
 
