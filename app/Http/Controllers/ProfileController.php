@@ -26,14 +26,16 @@ class ProfileController extends Controller
         return view('profile');
     }
     
-        public function update(Request $request, $id)
-        {
-            $user = User::findOrFail($id);
-            $user->name=$request->input('name');
-            $user->email=$request->input('email');
+    public function update(Request $request, $id)
+    {
+        //You can get a User's current ID like this.
+        $id = Auth::user()->id; 
 
-            $user->save();
-            return Redirect::route('profile');
-        }
-    
+        $user = User::findOrFail($id);
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+
+        $user->save();
+        return Redirect::route('profile');
+    }
 }

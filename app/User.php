@@ -24,12 +24,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-        public function edit($id)
-{
-       $user = User::findOrFail($id);
-       return view('edit');
- }
-    
-    
 }
