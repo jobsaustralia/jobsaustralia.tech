@@ -53,6 +53,8 @@ function printJob(title, description, hours, salary, availablefrom, location, st
 	body.append(p7);
 	p7.append(apply);
 	display.appendChild(panel);
+
+	document.getElementById("loading").style.display = "none"
 }
 
 $.getJSON( "api/jobs", function(data){
