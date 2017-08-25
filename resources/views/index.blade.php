@@ -9,7 +9,7 @@
                 <div class="panel-heading"> <i class="fa fa-briefcase" aria-hidden="true" style="font-size: 30px"></i> <b>WELCOME!</b></div>
 
                 <div class="panel-body">
-                    <p> Jobsaustralia.tech is a job-matching website based in Melbourne, Australia focusing in the field of Information Technology, Computer Science and Software Engineering.</p>
+                    <p> JobsAustralia.tech is a job-matching website based in Melbourne, Australia focusing in the field of Information Technology, Computer Science and Software Engineering.</p>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
             	<div class="panel-body">
             	<p> <b>Step 1:</b> Register yourself with jobaustralia.tech. </p>
             	<p> <b>Step 2:</b> Creat your own profile without having to submit your resume or cover letter. However, it is recommended that you pay high attention to listing your IT skills.</p>
-            	<p> <b>Step 3:</b> Wait for your notifications whenever we find you a great match with an employer ! </p>
+            	<p> <b>Step 3:</b> Wait for your notifications whenever we find you a great match with an employer! </p>
             	</div>
             </div>
         </div>
