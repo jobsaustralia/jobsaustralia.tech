@@ -47,6 +47,10 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/matches', 'JobController@index')->name('matches');
 
+/* POST Controller Routes */
+
+Route::post('/enquire', 'ContactController@send')->name('enquire');
+
 /* Authentication Routes */
 
 Auth::routes();
