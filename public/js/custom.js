@@ -1,26 +1,22 @@
-function showDeleteConfirmation(){
-	if(document.getElementById("confirm-delete-prompt").style.display == "none"){
-		document.getElementById("confirm-delete-prompt").style.display = "block";
-	}
-	else{
-		document.getElementById("confirm-delete-prompt").style.display = "none";
-	}
+function toggleDisplay(){
+	var element = document.getElementById(event.target.id + "-content");
 	
-}
-
-function showChangePasswordMessage(){
-	if(document.getElementById("change-password-message").style.display == "none"){
-		document.getElementById("change-password-message").style.display = "block";
+	if(element.style.display == "none"){
+		element.style.display = "block";
 	}
 	else{
-		document.getElementById("change-password-message").style.display = "none";
+		element.style.display = "none";
 	}
 }
 
-if(document.getElementById("confirm-delete") !== null){
-	document.getElementById("confirm-delete").addEventListener("click", showDeleteConfirmation);
+if(document.getElementById("profile") !== null){
+	document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
+	document.getElementById("change-password").addEventListener("click", toggleDisplay);
 }
-
-if(document.getElementById("change-password") !== null){
-	document.getElementById("change-password").addEventListener("click", showChangePasswordMessage);
+else if(document.getElementById("team") !== null){
+	document.getElementById("aaron").addEventListener("click", toggleDisplay);
+	document.getElementById("ozlem").addEventListener("click", toggleDisplay);
+	document.getElementById("melissa").addEventListener("click", toggleDisplay);
+	document.getElementById("kim").addEventListener("click", toggleDisplay);
+	document.getElementById("dennis").addEventListener("click", toggleDisplay);
 }
