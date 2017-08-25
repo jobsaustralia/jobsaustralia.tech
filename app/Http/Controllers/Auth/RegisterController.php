@@ -68,178 +68,178 @@ class RegisterController extends Controller
     {
         /* Skill Conditions */
         if(array_key_exists('java', $data)){
-            $hasJava = "true";
+            $hasJava = "1";
         }
         else{
-            $hasJava = "false";
+            $hasJava = "0";
         }
 
         if(array_key_exists('python', $data)){
-            $hasPython = "true";
+            $hasPython = "1";
         }
         else{
-            $hasPython = "false";
+            $hasPython = "0";
         }
 
         if(array_key_exists('c', $data)){
-            $hasC = "true";
+            $hasC = "1";
         }
         else{
-            $hasC = "false";
+            $hasC = "0";
         }
 
         if(array_key_exists('csharp', $data)){
-            $hasCSharp = "true";
+            $hasCSharp = "1";
         }
         else{
-            $hasCSharp = "false";
+            $hasCSharp = "0";
         }
 
         if(array_key_exists('cplus', $data)){
-            $hasCPlus = "true";
+            $hasCPlus = "1";
         }
         else{
-            $hasCPlus = "false";
+            $hasCPlus = "0";
         }
 
         if(array_key_exists('php', $data)){
-            $hasPHP = "true";
+            $hasPHP = "1";
         }
         else{
-            $hasPHP = "false";
+            $hasPHP = "0";
         }
 
         if(array_key_exists('html', $data)){
-            $hasHTML = "true";
+            $hasHTML = "1";
         }
         else{
-            $hasHTML = "false";
+            $hasHTML = "0";
         }
 
         if(array_key_exists('css', $data)){
-            $hasCSS = "true";
+            $hasCSS = "1";
         }
         else{
-            $hasCSS = "false";
+            $hasCSS = "0";
         }
 
         if(array_key_exists('javascript', $data)){
-            $hasJavaScript = "true";
+            $hasJavaScript = "1";
         }
         else{
-            $hasJavaScript = "false";
+            $hasJavaScript = "0";
         }
 
         if(array_key_exists('sql', $data)){
-            $hasSQL = "true";
+            $hasSQL = "1";
         }
         else{
-            $hasSQL = "false";
+            $hasSQL = "0";
         }
 
         if(array_key_exists('unix', $data)){
-            $hasUNIX = "true";
+            $hasUNIX = "1";
         }
         else{
-            $hasUNIX = "false";
+            $hasUNIX = "0";
         }
 
         if(array_key_exists('winserver', $data)){
-            $hasWinServer = "true";
+            $hasWinServer = "1";
         }
         else{
-            $hasWinServer = "false";
+            $hasWinServer = "0";
         }
 
         if(array_key_exists('windesktop', $data)){
-            $hasWinDesktop= "true";
+            $hasWinDesktop= "1";
         }
         else{
-            $hasWinDesktop = "false";
+            $hasWinDesktop = "0";
         }
 
         if(array_key_exists('linuxdesktop', $data)){
-            $hasLinuxDesktop = "true";
+            $hasLinuxDesktop = "1";
         }
         else{
-            $hasLinuxDesktop = "false";
+            $hasLinuxDesktop = "0";
         }
 
         if(array_key_exists('macosdesktop', $data)){
-            $hasMacOsDesktop = "true";
+            $hasMacOsDesktop = "1";
         }
         else{
-            $hasMacOsDesktop = "false";
+            $hasMacOsDesktop = "0";
         }
 
         if(array_key_exists('pearl', $data)){
-            $hasPearl = "true";
+            $hasPearl = "1";
         }
         else{
-            $hasPearl = "false";
+            $hasPearl = "0";
         }
 
         if(array_key_exists('bash', $data)){
-            $hasBash = "true";
+            $hasBash = "1";
         }
         else{
-            $hasBash = "false";
+            $hasBash = "0";
         }
 
         if(array_key_exists('batch', $data)){
-            $hasBatch = "true";
+            $hasBatch = "1";
         }
         else{
-            $hasBatch = "false";
+            $hasBatch = "0";
         }
 
         if(array_key_exists('cisco', $data)){
-            $hasCisco = "true";
+            $hasCisco = "1";
         }
         else{
-            $hasCisco = "false";
+            $hasCisco = "0";
         }
 
         if(array_key_exists('office', $data)){
-            $hasOffice = "true";
+            $hasOffice = "1";
         }
         else{
-            $hasOffice= "false";
+            $hasOffice= "0";
         }
 
         if(array_key_exists('r', $data)){
-            $hasR = "true";
+            $hasR = "1";
         }
         else{
-            $hasR = "false";
+            $hasR = "0";
         }
 
         if(array_key_exists('go', $data)){
-            $hasGo = "true";
+            $hasGo = "1";
         }
         else{
-            $hasGo = "false";
+            $hasGo = "0";
         }
 
         if(array_key_exists('ruby', $data)){
-            $hasRuby = "true";
+            $hasRuby = "1";
         }
         else{
-            $hasRuby = "false";
+            $hasRuby = "0";
         }
 
         if(array_key_exists('asp', $data)){
-            $hasASP = "true";
+            $hasASP = "1";
         }
         else{
-            $hasASP = "false";
+            $hasASP = "0";
         }
 
         if(array_key_exists('scala', $data)){
-            $hasScala = "true";
+            $hasScala = "1";
         }
         else{
-            $hasScala = "false";
+            $hasScala = "0";
         }
 
         return User::create([
