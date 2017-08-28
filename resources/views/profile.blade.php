@@ -13,6 +13,7 @@
 					          <p>Location: {{ Auth::user()->location }}</p>
                     <p>Sector: {{ Auth::user()->sector }}</p>
                     <p>Job Title: {{ Auth::user()->title }}</p>
+                    <p>Experience: {{ Auth::user()->experience }} Year(s)</p>
                     <p>Skills: 1 Means Selected, 0 means not selected </p>
                     <p>Java: {{Auth::user()->java }}</p>
                     <p>Python: {{Auth::user()->python }}</p>
