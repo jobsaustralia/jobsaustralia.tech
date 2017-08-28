@@ -29,17 +29,12 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
-
-/* GET Controller Routes */
-
 Route::get('/edit', function (){
     return view('edit');
 })->name('edit');
 
-Route::get('/profile/update/{id}', [
-    'as' => 'edit',
-    'uses' => 'profileController@update'
-]);
+
+/* GET Controller Routes */
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -50,6 +45,8 @@ Route::get('/matches', 'JobController@index')->name('matches');
 /* POST Controller Routes */
 
 Route::post('/enquire', 'ContactController@send')->name('enquire');
+
+Route::post('/update', 'ProfileController@updateProfile')->name('update');
 
 /* Authentication Routes */
 
