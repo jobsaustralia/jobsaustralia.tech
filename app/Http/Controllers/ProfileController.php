@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -44,26 +44,27 @@ class ProfileController extends Controller
     /**
      * Update user.
      *
-     * @return void
+     * @return Illuminate\Support\Facades\Redirect
      */
     public function updateProfile(Request $request)
     {
         //this to ensure when user goes to edit their profile, they don't have to change their currently assigned email.
-        $user = $request->user();
+        $ruser = $request->user();
 
         /* Validate incoming data */
         $this->validate($request, [
-         'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-         'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-         'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-         'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-         'experience' => 'required|integer|min:0|max:50',
-         'email' => 'required|string|email|max:255|unique:users,email,' . $user->id
+            'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'experience' => 'required|integer|min:0|max:50',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $ruser->id
         ]);
 
         $id = Auth::user()->id;
 
         $user = User::findOrFail($id);
+
         $user->name=$request['name'];
         $user->email=$request['email'];
         $user->title=$request['title'];
