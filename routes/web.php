@@ -29,16 +29,13 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
-Route::get('/edit', function (){
-    return view('edit');
-})->name('edit');
-
-
 /* GET Controller Routes */
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::get('/profile/edit', 'ProfileController@editIndex')->name('edit');
 
 Route::get('/matches', 'JobController@index')->name('matches');
 

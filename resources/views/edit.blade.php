@@ -42,7 +42,7 @@
                         </div>
 
                         <!-- Job Title -->
-            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Job Title</label>
 
                             <div class="col-md-6">
@@ -58,49 +58,48 @@
 
                         <!-- Sector -->
                         <div class="form-group{{ $errors->has('sector') ? ' has-error' : '' }}">
-                                        <label for="sector" class="col-md-4 control-label">Sector</label>
+                            <label for="sector" class="col-md-4 control-label">Sector</label>
 
-                                        <div class="col-md-6">
-                                            <input id="sector" type="text" class="form-control" name="sector" pattern="[a-zA-Z ]+" value="{{ Auth::user()->sector }}" required autofocus>
+                            <div class="col-md-6">
+                                <input id="sector" type="text" class="form-control" name="sector" pattern="[a-zA-Z ]+" value="{{ Auth::user()->sector }}" required autofocus>
 
-                                            @if ($errors->has('sector'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('sector') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                @if ($errors->has('sector'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('sector') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-                                    <!-- Location -->
+                        <!-- Location -->
                         <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-                                        <label for="location" class="col-md-4 control-label">Location</label>
+                            <label for="location" class="col-md-4 control-label">Location</label>
 
-                                        <div class="col-md-6">
-                                            <input id="location" type="text" class="form-control" name="location" pattern="[a-zA-Z ]+" value="{{ Auth::user()->location }}" required autofocus>
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control" name="location" pattern="[a-zA-Z ]+" value="{{ Auth::user()->location }}" required autofocus>
 
-                                            @if ($errors->has('location'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('location') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                @if ($errors->has('location'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-                                    <!-- Experience -->
+                        <!-- Experience -->
                         <div class="form-group{{ $errors->has('experience') ? ' has-error' : '' }}">
-                                        <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
+                            <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
 
-                                        <div class="col-md-6">
-                                            <input id="experience" type="number" min="0" max="50" class="form-control" name="experience" value="{{ Auth::user()->experience }}" required autofocus>
+                            <div class="col-md-6">
+                                <input id="experience" type="number" min="0" max="50" class="form-control" name="experience" value="{{ Auth::user()->experience }}" required autofocus>
 
-                                            @if ($errors->has('experience'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('experience') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-
+                                @if ($errors->has('experience'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('experience') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <hr>
 
