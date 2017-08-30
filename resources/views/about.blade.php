@@ -49,7 +49,7 @@
                     <div align="center">
                         <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
                         <hr>
-                        <p>Kim is in their final? semester of the Bachelor of Information Technology.</p>
+                        <p>Kim is in their second last semester of the Bachelor of Information Technology.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com">GitHub</a> &bull; <i class="fa fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com">LinkedIn</a></p>
                     </div>
                 </div>
