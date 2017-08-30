@@ -16,28 +16,27 @@
                     <p>Experience: {{ Auth::user()->experience }} Year(s)</p>
 
                     <hr>
-					
+					<p>
 					<form class="form-horizontal" method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Resume:</label>
+                        <div>
+                            <p>Resume (*optional)</p>
 
                             <div class="col-md-6">
                                 <input type="file" class="form-control" name="file">
 
-                                
-                            </div>
-                        </div>
+                          <p>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div>
+								
                                 <button type="submit" class="btn btn-primary">
                                     Upload resume.
                                 </button>
+								
                             </div>
-                        </div>
                     </form>
+					</p>
 					<hr>
                     <p>
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('edit-form').submit();">
@@ -59,8 +58,7 @@
                         <button id="confirm-delete" class="btn btn-primary">
                             Delete account.
                         </button>
-                    </p>
-
+                    </p><br>
                     <p id="confirm-delete-content" style="display: none;">
                         Confirm deletion: <a href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I really want to delete my account.</a>
                     </p>
