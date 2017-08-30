@@ -19,13 +19,13 @@
 
                     <p>
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('edit-form').submit();">
-                            Edit profile and skills.
+                            Edit profile and skills
                         </button>
                     </p>
 
                     <p>
                         <button id="change-password" class="btn btn-primary">
-                            Change password.
+                            Change password
                         </button>
                     </p>
 
@@ -35,7 +35,7 @@
 
                     <p>
                         <button id="confirm-delete" class="btn btn-primary">
-                            Delete account.
+                            Delete account
                         </button>
                     </p>
 
