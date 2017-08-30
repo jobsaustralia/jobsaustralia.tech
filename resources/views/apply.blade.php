@@ -10,43 +10,15 @@
                     <form class="form-horizontal" method="POST" action="{{ route('enquire') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="message" class="col-md-4 control-label">Message</label>
+                            <label for="cover-letter" class="col-md-4 control-label">Cover Letter</label>
 
                             <div class="col-md-6">
-									<textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>
+									<textarea id="cover-letter" name="cover-letter" rows="5" cols="30" class="form-control" value="{{ old('cover-letter') }}" required autofocus>
 									</textarea>
-                                @if ($errors->has('message'))
+                                @if ($errors->has('cover-letter'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('message') }}</strong>
+                                        <strong>{{ $errors->first('cover-letter') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -55,7 +27,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Send enquiry
+                                    Apply
                                 </button>
                             </div>
                         </div>
