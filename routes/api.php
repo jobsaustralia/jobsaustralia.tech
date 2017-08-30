@@ -28,6 +28,10 @@ Route::get('/jobs/{state?}', function (){
 	return Job::all();
 });
 
+Route::get('/jobs/by', function (){
+	$id = Auth::user()->id;
+});
+
 Route::get('/users', function (){
 	return User::all();
 });
