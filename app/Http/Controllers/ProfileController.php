@@ -56,15 +56,35 @@ class ProfileController extends Controller
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'experience' => 'required|integer|min:0|max:50',
-            'java' => 'boolean',
-            'python' => 'boolean',
+            'experience' => 'required|integer|min:0|max:50','java' => 'boolean',
+			'python' => 'boolean',
+			'c' => 'boolean',
+			'csharp' => 'boolean',
+			'cplus' => 'boolean',
+			'php' => 'boolean',
+			'html' => 'boolean',
+			'css' => 'boolean',
+			'javascript' => 'boolean',
+			'sql' => 'boolean',
+			'unix' => 'boolean',
+			'winserver' => 'boolean',
+			'windesktop' => 'boolean',
+			'linuxdesktop' => 'boolean',
+        	'macosdesktop' => 'boolean',
+			'pearl' => 'boolean',
+			'bash' => 'boolean',
+			'batch' => 'boolean',
+			'cisco' => 'boolean',
+			'office' => 'boolean',
+			'r' => 'boolean',
+			'go' => 'boolean',
+			'ruby' => 'boolean',
+			'asp' => 'boolean',
+			'scala' => 'boolean',
             'email' => 'required|string|email|max:255|unique:users,email,' . $ruser->id
         ]);
 
-        $id = Auth::user()->id;
-
-        $user = User::findOrFail($id);
+        $user = Auth::user();
 
         $user->name=$request['name'];
         $user->email=$request['email'];
