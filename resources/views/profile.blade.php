@@ -16,7 +16,29 @@
                     <p>Experience: {{ Auth::user()->experience }} Year(s)</p>
 
                     <hr>
+					
+					<form class="form-horizontal" method="POST" action="{{ route('upload') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Resume:</label>
+
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" name="file">
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Upload resume.
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+					<hr>
                     <p>
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('edit-form').submit();">
                             Edit profile and skills.

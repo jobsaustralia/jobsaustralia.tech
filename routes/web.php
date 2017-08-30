@@ -53,6 +53,8 @@ Route::post('/enquire', 'ContactController@send')->name('enquire');
 
 Route::post('/update', 'ProfileController@updateProfile')->name('update');
 
+Route::post('/upload', 'ProfileController@updateProfile')->name('upload');
+
 /* Authentication Routes */
 
 Auth::routes();
