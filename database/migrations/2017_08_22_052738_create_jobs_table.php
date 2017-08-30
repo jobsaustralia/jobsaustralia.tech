@@ -21,6 +21,7 @@ class CreateJobsTable extends Migration
             $table->string('salary');
             $table->string('availablefrom');
             $table->string('location');
+            $table->string('state');
             $table->string('startdate');
 
             /* Skills */

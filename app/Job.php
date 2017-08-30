@@ -12,7 +12,7 @@ class Job extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'description', 'hours', 'salary', 'availablefrom', 'location', 'startdate', 'java', 'python', 'c', 'csharp', 'cplus', 'php', 'html', 'css', 'javascript', 'sql', 'unix', 'winserver', 'windesktop', 'linuxdesktop', 'macosdesktop', 'pearl', 'bash', 'batch', 'cisco', 'office', 'r', 'go', 'ruby', 'asp', 'scala'];
+    protected $fillable = ['title', 'description', 'hours', 'salary', 'availablefrom', 'location', 'state', 'startdate', 'java', 'python', 'c', 'csharp', 'cplus', 'php', 'html', 'css', 'javascript', 'sql', 'unix', 'winserver', 'windesktop', 'linuxdesktop', 'macosdesktop', 'pearl', 'bash', 'batch', 'cisco', 'office', 'r', 'go', 'ruby', 'asp', 'scala'];
 
     protected $table = 'jobs';
 }
