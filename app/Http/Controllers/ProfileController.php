@@ -48,7 +48,6 @@ class ProfileController extends Controller
      */
     public function updateProfile(Request $request)
     {
-        //this to ensure when user goes to edit their profile, they don't have to change their currently assigned email.
         $ruser = $request->user();
 
         /* Validate incoming data */
@@ -58,6 +57,8 @@ class ProfileController extends Controller
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'experience' => 'required|integer|min:0|max:50',
+            'java' => 'boolean',
+            'python' => 'boolean',
             'email' => 'required|string|email|max:255|unique:users,email,' . $ruser->id
         ]);
 
@@ -71,6 +72,7 @@ class ProfileController extends Controller
         $user->location=$request['location'];
         $user->sector=$request['sector'];
         $user->experience=$request['experience'];
+
         $user->java=$request['java'];
         $user->python=$request['python'];
         $user->c=$request['c'];
