@@ -42,13 +42,14 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update user.
+     * Update profile.
      *
+     * @param  Illuminate\Http\Request  $request
      * @return Illuminate\Support\Facades\Redirect
      */
     public function updateProfile(Request $request)
     {
-        $ruser = $request->user();
+        $user = Auth::user();
 
         /* Validate incoming data */
         $this->validate($request, [
@@ -81,10 +82,8 @@ class ProfileController extends Controller
 			'ruby' => 'boolean',
 			'asp' => 'boolean',
 			'scala' => 'boolean',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $ruser->id
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id
         ]);
-
-        $user = Auth::user();
 
         $user->name=$request['name'];
         $user->email=$request['email'];

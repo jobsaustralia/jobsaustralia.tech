@@ -117,7 +117,8 @@
                             <label for="java" class="col-md-4 control-label">Java</label>
 
                             <div class="col-md-1">
-                                <input id="java" type="checkbox" class="form-control" name="java" value="1" autofocus>
+                                <input id="java-hidden" type="hidden" class="form-control" name="java" value="0">
+                                <input id="java" type="checkbox" class="form-control" name="java" value="{{ old('java') }}" autofocus>
 							
                                 @if ($errors->has('java'))
                                     <span class="help-block">
@@ -132,8 +133,9 @@
                             <label for="python" class="col-md-4 control-label">Python</label>
 
                             <div class="col-md-1">
+                                <input id="python-hidden" type="hidden" class="form-control" name="python" value="0">
                                 <input id="python" type="checkbox" class="form-control" name="python" value="{{ old('python') }}" autofocus>
-							
+
                                 @if ($errors->has('python'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('python') }}</strong>
@@ -147,6 +149,7 @@
                             <label for="c" class="col-md-4 control-label">C</label>
 
                             <div class="col-md-1">
+                                <input id="c-hidden" type="hidden" class="form-control" name="c" value="0">
                                 <input id="c" type="checkbox" class="form-control" name="c" value="{{ old('c') }}" autofocus>
 							
                                 @if ($errors->has('c'))
@@ -158,30 +161,32 @@
 						</div>
 
                         <!-- Skill: C# -->
-						<div class="form-group{{ $errors->has('c-sharp') ? ' has-error' : '' }}">
-                            <label for="c-sharp" class="col-md-4 control-label">C#</label>
+						<div class="form-group{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                            <label for="csharp" class="col-md-4 control-label">C#</label>
 
                             <div class="col-md-1">
-                                <input id="c-sharp" type="checkbox" class="form-control" name="c-sharp" value="{{ old('c-sharp') }}" autofocus>
+                                <input id="csharp-hidden" type="hidden" class="form-control" name="csharp" value="0">
+                                <input id="csharp" type="checkbox" class="form-control" name="csharp" value="{{ old('csharp') }}" autofocus>
 							
-                                @if ($errors->has('c-sharp'))
+                                @if ($errors->has('csharp'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('c-sharp') }}</strong>
+                                        <strong>{{ $errors->first('csharp') }}</strong>
                                     </span>
                                 @endif
                             </div>
 						</div>
 							
                         <!-- Skill: C++ -->
-						<div class="form-group{{ $errors->has('c-plus') ? ' has-error' : '' }}">
-                            <label for="c-plus" class="col-md-4 control-label">C++</label>
+						<div class="form-group{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                            <label for="cplus" class="col-md-4 control-label">C++</label>
 
                             <div class="col-md-1">
-                                <input id="c-plus" type="checkbox" class="form-control" name="c-plus" value="{{ old('c-plus') }}" autofocus>
+                                <input id="cplus-hidden" type="hidden" class="form-control" name="cplus" value="0">
+                                <input id="cplus" type="checkbox" class="form-control" name="cplus" value="{{ old('cplus') }}" autofocus>
 							
-                                @if ($errors->has('c-plus'))
+                                @if ($errors->has('cplus'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('c-plus') }}</strong>
+                                        <strong>{{ $errors->first('cplus') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -192,6 +197,7 @@
                             <label for="php" class="col-md-4 control-label">PHP</label>
 
                             <div class="col-md-1">
+                                <input id="php-hidden" type="hidden" class="form-control" name="php" value="0">
                                 <input id="php" type="checkbox" class="form-control" name="php" value="{{ old('php') }}" autofocus>
 							
                                 @if ($errors->has('php'))
@@ -204,6 +210,7 @@
 						
                         <!-- Skill: HTML -->
 						<div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
+                            <input id="html-hidden" type="hidden" class="form-control" name="html" value="0">
                             <label for="html" class="col-md-4 control-label">HTML</label>
 
                             <div class="col-md-1">
@@ -222,6 +229,7 @@
                             <label for="css" class="col-md-4 control-label">CSS</label>
 
                             <div class="col-md-1">
+                                <input id="css-hidden" type="hidden" class="form-control" name="css" value="0">
                                 <input id="css" type="checkbox" class="form-control" name="css" value="{{ old('css') }}" autofocus>
 							
                                 @if ($errors->has('css'))
@@ -237,6 +245,7 @@
                             <label for="javascript" class="col-md-4 control-label">JavaScript</label>
 
                             <div class="col-md-1">
+                                <input id="javascript-hidden" type="hidden" class="form-control" name="javascript" value="0">
                                 <input id="javascript" type="checkbox" class="form-control" name="javascript" value="{{ old('javascript') }}" autofocus>
 							
                                 @if ($errors->has('javascript'))
@@ -252,6 +261,7 @@
                             <label for="sql" class="col-md-4 control-label">SQL</label>
 
                             <div class="col-md-1">
+                                <input id="sql-hidden" type="hidden" class="form-control" name="sql" value="0">
                                 <input id="sql" type="checkbox" class="form-control" name="sql" value="{{ old('sql') }}" autofocus>
 							
                                 @if ($errors->has('sql'))
@@ -267,6 +277,7 @@
                             <label for="unix" class="col-md-4 control-label">Unix</label>
 
                             <div class="col-md-1">
+                                <input id="unix-hidden" type="hidden" class="form-control" name="unix" value="0">
                                 <input id="unix" type="checkbox" class="form-control" name="unix" value="{{ old('unix') }}" autofocus>
 							
                                 @if ($errors->has('unix'))
@@ -282,6 +293,7 @@
                             <label for="winserver" class="col-md-4 control-label">Windows Server</label>
 
                             <div class="col-md-1">
+                                <input id="winserver-hidden" type="hidden" class="form-control" name="winserver" value="0">
                                 <input id="winserver" type="checkbox" class="form-control" name="winserver" value="{{ old('winserver') }}" autofocus>
 							
                                 @if ($errors->has('winserver'))
@@ -297,7 +309,8 @@
                             <label for="windesktop" class="col-md-4 control-label">Windows Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="windesktop" type="checkbox" class="form-control" name="windesktop" value="{{ old('win-desktop') }}" autofocus>
+                                <input id="windesktop-hidden" type="hidden" class="form-control" name="windesktop" value="0">
+                                <input id="windesktop" type="checkbox" class="form-control" name="windesktop" value="{{ old('windesktop') }}" autofocus>
 							
                                 @if ($errors->has('windesktop'))
                                     <span class="help-block">
@@ -312,6 +325,7 @@
                             <label for="linuxdesktop" class="col-md-4 control-label">Linux Desktop</label>
 
                             <div class="col-md-1">
+                                <input id="linuxdesktop-hidden" type="hidden" class="form-control" name="linuxdesktop" value="0">
                                 <input id="linuxdesktop" type="checkbox" class="form-control" name="linuxdesktop" value="{{ old('linuxdesktop') }}" autofocus>
 							
                                 @if ($errors->has('linuxdesktop'))
@@ -327,6 +341,7 @@
                             <label for="macosdesktop" class="col-md-4 control-label">MacOS Desktop</label>
 
                             <div class="col-md-1">
+                                <input id="macosdesktop-hidden" type="hidden" class="form-control" name="macosdesktop" value="0">
                                 <input id="macosdesktop" type="checkbox" class="form-control" name="macosdesktop" value="{{ old('macosdesktop') }}" autofocus>
 							
                                 @if ($errors->has('macosdesktop'))
@@ -342,6 +357,7 @@
                             <label for="pearl" class="col-md-4 control-label">Pearl</label>
 
                             <div class="col-md-1">
+                                <input id="pearl-hidden" type="hidden" class="form-control" name="pearl" value="0">
                                 <input id="pearl" type="checkbox" class="form-control" name="pearl" value="{{ old('pearl') }}" autofocus>
 							
                                 @if ($errors->has('pearl'))
@@ -357,6 +373,7 @@
                             <label for="bash" class="col-md-4 control-label">Bash</label>
 
                             <div class="col-md-1">
+                                <input id="bash-hidden" type="hidden" class="form-control" name="bash" value="0">
                                 <input id="bash" type="checkbox" class="form-control" name="bash" value="{{ old('bash') }}" autofocus>
 							
                                 @if ($errors->has('bash'))
@@ -372,6 +389,7 @@
                             <label for="batch" class="col-md-4 control-label">Batch</label>
 
                             <div class="col-md-1">
+                                <input id="batch-hidden" type="hidden" class="form-control" name="batch" value="0">
                                 <input id="batch" type="checkbox" class="form-control" name="batch" value="{{ old('batch') }}" autofocus>
 							
                                 @if ($errors->has('batch'))
@@ -387,6 +405,7 @@
                             <label for="cisco" class="col-md-4 control-label">Cisco Networking</label>
 
                             <div class="col-md-1">
+                                <input id="cisco-hidden" type="hidden" class="form-control" name="cisco" value="0">
                                 <input id="cisco" type="checkbox" class="form-control" name="cisco" value="{{ old('cisco') }}" autofocus>
 							
                                 @if ($errors->has('cisco'))
@@ -402,6 +421,7 @@
                             <label for="office" class="col-md-4 control-label">Microsoft Office</label>
 
                             <div class="col-md-1">
+                                <input id="office-hidden" type="hidden" class="form-control" name="office" value="0">
                                 <input id="office" type="checkbox" class="form-control" name="office" value="{{ old('office') }}" autofocus>
 							
                                 @if ($errors->has('office'))
@@ -417,6 +437,7 @@
                             <label for="r" class="col-md-4 control-label">R</label>
 
                             <div class="col-md-1">
+                                <input id="r-hidden" type="hidden" class="form-control" name="r" value="0">
                                 <input id="r" type="checkbox" class="form-control" name="r" value="{{ old('r') }}" autofocus>
 							
                                 @if ($errors->has('r'))
@@ -432,6 +453,7 @@
                             <label for="go" class="col-md-4 control-label">Go</label>
 
                             <div class="col-md-1">
+                                <input id="go-hidden" type="hidden" class="form-control" name="go" value="0">
                                 <input id="go" type="checkbox" class="form-control" name="go" value="{{ old('go') }}" autofocus>
 							
                                 @if ($errors->has('go'))
@@ -447,6 +469,7 @@
                             <label for="ruby" class="col-md-4 control-label">Ruby</label>
 
                             <div class="col-md-1">
+                                <input id="ruby-hidden" type="hidden" class="form-control" name="ruby" value="0">
                                 <input id="ruby" type="checkbox" class="form-control" name="ruby" value="{{ old('ruby') }}" autofocus>
 							
                                 @if ($errors->has('ruby'))
@@ -462,6 +485,7 @@
                             <label for="asp" class="col-md-4 control-label">ASP.NET</label>
 
                             <div class="col-md-1">
+                                <input id="asp-hidden" type="hidden" class="form-control" name="asp" value="0">
                                 <input id="asp" type="checkbox" class="form-control" name="asp" value="{{ old('asp') }}" autofocus>
 							
                                 @if ($errors->has('asp'))
@@ -477,6 +501,7 @@
                             <label for="scala" class="col-md-4 control-label">Scala</label>
 
                             <div class="col-md-1">
+                                <input id="scala-hidden" type="hidden" class="form-control" name="scala" value="0">
                                 <input id="scala" type="checkbox" class="form-control" name="scala" value="{{ old('scala') }}" autofocus>
 							
                                 @if ($errors->has('scala'))
