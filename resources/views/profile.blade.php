@@ -13,7 +13,7 @@
                     <p>Location: {{ Auth::user()->location }}</p>
                     <p>Sector: {{ Auth::user()->sector }}</p>
                     <p>Job Title: {{ Auth::user()->title }}</p>
-                    <p>Experience: {{ Auth::user()->experience }} @if (Auth::user()->experience > 1) years @else year @endif</p>
+                    <p>Experience: {{ Auth::user()->experience }} @if (Auth::user()->experience == 1) year @else years @endif</p>
 
                     <hr>
 
