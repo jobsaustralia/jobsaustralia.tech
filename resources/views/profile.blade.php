@@ -37,9 +37,10 @@
                         <button id="confirm-delete" class="btn btn-primary">
                             Delete account.
                         </button>
-                    </p><br>
+                    </p>
+
                     <p id="confirm-delete-content" style="display: none;">
-                        Confirm deletion: <a href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I really want to delete my account.</a>
+                        Confirm deletion: <a class="text-warning" href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I really want to delete my account.</a>
                     </p>
 
                     <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
@@ -63,7 +64,7 @@
 
                         <div class="form-group{{ $errors->has('resume') ? ' has-error' : '' }}">
                             <div class="col-md-6">
-                                <input id="resume" type="file" class="form-control" name="resume" required autofocus>
+                                <input id="resume" type="file" class="form-control" name="resume" required>
 
                                 @if ($errors->has('resume'))
                                     <span class="help-block">
