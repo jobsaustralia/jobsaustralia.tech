@@ -27,4 +27,17 @@ class JobController extends Controller
     {
         return view('matches');
     }
+
+     /**
+     * Delete job.
+     *
+     * @return void
+     */
+    public function delete()
+    {
+        $job = $request['id'];
+        Job::destroy($job);
+
+        return redirect()->route('home');
+    }
 }
