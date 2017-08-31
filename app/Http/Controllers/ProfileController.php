@@ -125,4 +125,17 @@ class ProfileController extends Controller
 
         return Redirect::route('profile');
     }
+
+    /**
+     * Delete user.
+     *
+     * @return Illuminate\Support\Facades\Redirect
+     */
+    public function delete()
+    {
+        $id = Auth::user()->id;   
+        User::destroy($id);
+
+        return Redirect::route('index');
+    }
 }
