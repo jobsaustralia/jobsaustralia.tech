@@ -60,7 +60,7 @@
                 <div class="panel-body">
                     <p>Uploading a resume is optional.</p>
 
-                    <form class="form-horizontal" method="POST" action="{{ route('upload') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('resume') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('resume') ? ' has-error' : '' }}">

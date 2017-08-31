@@ -15,7 +15,7 @@
 
 Route::get('/', function (){
     return view('index');
-});
+})->name('index');
 
 Route::get('/about', function (){
     return view('about');
@@ -28,6 +28,8 @@ Route::get('/support', function (){
 Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
+
+/* Temp */
 
 Route::get('/job/apply', function (){
     return view('apply');
@@ -51,12 +53,12 @@ Route::get('/matches', 'JobController@index')->name('matches');
 
 Route::post('/enquire', 'ContactController@send')->name('enquire');
 
-Route::post('/update', 'ProfileController@updateProfile')->name('update');
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('update');
 
-Route::post('/upload', 'ProfileController@updateProfile')->name('upload');
+Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
+
+Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
 
 /* Authentication Routes */
 
 Auth::routes();
-
-Route::post('/delete', 'Auth\DeleteController@delete')->name('delete');
