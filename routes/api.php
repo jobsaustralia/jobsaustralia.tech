@@ -21,17 +21,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/jobs', function (){
-	return Job::all();
+    return Job::all();
 });
 
 Route::get('/jobs/{state?}', function (){
-	return Job::all();
+    return Job::all();
 });
 
 Route::get('/jobs/by', function (){
-	$id = Auth::user()->id;
+    $id = Auth::user()->id;
 });
 
 Route::get('/users', function (){
-	return User::all();
+    return User::all();
 });

@@ -30,13 +30,13 @@
 
             <hr>
 
-        	<!-- Matches are printed to this div via match.js -->
+            <!-- Matches are printed to this div via match.js -->
             <div id="jobs">
                 <div id="loading">
-                	<br><br><br>
-                	<p align="center"><i style="font-size: 200px" class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
-                	<br>
-                	<h2 align="center">Loading Matches</h2>
+                    <br><br><br>
+                    <p align="center"><i style="font-size: 200px" class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
+                    <br>
+                    <h2 align="center">Loading Matches</h2>
                 </div>
             </div>
         </div>

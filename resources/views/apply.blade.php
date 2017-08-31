@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">	Write Your Cover Letter</div>
+                <div class="panel-heading">    Write Your Cover Letter</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('enquire') }}">
                         {{ csrf_field() }}
@@ -23,8 +23,8 @@
                                 @endif
                             </div>
                         </div>
-						
-						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Email</label>
 
                             <div class="col-md-6">
@@ -42,8 +42,8 @@
                             <label for="message" class="col-md-4 control-label">Message</label>
 
                             <div class="col-md-6">
-									<textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>
-									</textarea>
+                                    <textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>
+                                    </textarea>
                                 @if ($errors->has('message'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('message') }}</strong>

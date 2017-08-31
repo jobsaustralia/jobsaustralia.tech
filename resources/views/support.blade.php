@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <h3><i class="fa fa-life-ring" aria-hidden="true"></i> Support - Job Seekers FAQ</h3><br>
             <div class="panel panel-default">
-                <div class="panel-heading">	Setting An Account</div>
+                <div class="panel-heading"> Setting An Account</div>
                 <div class="panel-body">
                     <p><b>I forgot my password. What can I do?</b></p>
                     <p> Don't worry, it happens to everyone. Click the ‘Forgot Your Password?’ link at the sign in section to enter your email and we'll send you a link to reset your password.</p><br>
@@ -20,8 +20,8 @@
                 <div class="panel-body">
                     <p><b>What does JobsAustralia.tech do with my application?</b></p>
                     <p>We send your application directly to the employer. Unfortunately, we don’t 
-					take any part in the recruitment process so if you want to check your application or ask 
-					further questions, it's best to contact the employer directly.</p>
+                    take any part in the recruitment process so if you want to check your application or ask 
+                    further questions, it's best to contact the employer directly.</p>
                 </div>
             </div>
 

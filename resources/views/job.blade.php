@@ -13,12 +13,12 @@
                     <p>Hours: {{ Auth::user()->hours }}</p>
                     <p>Salary: {{ Auth::user()->salary }}</p>
                     <p>Available From: {{ Auth::user()->availablefrom }}</p>
-					<p>Location: {{ Auth::user()->location }}</p>
-					<p>Start Date: {{ Auth::user()->startdate }}</p>
+                    <p>Location: {{ Auth::user()->location }}</p>
+                    <p>Start Date: {{ Auth::user()->startdate }}</p>
                     <p>Percentage Match: {{ Auth::user()->match }}</p>
 
                     <hr>
-					
+                    
                     <p>
                         <button id="apply" class="btn btn-primary">
                             Apply.
