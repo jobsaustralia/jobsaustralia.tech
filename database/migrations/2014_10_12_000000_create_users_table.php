@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('title');
             $table->string('sector');
             $table->string('state');
-			$table->string('city');
+            $table->string('city');
             $table->integer('experience');
             
             /* Skills */
