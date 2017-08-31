@@ -52,8 +52,9 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'experience' => 'required|integer|min:0|max:50',
+            'experience' => 'required|integer|min:0|max:100',
+            'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
+            'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'java' => 'required|boolean',
             'python' => 'required|boolean',
             'c' => 'required|boolean',
@@ -95,10 +96,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'title' => $data['title'],
-            'password' => bcrypt($data['password']),
-            'location' => $data['location'],
             'sector' => $data['sector'],
             'experience' => $data['experience'],
+            'state' => $data['state'],
+            'city' => $data['city'],
             'java' => $data['java'],
             'python' => $data['python'],
             'c' => $data['c'],
@@ -123,7 +124,8 @@ class RegisterController extends Controller
             'go' => $data['go'],
             'ruby' => $data['ruby'],
             'asp' => $data['asp'],
-            'scala' => $data['scala']
+            'scala' => $data['scala'],
+            'password' => bcrypt($data['password'])
         ]);
     }
 }

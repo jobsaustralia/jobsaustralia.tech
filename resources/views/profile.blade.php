@@ -8,12 +8,13 @@
                 <div class="panel-heading">{{ Auth::user()->name }}'s Profile</div>
 
                 <div class="panel-body">
-                    <p>Name: {{ Auth::user()->name }}</p>
-                    <p>Email: {{ Auth::user()->email }}</p>
-                    <p>Location: {{ Auth::user()->location }}</p>
-                    <p>Sector: {{ Auth::user()->sector }}</p>
-                    <p>Job Title: {{ Auth::user()->title }}</p>
-                    <p>Experience: {{ Auth::user()->experience }} @if (Auth::user()->experience == 1) year @else years @endif</p>
+                    <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
+                    <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+                    <p><strong>Job Title:</strong> {{ Auth::user()->title }}</p>
+                    <p><strong>Sector:</strong> {{ Auth::user()->sector }}</p>
+                    <p><strong>Experience:</strong> {{ Auth::user()->experience }} @if (Auth::user()->experience == 1) year @else years @endif</p>
+                    <p><strong>State/Territory:</strong> @if (Auth::user()->state == "vic") Victoria @elseif (Auth::user()->state == "nsw") New South Wales @elseif (Auth::user()->state == "qld") Queensland @elseif (Auth::user()->state == "wa") Western Australia @elseif (Auth::user()->state == "sa") South Australia @elseif (Auth::user()->state == "tas") Tasmania @elseif (Auth::user()->state == "act") Australian Capital Territory @elseif (Auth::user()->state == "nt") Northern Territory @elseif (Auth::user()->state == "oth") Other Australian Region @endif</p>
+                    <p><strong>City:</strong> {{ Auth::user()->city }}</p>
 
                     <hr>
 

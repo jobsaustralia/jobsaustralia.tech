@@ -71,21 +71,6 @@
                             </div>
                         </div>
 
-                        <!-- Location -->
-                        <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-                            <label for="location" class="col-md-4 control-label">Location</label>
-
-                            <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" pattern="[a-zA-Z ]+" value="{{ Auth::user()->location }}" required autofocus>
-
-                                @if ($errors->has('location'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('location') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <!-- Experience -->
                         <div class="form-group{{ $errors->has('experience') ? ' has-error' : '' }}">
                             <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
@@ -103,7 +88,50 @@
 
                         <hr>
 
-						<h4 align="center">Skills</h4>
+                        <!-- Location: State -->
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label for="state" class="col-md-4 control-label">State/Territory</label>
+
+                            <div class="col-md-6">
+                                <select id="state" name="state" class="form-control" value="{{ old('state') }}" required>
+                                    <option disabled value>Please select an option</option>
+                                    <option value="vic" @if (Auth::user()->state == "vic") selected @endif >Victoria</option>
+                                    <option value="nsw" @if (Auth::user()->state == "nsw") selected @endif >New South Wales</option>
+                                    <option value="qld" @if (Auth::user()->state == "qld") selected @endif >Queensland</option>
+                                    <option value="wa" @if (Auth::user()->state == "wa") selected @endif >Western Australia</option>
+                                    <option value="sa" @if (Auth::user()->state == "sa") selected @endif >South Australia</option>
+                                    <option value="tas" @if (Auth::user()->state == "tas") selected @endif >Tasmania</option>
+                                    <option value="act" @if (Auth::user()->state == "act") selected @endif >Australian Capital Territory</option>
+                                    <option value="nt" @if (Auth::user()->state == "nt") selected @endif >Northern Teritory</option>
+                                    <option value="oth" @if (Auth::user()->state == "oth") selected @endif >Other Australian Region</option>
+                                </select>
+
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Location: City -->
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+" value="{{ Auth::user()->city }}" required autofocus>
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h4 align="center">Skills</h4>
 
                         <p align="center">Please select any skills you have (by self assessment).</p>
 

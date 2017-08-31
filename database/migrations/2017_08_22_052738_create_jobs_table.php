@@ -17,11 +17,11 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
-            $table->string('hours');
-            $table->string('salary');
-            $table->string('availablefrom');
-            $table->string('location');
+            $table->integer('hours');
+            $table->integer('salary');
             $table->string('startdate');
+            $table->string('state');
+            $table->string('city');
 
             /* Skills */
             $table->boolean('java');

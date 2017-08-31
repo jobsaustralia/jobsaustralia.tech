@@ -56,8 +56,10 @@ class ProfileController extends Controller
             'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'experience' => 'required|integer|min:0|max:50','java' => 'boolean',
+            'experience' => 'required|integer|min:0|max:100',
+            'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
+            'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'java' => 'boolean',
 			'python' => 'boolean',
 			'c' => 'boolean',
 			'csharp' => 'boolean',
@@ -88,9 +90,10 @@ class ProfileController extends Controller
         $user->name=$request['name'];
         $user->email=$request['email'];
         $user->title=$request['title'];
-        $user->location=$request['location'];
         $user->sector=$request['sector'];
         $user->experience=$request['experience'];
+        $user->state=$request['state'];
+        $user->city=$request['city'];
 
         $user->java=$request['java'];
         $user->python=$request['python'];
