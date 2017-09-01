@@ -1,5 +1,5 @@
 /* Function to print job to panel in view. */
-function printJob(title, description, hours, salary, startDate, state, city, startdate, percentageMatch){
+function printJob(title, description, hours, salary, startDate, state, city, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -7,7 +7,10 @@ function printJob(title, description, hours, salary, startDate, state, city, sta
 
     var heading = document.createElement("div");
     heading.className = "panel-heading";
-    heading.innerHTML = title;
+    heading.innerHTML += title + " &bull; ";
+
+    var match = document.createElement("strong");
+    match.innerHTML = percentageMatch + "%";
 
     var body = document.createElement("div");
     body.className = "panel-body";
@@ -42,6 +45,7 @@ function printJob(title, description, hours, salary, startDate, state, city, sta
 
     panel.appendChild(heading);
     panel.appendChild(body);
+    heading.append(match);
     body.append(p1);
     body.append(hr1);
     body.append(p2);
@@ -65,7 +69,7 @@ function match(){
     $.getJSON( "api/jobs/" + stateFilter, function(data){
         if(data.length > 0){
             for(i = 0; i < data.length; i++){
-                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, data[i].startdate, 100);
+                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, 100);
             }
         }
         else{
