@@ -12,7 +12,6 @@
 
                         <div class="col-md-6">
                             <select id="state" class="form-control">
-                                <option selected value="any">Any</option>
                                 <option value="vic" @if (Auth::user()->state == "vic") selected @endif >Victoria</option>
                                 <option value="nsw" @if (Auth::user()->state == "nsw") selected @endif >New South Wales</option>
                                 <option value="qld" @if (Auth::user()->state == "qld") selected @endif >Queensland</option>
@@ -30,15 +29,34 @@
 
             <hr>
 
-            <!-- Matches are printed to this div via match.js -->
-            <div id="jobs">
-                <div id="loading">
-                    <br><br><br>
-                    <p align="center"><i style="font-size: 200px" class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
-                    <br>
-                    <h2 align="center">Loading Matches</h2>
-                </div>
+            <!-- NoScript div. Used to display message about JavaScript being disabled, or not working. -->
+            <div id="noscript" align="center">
+                <br><br>
+                <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                <br>
+                <h2>Please enable JavaScript.</h2>
+                <p>JobsAustralia.tech requires JavaScirpt to perform matchmaking.</p>
+                <br><br>
             </div>
+            <!-- Loading div. Used to display loading animation until first match is loaded to page. -->
+            <div id="loading" style="display: none" align="center">
+                <br><br>
+                <p><i style="font-size: 200px" class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
+                <br>
+                <h2>Loading Matches.</h2>
+                <br><br>
+            </div>
+            <!-- No matches div. Used to display message when no matches are found. -->
+            <div id="nomatches" style="display: none" align="center">
+                <br><br>
+                <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                <br>
+                <h2>No Matches Found.</h2>
+                <p>Try again later.</p>
+                <br><br>
+            </div>
+            <!-- Matches are printed to this div via match.js -->
+            <div id="jobs"></div>
         </div>
     </div>
 </div>

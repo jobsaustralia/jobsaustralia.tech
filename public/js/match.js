@@ -1,5 +1,5 @@
-/* Function to print job to panel. */
-function printJob(title, description, hours, salary, availablefrom, location, startdate){
+/* Function to print job to panel in view. */
+function printJob(title, description, hours, salary, startDate, state, city, startdate, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -24,13 +24,13 @@ function printJob(title, description, hours, salary, availablefrom, location, st
     p3.innerHTML = salary;
 
     var p4 = document.createElement("p");
-    p4.innerHTML = availablefrom;
+    p4.innerHTML = startDate;
 
     var p5 = document.createElement("p");
-    p5.innerHTML = location;
+    p5.innerHTML = state;
 
     var p6 = document.createElement("p");
-    p6.innerHTML = startdate;
+    p6.innerHTML = city;
 
     var hr2 = document.createElement("hr");
 
@@ -55,10 +55,35 @@ function printJob(title, description, hours, salary, availablefrom, location, st
     display.appendChild(panel);
 
     document.getElementById("loading").style.display = "none";
+    document.getElementById("nomatches").style.display = "none";
 }
 
-$.getJSON( "api/jobs", function(data){
-    for(i = 0; i < data.length; i++){
-        printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].availablefrom, data[i].location, data[i].startdate);
-    }
-});
+/* Function to perform matchmaking. */
+function match(){
+    var stateFilter = document.getElementById("state").value;
+
+    $.getJSON( "api/jobs/" + stateFilter, function(data){
+        if(data.length > 0){
+            for(i = 0; i < data.length; i++){
+                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, data[i].startdate, 100);
+            }
+        }
+        else{
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("nomatches").style.display = "block";
+        }
+    });
+}
+
+/* Initialisation function to test for JavaScript, display loading animation, and call match function. */
+function init(){
+    document.getElementById("noscript").style.display = "none";
+    document.getElementById("loading").style.display = "block";
+
+    document.getElementById("jobs").innerHTML = "";
+
+    match();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+document.getElementById("state").addEventListener('change', init);
