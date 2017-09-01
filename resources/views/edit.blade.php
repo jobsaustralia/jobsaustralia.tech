@@ -8,7 +8,7 @@
                 <div class="panel-heading">Edit Your Profile</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('edit') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('updateProfile') }}">
                         {{ csrf_field() }}
 
                         <!-- Name -->

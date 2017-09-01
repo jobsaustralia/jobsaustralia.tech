@@ -48,7 +48,7 @@
                         {{ csrf_field() }}
                     </form>
 
-                    <form id="edit-form" action="{{ route('edit') }}" method="GET" style="display: none;">
+                    <form id="edit-form" action="{{ route('editProfile') }}" method="GET" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </div>

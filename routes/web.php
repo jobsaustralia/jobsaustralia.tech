@@ -45,7 +45,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/profile/edit', 'ProfileController@editIndex')->name('edit');
+Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
 Route::get('/matches', 'JobController@index')->name('matches');
 
@@ -53,7 +53,7 @@ Route::get('/matches', 'JobController@index')->name('matches');
 
 Route::post('/enquire', 'ContactController@send')->name('enquire');
 
-Route::post('/profile/update', 'ProfileController@updateProfile')->name('update');
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
 
 Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
