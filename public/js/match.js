@@ -63,21 +63,6 @@ function printJob(title, description, hours, salary, startDate, state, city, per
 }
 
 /* Function to perform matchmaking. */
-/* function match(){
-    var stateFilter = document.getElementById("state").value;
-
-    $.getJSON( "api/jobs/" + stateFilter, function(data){
-        if(data.length > 0){
-            for(i = 0; i < data.length; i++){
-                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, 100);
-            }
-        }
-        else{
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("nomatches").style.display = "block";
-        }
-    });
-} */
 
 // for testing purposes, only first ten languages used
 
