@@ -19,6 +19,8 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
     
     # Force HTTPS
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^ https://jobsaustralia.tech%{REQUEST_URI} [END,QSA,R=permanent]
+    RewriteCond %{HTTPS} off
+    RewriteCond %{SERVER_NAME} =jobsaustralia.tech [OR]
+    RewriteCond %{SERVER_NAME} =www.jobsaustralia.tech
+    RewriteRule ^ https://jobsaustralia.tech%{REQUEST_URI} [END,QSA,R=permanent]
 </IfModule>

@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/matches';
 
     /**
      * Create a new controller instance.
@@ -48,9 +48,38 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'experience' => 'required|integer|min:0|max:100',
+            'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
+            'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'java' => 'required|boolean',
+            'python' => 'required|boolean',
+            'c' => 'required|boolean',
+            'csharp' => 'required|boolean',
+            'cplus' => 'required|boolean',
+            'php' => 'required|boolean',
+            'html' => 'required|boolean',
+            'css' => 'required|boolean',
+            'javascript' => 'required|boolean',
+            'sql' => 'required|boolean',
+            'unix' => 'required|boolean',
+            'winserver' => 'required|boolean',
+            'windesktop' => 'required|boolean',
+            'linuxdesktop' => 'required|boolean',
+            'macosdesktop' => 'required|boolean',
+            'pearl' => 'required|boolean',
+            'bash' => 'required|boolean',
+            'batch' => 'required|boolean',
+            'cisco' => 'required|boolean',
+            'office' => 'required|boolean',
+            'r' => 'required|boolean',
+            'go' => 'required|boolean',
+            'ruby' => 'required|boolean',
+            'asp' => 'required|boolean',
+            'scala' => 'required|boolean',
             'password' => 'required|string|min:6|confirmed'
         ]);
     }
@@ -63,215 +92,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /* Skill Conditions */
-        if(array_key_exists('java', $data)){
-            $hasJava = "true";
-        }
-        else{
-            $hasJava = "false";
-        }
-
-        if(array_key_exists('python', $data)){
-            $hasPython = "true";
-        }
-        else{
-            $hasPython = "false";
-        }
-
-        if(array_key_exists('c', $data)){
-            $hasC = "true";
-        }
-        else{
-            $hasC = "false";
-        }
-
-        if(array_key_exists('csharp', $data)){
-            $hasCSharp = "true";
-        }
-        else{
-            $hasCSharp = "false";
-        }
-
-        if(array_key_exists('cplus', $data)){
-            $hasCPlus = "true";
-        }
-        else{
-            $hasCPlus = "false";
-        }
-
-        if(array_key_exists('php', $data)){
-            $hasPHP = "true";
-        }
-        else{
-            $hasPHP = "false";
-        }
-
-        if(array_key_exists('html', $data)){
-            $hasHTML = "true";
-        }
-        else{
-            $hasHTML = "false";
-        }
-
-        if(array_key_exists('css', $data)){
-            $hasCSS = "true";
-        }
-        else{
-            $hasCSS = "false";
-        }
-
-        if(array_key_exists('javascript', $data)){
-            $hasJavaScript = "true";
-        }
-        else{
-            $hasJavaScript = "false";
-        }
-
-        if(array_key_exists('sql', $data)){
-            $hasSQL = "true";
-        }
-        else{
-            $hasSQL = "false";
-        }
-
-        if(array_key_exists('unix', $data)){
-            $hasUNIX = "true";
-        }
-        else{
-            $hasUNIX = "false";
-        }
-
-        if(array_key_exists('winserver', $data)){
-            $hasWinServer = "true";
-        }
-        else{
-            $hasWinServer = "false";
-        }
-
-        if(array_key_exists('windesktop', $data)){
-            $hasWinDesktop= "true";
-        }
-        else{
-            $hasWinDesktop = "false";
-        }
-
-        if(array_key_exists('linuxdesktop', $data)){
-            $hasLinuxDesktop = "true";
-        }
-        else{
-            $hasLinuxDesktop = "false";
-        }
-
-        if(array_key_exists('macosdesktop', $data)){
-            $hasMacOsDesktop = "true";
-        }
-        else{
-            $hasMacOsDesktop = "false";
-        }
-
-        if(array_key_exists('pearl', $data)){
-            $hasPearl = "true";
-        }
-        else{
-            $hasPearl = "false";
-        }
-
-        if(array_key_exists('bash', $data)){
-            $hasBash = "true";
-        }
-        else{
-            $hasBash = "false";
-        }
-
-        if(array_key_exists('batch', $data)){
-            $hasBatch = "true";
-        }
-        else{
-            $hasBatch = "false";
-        }
-
-        if(array_key_exists('cisco', $data)){
-            $hasCisco = "true";
-        }
-        else{
-            $hasCisco = "false";
-        }
-
-        if(array_key_exists('office', $data)){
-            $hasOffice = "true";
-        }
-        else{
-            $hasOffice= "false";
-        }
-
-        if(array_key_exists('r', $data)){
-            $hasR = "true";
-        }
-        else{
-            $hasR = "false";
-        }
-
-        if(array_key_exists('go', $data)){
-            $hasGo = "true";
-        }
-        else{
-            $hasGo = "false";
-        }
-
-        if(array_key_exists('ruby', $data)){
-            $hasRuby = "true";
-        }
-        else{
-            $hasRuby = "false";
-        }
-
-        if(array_key_exists('asp', $data)){
-            $hasASP = "true";
-        }
-        else{
-            $hasASP = "false";
-        }
-
-        if(array_key_exists('scala', $data)){
-            $hasScala = "true";
-        }
-        else{
-            $hasScala = "false";
-        }
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'title' => $data['title'],
-            'password' => bcrypt($data['password']),
-            'location' => $data['location'],
             'sector' => $data['sector'],
             'experience' => $data['experience'],
-            'java' => $hasJava,
-            'python' => $hasPython,
-            'c' => $hasC,
-            'csharp' => $hasCSharp,
-            'cplus' => $hasCPlus,
-            'php' => $hasPHP,
-            'html' => $hasHTML,
-            'css' => $hasCSS,
-            'javascript' => $hasJavaScript,
-            'sql' => $hasSQL,
-            'unix' => $hasUNIX,
-            'winserver' => $hasWinServer,
-            'windesktop' => $hasWinDesktop,
-            'linuxdesktop' => $hasLinuxDesktop,
-            'macosdesktop' => $hasMacOsDesktop,
-            'pearl' => $hasPearl,
-            'bash' => $hasBash,
-            'batch' => $hasBatch,
-            'cisco' => $hasCisco,
-            'office' => $hasCisco,
-            'r' => $hasR,
-            'go' => $hasGo,
-            'ruby' => $hasRuby,
-            'asp' => $hasASP,
-            'scala' => $hasScala
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'java' => $data['java'],
+            'python' => $data['python'],
+            'c' => $data['c'],
+            'csharp' => $data['csharp'],
+            'cplus' => $data['cplus'],
+            'php' => $data['php'],
+            'html' => $data['html'],
+            'css' => $data['css'],
+            'javascript' => $data['javascript'],
+            'sql' => $data['sql'],
+            'unix' => $data['unix'],
+            'winserver' => $data['winserver'],
+            'windesktop' => $data['windesktop'],
+            'linuxdesktop' => $data['linuxdesktop'],
+            'macosdesktop' => $data['macosdesktop'],
+            'pearl' => $data['pearl'],
+            'bash' => $data['bash'],
+            'batch' => $data['batch'],
+            'cisco' => $data['cisco'],
+            'office' => $data['office'],
+            'r' => $data['r'],
+            'go' => $data['go'],
+            'ruby' => $data['ruby'],
+            'asp' => $data['asp'],
+            'scala' => $data['scala'],
+            'password' => bcrypt($data['password'])
         ]);
     }
 }

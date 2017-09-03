@@ -1,2 +1,8 @@
-User-agent: *
-Disallow:
+User-Agent: *
+Allow: /$
+Allow: /support
+Allow: /contact
+Allow: /sitemap.xml
+Disallow: /
+
+Sitemap: https://jobsaustralia.tech/sitemap.xml

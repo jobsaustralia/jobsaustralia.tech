@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
             $table->string('title');
-            $table->string('sector');
+            $table->string('description');
+            $table->string('hours');
+            $table->integer('salary');
+            $table->string('startdate');
             $table->string('state');
             $table->string('city');
-            $table->integer('experience');
-            
+
             /* Skills */
             $table->boolean('java');
             $table->boolean('python');
@@ -50,8 +50,9 @@ class CreateUsersTable extends Migration
             $table->boolean('asp');
             $table->boolean('scala');
 
-            $table->string('password');
-            $table->rememberToken();
+            $table->integer('employerid')->unsigned();
+            $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -63,6 +64,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jobs');
     }
 }

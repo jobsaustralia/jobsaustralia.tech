@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Match-making for job seekers in the Australian IT sector.">
+    <meta name="author" content="Aaron Horler, Ozlem Kirmizi, Kim Luu, Melissa Nguyen, and Dennis Mihalache.">
+    <meta name="url" content="https://jobsaustralia.tech">
+
+    <!-- Privacy -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="x-dns-prefetch-control" content="off">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,16 +21,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 <div id="header">
-        <div id="topBar"> 
-            <ul class="toptitle">
-                <li><h1>jobsaustralia.tech</h1></li>
-            </ul>
-            </div>
-         </div>
-            <!--//header--> 
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -51,6 +59,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (!Auth::guest())
+                            <li><a href="{{ route('matches') }}">Matches</a></li>
+                        @endif
+                        <li><a href="{{ route('about') }}">About</a></li>
+                        <li><a href="{{ route('support') }}">Support</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -87,19 +102,17 @@
         </nav>
 
         @yield('content')
-      <!--footer-->
-            <div id="footer">
-                <ul class="footernav">
-		<li><a href="{{ url('/gettingStarted') }}">Getting Started</a></li>
-                 <li><a href="{{ url('/aboutus') }}">About Us</a></li>
-                </ul>
-                <h5 class="footer">© 2017 </h5>
-                <h5 class="footer">This Site has been made for educational purposes by students of RMIT University for the Capstone Programing Project</h5>
-                </div>
-                <!--//footer--> 
-    </div>
+        <br><br>
+        <footer>
+            <p>Copyright © JobsAustralia.tech 2017 &bull; <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/jobsaustralia/">GitHub</a> &bull; <a href="LICENSE">License</a></p>
+        </footer>
+    </div> 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    @if(Request::path() === 'matches')
+        <script src="{{ asset('js/match.js') }}"></script>
+    @endif
 </body>
 </html>

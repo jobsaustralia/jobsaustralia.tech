@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Job;
+use App\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request){
     return $request->user();
+});
+
+Route::get('/jobs/{state}', function ($state){
+    $jobs = Job::where('state', $state)->get();
+
+    return $jobs;
 });
