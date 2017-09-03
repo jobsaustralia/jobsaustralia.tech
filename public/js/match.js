@@ -89,16 +89,19 @@ function match(){
     var input = [1,0,1,0,1,1,1,0,1,0];				// input value (needs to be grabbed from user)
 	var bitInput = parseInt(input.join(""), 2);		// convert array into single bitwise int
 	
-	var jobId = [];									// array of job id numbers
+	var jobIndex = [];								// array of job indexes
 	var jobMatch = [];								// array of bitwise ints to compare
 	var percentageMatch = [];						// array of percentage matches
 	
-	/* populate values into jobId, jobMatch and percentageMatch arrays */
+	/* populate values into jobIndex, jobMatch and percentageMatch arrays */
+	
 	$.getJSON( "api/jobs/" + stateFilter, function(data){
 		for(i = 0; i < data.length; i++)
 		{
-			jobId[i] = data[i].id;
+			jobIndex[i] = i;
 			jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql, 2);
+			
+			/* calculate percentage match */
 			
 			var matchCalc = ~(bitInput ^ jobMatch[i]);
 			
@@ -114,14 +117,45 @@ function match(){
 			
 			percentageMatch[i] = (count / noOfBits) * 100;
 		}
+		
+		/* bubble sort */
+		
+		var swapped;
+		
+		do
+		{
+			swapped = false;
+			
+			for(i = 0; i < jobIndex.length-1; i++)
+			{
+				if(percentageMatch[i] < percentageMatch[i+1])
+				{
+					var tempPer = percentageMatch[i];
+					percentageMatch[i] = percentageMatch[i+1];
+					percentageMatch[i+1] = tempPer;
+					
+					var tempId = jobIndex[i];
+					jobIndex[i] = jobIndex[i+1];
+					jobIndex[i+1] = tempId;
+					
+					var tempJob = jobMatch[i];
+					jobMatch[i] = jobMatch[i+1];
+					jobMatch[i+1] = tempJob;
+					
+					swapped = true;
+				}
+			}
+		} while(swapped);
 	});
 	
-	
+	/* display */
 	
 	$.getJSON( "api/jobs/" + stateFilter, function(data){
         if(data.length > 0){
-            for(i = 0; i < data.length; i++){
-                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, percentageMatch[i]);
+            for(i = 0; i < data.length; i++)
+			{
+				var order = jobIndex[i];
+				printJob(data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
             }
         }
         else{
