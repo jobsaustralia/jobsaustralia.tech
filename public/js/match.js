@@ -63,13 +63,65 @@ function printJob(title, description, hours, salary, startDate, state, city, per
 }
 
 /* Function to perform matchmaking. */
-function match(){
+/* function match(){
     var stateFilter = document.getElementById("state").value;
 
     $.getJSON( "api/jobs/" + stateFilter, function(data){
         if(data.length > 0){
             for(i = 0; i < data.length; i++){
                 printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, 100);
+            }
+        }
+        else{
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("nomatches").style.display = "block";
+        }
+    });
+} */
+
+// for testing purposes, only first ten languages used
+
+function match(){
+    var stateFilter = document.getElementById("state").value;
+	
+	var noOfBits = 10;								// arbitrary number; no. of fields compared
+	
+    var input = [1,0,1,0,1,1,1,0,1,0];				// input value (needs to be grabbed from user)
+	var bitInput = parseInt(input.join(""), 2);		// convert array into single bitwise int
+	
+	var jobId = [];									// array of job id numbers
+	var jobMatch = [];								// array of bitwise ints to compare
+	var percentageMatch = [];						// array of percentage matches
+	
+	/* populate values into jobId, jobMatch and percentageMatch arrays */
+	$.getJSON( "api/jobs/" + stateFilter, function(data){
+		for(i = 0; i < data.length; i++)
+		{
+			jobId[i] = data[i].id;
+			jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql, 2);
+			
+			var matchCalc = ~(bitInput ^ jobMatch[i]);
+			
+			var toBinary = (matchCalc).toString(2);
+			
+			if(toBinary < 0)
+			{
+				toBinary = (matchCalc >>> 0).toString(2);
+				toBinary = toBinary.slice(-noOfBits);
+			}
+			
+			var count = toBinary.replace(/[^1]/g, "").length;
+			
+			percentageMatch[i] = (count / noOfBits) * 100;
+		}
+	});
+	
+	
+	
+	$.getJSON( "api/jobs/" + stateFilter, function(data){
+        if(data.length > 0){
+            for(i = 0; i < data.length; i++){
+                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, percentageMatch[i]);
             }
         }
         else{
