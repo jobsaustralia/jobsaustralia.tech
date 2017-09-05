@@ -19,9 +19,9 @@
                     <hr>
 
                     <p>
-                        <button type="button" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('edit-form').submit();">
+                        <a href="{{ route('editProfile') }}" class="btn btn-primary">
                             Edit profile and skills
-                        </button>
+                        </a>
                     </p>
 
                     <p>
@@ -45,10 +45,6 @@
                     </p>
 
                     <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-
-                    <form id="edit-form" action="{{ route('editProfile') }}" method="GET" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </div>

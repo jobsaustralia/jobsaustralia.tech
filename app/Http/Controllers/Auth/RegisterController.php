@@ -52,6 +52,35 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+<<<<<<< HEAD
+            'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'experience' => 'required|integer|min:0|max:50',
+            'java' => 'boolean',
+            'python' => 'boolean',
+            'c' => 'boolean',
+            'csharp' => 'boolean',
+            'cplus' => 'boolean',
+            'php' => 'boolean',
+            'html' => 'boolean',
+            'css' => 'boolean',
+            'javascript' => 'boolean',
+            'sql' => 'boolean',
+            'unix' => 'boolean',
+            'winserver' => 'boolean',
+            'windesktop' => 'boolean',
+            'linuxdesktop' => 'boolean',
+            'macosdesktop' => 'boolean',
+            'pearl' => 'boolean',
+            'bash' => 'boolean',
+            'batch' => 'boolean',
+            'cisco' => 'boolean',
+            'office' => 'boolean',
+            'r' => 'boolean',
+            'go' => 'boolean',
+            'ruby' => 'boolean',
+            'asp' => 'boolean',
+            'scala' => 'boolean',
+=======
             'experience' => 'required|integer|min:0|max:100',
             'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
             'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
@@ -80,6 +109,7 @@ class RegisterController extends Controller
             'ruby' => 'required|boolean',
             'asp' => 'required|boolean',
             'scala' => 'required|boolean',
+>>>>>>> origin/master
             'password' => 'required|string|min:6|confirmed'
         ]);
     }
@@ -91,15 +121,22 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
+<<<<<<< HEAD
+   {
+=======
     {
+>>>>>>> origin/master
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'title' => $data['title'],
             'sector' => $data['sector'],
             'experience' => $data['experience'],
+<<<<<<< HEAD
+=======
             'state' => $data['state'],
             'city' => $data['city'],
+>>>>>>> origin/master
             'java' => $data['java'],
             'python' => $data['python'],
             'c' => $data['c'],
@@ -124,8 +161,12 @@ class RegisterController extends Controller
             'go' => $data['go'],
             'ruby' => $data['ruby'],
             'asp' => $data['asp'],
+<<<<<<< HEAD
+            'scala' => $data['scala']
+=======
             'scala' => $data['scala'],
             'password' => bcrypt($data['password'])
+>>>>>>> origin/master
         ]);
     }
 }
