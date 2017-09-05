@@ -27,4 +27,37 @@ class JobController extends Controller
     {
         return view('matches');
     }
+
+    /**
+     * Show job page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $id = $request['id'];
+        $job = Job::findOfFail($id);
+        $title = $job->title;
+        $description = $job->description;
+        $hours = $job->hous;
+        $salary = $job->salary;
+        $availablefrom = $job->availablefrom;
+        $location = $job->location;
+        $startdate = $job->startdate;
+
+        return view("job",["title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "availablefrom"=>$availablefrom, "location"=>$location, "startdate"=>$startdate]);
+    }
+
+     /**
+     * Delete job.
+     *
+     * @return void
+     */
+    public function delete()
+    {
+        $job = $request['id'];
+        Job::destroy($job);
+
+        return redirect()->route('home');
+    }
 }
