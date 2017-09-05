@@ -13,31 +13,31 @@ class EmployersTableSeeder extends Seeder
     public function run()
     {
         DB::table('employers')->insert([
-            'name' => 'kpmg',
+            'name' => 'KPMG',
             'email' => 'kpmg@gmail.com',
             'password' => bcrypt('secret')
         ]);
-		
-		DB::table('employers')->insert([
-            'name' => 'telstra',
+        
+        DB::table('employers')->insert([
+            'name' => 'Telstra',
             'email' => 'telstra@live.com',
             'password' => bcrypt('secret')
         ]);
-		
-		DB::table('employers')->insert([
-            'name' => 'accenture',
+        
+        DB::table('employers')->insert([
+            'name' => 'Accenture',
             'email' => 'accenture@gmail.com',
             'password' => bcrypt('secret')
         ]);
-		
-		DB::table('employers')->insert([
-            'name' => 'ibm',
+        
+        DB::table('employers')->insert([
+            'name' => 'IBM',
             'email' => 'ibm@gmail.com',
             'password' => bcrypt('secret')
         ]);
-		
-		DB::table('employers')->insert([
-            'name' => 'medibank',
+        
+        DB::table('employers')->insert([
+            'name' => 'Medibank',
             'email' => 'medibank@gmail.com',
             'password' => bcrypt('secret')
         ]);
