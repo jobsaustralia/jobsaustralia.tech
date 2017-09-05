@@ -42,35 +42,59 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update user.
+     * Update profile.
      *
+     * @param  Illuminate\Http\Request  $request
      * @return Illuminate\Support\Facades\Redirect
      */
     public function updateProfile(Request $request)
     {
-        //this to ensure when user goes to edit their profile, they don't have to change their currently assigned email.
-        $ruser = $request->user();
+        $user = Auth::user();
 
         /* Validate incoming data */
         $this->validate($request, [
             'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'location' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-            'experience' => 'required|integer|min:0|max:50',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $ruser->id
+            'experience' => 'required|integer|min:0|max:100',
+            'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
+            'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'java' => 'boolean',
+            'python' => 'boolean',
+            'c' => 'boolean',
+            'csharp' => 'boolean',
+            'cplus' => 'boolean',
+            'php' => 'boolean',
+            'html' => 'boolean',
+            'css' => 'boolean',
+            'javascript' => 'boolean',
+            'sql' => 'boolean',
+            'unix' => 'boolean',
+            'winserver' => 'boolean',
+            'windesktop' => 'boolean',
+            'linuxdesktop' => 'boolean',
+            'macosdesktop' => 'boolean',
+            'pearl' => 'boolean',
+            'bash' => 'boolean',
+            'batch' => 'boolean',
+            'cisco' => 'boolean',
+            'office' => 'boolean',
+            'r' => 'boolean',
+            'go' => 'boolean',
+            'ruby' => 'boolean',
+            'asp' => 'boolean',
+            'scala' => 'boolean',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id
         ]);
-
-        $id = Auth::user()->id;
-
-        $user = User::findOrFail($id);
 
         $user->name=$request['name'];
         $user->email=$request['email'];
         $user->title=$request['title'];
-        $user->location=$request['location'];
         $user->sector=$request['sector'];
         $user->experience=$request['experience'];
+        $user->state=$request['state'];
+        $user->city=$request['city'];
+
         $user->java=$request['java'];
         $user->python=$request['python'];
         $user->c=$request['c'];
@@ -100,5 +124,18 @@ class ProfileController extends Controller
         $user->save();
 
         return Redirect::route('profile');
+    }
+
+    /**
+     * Delete user.
+     *
+     * @return Illuminate\Support\Facades\Redirect
+     */
+    public function delete()
+    {
+        $id = Auth::user()->id;   
+        User::destroy($id);
+
+        return Redirect::route('index');
     }
 }

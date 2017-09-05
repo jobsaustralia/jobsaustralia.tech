@@ -1,64 +1,93 @@
-/* Function to print job to panel. */
-function printJob(title, description, hours, salary, availablefrom, location, startdate){
-	var display = document.getElementById("jobs");
+/* Function to print job to panel in view. */
+function printJob(title, description, hours, salary, startDate, state, city, percentageMatch){
+    var display = document.getElementById("jobs");
 
-	var panel = document.createElement("div");
-	panel.className = "panel panel-default";
+    var panel = document.createElement("div");
+    panel.className = "panel panel-default";
 
-	var heading = document.createElement("div");
-	heading.className = "panel-heading";
-	heading.innerHTML = title;
+    var heading = document.createElement("div");
+    heading.className = "panel-heading";
+    heading.innerHTML += title + " &bull; ";
 
-	var body = document.createElement("div");
-	body.className = "panel-body";
+    var match = document.createElement("strong");
+    match.innerHTML = percentageMatch + "%";
 
-	var p1 = document.createElement("p");
-	p1.innerHTML = description;
+    var body = document.createElement("div");
+    body.className = "panel-body";
 
-	var hr1 = document.createElement("hr");
+    var p1 = document.createElement("p");
+    p1.innerHTML = description;
 
-	var p2 = document.createElement("p");
-	p2.innerHTML = hours;
+    var hr1 = document.createElement("hr");
 
-	var p3 = document.createElement("p");
-	p3.innerHTML = salary;
+    var p2 = document.createElement("p");
+    p2.innerHTML = hours;
 
-	var p4 = document.createElement("p");
-	p4.innerHTML = availablefrom;
+    var p3 = document.createElement("p");
+    p3.innerHTML = salary;
 
-	var p5 = document.createElement("p");
-	p5.innerHTML = location;
+    var p4 = document.createElement("p");
+    p4.innerHTML = startDate;
 
-	var p6 = document.createElement("p");
-	p6.innerHTML = startdate;
+    var p5 = document.createElement("p");
+    p5.innerHTML = state;
 
-	var hr2 = document.createElement("hr");
+    var p6 = document.createElement("p");
+    p6.innerHTML = city;
 
-	var p7 = document.createElement("p");
+    var hr2 = document.createElement("hr");
 
-	var apply = document.createElement("button");
-	apply.className = "btn btn-primary";
-	apply.innerHTML = "Apply";
+    var p7 = document.createElement("p");
 
-	panel.appendChild(heading);
-	panel.appendChild(body);
-	body.append(p1);
-	body.append(hr1);
-	body.append(p2);
-	body.append(p3);
-	body.append(p4);
-	body.append(p5);
-	body.append(p6);
-	body.append(hr2);
-	body.append(p7);
-	p7.append(apply);
-	display.appendChild(panel);
+    var apply = document.createElement("button");
+    apply.className = "btn btn-primary";
+    apply.innerHTML = "Apply";
 
-	document.getElementById("loading").style.display = "none"
+    panel.appendChild(heading);
+    panel.appendChild(body);
+    heading.append(match);
+    body.append(p1);
+    body.append(hr1);
+    body.append(p2);
+    body.append(p3);
+    body.append(p4);
+    body.append(p5);
+    body.append(p6);
+    body.append(hr2);
+    body.append(p7);
+    p7.append(apply);
+    display.appendChild(panel);
+
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("nomatches").style.display = "none";
 }
 
-$.getJSON( "api/jobs", function(data){
-	for(i = 0; i < data.length; i++){
-		printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].availablefrom, data[i].location, data[i].startdate);
-	}
-});
+/* Function to perform matchmaking. */
+function match(){
+    var stateFilter = document.getElementById("state").value;
+
+    $.getJSON( "api/jobs/" + stateFilter, function(data){
+        if(data.length > 0){
+            for(i = 0; i < data.length; i++){
+                printJob(data[i].title, data[i].description, data[i].hours, data[i].salary, data[i].startdate, data[i].state, data[i].city, 100);
+            }
+        }
+        else{
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("nomatches").style.display = "block";
+        }
+    });
+}
+
+/* Initialisation function to test for JavaScript, display loading animation, and call match function. */
+function init(){
+    document.getElementById("noscript").style.display = "none";
+    document.getElementById("loading").style.display = "block";
+
+    document.getElementById("jobs").innerHTML = "";
+
+    match();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+document.getElementById("state").addEventListener('change', init);

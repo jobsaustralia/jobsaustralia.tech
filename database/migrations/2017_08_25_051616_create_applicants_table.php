@@ -17,10 +17,10 @@ class CreateApplicantsTable extends Migration
             $table->increments('id');
 
             $table->integer('userid')->unsigned();
-            $table->foreign('userid')->references('id')->on('users');
+            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('employerid')->unsigned();
-            $table->foreign('employerid')->references('id')->on('employers');
+            $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
 
             $table->timestamps();
         });

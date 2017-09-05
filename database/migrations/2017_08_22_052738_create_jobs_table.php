@@ -18,11 +18,17 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('hours');
+<<<<<<< HEAD
             $table->string('salary');
             $table->string('availablefrom');
             $table->string('location');
             $table->string('state');
+=======
+            $table->integer('salary');
+>>>>>>> origin/master
             $table->string('startdate');
+            $table->string('state');
+            $table->string('city');
 
             /* Skills */
             $table->boolean('java');
@@ -52,7 +58,7 @@ class CreateJobsTable extends Migration
             $table->boolean('scala');
 
             $table->integer('employerid')->unsigned();
-            $table->foreign('employerid')->references('id')->on('employers');
+            $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -8,7 +8,7 @@
                 <div class="panel-heading">Edit Your Profile</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('update') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('updateProfile') }}">
                         {{ csrf_field() }}
 
                         <!-- Name -->
@@ -71,21 +71,6 @@
                             </div>
                         </div>
 
-                        <!-- Location -->
-                        <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-                            <label for="location" class="col-md-4 control-label">Location</label>
-
-                            <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" pattern="[a-zA-Z ]+" value="{{ Auth::user()->location }}" required autofocus>
-
-                                @if ($errors->has('location'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('location') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <!-- Experience -->
                         <div class="form-group{{ $errors->has('experience') ? ' has-error' : '' }}">
                             <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
@@ -103,12 +88,55 @@
 
                         <hr>
 
-						<h4 align="center">Skills</h4>
+                        <!-- Location: State -->
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label for="state" class="col-md-4 control-label">State/Territory</label>
+
+                            <div class="col-md-6">
+                                <select id="state" name="state" class="form-control" value="{{ old('state') }}" required>
+                                    <option disabled value>Please select an option</option>
+                                    <option value="vic" @if (Auth::user()->state == "vic") selected @endif >Victoria</option>
+                                    <option value="nsw" @if (Auth::user()->state == "nsw") selected @endif >New South Wales</option>
+                                    <option value="qld" @if (Auth::user()->state == "qld") selected @endif >Queensland</option>
+                                    <option value="wa" @if (Auth::user()->state == "wa") selected @endif >Western Australia</option>
+                                    <option value="sa" @if (Auth::user()->state == "sa") selected @endif >South Australia</option>
+                                    <option value="tas" @if (Auth::user()->state == "tas") selected @endif >Tasmania</option>
+                                    <option value="act" @if (Auth::user()->state == "act") selected @endif >Australian Capital Territory</option>
+                                    <option value="nt" @if (Auth::user()->state == "nt") selected @endif >Northern Teritory</option>
+                                    <option value="oth" @if (Auth::user()->state == "oth") selected @endif >Other Australian Region</option>
+                                </select>
+
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Location: City -->
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+" value="{{ Auth::user()->city }}" required autofocus>
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h4 align="center">Skills</h4>
 
                         <p align="center">Please select any skills you have (by self assessment).</p>
 
                         <!-- Skill: Java -->
-						<div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">
                             <label for="java" class="col-md-4 control-label">Java</label>
 
                             <div class="col-md-1">
@@ -120,10 +148,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Python -->
-						<div class="form-group{{ $errors->has('python') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('python') ? ' has-error' : '' }}">
                             <label for="python" class="col-md-4 control-label">Python</label>
 
                             <div class="col-md-1">
@@ -135,10 +163,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: C -->
-						<div class="form-group{{ $errors->has('c') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('c') ? ' has-error' : '' }}">
                             <label for="c" class="col-md-4 control-label">C</label>
 
                             <div class="col-md-1">
@@ -150,10 +178,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: C# -->
-						<div class="form-group{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('csharp') ? ' has-error' : '' }}">
                             <label for="csharp" class="col-md-4 control-label">C#</label>
 
                             <div class="col-md-1">
@@ -165,10 +193,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: C++ -->
-						<div class="form-group{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('cplus') ? ' has-error' : '' }}">
                             <label for="cplus" class="col-md-4 control-label">C++</label>
 
                             <div class="col-md-1">
@@ -180,10 +208,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: PHP -->
-						<div class="form-group{{ $errors->has('php') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('php') ? ' has-error' : '' }}">
                             <label for="php" class="col-md-4 control-label">PHP</label>
 
                             <div class="col-md-1">
@@ -195,10 +223,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: HTML -->
-						<div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
                             <label for="html" class="col-md-4 control-label">HTML</label>
 
                             <div class="col-md-1">
@@ -210,10 +238,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: CSS -->
-						<div class="form-group{{ $errors->has('css') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('css') ? ' has-error' : '' }}">
                             <label for="css" class="col-md-4 control-label">CSS</label>
 
                             <div class="col-md-1">
@@ -225,10 +253,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: JavaScript -->
-						<div class="form-group{{ $errors->has('javascript') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('javascript') ? ' has-error' : '' }}">
                             <label for="javascript" class="col-md-4 control-label">JavaScript</label>
 
                             <div class="col-md-1">
@@ -240,10 +268,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: SQL -->
-						<div class="form-group{{ $errors->has('sql') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('sql') ? ' has-error' : '' }}">
                             <label for="sql" class="col-md-4 control-label">SQL</label>
 
                             <div class="col-md-1">
@@ -255,10 +283,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Unix -->
-						<div class="form-group{{ $errors->has('unix') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('unix') ? ' has-error' : '' }}">
                             <label for="unix" class="col-md-4 control-label">Unix</label>
 
                             <div class="col-md-1">
@@ -270,10 +298,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Windows Server -->
-						<div class="form-group{{ $errors->has('winserver') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('winserver') ? ' has-error' : '' }}">
                             <label for="winserver" class="col-md-4 control-label">Windows Server</label>
 
                             <div class="col-md-1">
@@ -285,10 +313,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Windows Desktop -->
-						<div class="form-group{{ $errors->has('windesktop') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('windesktop') ? ' has-error' : '' }}">
                             <label for="windesktop" class="col-md-4 control-label">Windows Desktop</label>
 
                             <div class="col-md-1">
@@ -300,10 +328,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Linux Desktop -->
-						<div class="form-group{{ $errors->has('linuxdesktop') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('linuxdesktop') ? ' has-error' : '' }}">
                             <label for="linuxdesktop" class="col-md-4 control-label">Linux Desktop</label>
 
                             <div class="col-md-1">
@@ -315,10 +343,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: MacOS Desktop -->
-						<div class="form-group{{ $errors->has('macosdesktop') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('macosdesktop') ? ' has-error' : '' }}">
                             <label for="macosdesktop" class="col-md-4 control-label">MacOS Desktop</label>
 
                             <div class="col-md-1">
@@ -330,10 +358,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Pearl -->
-						<div class="form-group{{ $errors->has('pearl') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('pearl') ? ' has-error' : '' }}">
                             <label for="pearl" class="col-md-4 control-label">Pearl</label>
 
                             <div class="col-md-1">
@@ -345,10 +373,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Bash -->
-						<div class="form-group{{ $errors->has('bash') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('bash') ? ' has-error' : '' }}">
                             <label for="bash" class="col-md-4 control-label">Bash</label>
 
                             <div class="col-md-1">
@@ -360,10 +388,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Batch -->
-						<div class="form-group{{ $errors->has('batch') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('batch') ? ' has-error' : '' }}">
                             <label for="batch" class="col-md-4 control-label">Batch</label>
 
                             <div class="col-md-1">
@@ -375,10 +403,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Cisco Networking -->
-						<div class="form-group{{ $errors->has('cisco') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('cisco') ? ' has-error' : '' }}">
                             <label for="cisco" class="col-md-4 control-label">Cisco Networking</label>
 
                             <div class="col-md-1">
@@ -390,10 +418,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Microsoft Office -->
-						<div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
                             <label for="office" class="col-md-4 control-label">Microsoft Office</label>
 
                             <div class="col-md-1">
@@ -405,10 +433,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: R -->
-						<div class="form-group{{ $errors->has('r') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('r') ? ' has-error' : '' }}">
                             <label for="r" class="col-md-4 control-label">R</label>
 
                             <div class="col-md-1">
@@ -420,10 +448,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Go -->
-						<div class="form-group{{ $errors->has('go') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('go') ? ' has-error' : '' }}">
                             <label for="go" class="col-md-4 control-label">Go</label>
 
                             <div class="col-md-1">
@@ -435,10 +463,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Ruby -->
-						<div class="form-group{{ $errors->has('ruby') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('ruby') ? ' has-error' : '' }}">
                             <label for="ruby" class="col-md-4 control-label">Ruby</label>
 
                             <div class="col-md-1">
@@ -450,10 +478,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: ASP.NET -->
-						<div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
                             <label for="asp" class="col-md-4 control-label">ASP.NET</label>
 
                             <div class="col-md-1">
@@ -465,10 +493,10 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <!-- Skill: Scala -->
-						<div class="form-group{{ $errors->has('scala') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('scala') ? ' has-error' : '' }}">
                             <label for="scala" class="col-md-4 control-label">Scala</label>
 
                             <div class="col-md-1">
@@ -479,7 +507,7 @@
                                     </span>
                                 @endif
                             </div>
-						</div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

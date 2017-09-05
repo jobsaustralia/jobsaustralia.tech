@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('title');
             $table->string('sector');
-			$table->string('location');
-            $table->string('experience');
+            $table->string('state');
+            $table->string('city');
+            $table->integer('experience');
             
             /* Skills */
             $table->boolean('java');
