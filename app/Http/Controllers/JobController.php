@@ -41,7 +41,6 @@ class JobController extends Controller
         $description = $job->description;
         $hours = $job->hous;
         $salary = $job->salary;
-        $availablefrom = $job->availablefrom;
         $location = $job->location;
         $startdate = $job->startdate;
 

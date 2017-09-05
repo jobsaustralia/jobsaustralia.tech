@@ -1,5 +1,8 @@
 <?php
 
+use Auth;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,11 +71,5 @@ Auth::routes();
 Route::get('/api/user', function(){
 	return Auth::user();
 });
-
-/*Route::get('/jobs/{state}', function ($state){
-    $jobs = Job::where('state', $state)->get();
-
-    return $jobs;
-});*/
 
 Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
