@@ -23,7 +23,7 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function matchIndex()
     {
         return view('matches');
     }
@@ -59,5 +59,9 @@ class JobController extends Controller
         Job::destroy($job);
 
         return redirect()->route('home');
+    }
+
+    public function getJobs($state){
+        return "hello";
     }
 }

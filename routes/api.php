@@ -20,10 +20,10 @@ use App\User;
     return $request->user();
 });*/
 
-Route::get('/jobs/{state}', function ($state){
+/*Route::get('/jobs/{state}', function ($state){
     $jobs = Job::where('state', $state)->get();
 
     return $jobs;
-});
+});*/
 
 
