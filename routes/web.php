@@ -47,7 +47,7 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
-Route::get('/matches', 'JobController@index')->name('matches');
+Route::get('/matches', 'JobController@matchIndex')->name('matches');
 
 /* POST Controller Routes */
 
@@ -63,6 +63,16 @@ Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume')
 
 Auth::routes();
 
+/* API Routes */
+
 Route::get('/api/user', function(){
 	return Auth::user();
 });
+
+/*Route::get('/jobs/{state}', function ($state){
+    $jobs = Job::where('state', $state)->get();
+
+    return $jobs;
+});*/
+
+Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
