@@ -64,14 +64,12 @@ function printJob(title, description, hours, salary, startDate, state, city, per
 
 /* Function to perform matchmaking. */
 
-// for testing purposes, only first ten languages used
-
 function match(){
     var stateFilter = document.getElementById("state").value;
 	
-	var noOfBits = 10;								// arbitrary number; no. of fields compared
+	var noOfBits = 25;								// arbitrary number; no. of fields compared
 	
-    var input = [1,0,1,0,1,1,1,0,1,0];				// input value (needs to be grabbed from user)
+    var input = [1,0,1,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];				// input value (needs to be grabbed from user)
 	var bitInput = parseInt(input.join(""), 2);		// convert array into single bitwise int
 	
 	var jobIndex = [];								// array of job indexes
@@ -84,7 +82,7 @@ function match(){
 		for(i = 0; i < data.length; i++)
 		{
 			jobIndex[i] = i;
-			jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql, 2);
+			jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
 			
 			/* calculate percentage match */
 			
