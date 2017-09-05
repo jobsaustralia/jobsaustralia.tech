@@ -19,7 +19,7 @@ class JobController extends Controller
     }
 
     /**
-     * Show post page.
+     * Show matches page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,6 +62,8 @@ class JobController extends Controller
     }
 
     public function getJobs($state){
-        return "hello";
+        $jobs = Job::where('state', $state)->get();
+
+        return $jobs;
     }
 }
