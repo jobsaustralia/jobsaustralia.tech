@@ -62,3 +62,7 @@ Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume')
 /* Authentication Routes */
 
 Auth::routes();
+
+Route::get('/api/user', function(){
+	return Auth::user();
+});
