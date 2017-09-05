@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Job;
-use App\User;
-use Auth;
 
 
 /*

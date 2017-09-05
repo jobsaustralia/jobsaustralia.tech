@@ -18,14 +18,7 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('hours');
-<<<<<<< HEAD
-            $table->string('salary');
-            $table->string('availablefrom');
-            $table->string('location');
-            $table->string('state');
-=======
-            $table->integer('salary');
->>>>>>> origin/master
+			$table->integer('salary');
             $table->string('startdate');
             $table->string('state');
             $table->string('city');
