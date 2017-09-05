@@ -67,14 +67,17 @@ function printJob(title, description, hours, salary, startDate, state, city, per
 function match(){
     var stateFilter = document.getElementById("state").value;
 	
-	var noOfBits = 25;								// arbitrary number; no. of fields compared
+	var noOfBits = 25;					// arbitrary number; no. of fields compared
 	
-    var input = [1,0,1,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];				// input value (needs to be grabbed from user)
-	var bitInput = parseInt(input.join(""), 2);		// convert array into single bitwise int
+    var input;							// input value (needs to be grabbed from user)
 	
-	var jobIndex = [];								// array of job indexes
-	var jobMatch = [];								// array of bitwise ints to compare
-	var percentageMatch = [];						// array of percentage matches
+	var jobIndex = [];					// array of job indexes
+	var jobMatch = [];					// array of bitwise ints to compare
+	var percentageMatch = [];			// array of percentage matches
+	
+	$.getJSON("api/user/", function(data){
+		input = parseInt("" + data[0].java + data[0].python + data[0].c + data[0].csharp + data[0].cplus + data[0].php + data[0].html + data[0].css + data[0].javascript + data[0].sql + data[0].unix + data[0].winserver + data[0].windesktop + data[0].linuxdesktop + data[0].macosdesktop + data[0].pearl + data[0].bash + data[0].batch + data[0].cisco + data[0].office + data[0].r + data[0].go + data[0].ruby + data[0].asp + data[0].scala, 2)
+	});
 	
 	/* populate values into jobIndex, jobMatch and percentageMatch arrays */
 	
