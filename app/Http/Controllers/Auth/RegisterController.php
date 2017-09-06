@@ -124,7 +124,6 @@ class RegisterController extends Controller
             'go' => $data['go'],
             'ruby' => $data['ruby'],
             'asp' => $data['asp'],
-            'scala' => $data['scala']
             'scala' => $data['scala'],
             'password' => bcrypt($data['password'])
         ]);
