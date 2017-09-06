@@ -48,7 +48,7 @@ class JobController extends Controller
         
         $startdate = $job->startdate;
 
-        return view("job",["title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
+        return view("job",["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
     }
 
     /**
