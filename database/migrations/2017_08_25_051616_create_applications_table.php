@@ -19,10 +19,13 @@ class CreateApplicationsTable extends Migration
             $table->integer('userid')->unsigned();
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
 
-            $table->text('coverletter');
-
             $table->integer('employerid')->unsigned();
             $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
+
+            $table->integer('jobid')->unsigned();
+            $table->foreign('jobid')->references('id')->on('jobs')->onDelete('cascade');
+
+            $table->text('message');
 
             $table->timestamps();
         });
