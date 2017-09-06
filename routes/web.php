@@ -29,6 +29,10 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
+Route::get('/terms', function (){
+    return view('terms');
+})->name('terms');
+
 /* GET Controller Routes */
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
