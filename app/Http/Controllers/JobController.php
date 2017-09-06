@@ -72,7 +72,7 @@ class JobController extends Controller
         $job = $request['id'];
         Job::destroy($job);
 
-        return redirect()->route('home');
+        return redirect()->route('index');
     }
 
     public function getJobs($state){
