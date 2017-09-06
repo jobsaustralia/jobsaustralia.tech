@@ -12,7 +12,7 @@ class Job extends Model
      *
      * @var array
      */
-    protected $fillable = ['userid', 'message', 'employerid'];
+    protected $fillable = ['userid', 'employerid', 'jobid', 'message'];
 
     protected $table = 'applications';
 }
