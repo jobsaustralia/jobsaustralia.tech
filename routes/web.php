@@ -29,16 +29,6 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
-/* Temp */
-
-Route::get('/job/apply', function (){
-    return view('apply');
-})->name('apply');
-
-Route::get('/job', function (){
-    return view('job');
-})->name('job');
-
 /* GET Controller Routes */
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -46,6 +36,10 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
 Route::get('/matches', 'JobController@matchIndex')->name('matches');
+
+Route::get('/job/{id}', 'JobController@displayJob')->name('displayJob');
+
+Route::get('/job/{id}/apply', 'JobController@displayApplyForJob')->name('displayApplyForJob');
 
 /* POST Controller Routes */
 
@@ -68,7 +62,7 @@ Route::get('/api/user', function(){
 		return Auth::user();
 	}
 	else{
-		return "You are not logged in!";
+		return "ERROR 01: Session Error.";
 	}
 });
 

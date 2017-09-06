@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -29,22 +30,36 @@ class JobController extends Controller
     }
 
     /**
-     * Show job page.
+     * Display a specific job.
      *
      * @return \Illuminate\Http\Response
      */
-    public function jobIndex()
+    public function displayJob($id)
     {
-        $id = $request['id'];
-        $job = Job::findOfFail($id);
+        $job = Job::findOrFail($id);
+
         $title = $job->title;
         $description = $job->description;
-        $hours = $job->hous;
+        $hours = $job->hours;
         $salary = $job->salary;
-        $location = $job->location;
+        $startdate = $job->startdate;
+        $state = $job->state;
+        $city = $job->city;
+        
         $startdate = $job->startdate;
 
-        return view("job",["title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "availablefrom"=>$availablefrom, "location"=>$location, "startdate"=>$startdate]);
+        return view("job",["title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
+    }
+
+    /**
+     * Display application page for a specific job.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function displayApplyForJob($id)
+    {
+        /* This needs to be expanded. */
+        return view('apply');
     }
 
      /**
