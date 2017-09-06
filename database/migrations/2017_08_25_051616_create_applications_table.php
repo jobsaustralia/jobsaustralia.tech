@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApplicantsTable extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateApplicantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('applicants', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('userid')->unsigned();
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+
+            $table->text('coverletter');
 
             $table->integer('employerid')->unsigned();
             $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
@@ -33,7 +35,7 @@ class CreateApplicantsTable extends Migration
      */
     public function down()
     {
-        Schema::table('applicants', function (Blueprint $table) {
+        Schema::table('applications', function (Blueprint $table) {
             Schema::dropIfExists('applicants');
         });
     }
