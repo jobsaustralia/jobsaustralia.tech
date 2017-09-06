@@ -1,3 +1,4 @@
+/* Generic function to toggle the display of an element. */
 function toggleDisplay(){
     var element = document.getElementById(event.target.id + "-content");
     
@@ -9,6 +10,7 @@ function toggleDisplay(){
     }
 }
 
+/* Function to toggle the display of each team member on the about page. */
 function toggleTeamDisplay(){
     document.getElementById("aaron-content").style.display = "none";
     document.getElementById("ozlem-content").style.display = "none";
@@ -18,8 +20,10 @@ function toggleTeamDisplay(){
     document.getElementById(event.target.id + "-content").style.display = "block";
 }
 
+/* Function to randomise the order of the team on the about page. */
 function randomiseTeam(){
-    function shuffle(a) {
+    /* https://stackoverflow.com/a/6274381 */
+    function shuffle(a){
         var j, x, i;
         for (i = a.length; i; i--) {
             j = Math.floor(Math.random() * i);
@@ -55,6 +59,7 @@ function randomiseTeam(){
     document.getElementById("dennis").addEventListener("click", toggleTeamDisplay);
 }
 
+/* Function to automatically populate relevant fields when student checkbox is checked on registration page. */
 function studentFill(){
     if(document.getElementById("student").checked){
         document.getElementById("title").value = "Student";
@@ -72,6 +77,7 @@ function studentFill(){
     }
 }
 
+/* Add EventListeners depending on current page loaded. */
 if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("change-password").addEventListener("click", toggleDisplay);
@@ -81,4 +87,7 @@ else if(document.getElementById("register") !== null){
 }
 else if(document.getElementById("team") !== null){
     document.addEventListener('DOMContentLoaded', randomiseTeam);
+}
+else if(document.getElementById("job") !== null){
+    document.getElementById("apply").addEventListener("click", toggleDisplay);
 }
