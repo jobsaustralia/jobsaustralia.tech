@@ -43,8 +43,6 @@ Route::get('/matches', 'JobController@matchIndex')->name('matches');
 
 Route::get('/job/{id}', 'JobController@displayJob')->name('displayJob');
 
-Route::get('/job/{id}/apply', 'JobController@displayApplyForJob')->name('displayApplyForJob');
-
 /* POST Controller Routes */
 
 Route::post('/enquire', 'ContactController@send')->name('enquire');
@@ -54,6 +52,8 @@ Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateP
 Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
 Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
+
+Route::post('/job/apply', 'ApplicationController@apply')->name('apply');
 
 /* Authentication Routes */
 
