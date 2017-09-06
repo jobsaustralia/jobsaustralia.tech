@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class JobController extends Controller
 {
@@ -32,6 +32,7 @@ class JobController extends Controller
     /**
      * Display a specific job.
      *
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function displayJob($id)
@@ -48,33 +49,28 @@ class JobController extends Controller
         
         $startdate = $job->startdate;
 
-        return view("job",["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
+        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
     }
 
     /**
-     * Display application page for a specific job.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function displayApplyForJob($id)
-    {
-        /* This needs to be expanded. */
-        return view('apply');
-    }
-
-     /**
      * Delete job.
      *
-     * @return void
+     * @return Illuminate\Support\Facades\Redirect
      */
     public function delete()
     {
         $job = $request['id'];
         Job::destroy($job);
 
-        return redirect()->route('index');
+        return Redirect::route('index');
     }
 
+    /**
+     * Return all jobs by filter for API.
+     *
+     * @param  $state
+     * @return \Illuminate\Http\Response
+     */
     public function getJobs($state){
         $jobs = Job::where('state', $state)->get();
 
