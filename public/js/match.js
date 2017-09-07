@@ -147,7 +147,7 @@ function match(){
                 for(i = 0; i < data.length; i++)
                 {
                     var order = jobIndex[i];
-                    printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
+                    printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
                 }
             }
             else{
