@@ -64,92 +64,98 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
 }
 
 /* Function to perform matchmaking. */
-
 function match(){
+    /* Get state filter from document. */
     var stateFilter = document.getElementById("state").value;
-	
-	var noOfBits = 25;					// arbitrary number; no. of fields compared
-	
-    var input;						// input value (needs to be grabbed from user)
-	
-	var jobIndex = [];					// array of job indexes
-	var jobMatch = [];					// array of bitwise ints to compare
-	var percentageMatch = [];			// array of percentage matches
-	
-	$.getJSON("api/user/", function(data){
-		input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
-	}).then(function(){
-		/* populate values into jobIndex, jobMatch and percentageMatch arrays */
-		
-		$.getJSON( "api/jobs/" + stateFilter, function(data){
-			for(i = 0; i < data.length; i++)
-			{
-				jobIndex[i] = i;
-				jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
-				
-				/* calculate percentage match */
-				
-				var matchCalc = ~(input ^ jobMatch[i]);
-				
-				var toBinary = (matchCalc).toString(2);
-				
-				if(toBinary < 0)
-				{
-					toBinary = (matchCalc >>> 0).toString(2);
-					toBinary = toBinary.slice(-noOfBits);
-				}
-				
-				var count = toBinary.replace(/[^1]/g, "").length;
-				
-				percentageMatch[i] = (count / noOfBits) * 100;
-			}
-			
-			/* bubble sort */
-			
-			var swapped;
-			
-			do
-			{
-				swapped = false;
-				
-				for(i = 0; i < jobIndex.length-1; i++)
-				{
-					if(percentageMatch[i] < percentageMatch[i+1])
-					{
-						var tempPer = percentageMatch[i];
-						percentageMatch[i] = percentageMatch[i+1];
-						percentageMatch[i+1] = tempPer;
-						
-						var tempId = jobIndex[i];
-						jobIndex[i] = jobIndex[i+1];
-						jobIndex[i+1] = tempId;
-						
-						var tempJob = jobMatch[i];
-						jobMatch[i] = jobMatch[i+1];
-						jobMatch[i+1] = tempJob;
-						
-						swapped = true;
-					}
-				}
-			} while(swapped);
-		});
-		
-		/* display */
-		
-		$.getJSON( "api/jobs/" + stateFilter, function(data){
-			if(data.length > 0){
-				for(i = 0; i < data.length; i++)
-				{
-					var order = jobIndex[i];
-					printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
-				}
-			}
-			else{
-				document.getElementById("loading").style.display = "none";
-				document.getElementById("nomatches").style.display = "block";
-			}
-		});
-	});
+
+    /* Arbitrary number; no. of fields compared. */
+    var noOfBits = 25;
+
+    /* Input value (needs to be grabbed from user). */
+    var input;
+
+    /* Array of job indexes. */
+    var jobIndex = [];
+
+    /* Array of bitwise ints to compare. */
+    var jobMatch = [];
+
+    /* Array of percentage matches. */
+    var percentageMatch = [];
+    
+    /* Get current authenticated user data. */
+    $.getJSON("api/user/", function(data){
+        input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
+    }).then(function(){
+
+        /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
+        $.getJSON( "api/jobs/" + stateFilter, function(data){
+        	var i
+            for(i = 0; i < data.length; i++)
+            {
+                jobIndex[i] = i;
+                jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
+
+                /* Calculate percentage match */
+                var matchCalc = ~(input ^ jobMatch[i]);
+
+                var toBinary = (matchCalc).toString(2);
+
+                if(toBinary < 0){
+                    toBinary = (matchCalc >>> 0).toString(2);
+                    toBinary = toBinary.slice(-noOfBits);
+                }
+
+                var count = toBinary.replace(/[^1]/g, "").length;
+
+                percentageMatch[i] = (count / noOfBits) * 100;
+            }
+
+            /* Bubble sort. */
+            var swapped;
+
+            do{
+                swapped = false;
+
+                var i;
+                for(i = 0; i < jobIndex.length-1; i++)
+                {
+                    if(percentageMatch[i] < percentageMatch[i+1])
+                    {
+                        var tempPer = percentageMatch[i];
+                        percentageMatch[i] = percentageMatch[i+1];
+                        percentageMatch[i+1] = tempPer;
+
+                        var tempId = jobIndex[i];
+                        jobIndex[i] = jobIndex[i+1];
+                        jobIndex[i+1] = tempId;
+
+                        var tempJob = jobMatch[i];
+                        jobMatch[i] = jobMatch[i+1];
+                        jobMatch[i+1] = tempJob;
+
+                        swapped = true;
+                    }
+                }
+            } while(swapped);
+        });
+
+        /* Display jobs. */
+        $.getJSON( "api/jobs/" + stateFilter, function(data){
+            if(data.length > 0){
+            	var i;
+                for(i = 0; i < data.length; i++)
+                {
+                    var order = jobIndex[i];
+                    printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
+                }
+            }
+            else{
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("nomatches").style.display = "block";
+            }
+        });
+    });
 }
 
 /* Initialisation function to test for JavaScript, display loading animation, and call match function. */
