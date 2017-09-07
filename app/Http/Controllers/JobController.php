@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class JobController extends Controller
 {
@@ -19,7 +20,7 @@ class JobController extends Controller
     }
 
     /**
-     * Show post page.
+     * Show matches page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,39 +30,50 @@ class JobController extends Controller
     }
 
     /**
-     * Show job page.
+     * Display a specific job.
      *
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function jobIndex()
+    public function displayJob($id)
     {
-        $id = $request['id'];
-        $job = Job::findOfFail($id);
+        $job = Job::findOrFail($id);
+
         $title = $job->title;
         $description = $job->description;
-        $hours = $job->hous;
+        $hours = $job->hours;
         $salary = $job->salary;
-        $availablefrom = $job->availablefrom;
-        $location = $job->location;
+        $startdate = $job->startdate;
+        $state = $job->state;
+        $city = $job->city;
+        
         $startdate = $job->startdate;
 
-        return view("job",["title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "availablefrom"=>$availablefrom, "location"=>$location, "startdate"=>$startdate]);
+        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
     }
 
-     /**
+    /**
      * Delete job.
      *
-     * @return void
+     * @return Illuminate\Support\Facades\Redirect
      */
     public function delete()
     {
         $job = $request['id'];
         Job::destroy($job);
 
-        return redirect()->route('home');
+        return Redirect::route('index');
     }
 
+    /**
+     * Return all jobs by filter for API.
+     *
+     * @param  $state
+     * @return \Illuminate\Http\Response
+     */
     public function getJobs($state){
-        return "hello";
+        $jobs = Job::where('state', $state)->get();
+
+        return $jobs;
     }
 }

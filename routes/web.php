@@ -29,25 +29,19 @@ Route::get('/contact', function (){
     return view('contact');
 })->name('contact');
 
-/* Temp */
-
-Route::get('/job/apply', function (){
-    return view('apply');
-})->name('apply');
-
-Route::get('/job', function (){
-    return view('job');
-})->name('job');
+Route::get('/terms', function (){
+    return view('terms');
+})->name('terms');
 
 /* GET Controller Routes */
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
 Route::get('/matches', 'JobController@matchIndex')->name('matches');
+
+Route::get('/job/{id}', 'JobController@displayJob')->name('displayJob');
 
 /* POST Controller Routes */
 
@@ -59,6 +53,8 @@ Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
 Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
 
+Route::post('/job/apply', 'ApplicationController@apply')->name('apply');
+
 /* Authentication Routes */
 
 Auth::routes();
@@ -66,13 +62,12 @@ Auth::routes();
 /* API Routes */
 
 Route::get('/api/user', function(){
-	return Auth::user();
+	if(Auth::user() != null){
+		return Auth::user();
+	}
+	else{
+		return "ERROR 01: Session Error.";
+	}
 });
-
-/*Route::get('/jobs/{state}', function ($state){
-    $jobs = Job::where('state', $state)->get();
-
-    return $jobs;
-});*/
 
 Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
