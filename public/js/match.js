@@ -1,5 +1,5 @@
 /* Function to print job to panel in view. */
-function printJob(title, description, hours, salary, startDate, state, city, percentageMatch){
+function printJob(id, title, description, hours, salary, startDate, state, city, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -39,9 +39,10 @@ function printJob(title, description, hours, salary, startDate, state, city, per
 
     var p7 = document.createElement("p");
 
-    var apply = document.createElement("button");
+    var apply = document.createElement("a");
     apply.className = "btn btn-primary";
-    apply.innerHTML = "Apply";
+    apply.href = "/job/" + id;
+    apply.innerHTML = "View";
 
     panel.appendChild(heading);
     panel.appendChild(body);
@@ -140,7 +141,7 @@ function match(){
 				for(i = 0; i < data.length; i++)
 				{
 					var order = jobIndex[i];
-					printJob(data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
+					printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, percentageMatch[i]);
 				}
 			}
 			else{
