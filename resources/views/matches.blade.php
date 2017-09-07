@@ -55,6 +55,15 @@
                 <p>Try again later.</p>
                 <br><br>
             </div>
+            <!-- Error div. Used to display message when no matches are found. -->
+            <div id="error" style="display: none" align="center">
+                <br><br>
+                <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                <br>
+                <h2>Error.</h2>
+                <p>An error occurred. Please try again later, and <a href="{{ route('contact') }}">report it to us</a> if this error reoccurs</p>
+                <br><br>
+            </div>
             <!-- Matches are printed to this div via match.js -->
             <div id="jobs"></div>
         </div>

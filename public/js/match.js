@@ -117,7 +117,6 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     display.appendChild(panel);
 
     document.getElementById("loading").style.display = "none";
-    document.getElementById("nomatches").style.display = "none";
 }
 
 /* Function to perform matchmaking. */
@@ -139,7 +138,7 @@ function match(){
 
     /* Array of percentage matches. */
     var percentageMatch = [];
-    
+
     /* Get current authenticated user data. */
     $.getJSON("api/user/", function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
@@ -148,8 +147,7 @@ function match(){
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
         $.getJSON( "api/jobs/" + stateFilter, function(data){
             var i;
-            for(i = 0; i < data.length; i++)
-            {
+            for(i = 0; i < data.length; i++){
                 jobIndex[i] = i;
                 jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
 
@@ -175,10 +173,8 @@ function match(){
                 swapped = false;
 
                 var i;
-                for(i = 0; i < jobIndex.length-1; i++)
-                {
-                    if(percentageMatch[i] < percentageMatch[i+1])
-                    {
+                for(i = 0; i < jobIndex.length-1; i++){
+                    if(percentageMatch[i] < percentageMatch[i+1]){
                         var tempPer = percentageMatch[i];
                         percentageMatch[i] = percentageMatch[i+1];
                         percentageMatch[i+1] = tempPer;
@@ -194,33 +190,49 @@ function match(){
                         swapped = true;
                     }
                 }
-            } while(swapped);
-        });
+            }
+            while(swapped);
+        })
+        .then(function(){
 
-        /* Display jobs. */
-        $.getJSON( "api/jobs/" + stateFilter, function(data){
-            if(data.length > 0){
-                var i;
-                for(i = 0; i < data.length; i++)
-                {
-                    var order = jobIndex[i];
-                    printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+            /* Display jobs. */
+            $.getJSON( "api/jobs/" + stateFilter, function(data){
+                if(data.length > 0){
+                    var i;
+                    for(i = 0; i < data.length; i++){
+                        var order = jobIndex[i];
+                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                    }
                 }
-            }
-            else{
+                else{
+                    document.getElementById("loading").style.display = "none";
+                    document.getElementById("nomatches").style.display = "block";
+                }
+            })
+            .fail(function(){
                 document.getElementById("loading").style.display = "none";
-                document.getElementById("nomatches").style.display = "block";
-            }
+                document.getElementById("error").style.display = "block";
+            });
+        })
+        .fail(function(){
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("error").style.display = "block";
         });
+    })
+    .fail(function(){
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("error").style.display = "block";
     });
 }
 
 /* Initialisation function to test for JavaScript, display loading animation, and call match function. */
 function init(){
-    document.getElementById("noscript").style.display = "none";
-    document.getElementById("loading").style.display = "block";
-
     document.getElementById("jobs").innerHTML = "";
+
+    document.getElementById("noscript").style.display = "none";
+    document.getElementById("nomatches").style.display = "none";
+    document.getElementById("error").style.display = "none";
+    document.getElementById("loading").style.display = "block";
 
     match();
 }
