@@ -10,7 +10,7 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     heading.innerHTML += title + " &bull; ";
 
     var match = document.createElement("strong");
-    match.innerHTML = percentageMatch + "%";
+    match.innerHTML = percentageMatch + "&#37;";
 
     var body = document.createElement("div");
     body.className = "panel-body";
@@ -21,23 +21,77 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     var hr1 = document.createElement("hr");
 
     var p2 = document.createElement("p");
-    p2.innerHTML = hours;
+    var p2Title = document.createElement("strong");
+
+    if(hours == "fulltime"){
+        p2.innerHTML = "Full time";
+    }
+    else if(hours == "parttime"){
+        p2.innerHTML = "Part time";
+    }
+    else{
+        p2.innerHTML = "Casual";
+    }
+
+    p2Title.innerHTML = "Hours: ";
 
     var p3 = document.createElement("p");
-    p3.innerHTML = salary;
+    var p3Title = document.createElement("strong");
+
+    /* https://stackoverflow.com/a/2901298 */
+    p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    if(hours == "fulltime"){
+        p3.innerHTML += " per annum.";
+    }
+    else{
+        p3.innerHTML += " per hour.";
+    }
+
+    p3Title.innerHTML = "Salary: ";
 
     var p4 = document.createElement("p");
+    var p4Title = document.createElement("strong");
     p4.innerHTML = startDate;
+    p4Title.innerHTML = "Start date: ";
 
     var p5 = document.createElement("p");
-    p5.innerHTML = state;
+    var p5Title = document.createElement("strong");
+    p5.innerHTML = city;
 
-    var p6 = document.createElement("p");
-    p6.innerHTML = city;
+    if(state == "vic"){
+        p5.innerHTML += ", Victoria.";
+    }
+    else if(state == "nsw"){
+        p5.innerHTML += ", New South Wales";
+    }
+    else if(state == "qld"){
+        p5.innerHTML += ", Queensland";
+    }
+    else if(state == "wa"){
+        p5.innerHTML += ", Western Australia";
+    }
+    else if(state == "sa"){
+        p5.innerHTML += ", South Australia";
+    }
+    else if(state == "ta"){
+        p5.innerHTML += ", Tasmania";
+    }
+    else if(state == "act"){
+        p5.innerHTML += ", Australian Capital Territory";
+    }
+    else if(state == "nt"){
+        p5.innerHTML += ", Northern Territory";
+    }
+    else{
+        p5.innerHTML += ", Other Australian Region";
+    }
+
+    p5Title.innerHTML = "Location: ";
 
     var hr2 = document.createElement("hr");
 
-    var p7 = document.createElement("p");
+    var p6 = document.createElement("p");
 
     var apply = document.createElement("a");
     apply.className = "btn btn-primary";
@@ -50,13 +104,16 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     body.append(p1);
     body.append(hr1);
     body.append(p2);
+    p2.prepend(p2Title);
     body.append(p3);
+    p3.prepend(p3Title);
     body.append(p4);
+    p4.prepend(p4Title);
     body.append(p5);
-    body.append(p6);
+    p5.prepend(p5Title);
     body.append(hr2);
-    body.append(p7);
-    p7.append(apply);
+    body.append(p6);
+    p6.append(apply);
     display.appendChild(panel);
 
     document.getElementById("loading").style.display = "none";
