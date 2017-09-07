@@ -89,7 +89,7 @@ function match(){
 				
 				/* calculate percentage match */
 				
-				var matchCalc = ~(bitInput ^ jobMatch[i]);
+				var matchCalc = ~(input ^ jobMatch[i]);
 				
 				var toBinary = (matchCalc).toString(2);
 				
