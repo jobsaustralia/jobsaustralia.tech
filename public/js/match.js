@@ -90,7 +90,7 @@ function match(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
         $.getJSON( "api/jobs/" + stateFilter, function(data){
-            var i
+            var i;
             for(i = 0; i < data.length; i++)
             {
                 jobIndex[i] = i;
