@@ -48,7 +48,7 @@
                     <div align="center">
                         <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
                         <hr>
-                        <p>Dennis is in their ? semester of the Bachelor of ?.</p>
+                        <p>Dennis is in their last semester of the Bachelor of Information Technology.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/d473">GitHub</a></p>
                     </div>
                 </div>
