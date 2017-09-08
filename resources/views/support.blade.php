@@ -31,6 +31,8 @@
                     <p><b>Getting an error message or having trouble loading a page?</b></p>
                     <p> Try clearing your browsing history following <a href="https://kb.iu.edu/d/ahic">these instructions</a></p>
                     <p> Also, ensure your <a href="https://updatemybrowser.org/">browser is up to date</a>.</p><br>
+                    <p><b>How could I enable my Javascript ?</b></p>
+                    
                     <p><b>Tried everything and still having trouble?</b></p>
                     <p><a href="contact">Contact us</a> to let us know what is going on. Be sure to include as much information about the issue as you can, including: your operating system, web browser and version, anti-virus software you have installed and the page that you encountered the error on.</p>
                 </div>
