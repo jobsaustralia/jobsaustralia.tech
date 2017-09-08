@@ -138,4 +138,8 @@ class ProfileController extends Controller
 
         return Redirect::route('index');
     }
+
+    public function getUser(){
+        return Auth::user();
+    }
 }
