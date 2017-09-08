@@ -62,12 +62,7 @@ Auth::routes();
 /* API Routes */
 
 Route::get('/api/user', function(){
-	if(Auth::user() != null){
-		return Auth::user();
-	}
-	else{
-		return "ERROR 01: Session Error.";
-	}
+	return Auth::user();
 });
 
 Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
