@@ -40,7 +40,7 @@
                     <div align="center">
                         <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
                         <hr>
-                        <p>Melissa is in their second last semester of the Bachelor of Computer Science? and Engineering?.</p>
+                        <p>Melissa is in their penultimate year of the Bachelor of Engineering (Computer and Network Engineering)/Bachelor of Computer Science.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/rmit-s3476694-melissa-nguyen">GitHub</a></p>
                     </div>
                 </div>
