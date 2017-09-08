@@ -61,8 +61,8 @@ Auth::routes();
 
 /* API Routes */
 
-Route::get('/api/user', function(){
-	return Auth::user();
-});
+/* Return currently authenticated user. */
+Route::get('/api/user', 'ProfileController@getUser')->name('getUser');
 
+/* Return jobs by state. */
 Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
