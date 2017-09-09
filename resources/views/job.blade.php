@@ -25,7 +25,11 @@
                     <hr>
 
                     <p>
-                        <button id="apply" class="btn btn-primary">Apply</button>
+                        @if (App\Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count() == 0) 
+                            <button id="apply" class="btn btn-primary">Apply</button>
+                        @else
+                            <strong>You have applied for this job.</strong>
+                        @endif
                     </p>
                 </div>
             </div>

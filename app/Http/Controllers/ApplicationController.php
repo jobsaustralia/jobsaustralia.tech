@@ -27,14 +27,20 @@ class ApplicationController extends Controller{
         ]);
 
         $id = $request['jobid'];
-        $job = Job::findOrFail($id);
 
-        Application::create([
-            'userid' => Auth::user()->id,
-            'employerid' => $job->employerid,
-            'jobid' => $id,
-            'message' => $request['message'],
-        ]);
+        $count = Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count();
+
+        /* Verify that the job seeker has not yet applied to the job. */
+        if($count == 0){
+            $job = Job::findOrFail($id);
+
+            Application::create([
+                'userid' => Auth::user()->id,
+                'employerid' => $job->employerid,
+                'jobid' => $id,
+                'message' => $request['message'],
+            ]);
+        }
 
         return Redirect::route('matches');
     }
