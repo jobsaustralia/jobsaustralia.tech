@@ -17,7 +17,7 @@
                         </p>
                         <hr>
                         <p>Aaron is in their final semester of the Bachelor of Information Technology.</p>
-                        <p><i class="fa fa-globe" aria-hidden="true"></i> <a href="https://aaronhorler.com">Personal website</a> &bull; <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/aghorler">GitHub</a> &bull; <i class="fa fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/aghorler">LinkedIn</a></p>
+                        <p><i class="fa fa-globe" aria-hidden="true"></i> <a href="https://aaronhorler.com">Personal website</a> &bull; <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/aghorler">GitHub</a> &bull; <i class="fa fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/aghorler">LinkedIn</a></p>
                     </div>
                 </div>
                 <div id="ozlem-content" style="display: none" class="panel-body">
