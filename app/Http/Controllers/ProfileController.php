@@ -2,53 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\User;
+
+use Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-class ProfileController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+class ProfileController extends Controller{
+
+    /* Create a new controller instance. */
+    public function __construct(){
         $this->middleware('auth');
     }
 
-    /**
-     * Show profile.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    /* Show profile page. */
+    public function index(){
         return view('profile');
     }
 
-    /**
-     * Show edit profile form.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function editIndex()
-    {
+    /* Show edit profile page. */
+    public function editIndex(){
         return view('edit');
     }
 
-    /**
-     * Update profile.
-     *
-     * @param  Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Facades\Redirect
-     */
-    public function updateProfile(Request $request)
-    {
+    /* Update user. */
+    public function updateProfile(Request $request){
         $user = Auth::user();
 
         /* Validate incoming data */
@@ -126,20 +107,11 @@ class ProfileController extends Controller
         return Redirect::route('profile');
     }
 
-    /**
-     * Delete user.
-     *
-     * @return Illuminate\Support\Facades\Redirect
-     */
-    public function delete()
-    {
+    /* Delete user. */
+    public function delete(){
         $id = Auth::user()->id;   
         User::destroy($id);
 
         return Redirect::route('index');
-    }
-
-    public function getUser(){
-        return Auth::user();
     }
 }

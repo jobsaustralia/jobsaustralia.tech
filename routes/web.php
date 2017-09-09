@@ -33,36 +33,40 @@ Route::get('/terms', function (){
     return view('terms');
 })->name('terms');
 
+
 /* GET Controller Routes */
+
+Route::get('/job/{id}', 'JobController@jobIndex')->name('displayJob');
+
+Route::get('/matches', 'JobController@matchIndex')->name('matches');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
-Route::get('/matches', 'JobController@matchIndex')->name('matches');
-
-Route::get('/job/{id}', 'JobController@displayJob')->name('displayJob');
 
 /* POST Controller Routes */
 
 Route::post('/enquire', 'ContactController@send')->name('enquire');
 
-Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
+Route::post('/job/apply', 'ApplicationController@apply')->name('apply');
 
 Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
+
 Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
 
-Route::post('/job/apply', 'ApplicationController@apply')->name('apply');
 
 /* Authentication Routes */
 
 Auth::routes();
 
+
 /* API Routes */
 
 /* Return currently authenticated user. */
-Route::get('/api/user', 'ProfileController@getUser')->name('getUser');
+Route::get('/api/user', 'APIController@getUser')->name('getUser');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/{state}', 'JobController@getJobs')->name('getJobs');
+Route::get('/api/jobs/{state}', 'APIController@getJobs')->name('getJobs');

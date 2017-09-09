@@ -35,7 +35,7 @@
                     </p>
 
                     <p>
-                        <button id="confirm-delete" class="btn btn-primary">
+                        <button id="confirm-delete" class="btn btn-warning">
                             Delete account
                         </button>
                     </p>
