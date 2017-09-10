@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Application;
 use App\Job;
 
+use Auth;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redirect;
 
 class JobController extends Controller{
 
@@ -30,9 +32,10 @@ class JobController extends Controller{
         $startdate = $job->startdate;
         $state = $job->state;
         $city = $job->city;
-        
-        $startdate = $job->startdate;
 
-        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city]);
+        /* Count the number of times the job seeker has applied to the job. */
+        $count = Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count();
+
+        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city, "count"=>$count]);
     }
 }

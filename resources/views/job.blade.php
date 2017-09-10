@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div @if (App\Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count() == 0) id="job" @endif class="col-md-8 col-md-offset-2">
+        <div @if ($count == 0) id="job" @endif class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>{{ $title }}</strong></div>
 
@@ -25,7 +25,7 @@
                     <hr>
 
                     <p>
-                        @if (App\Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count() == 0)
+                        @if ($count == 0)
                             <button id="apply" class="btn btn-primary">Apply</button>
                         @else
                             <strong>You have applied for this job.</strong>
@@ -34,9 +34,9 @@
                 </div>
             </div>
 
-            @if (App\Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count() == 0)
+            @if ($count == 0)
                 <div id="apply-content" class="panel panel-default" style="display: none;">
-                    <div class="panel-heading"><strong>Apply:</strong> Write Your Cover Letter</div>
+                    <div class="panel-heading"><strong>Apply:</strong> Write a message to the employer</div>
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('apply') }}">
                             {{ csrf_field() }}
@@ -44,7 +44,7 @@
                             <input type="hidden" name="jobid" value="{{ $id }}" />
 
                             <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
-                                <label for="cover-letter" class="col-md-4 control-label">Cover Letter</label>
+                                <label for="cover-letter" class="col-md-4 control-label">Message</label>
 
                                 <div class="col-md-6">
                                         <textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>

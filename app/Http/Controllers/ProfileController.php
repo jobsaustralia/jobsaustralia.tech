@@ -109,7 +109,7 @@ class ProfileController extends Controller{
 
     /* Delete user. */
     public function delete(){
-        $id = Auth::user()->id;   
+        $id = Auth::user()->id;
         User::destroy($id);
 
         return Redirect::route('index');
