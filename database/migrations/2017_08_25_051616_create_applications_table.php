@@ -16,7 +16,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('userid')->unsigned();
+            $table->uuid('userid');
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('employerid')->unsigned();

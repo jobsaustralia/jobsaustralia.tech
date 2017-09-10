@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'id' => Uuid::generate(),
             'name' => 'Bob Smith',
             'email' => 'bobsmith@gmail.com',
             'password' => bcrypt('secret'),
@@ -49,6 +50,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
+            'id' => Uuid::generate(),
             'name' => 'Dean Winchester',
             'email' => 'deanwinchester@live.com',
             'password' => bcrypt('secret'),
@@ -85,6 +87,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
+            'id' => Uuid::generate(),
             'name' => 'Kara Danvers',
             'email' => 'karad@gmail.com',
             'password' => bcrypt('secret'),
@@ -121,6 +124,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
+            'id' => Uuid::generate(),
             'name' => 'Alec Lightwood',
             'email' => 'alightwood@gmail.com',
             'password' => bcrypt('secret'),
@@ -157,6 +161,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
+            'id' => Uuid::generate(),
             'name' => 'Jillian Banks',
             'email' => 'jillianbanks@gmail.com',
             'password' => bcrypt('secret'),
