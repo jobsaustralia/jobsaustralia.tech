@@ -35,14 +35,14 @@
                     </p>
 
                     <p>
-                        <button id="confirm-delete" class="btn btn-warning">
+                        <button id="confirm-delete" class="btn btn-danger">
                             Delete account
                         </button>
                     </p>
 
                     <div id="confirm-delete-content" style="display: none;">
                         <p>
-                            Confirm deletion: <a id="really-confirm-delete" class="text-warning" href="javascript:void(0)">I really want to delete my account.</a>
+                            Confirm deletion: <a id="really-confirm-delete" class="text-danger" href="javascript:void(0)">I really want to delete my account.</a>
                         </p>
 
                         <div id="really-confirm-delete-content" style="display: none;">
@@ -53,7 +53,7 @@
                                 <strong>It is impossible to recover an account, or its data, after deletion!</strong>
                             </p>
                             <p>
-                                <a class="text-warning" title="Clicking this will delete your account without further prompt." href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I am <strong>positively certain</strong> I want to delete my account.</a>
+                                <a class="text-danger" title="Clicking this will delete your account without further prompt." href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I am <strong>positively certain</strong> I want to delete my account.</a>
                             </p>
                         </div>
                     </div>
