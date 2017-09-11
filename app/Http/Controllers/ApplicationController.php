@@ -6,6 +6,7 @@ use App\Application;
 use App\Job;
 
 use Auth;
+use Uuid;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class ApplicationController extends Controller{
             $job = Job::findOrFail($id);
 
             Application::create([
+                'id' => Uuid::generate(),
                 'userid' => Auth::user()->id,
                 'employerid' => $job->employerid,
                 'jobid' => $id,
