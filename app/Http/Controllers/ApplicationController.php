@@ -23,7 +23,7 @@ class ApplicationController extends Controller{
     /* Apply for a job. */
     public function apply(Request $request){
         $this->validate($request, [
-            'jobid' => 'required|integer|exists:jobs,id',
+            'jobid' => 'required|uuid|exists:jobs,id',
             'message' => 'required|string'
         ]);
 
