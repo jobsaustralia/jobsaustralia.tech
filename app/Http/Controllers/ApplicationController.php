@@ -6,6 +6,7 @@ use App\Application;
 use App\Job;
 
 use Auth;
+use Uuid;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ApplicationController extends Controller{
     /* Apply for a job. */
     public function apply(Request $request){
         $this->validate($request, [
-            'jobid' => 'required|integer|exists:jobs,id',
+            'jobid' => 'required|uuid|exists:jobs,id',
             'message' => 'required|string'
         ]);
 
@@ -35,6 +36,7 @@ class ApplicationController extends Controller{
             $job = Job::findOrFail($id);
 
             Application::create([
+                'id' => Uuid::generate(),
                 'userid' => Auth::user()->id,
                 'employerid' => $job->employerid,
                 'jobid' => $id,

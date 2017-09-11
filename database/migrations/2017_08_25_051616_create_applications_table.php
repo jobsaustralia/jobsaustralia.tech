@@ -16,13 +16,13 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('userid')->unsigned();
+            $table->uuid('userid');
             $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
 
-            $table->integer('employerid')->unsigned();
+            $table->uuid('employerid');
             $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
 
-            $table->integer('jobid')->unsigned();
+            $table->uuid('jobid');
             $table->foreign('jobid')->references('id')->on('jobs')->onDelete('cascade');
 
             $table->text('message');
