@@ -18,6 +18,8 @@ class CreateEmployersTable extends Migration
             $table->primary('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('state');
+            $table->string('city');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
