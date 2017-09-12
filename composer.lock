@@ -1899,7 +1899,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "^5.4 || ^7.0"
             },
             "require-dev": {
                 "fzaninotto/faker": "~1.4",
