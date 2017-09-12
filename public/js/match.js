@@ -150,9 +150,21 @@ function match(){
             for(i = 0; i < data.length; i++){
                 jobIndex[i] = i;
                 jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
+				
+				/* Find number of comparisons. */
+				var noOfComp = input | jobMatch[i];
+				
+				var bitComp = (noOfComp).toString(2);
+				
+				if(bitComp < 0){
+                    bitComp = (noOfComp >>> 0).toString(2);
+                    bitComp = bitComp.slice(-noOfBits);
+                }
 
-                /* Calculate percentage match */
-                var matchCalc = ~(input ^ jobMatch[i]);
+                var countComp = bitComp.replace(/[^1]/g, "").length;
+				
+				/* Find number of matches. */
+                var matchCalc = input & jobMatch[i];
 
                 var toBinary = (matchCalc).toString(2);
 
@@ -162,8 +174,9 @@ function match(){
                 }
 
                 var count = toBinary.replace(/[^1]/g, "").length;
-
-                percentageMatch[i] = (count / noOfBits) * 100;
+				
+				/* Calculate percentage match. */
+                percentageMatch[i] = (count / countComp) * 100;
             }
 
             /* Bubble sort. */
