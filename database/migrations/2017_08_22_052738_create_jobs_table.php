@@ -18,8 +18,10 @@ class CreateJobsTable extends Migration
             $table->primary('id');
             $table->string('title');
             $table->text('description');
+			$table->string('term');
             $table->string('hours');
 			$table->integer('salary');
+			$table->string('rate');
             $table->string('startdate');
             $table->string('state');
             $table->string('city');
