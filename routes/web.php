@@ -38,6 +38,8 @@ Route::get('/terms', function (){
 
 Route::get('/job/{id}', 'JobController@jobIndex')->name('displayJob');
 
+Route::get('/employer/{id}', 'JobController@employerProfile')->name('employer');
+
 Route::get('/matches', 'JobController@matchIndex')->name('matches');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -69,4 +71,7 @@ Auth::routes();
 Route::get('/api/user', 'APIController@getUser')->name('getUser');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/{state}', 'APIController@getJobs')->name('getJobs');
+Route::get('/api/jobs/state/{state}', 'APIController@getJobsByState')->name('getJobsByState');
+
+/* Return jobs by state. */
+Route::get('/api/jobs/employer/{employerid}', 'APIController@getJobsByEmployer')->name('getJobsByEmployer');
