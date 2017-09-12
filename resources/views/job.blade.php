@@ -5,7 +5,7 @@
     <div class="row">
         <div @if ($count == 0) id="job" @endif class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>{{ $title }}</strong></div>
+                <div class="panel-heading"><strong>{{ $title }}</strong> by {{ $employername }}</div>
 
                 <div class="panel-body">
                     <p>{{ $description }}</p>
