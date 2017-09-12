@@ -164,7 +164,7 @@ function match(){
                 var countComp = bitComp.replace(/[^1]/g, "").length;
 				
 				/* Find number of matches. */
-                var matchCalc = ~(input ^ jobMatch[i]);
+                var matchCalc = input & jobMatch[i];
 
                 var toBinary = (matchCalc).toString(2);
 
