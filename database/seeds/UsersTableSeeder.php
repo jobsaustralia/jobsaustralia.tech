@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'id' => Uuid::generate(),
+            'id' => '0e98767b-dacb-4999-bf9e-97a477ab835d',
             'name' => 'Bob Smith',
             'email' => 'bobsmith@gmail.com',
             'password' => bcrypt('secret'),
@@ -50,7 +50,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'id' => Uuid::generate(),
+            'id' => '325308a1-5697-4656-861f-b250ea5d69cc',
             'name' => 'Dean Winchester',
             'email' => 'deanwinchester@live.com',
             'password' => bcrypt('secret'),
@@ -87,7 +87,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'id' => Uuid::generate(),
+            'id' => '75654176-de65-4cab-9f24-646762f27de0',
             'name' => 'Kara Danvers',
             'email' => 'karad@gmail.com',
             'password' => bcrypt('secret'),
@@ -124,7 +124,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'id' => Uuid::generate(),
+            'id' => 'ed914be7-e220-4d9c-beb7-e38c4bffd570',
             'name' => 'Alec Lightwood',
             'email' => 'alightwood@gmail.com',
             'password' => bcrypt('secret'),
@@ -161,7 +161,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'id' => Uuid::generate(),
+            'id' => 'e00f73aa-b92e-4a56-b7eb-a21eeb19a7ae',
             'name' => 'Jillian Banks',
             'email' => 'jillianbanks@gmail.com',
             'password' => bcrypt('secret'),
