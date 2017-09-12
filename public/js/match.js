@@ -154,7 +154,7 @@ function match(){
 				/* Find number of comparisons. */
 				var noOfComp = input | jobMatch[i];
 				
-				var bitComp = (noOfComparisons).toString(2);
+				var bitComp = (noOfComp).toString(2);
 				
 				if(bitComp < 0){
                     bitComp = (noOfComp >>> 0).toString(2);
