@@ -121,8 +121,13 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
 
 /* Function to perform matchmaking. */
 function match(){
-    /* Get state filter from document. */
-    var stateFilter = document.getElementById("state").value;
+    /* Get filter from document. */
+    if(document.getElementById("state") !== null){
+        var resource = "/api/jobs/state/" + document.getElementById("state").value;
+    }
+    else{
+        var resource = "/api/jobs/employer/" + document.getElementById("employerid").value;
+    }
 
     /* Arbitrary number; no. of fields compared. */
     var noOfBits = 25;
@@ -140,12 +145,12 @@ function match(){
     var percentageMatch = [];
 
     /* Get current authenticated user data. */
-    $.getJSON("api/user/", function(data){
+    $.getJSON("/api/user/", function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
     }).then(function(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
-        $.getJSON( "api/jobs/" + stateFilter, function(data){
+        $.getJSON( resource, function(data){
             var i;
             for(i = 0; i < data.length; i++){
                 jobIndex[i] = i;
@@ -209,7 +214,7 @@ function match(){
         .then(function(){
 
             /* Display jobs. */
-            $.getJSON( "api/jobs/" + stateFilter, function(data){
+            $.getJSON( resource, function(data){
                 if(data.length > 0){
                     var i;
                     for(i = 0; i < data.length; i++){
@@ -251,4 +256,7 @@ function init(){
 }
 
 document.addEventListener('DOMContentLoaded', init);
-document.getElementById("state").addEventListener('change', init);
+
+if(document.getElementById("state") !== null){
+    document.getElementById("state").addEventListener('change', init);
+}

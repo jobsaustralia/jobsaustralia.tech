@@ -111,7 +111,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-    @if(Request::path() === 'matches')
+    @if(Request::path() === 'matches' || substr(Request::path(), 0, 8) === 'employer')
         <script src="{{ asset('js/match.js') }}"></script>
     @endif
 </body>
