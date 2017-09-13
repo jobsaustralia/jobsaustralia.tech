@@ -1,5 +1,5 @@
 /* Function to print job to panel in view. */
-function printJob(id, title, description, hours, salary, startDate, state, city, percentageMatch){
+function printJob(id, title, description, hours, rate, salary, startDate, state, city, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -41,11 +41,20 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     /* https://stackoverflow.com/a/2901298 */
     p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    if(hours == "fulltime"){
-        p3.innerHTML += " per annum.";
-    }
-    else{
+    if(rate == "hourly"){
         p3.innerHTML += " per hour.";
+    }
+    else if(rate == "weekly"){
+        p3.innerHTML += " per week.";
+    }
+    else if(rate == "fortnightly"){
+        p3.innerHTML += " per fortnight.";
+    }
+    else if(rate == "monthly"){
+        p3.innerHTML += " per month.";
+    }
+    else if(rate == "anually"){
+        p3.innerHTML += " per annum.";
     }
 
     p3Title.innerHTML = "Salary: ";
@@ -219,7 +228,7 @@ function match(){
                     var i;
                     for(i = 0; i < data.length; i++){
                         var order = jobIndex[i];
-                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].rate, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
                     }
                 }
                 else{
