@@ -22,7 +22,9 @@
                 </div>
                 <div id="ozlem-content" style="display: none" class="panel-body">
                     <div align="center">
-                        <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
+                        <p>
+                            <img src="img/ozlem.png"></img>
+                        </p>
                         <hr>
                         <p>Ozlem is in their final semester of the Bachelor of Information Technology.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/rmit-s3491115-ozlem-kirmizi">GitHub</a></p>
@@ -30,7 +32,9 @@
                 </div>
                 <div id="kim-content" style="display: none" class="panel-body">
                     <div align="center">
-                        <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
+                        <p>
+                            <img src="img/kim.png"></img>
+                        </p>
                         <hr>
                         <p>Kim is in their second last semester of the Bachelor of Information Technology.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/kimluu1701">GitHub</a></p>
@@ -38,7 +42,9 @@
                 </div>
                 <div id="melissa-content" style="display: none" class="panel-body">
                     <div align="center">
-                        <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
+                        <p>
+                            <img src="img/melissa.png"></img>
+                        </p>
                         <hr>
                         <p>Melissa is in their penultimate year of the Bachelor of Engineering (Computer and Network Engineering)/Bachelor of Computer Science.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/rmit-s3476694-melissa-nguyen">GitHub</a></p>
@@ -46,7 +52,9 @@
                 </div>
                 <div id="dennis-content" style="display: none" class="panel-body">
                     <div align="center">
-                        <p style="font-size: 100px"><i class="fa fa-smile-o" aria-hidden="true"></i></p>
+                        <p>
+                            <img src="img/dennis.png"></img>
+                        </p>
                         <hr>
                         <p>Dennis is in their last semester of the Bachelor of Information Technology.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/d473">GitHub</a></p>
