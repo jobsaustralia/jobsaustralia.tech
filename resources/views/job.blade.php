@@ -12,6 +12,7 @@
 
                     <hr>
 
+                    <p><strong>Term:</strong> @if ($term == "fixed") Fixed @else Permanent @endif </p>
                     <p><strong>Hours:</strong> @if ($hours == "fulltime") Full time @elseif ($hours == "parttime") Part time @elseif ($hours == "casual") Casual @endif</p>
                     <p><strong>Salary:</strong> &#36;{{ number_format($salary) }} @if ($rate == "hourly") per hour @elseif ($rate == "weekly") per week @elseif ($rate == "monthly") per month @elseif ($rate == "annually") per annum @endif </p>
                     <p><strong>Start Date:</strong> {{ $startdate }}</p>
