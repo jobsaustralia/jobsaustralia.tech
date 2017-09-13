@@ -62,6 +62,7 @@
                         <!-- Authentication Links -->
                         @if (!Auth::guest())
                             <li><a href="{{ route('matches') }}">Matches</a></li>
+                            <li><a href="{{ route('applications') }}">Applications</a></li>
                         @endif
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('support') }}">Support</a></li>
