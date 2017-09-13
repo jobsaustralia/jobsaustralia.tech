@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Employer;
 use App\Job;
 
 use Auth;
@@ -40,7 +41,10 @@ class APIController extends Controller{
         $unappliedJobs = array();
         foreach($jobs as $job){
             if(!in_array($job->id, $appliedJobIDs)){
-                array_push($unappliedJobs, Job::findOrFail($job->id));
+                $employer = Employer::findOrFail($job->employerid);
+                $job->employername = $employer->name;
+
+                array_push($unappliedJobs, $job);
             }
         }
 
@@ -66,7 +70,10 @@ class APIController extends Controller{
         $unappliedJobs = array();
         foreach($jobs as $job){
             if(!in_array($job->id, $appliedJobIDs)){
-                array_push($unappliedJobs, Job::findOrFail($job->id));
+                $employer = Employer::findOrFail($job->employerid);
+                $job->employername = $employer->name;
+
+                array_push($unappliedJobs, $job);
             }
         }
 

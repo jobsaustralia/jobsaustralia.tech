@@ -1,5 +1,5 @@
 /* Function to print job to panel in view. */
-function printJob(id, title, description, hours, rate, salary, startDate, state, city, percentageMatch){
+function printJob(id, title, description, hours, rate, salary, startDate, state, city, employerName, employerId, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -42,19 +42,19 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
     p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     if(rate == "hourly"){
-        p3.innerHTML += " per hour.";
+        p3.innerHTML += " per hour";
     }
     else if(rate == "weekly"){
-        p3.innerHTML += " per week.";
+        p3.innerHTML += " per week";
     }
     else if(rate == "fortnightly"){
-        p3.innerHTML += " per fortnight.";
+        p3.innerHTML += " per fortnight";
     }
     else if(rate == "monthly"){
-        p3.innerHTML += " per month.";
+        p3.innerHTML += " per month";
     }
-    else if(rate == "anually"){
-        p3.innerHTML += " per annum.";
+    else{
+        p3.innerHTML += " per annum";
     }
 
     p3Title.innerHTML = "Salary: ";
@@ -69,7 +69,7 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
     p5.innerHTML = city;
 
     if(state == "vic"){
-        p5.innerHTML += ", Victoria.";
+        p5.innerHTML += ", Victoria";
     }
     else if(state == "nsw"){
         p5.innerHTML += ", New South Wales";
@@ -98,9 +98,17 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
 
     p5Title.innerHTML = "Location: ";
 
+    var p6 = document.createElement("p");
+    var p6Title = document.createElement("strong");
+    p6Title.innerHTML = "Employer: ";
+
+    var a1 = document.createElement("a");
+    a1.href = "/employer/" + employerId;
+    a1.innerHTML = employerName
+
     var hr2 = document.createElement("hr");
 
-    var p6 = document.createElement("p");
+    var p7 = document.createElement("p");
 
     var apply = document.createElement("a");
     apply.className = "btn btn-primary";
@@ -120,9 +128,12 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
     p4.prepend(p4Title);
     body.append(p5);
     p5.prepend(p5Title);
-    body.append(hr2);
     body.append(p6);
-    p6.append(apply);
+    p6.append(a1);
+    p6.prepend(p6Title);
+    body.append(hr2);
+    body.append(p7);
+    p7.append(apply);
     display.appendChild(panel);
 
     document.getElementById("loading").style.display = "none";
@@ -228,7 +239,7 @@ function match(){
                     var i;
                     for(i = 0; i < data.length; i++){
                         var order = jobIndex[i];
-                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].rate, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].rate, data[order].salary, data[order].startdate, data[order].state, data[order].city, data[order].employername, data[order].employerid, Math.round(percentageMatch[i]));
                     }
                 }
                 else{
