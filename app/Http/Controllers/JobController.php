@@ -30,6 +30,7 @@ class JobController extends Controller{
         $description = $job->description;
         $hours = $job->hours;
         $salary = $job->salary;
+        $rate = $job->rate;
         $startdate = $job->startdate;
         $state = $job->state;
         $city = $job->city;
@@ -42,7 +43,7 @@ class JobController extends Controller{
         /* Count the number of times the job seeker has applied to the job. */
         $count = Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count();
 
-        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "startdate"=>$startdate, "state"=>$state, "city"=>$city, "count"=>$count, "employername"=>$employername, "employerid"=>$employerid]);
+        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "hours"=>$hours, "salary"=>$salary, "rate"=>$rate, "startdate"=>$startdate, "state"=>$state, "city"=>$city, "count"=>$count, "employername"=>$employername, "employerid"=>$employerid]);
     }
 
     function employerProfile($id){
