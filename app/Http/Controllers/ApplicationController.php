@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Employer;
 use App\Job;
 
 use Auth;
@@ -44,6 +45,23 @@ class ApplicationController extends Controller{
             ]);
         }
 
-        return Redirect::route('matches');
+        return Redirect::route('applications');
+    }
+
+    /* Display applications page. */
+    public function indexApplications(){
+        $user = Auth::user();
+
+        $applications = Application::where('userid', $user->id)->get();
+
+        foreach($applications as $application){
+            $job = Job::findOrFail($application->jobid);
+            $application->jobtitle = $job->title;
+
+            $employer = Employer::findOrFail($application->employerid);
+            $application->employername = $employer->name;
+        }
+
+        return view('applications')->with(compact('applications'));
     }
 }
