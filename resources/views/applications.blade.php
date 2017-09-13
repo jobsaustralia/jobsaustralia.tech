@@ -30,7 +30,7 @@
                     <br><br>
                     <p><i style="font-size: 200px" class="fa fa-ship " aria-hidden="true"></i></p>
                     <br>
-                    <h2>No Application Found.</h2>
+                    <h2>No Applications Found.</h2>
                     <p>This page will display your active applications.</p>
                     <br>
                     <p>
