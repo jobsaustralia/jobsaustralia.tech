@@ -42,11 +42,14 @@ class ApplicationController extends Controller{
                 'employerid' => $job->employerid,
                 'jobid' => $id,
                 'message' => $request['message'],
+                'resume' => $request['resume'],
             ]);
         }
 
         return Redirect::route('applications');
     }
+
+
 
     /* Display applications page. */
     public function indexApplications(){
