@@ -57,7 +57,7 @@
                         </div>
                     </div>
 
-                    <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
+                    <form id="delete-form" action="{{ route('delete') }}" method="POST"  style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </div>
@@ -68,8 +68,8 @@
 
                 <div class="panel-body">
                     <p>Uploading a resume is optional.</p>
-
-                    <form class="form-horizontal" method="POST" action="{{ route('resume') }}">
+                    <p><strong>Current resume on our database:</strong> {{ Auth::user()->resume }}</p>
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('resume') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('resume') ? ' has-error' : '' }}">

@@ -59,7 +59,7 @@ Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
 
-Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
+Route::post('/resume/upload', 'ResumeController@uploadResume')->name('resume');
 
 
 /* Authentication Routes */

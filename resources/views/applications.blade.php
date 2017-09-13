@@ -8,13 +8,15 @@
             @if (count($applications) > 0)
                 @foreach($applications as $application)
                 <div class="panel panel-default">
-                    <div class="panel-heading"><strong>{{ $application->jobtitle }}</strong> by <a href="{{ asset('employer/' . $application->employerid) }}">{{ $application->employername }}</a></div>
+                    <div class="panel-heading"><strong>{{ $application->jobtitle }}</strong> by <a href="/employer/{{ $application->employerid }}">{{ $application->employername }}</a></div>
 
                     <div class="panel-body">
 
                         <p>{{ $application->message }}</p>
 
                         <hr>
+
+                         <p>{{ $application->resume }}</p>
 
                         <p>
                             <a href="#" class="btn btn-primary">
