@@ -13,7 +13,7 @@
                 <div id="aaron-content" style="display: none" class="panel-body">
                     <div align="center">
                         <p>
-                            <img src="img/aaron.png"></img>
+                            <img src="{{ asset('img/aaron.png') }}"></img>
                         </p>
                         <hr>
                         <p>Aaron is in their final semester of the <strong>Bachelor of Information Technology</strong>.</p>
@@ -23,7 +23,7 @@
                 <div id="ozlem-content" style="display: none" class="panel-body">
                     <div align="center">
                         <p>
-                            <img src="img/ozlem.png"></img>
+                            <img src="{{ asset('img/ozlem.png') }}"></img>
                         </p>
                         <hr>
                         <p>Ozlem is in their final semester of the <strong>Bachelor of Information Technology</strong>.</p>
@@ -33,7 +33,7 @@
                 <div id="kim-content" style="display: none" class="panel-body">
                     <div align="center">
                         <p>
-                            <img src="img/kim.png"></img>
+                            <img src="{{ asset('img/kim.png') }}"></img>
                         </p>
                         <hr>
                         <p>Kim is in their second last semester of the <strong>Bachelor of Information Technology</strong>.</p>
@@ -43,7 +43,7 @@
                 <div id="melissa-content" style="display: none" class="panel-body">
                     <div align="center">
                         <p>
-                            <img src="img/melissa.png"></img>
+                            <img src="{{ asset('img/melissa.png') }}"></img>
                         </p>
                         <hr>
                         <p>Melissa is in their penultimate year of the <strong>Bachelor of Engineering (Computer and Network Engineering)/Bachelor of Computer Science</strong>.</p>
@@ -53,7 +53,7 @@
                 <div id="dennis-content" style="display: none" class="panel-body">
                     <div align="center">
                         <p>
-                            <img src="img/dennis.png"></img>
+                            <img src="{{ asset('img/dennis.png') }}"></img>
                         </p>
                         <hr>
                         <p>Dennis is in their last semester of the <strong>Bachelor of Information Technology</strong>.</p>
