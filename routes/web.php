@@ -38,11 +38,17 @@ Route::get('/terms', function (){
 
 Route::get('/job/{id}', 'JobController@jobIndex')->name('displayJob');
 
+Route::get('/employer/{id}', 'JobController@employerProfile')->name('employer');
+
 Route::get('/matches', 'JobController@matchIndex')->name('matches');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
+
+Route::get('/applications', 'ApplicationController@indexApplications')->name('applications');
+
+Route::get('/resume', 'ResumeController@viewResume')->name('resume');
 
 
 /* POST Controller Routes */
@@ -55,7 +61,9 @@ Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
 
-Route::post('/profile/upload', 'ProfileController@uploadResume')->name('resume');
+Route::post('/resume/upload', 'ResumeController@uploadResume')->name('uploadResume');
+
+Route::post('/resume/delete', 'ResumeController@deleteResume')->name('deleteResume');
 
 
 /* Authentication Routes */
@@ -69,4 +77,7 @@ Auth::routes();
 Route::get('/api/user', 'APIController@getUser')->name('getUser');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/{state}', 'APIController@getJobs')->name('getJobs');
+Route::get('/api/jobs/state/{state}', 'APIController@getJobsByState')->name('getJobsByState');
+
+/* Return jobs by state. */
+Route::get('/api/jobs/employer/{employerid}', 'APIController@getJobsByEmployer')->name('getJobsByEmployer');

@@ -4,8 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <h3><i class="fa fa-envelope" aria-hidden="true"></i> Contact</h3><br>
+            <p>Use the form below to contact the <a href="{{ route('about') }}">team</a>.</p>
+            <p>Please refer to the <a href="{{ route('support') }}">support page</a> before contacting us for support.</p><br>
+
             <div class="panel panel-default">
-                <div class="panel-heading">    Contact Us</div>
+                <div class="panel-heading">Contact Us</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('enquire') }}">
                         {{ csrf_field() }}

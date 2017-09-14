@@ -76,7 +76,7 @@
                             <label for="experience" class="col-md-4 control-label">Overall Experience (in years)</label>
 
                             <div class="col-md-6">
-                                <input id="experience" type="number" min="0" max="50" class="form-control" name="experience" value="{{ Auth::user()->experience }}" required autofocus>
+                                <input id="experience" type="number" min="0" max="100" class="form-control" name="experience" value="{{ Auth::user()->experience }}" required autofocus>
 
                                 @if ($errors->has('experience'))
                                     <span class="help-block">

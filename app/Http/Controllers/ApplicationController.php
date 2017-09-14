@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Employer;
 use App\Job;
 
 use Auth;
@@ -23,7 +24,7 @@ class ApplicationController extends Controller{
     /* Apply for a job. */
     public function apply(Request $request){
         $this->validate($request, [
-            'jobid' => 'required|uuid|exists:jobs,id',
+            'jobid' => 'required|regex:/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/|exists:jobs,id',
             'message' => 'required|string'
         ]);
 
@@ -40,10 +41,27 @@ class ApplicationController extends Controller{
                 'userid' => Auth::user()->id,
                 'employerid' => $job->employerid,
                 'jobid' => $id,
-                'message' => $request['message'],
+                'message' => $request['message']
             ]);
         }
 
-        return Redirect::route('matches');
+        return Redirect::route('applications');
+    }
+
+    /* Display applications page. */
+    public function indexApplications(){
+        $user = Auth::user();
+
+        $applications = Application::where('userid', $user->id)->get();
+
+        foreach($applications as $application){
+            $job = Job::findOrFail($application->jobid);
+            $application->jobtitle = $job->title;
+
+            $employer = Employer::findOrFail($application->employerid);
+            $application->employername = $employer->name;
+        }
+
+        return view('applications')->with(compact('applications'));
     }
 }

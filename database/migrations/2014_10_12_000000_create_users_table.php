@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->integer('experience');
-            
+
             /* Skills */
             $table->boolean('java');
             $table->boolean('python');

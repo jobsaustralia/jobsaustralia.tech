@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">License</div>
                 <div class="panel-body">
-                    <p><strong><a href="LICENSE">MIT License</a></strong></p>
+                    <p><strong><a href="{{ asset('LICENSE') }}">MIT License</a></strong></p>
 
                     <p>Copyright (c) 2017 Aaron Horler, Dennis Mihalache, Kim Luu, Melissa Nguyen, and Ozlem Kirmizi (as JobsAustralia.tech at RMIT University).</p>
 

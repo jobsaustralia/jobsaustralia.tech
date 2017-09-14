@@ -1,5 +1,5 @@
 /* Function to print job to panel in view. */
-function printJob(id, title, description, hours, salary, startDate, state, city, percentageMatch){
+function printJob(id, title, description, hours, rate, salary, startDate, state, city, employerName, employerId, percentageMatch){
     var display = document.getElementById("jobs");
 
     var panel = document.createElement("div");
@@ -41,11 +41,20 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     /* https://stackoverflow.com/a/2901298 */
     p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    if(hours == "fulltime"){
-        p3.innerHTML += " per annum.";
+    if(rate == "hourly"){
+        p3.innerHTML += " per hour";
+    }
+    else if(rate == "weekly"){
+        p3.innerHTML += " per week";
+    }
+    else if(rate == "fortnightly"){
+        p3.innerHTML += " per fortnight";
+    }
+    else if(rate == "monthly"){
+        p3.innerHTML += " per month";
     }
     else{
-        p3.innerHTML += " per hour.";
+        p3.innerHTML += " per annum";
     }
 
     p3Title.innerHTML = "Salary: ";
@@ -60,7 +69,7 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     p5.innerHTML = city;
 
     if(state == "vic"){
-        p5.innerHTML += ", Victoria.";
+        p5.innerHTML += ", Victoria";
     }
     else if(state == "nsw"){
         p5.innerHTML += ", New South Wales";
@@ -89,9 +98,17 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
 
     p5Title.innerHTML = "Location: ";
 
+    var p6 = document.createElement("p");
+    var p6Title = document.createElement("strong");
+    p6Title.innerHTML = "Employer: ";
+
+    var a1 = document.createElement("a");
+    a1.href = "/employer/" + employerId;
+    a1.innerHTML = employerName
+
     var hr2 = document.createElement("hr");
 
-    var p6 = document.createElement("p");
+    var p7 = document.createElement("p");
 
     var apply = document.createElement("a");
     apply.className = "btn btn-primary";
@@ -111,9 +128,12 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
     p4.prepend(p4Title);
     body.append(p5);
     p5.prepend(p5Title);
-    body.append(hr2);
     body.append(p6);
-    p6.append(apply);
+    p6.append(a1);
+    p6.prepend(p6Title);
+    body.append(hr2);
+    body.append(p7);
+    p7.append(apply);
     display.appendChild(panel);
 
     document.getElementById("loading").style.display = "none";
@@ -121,8 +141,13 @@ function printJob(id, title, description, hours, salary, startDate, state, city,
 
 /* Function to perform matchmaking. */
 function match(){
-    /* Get state filter from document. */
-    var stateFilter = document.getElementById("state").value;
+    /* Get filter from document. */
+    if(document.getElementById("state") !== null){
+        var resource = "/api/jobs/state/" + document.getElementById("state").value;
+    }
+    else{
+        var resource = "/api/jobs/employer/" + document.getElementById("employerid").value;
+    }
 
     /* Arbitrary number; no. of fields compared. */
     var noOfBits = 25;
@@ -140,19 +165,31 @@ function match(){
     var percentageMatch = [];
 
     /* Get current authenticated user data. */
-    $.getJSON("api/user/", function(data){
+    $.getJSON("/api/user/", function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
     }).then(function(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
-        $.getJSON( "api/jobs/" + stateFilter, function(data){
+        $.getJSON( resource, function(data){
             var i;
             for(i = 0; i < data.length; i++){
                 jobIndex[i] = i;
                 jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
+				
+				/* Find number of comparisons. */
+				var noOfComp = input | jobMatch[i];
+				
+				var bitComp = (noOfComp).toString(2);
+				
+				if(bitComp < 0){
+                    bitComp = (noOfComp >>> 0).toString(2);
+                    bitComp = bitComp.slice(-noOfBits);
+                }
 
-                /* Calculate percentage match */
-                var matchCalc = ~(input ^ jobMatch[i]);
+                var countComp = bitComp.replace(/[^1]/g, "").length;
+				
+				/* Find number of matches. */
+                var matchCalc = input & jobMatch[i];
 
                 var toBinary = (matchCalc).toString(2);
 
@@ -162,8 +199,9 @@ function match(){
                 }
 
                 var count = toBinary.replace(/[^1]/g, "").length;
-
-                percentageMatch[i] = (count / noOfBits) * 100;
+				
+				/* Calculate percentage match. */
+                percentageMatch[i] = (count / countComp) * 100;
             }
 
             /* Bubble sort. */
@@ -196,12 +234,12 @@ function match(){
         .then(function(){
 
             /* Display jobs. */
-            $.getJSON( "api/jobs/" + stateFilter, function(data){
+            $.getJSON( resource, function(data){
                 if(data.length > 0){
                     var i;
                     for(i = 0; i < data.length; i++){
                         var order = jobIndex[i];
-                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].salary, data[order].startdate, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].rate, data[order].salary, data[order].startdate, data[order].state, data[order].city, data[order].employername, data[order].employerid, Math.round(percentageMatch[i]));
                     }
                 }
                 else{
@@ -238,4 +276,7 @@ function init(){
 }
 
 document.addEventListener('DOMContentLoaded', init);
-document.getElementById("state").addEventListener('change', init);
+
+if(document.getElementById("state") !== null){
+    document.getElementById("state").addEventListener('change', init);
+}

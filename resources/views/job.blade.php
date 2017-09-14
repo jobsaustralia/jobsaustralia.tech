@@ -5,22 +5,21 @@
     <div class="row">
         <div @if ($count == 0) id="job" @endif class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>{{ $title }}</strong></div>
+                <div class="panel-heading"><strong>{{ $title }}</strong> by <a href="{{ asset('employer/' . $employerid) }}"> {{ $employername }}</a></div>
 
                 <div class="panel-body">
                     <p>{{ $description }}</p>
 
                     <hr>
 
-                    <p><strong>Hours:</strong> @if ($hours == "fulltime") Full time @elseif ($hours == "parttime") Part time @elseif ($hours == "casual") Casual @endif</p>
-                    <p><strong>Salary:</strong> {{ $salary }}</p>
+                    <p><strong>Term:</strong> @if ($term == "fixed") Fixed @else Permanent @endif </p>
+                    <p><strong>Hours:</strong> @if ($hours == "fulltime") Full time @elseif ($hours == "parttime") Part time @else Casual @endif</p>
+                    <p><strong>Salary:</strong> &#36;{{ number_format($salary) }} @if ($rate == "hourly") per hour @elseif ($rate == "weekly") per week @elseif ($rate == "monthly") per month @else per annum @endif </p>
                     <p><strong>Start Date:</strong> {{ $startdate }}</p>
 
                     <hr>
 
-                    <p><strong>State/Territory:</strong> @if ($state == "vic") Victoria @elseif ($state == "nsw") New South Wales @elseif ($state == "qld") Queensland @elseif ($state == "wa") Western Australia @elseif ($state == "sa") South Australia @elseif ($state == "tas") Tasmania @elseif ($state == "act") Australian Capital Territory @elseif ($state == "nt") Northern Territory @elseif ($state == "oth") Other Australian Region @endif</p>
-                    
-                    <p><strong>City:</strong> {{ $city }}</p>
+                    <p><strong>Location:</strong> {{ $city }}, @if ($state == "vic") Victoria @elseif ($state == "nsw") New South Wales @elseif ($state == "qld") Queensland @elseif ($state == "wa") Western Australia @elseif ($state == "sa") South Australia @elseif ($state == "tas") Tasmania @elseif ($state == "act") Australian Capital Territory @elseif ($state == "nt") Northern Territory @else Other Australian Region @endif</p>
 
                     <hr>
 

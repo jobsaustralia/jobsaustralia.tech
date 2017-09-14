@@ -13,8 +13,7 @@
                     <p><strong>Job Title:</strong> {{ Auth::user()->title }}</p>
                     <p><strong>Sector:</strong> {{ Auth::user()->sector }}</p>
                     <p><strong>Experience:</strong> {{ Auth::user()->experience }} @if (Auth::user()->experience == 1) year @else years @endif</p>
-                    <p><strong>State/Territory:</strong> @if (Auth::user()->state == "vic") Victoria @elseif (Auth::user()->state == "nsw") New South Wales @elseif (Auth::user()->state == "qld") Queensland @elseif (Auth::user()->state == "wa") Western Australia @elseif (Auth::user()->state == "sa") South Australia @elseif (Auth::user()->state == "tas") Tasmania @elseif (Auth::user()->state == "act") Australian Capital Territory @elseif (Auth::user()->state == "nt") Northern Territory @elseif (Auth::user()->state == "oth") Other Australian Region @endif</p>
-                    <p><strong>City:</strong> {{ Auth::user()->city }}</p>
+                    <p><strong>Location:</strong> {{ Auth::user()->city }}, @if (Auth::user()->state == "vic") Victoria @elseif (Auth::user()->state == "nsw") New South Wales @elseif (Auth::user()->state == "qld") Queensland @elseif (Auth::user()->state == "wa") Western Australia @elseif (Auth::user()->state == "sa") South Australia @elseif (Auth::user()->state == "tas") Tasmania @elseif (Auth::user()->state == "act") Australian Capital Territory @elseif (Auth::user()->state == "nt") Northern Territory @elseif (Auth::user()->state == "oth") Other Australian Region @endif</p>
 
                     <hr>
 
@@ -69,8 +68,17 @@
 
                 <div class="panel-body">
                     <p>Uploading a resume is optional.</p>
+                    <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a class="text-danger" href="{{ route('deleteResume') }}" onclick="event.preventDefault(); document.getElementById('delete-resume-form').submit();">Delete</a> @else None. @endif</p>
 
-                    <form class="form-horizontal" method="POST" action="{{ route('resume') }}">
+                    <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+
+                    <hr>
+
+                    <p><strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) Replace your current resume. @else Upload your resume. @endif</strong></p>
+
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('resume') ? ' has-error' : '' }}">
