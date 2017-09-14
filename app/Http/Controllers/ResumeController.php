@@ -26,8 +26,6 @@ class ResumeController extends Controller{
         $path = storage_path('app/public/resumes/' . $filename);
 
         if(File::exists($path)){
-            $file = File::get($path);
-
             return Response::make(file_get_contents($path), 200, [
                 'Content-Type' => 'application/pdf',
                 'Content-Disposition' => 'inline; filename="'.$filename.'"'

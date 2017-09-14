@@ -57,7 +57,7 @@
                         </div>
                     </div>
 
-                    <form id="delete-form" action="{{ route('delete') }}" method="POST"  style="display: none;">
+                    <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </div>
@@ -70,7 +70,7 @@
                     <p>Uploading a resume is optional.</p>
                     <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a class="text-danger" href="{{ route('deleteResume') }}" onclick="event.preventDefault(); document.getElementById('delete-resume-form').submit();">Delete</a> @else None. @endif</p>
 
-                    <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST"  style="display: none;">
+                    <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
 

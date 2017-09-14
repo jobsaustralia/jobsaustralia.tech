@@ -48,8 +48,6 @@ class ApplicationController extends Controller{
         return Redirect::route('applications');
     }
 
-
-
     /* Display applications page. */
     public function indexApplications(){
         $user = Auth::user();
