@@ -11,7 +11,7 @@ class Application extends Model{
      *
      * @var array
      */
-    protected $fillable = ['id', 'userid', 'employerid', 'jobid', 'message', 'resume'];
+    protected $fillable = ['id', 'userid', 'employerid', 'jobid', 'message'];
 
     protected $table = 'applications';
 

@@ -28,8 +28,6 @@ class CreateApplicationsTable extends Migration
 
             $table->text('message');
 
-            $table->string('resume');
-
             $table->timestamps();
         });
     }

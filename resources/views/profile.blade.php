@@ -68,8 +68,17 @@
 
                 <div class="panel-body">
                     <p>Uploading a resume is optional.</p>
-                    <p><strong>Current resume on our database:</strong> {{ Auth::user()->resume }}</p>
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('resume') }}">
+                    <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a class="text-danger" href="{{ route('deleteResume') }}" onclick="event.preventDefault(); document.getElementById('delete-resume-form').submit();">Delete</a> @else None. @endif</p>
+
+                    <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST"  style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+
+                    <hr>
+
+                    <p><strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) Replace your current resume. @else Upload your resume. @endif</strong></p>
+
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('resume') ? ' has-error' : '' }}">

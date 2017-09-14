@@ -48,6 +48,8 @@ Route::get('/profile/edit', 'ProfileController@editIndex')->name('editProfile');
 
 Route::get('/applications', 'ApplicationController@indexApplications')->name('applications');
 
+Route::get('/resume', 'ResumeController@viewResume')->name('resume');
+
 
 /* POST Controller Routes */
 
@@ -59,7 +61,9 @@ Route::post('/profile/delete', 'ProfileController@delete')->name('delete');
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('updateProfile');
 
-Route::post('/resume/upload', 'ResumeController@uploadResume')->name('resume');
+Route::post('/resume/upload', 'ResumeController@uploadResume')->name('uploadResume');
+
+Route::post('/resume/delete', 'ResumeController@deleteResume')->name('deleteResume');
 
 
 /* Authentication Routes */

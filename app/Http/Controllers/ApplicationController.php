@@ -41,8 +41,7 @@ class ApplicationController extends Controller{
                 'userid' => Auth::user()->id,
                 'employerid' => $job->employerid,
                 'jobid' => $id,
-                'message' => $request['message'],
-                'resume' => $request['resume'],
+                'message' => $request['message']
             ]);
         }
 
