@@ -202,6 +202,15 @@ function match(){
 				
 				/* Calculate percentage match. */
                 percentageMatch[i] = (count / countComp) * 100;
+				
+				/* Check for overqualification; if yes, set match to 100%. */
+				var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala;
+				
+				var countJob = bitJob.replace(/[^1]/g, "").length;
+				
+				if(count == countJob){
+					percentageMatch[i] = 100;
+				}
             }
 
             /* Bubble sort. */
