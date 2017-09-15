@@ -74,10 +74,10 @@ Auth::routes();
 /* API Routes */
 
 /* Return currently authenticated user. */
-Route::get('/api/user', 'APIController@getUser')->name('getUser');
+Route::get('/api/user/token/{token}', 'APIController@getUser')->name('getUser');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/state/{state}', 'APIController@getJobsByState')->name('getJobsByState');
+Route::get('/api/jobs/state/{state}/token/{token}', 'APIController@getJobsByState')->name('getJobsByState');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/employer/{employerid}', 'APIController@getJobsByEmployer')->name('getJobsByEmployer');
+Route::get('/api/jobs/employer/{employerid}/token/{token}', 'APIController@getJobsByEmployer')->name('getJobsByEmployer');

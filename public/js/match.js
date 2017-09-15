@@ -149,6 +149,9 @@ function match(){
         var jobResource = "/api/jobs/employer/" + document.getElementById("employerid").value;
     }
 
+    /* Get CSRF token from document. */
+    var token = document.getElementsByName("csrf-token")[0].content;
+
     /* Arbitrary number; no. of fields compared. */
     var noOfBits = 25;
 
@@ -164,21 +167,21 @@ function match(){
     /* Array of percentage matches. */
     var percentageMatch = [];
 
-    /* Array to store applicant for later use. */
-    var app = [];
+    /* Array to store jobs for later use. */
+    var jobs = [];
 
     /* Get current authenticated user data. */
-    $.getJSON("/api/user/", function(data){
+    $.getJSON("/api/user/token/" + token, function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
     }).then(function(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
-        $.getJSON(jobResource, function(data){
+        $.getJSON(jobResource + "/token/" + token, function(data){
             if(data.length > 0){
                 var i;
                 for(i = 0; i < data.length; i++){
                     /* Store jobs to storage array. */
-                    job[i] = data[i];
+                    jobs[i] = data[i];
 
                     jobIndex[i] = i;
                     jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
