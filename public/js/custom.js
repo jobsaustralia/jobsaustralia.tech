@@ -12,10 +12,10 @@ function toggleDisplay(){
 
 /* Function to toggle the display of each team member on the about page. */
 function toggleTeamDisplay(){
-    document.getElementById("aaron-content").style.display = "none";
-    document.getElementById("ozlem-content").style.display = "none";
     document.getElementById("kim-content").style.display = "none";
+    document.getElementById("aaron-content").style.display = "none";
     document.getElementById("melissa-content").style.display = "none";
+    document.getElementById("ozlem-content").style.display = "none";
     document.getElementById("dennis-content").style.display = "none";
     document.getElementById(event.target.id + "-content").style.display = "block";
 }
@@ -33,7 +33,7 @@ function randomiseTeam(){
         }
     }
 
-    var team = ["aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "kim,Kim Luu", "melissa,Melissa Nguyen", "dennis,Dennis Mihalache"];
+    var team = ["dennis,Dennis Mihalache", "kim,Kim Luu", "aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "melissa,Melissa Nguyen"];
     shuffle(team);
 
     var namesDiv = document.getElementById("names");
@@ -52,11 +52,11 @@ function randomiseTeam(){
 
     document.getElementById(team[0].split(",")[0] + "-content").style.display = "block";
 
-    document.getElementById("aaron").addEventListener("click", toggleTeamDisplay);
-    document.getElementById("ozlem").addEventListener("click", toggleTeamDisplay);
     document.getElementById("kim").addEventListener("click", toggleTeamDisplay);
     document.getElementById("melissa").addEventListener("click", toggleTeamDisplay);
+    document.getElementById("ozlem").addEventListener("click", toggleTeamDisplay);
     document.getElementById("dennis").addEventListener("click", toggleTeamDisplay);
+    document.getElementById("aaron").addEventListener("click", toggleTeamDisplay);
 }
 
 /* Function to automatically populate relevant fields when student checkbox is checked on registration page. */
@@ -77,11 +77,23 @@ function studentFill(){
     }
 }
 
+/* Function to submit POST data to server with form in the background. */
+function submitForm(){
+    event.preventDefault();
+    document.getElementById(event.target.id + "-form").submit();
+}
+
 /* Add EventListeners depending on current page loaded. */
 if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("really-confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("change-password").addEventListener("click", toggleDisplay);
+    document.getElementById("logout").addEventListener("click", submitForm);
+    document.getElementById("delete").addEventListener("click", submitForm);
+
+    if(document.getElementById("delete-resume") !== null){
+        document.getElementById("delete-resume").addEventListener("click", submitForm);
+    }
 }
 else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
