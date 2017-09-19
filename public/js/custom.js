@@ -88,7 +88,6 @@ if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("really-confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("change-password").addEventListener("click", toggleDisplay);
-    document.getElementById("logout").addEventListener("click", submitForm);
     document.getElementById("delete").addEventListener("click", submitForm);
 
     if(document.getElementById("delete-resume") !== null){
@@ -103,4 +102,9 @@ else if(document.getElementById("team") !== null){
 }
 else if(document.getElementById("job") !== null){
     document.getElementById("apply").addEventListener("click", toggleDisplay);
+}
+
+/* Add EventListener to logout link. */
+if(document.getElementById("logout") !== null){
+    document.getElementById("logout").addEventListener("click", submitForm);
 }
