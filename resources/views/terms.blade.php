@@ -4,7 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h3><i class="fa fa-gavel" aria-hidden="true"></i> Legal - License, Terms, and Privacy Policy.</h3><br>
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Legal</strong></div>
+                <div class="panel-body">
+                    <p align="center"><i class="fa fa-gavel" aria-hidden="true" style="font-size: 75px"></i></p>
+                    <p>JobsAustralia.tech is published with a license, terms of use, and a privacy policy.</p>
+                    <p>Please read this page before using the service.</p>
+                </div>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">License</div>
                 <div class="panel-body">
