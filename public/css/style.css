@@ -42,6 +42,10 @@ body {
 	color: #CCC;
 }
 
+/*.panel-default {
+	border-color: #1d262b;
+}*/
+
 /* jobsaustralia.tech nav bar hover colour. */
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
 	color: white;
