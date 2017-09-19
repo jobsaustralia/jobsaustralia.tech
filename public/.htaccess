@@ -20,7 +20,7 @@
 
     # CSP for internal testing purposes only.
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com"
-    
+
     # Force HTTPS
     RewriteCond %{HTTPS} off
     RewriteCond %{SERVER_NAME} =jobsaustralia.tech [OR]
