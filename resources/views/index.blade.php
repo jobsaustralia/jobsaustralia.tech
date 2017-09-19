@@ -41,7 +41,7 @@
                 <div class="panel-body" align="center">
                     <p><i class="fa fa-compass" aria-hidden="true" style="font-size: 100px"></i></p>
                     <p><strong>Step 1:</strong> Register yourself with JobsAustralia.tech</p>
-                    <p><strong>Step 2:</strong> Creat your own profile without having to submit your resume or cover letter. However, it is recommended that you pay high attention to listing your IT skills.</p>
+                    <p><strong>Step 2:</strong> Create your own profile without having to submit your resume or cover letter. However, it is recommended that you pay high attention to listing your IT skills.</p>
                     <p><strong>Step 3:</strong> Wait for your notifications whenever we find you a great match with an employer!</p>
                 </div>
             </div>
