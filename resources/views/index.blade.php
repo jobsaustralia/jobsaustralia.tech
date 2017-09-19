@@ -25,6 +25,16 @@
             </div>
 
             <div class="panel panel-default">
+                <div class="panel-heading"><strong>GitHub integration</strong></div>
+
+                <div class="panel-body" align="center">
+                    <p><i class="fa fa-github" aria-hidden="true" style="font-size: 100px"></i></p>
+                    <p>JobsAustralia.tech optionally integrates with GitHub to detect your programming skillset.</p>
+                    <p>We then report any relevant repositories to employers when you apply for their job.</p>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
                 <div class="panel-heading"><strong>We're here for you</strong></div>
 
                 <div class="panel-body" align="center">
