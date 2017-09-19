@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->integer('experience');
+			$table->string('github')->nullable();
 
             /* Skills */
             $table->boolean('java');
