@@ -5,11 +5,10 @@
     <div class="row">
         <div id="team" class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>About Us</strong></div>
                 <div class="panel-body">
-                    <p align="center"><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 75px"></i></p>
-                    <p>JobsAustralia.tech is a project for Programming Project 1 at RMIT University, in Semester Two of 2017.</p>
-                    <p>Read about our five team members below, using the buttons to cycle through.</p>
+                <h3><i class="fa fa-info-circle" aria-hidden="true"></i> About Us - The Team</h3>
+                <p>JobsAustralia.tech is a project for Programming Project 1 at RMIT University, in Semester Two of 2017.</p>
+                <p>Read about our five team members below, using the buttons to cycle through.</p>
                 </div>
             </div>
 

@@ -5,10 +5,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>Support - Job Seekers FAQ</strong></div>
                 <div class="panel-body">
-                    <p align="center"><i class="fa fa-life-ring" aria-hidden="true" style="font-size: 75px"></i></p>
-                    <p>I have no idea what to write here.</p>
+                <h3><i class="fa fa-life-ring" aria-hidden="true"></i> Support - Job Seekers FAQ</h3>
                 </div>
             </div>
             <div class="panel panel-default">

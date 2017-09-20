@@ -3,15 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>Contact</strong></div>
                 <div class="panel-body">
-                    <p align="center"><i class="fa fa-envelope" aria-hidden="true" style="font-size: 75px"></i></p>
+                <h3><i class="fa fa-envelope" aria-hidden="true"></i> Contact</h3>
                     <p>Use the form below to contact the <a href="{{ route('about') }}">team</a>.</p>
                     <p>Please refer to the <a href="{{ route('support') }}">support page</a> before contacting us for support.</p>
                 </div>
             </div>
+
 
             <div class="panel panel-default">
                 <div class="panel-heading">Contact Us</div>
