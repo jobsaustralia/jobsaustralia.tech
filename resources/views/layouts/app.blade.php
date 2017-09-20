@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/icomoon/style.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
@@ -46,7 +47,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ asset('/') }}">
-                        JobsAustralia.tech Job Seekers
+                        <span class="icon-jobsaustralia-logo"></span> JobsAustralia.tech Job Seekers
                     </a>
                 </div>
 

@@ -8,7 +8,7 @@
                 <div class="panel-heading"><strong>Welcome</strong></div>
 
                 <div class="panel-body" align="center">
-                    <p><i class="fa fa-briefcase" aria-hidden="true" style="font-size: 100px"></i></p>
+                    <p><span class="icon-jobsaustralia-logo" style="font-size: 100px"></span></p>
                     <p>JobsAustralia.tech is a job matchmaking website based in Melbourne, Australia focusing in the fields of <strong>Information Technology</strong>, <strong>Computer Science</strong>, and <strong>Software Engineering</strong>.</p><br>
                     <p><a class="btn btn-primary" @if (Auth::guest()) href="{{ route('register') }}">Register now @else href="{{ route('matches') }}">View matches @endif</a></p>
                 </div>
