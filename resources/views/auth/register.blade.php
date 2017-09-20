@@ -147,10 +147,10 @@
 						
 						<!-- GitHub -->
                         <div class="form-group{{ $errors->has('github') ? ' has-error' : '' }}">
-                            <label for="github" class="col-md-4 control-label">GitHub Username</label>
+                            <label for="github" class="col-md-4 control-label"><i class="fa fa-github" aria-hidden="true"></i> GitHub Username</label>
 
                             <div class="col-md-6">
-                                <input id="github" type="text" class="form-control" name="github" pattern="[a-zA-Z ]+" value="{{ old('github') }}" placeholder="Optional">
+                                <input id="github" type="text" class="form-control" name="github" pattern="[a-zA-Z0-9\- ]+" value="{{ old('github') }}" placeholder="Optional">
 
                                 @if ($errors->has('github'))
                                     <span class="help-block">
