@@ -48,10 +48,6 @@ class JobsTableSeeder extends Seeder
             'ruby' => 1,
             'asp' => 1,
             'scala' => 0,
-<<<<<<< HEAD
-            'employerid' => '3c530309-58c0-4ca8-8d17-559e03cfd89f'
-=======
->>>>>>> origin/master
             'employerid' => 'db930f90-17a8-468a-b094-7416f0c63e99'
         ]);
 
@@ -91,13 +87,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
-<<<<<<< HEAD
-            'employerid' => 'c4136b6b-fa8a-4310-b6ba-9796de38f7f4'
             'employerid' => '7c8b051d-62d7-4250-b679-4ffffc2d1d5f'
-
-=======
-            'employerid' => '7c8b051d-62d7-4250-b679-4ffffc2d1d5f'
->>>>>>> origin/master
         ]);
 
         DB::table('jobs')->insert([
@@ -136,10 +126,6 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 1,
             'scala' => 0,
-<<<<<<< HEAD
-            'employerid' => '5f21384a-a3f0-4cde-8d3a-f5ee33b8cf36'
-=======
->>>>>>> origin/master
             'employerid' => '400fa8b2-f8f9-4c64-9b70-ea6ea2e1fe2d'
         ]);
 
@@ -178,11 +164,6 @@ class JobsTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-<<<<<<< HEAD
-            'scala' => 1,
-            'employerid' => '16c4200e-a25f-4ec9-a484-a62dd294857a'
-=======
->>>>>>> origin/master
             'scala' => 0,
             'employerid' => '5ed27969-c2cc-4d02-b7f6-c1bf0b19d613'
         ]);
@@ -223,10 +204,6 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
-<<<<<<< HEAD
-            'employerid' => '05210bc3-5ffd-4f6f-810f-5c4bb1326cbe'
-=======
->>>>>>> origin/master
             'employerid' => '593e4d9f-e71e-468f-b38a-572afd5ba2f7'
         ]);
 
@@ -384,126 +361,6 @@ class JobsTableSeeder extends Seeder
             'asp' => 0,
             'scala' => 0,
             'employerid' => '3d7fb46d-489c-402e-b995-db4d3d158eb5'
-<<<<<<< HEAD
-        ]);
-
-        DB::table('jobs')->insert([
-            'id' => '94bd9738-4d47-410b-ab8b-f72d5fd3972f',
-            'title' => 'Business Analyst',
-            'description' => 'We are looking for a Business Analyst to operate as the analytical horse power of Whai Maia.  The role will track and measure strategic and operational impact that programmes and projects have on KPI results and operational efficiency of Whai Maia.',
-            'term' => 'permanent',
-            'hours' => 'fulltime',
-            'rate' => 'annually',
-            'salary' => 60000,
-            'startdate' => '2017-10-15',
-            'state' => 'tas',
-            'city' => 'Kingston',
-            'java' => 1,
-            'python' => 0,
-            'c' => 0,
-            'csharp' => 0,
-            'cplus' => 0,
-            'php' => 0,
-            'html' => 1,
-            'css' => 1,
-            'javascript' => 1,
-            'sql' => 1,
-            'unix' => 0,
-            'winserver' => 0,
-            'windesktop' => 0,
-            'linuxdesktop' => 0,
-            'macosdesktop' => 0,
-            'pearl' => 0,
-            'bash' => 0,
-            'batch' => 0,
-            'cisco' => 0,
-            'office' => 1,
-            'r' => 0,
-            'go' => 0,
-            'ruby' => 0,
-            'asp' => 0,
-            'scala' => 0,
-            'employerid' => 'c4136b6b-fa8a-4310-b6ba-9796de38f7f4'
-        ]);
-
-        DB::table('jobs')->insert([
-            'id' => '80df9621-8337-4537-9f2d-4f80ce3803f9',
-            'title' => 'Cloud Architect',
-            'description' => 'For a Cloud consultant to support client engagement and consulting around Cloud technology roadmaps for new and existing Enterprise clients.',
-            'term' => 'permanent',
-            'hours' => 'fulltime',
-            'rate' => 'annually',
-            'salary' => 95000,
-            'startdate' => '2017-10-15',
-            'state' => 'nt',
-            'city' => 'Darwin',
-            'java' => 1,
-            'python' => 0,
-            'c' => 1,
-            'csharp' => 1,
-            'cplus' => 1,
-            'php' => 0,
-            'html' => 1,
-            'css' => 1,
-            'javascript' => 1,
-            'sql' => 0,
-            'unix' => 0,
-            'winserver' => 0,
-            'windesktop' => 0,
-            'linuxdesktop' => 0,
-            'macosdesktop' => 0,
-            'pearl' => 0,
-            'bash' => 0,
-            'batch' => 0,
-            'cisco' => 0,
-            'office' => 1,
-            'r' => 0,
-            'go' => 0,
-            'ruby' => 0,
-            'asp' => 0,
-            'scala' => 0,
-            'employerid' => '5f721744-eac8-42e6-8e1b-b7a9d9e1a61d'
-        ]);
-
-        DB::table('jobs')->insert([
-            'id' => '715a0394-7737-4d16-8f74-4789040ed372',
-            'title' => 'Senior PHP Developer',
-            'description' => 'PHP Developer to work on the core product and periphery elements, at every stage and level of the product life-cycle, including internal stakeholder management.',
-            'term' => 'permanent',
-            'hours' => 'fulltime',
-            'rate' => 'annually',
-            'salary' => 110000,
-            'startdate' => '2017-10-15',
-            'state' => 'act',
-            'city' => 'Canberra',
-            'java' => 1,
-            'python' => 0,
-            'c' => 0,
-            'csharp' => 0,
-            'cplus' => 0,
-            'php' => 1,
-            'html' => 1,
-            'css' => 1,
-            'javascript' => 1,
-            'sql' => 1,
-            'unix' => 0,
-            'winserver' => 0,
-            'windesktop' => 0,
-            'linuxdesktop' => 0,
-            'macosdesktop' => 0,
-            'pearl' => 0,
-            'bash' => 0,
-            'batch' => 0,
-            'cisco' => 0,
-            'office' => 1,
-            'r' => 0,
-            'go' => 0,
-            'ruby' => 0,
-            'asp' => 0,
-            'scala' => 0,
-            'employerid' => '5f721744-eac8-42e6-8e1b-b7a9d9e1a61d'
-=======
->>>>>>> origin/master
         ]);
     }
 }
