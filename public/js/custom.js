@@ -85,69 +85,88 @@ function submitForm(){
 
 /* Function to autofill skills from GitHub. */
 function autoFill(){
+    document.getElementById("github-error-generic").style.display = "none";
+    document.getElementById("github-error-username").style.display = "none";
+
+    /* Get GitHub username from document. */
 	var username = document.getElementById("github").value;
-	var resource = "https://api.github.com/users/" + username + "/repos";
-	
-	$.getJSON(resource, function(data){
-		var i;
-		for(i = 0; i < data.length; i++){
-			/* Ignore repositories with no recognised language, and ignore forks. */
-			if(data[i].language !== null && data[i].fork == false){
-				/* This is an ultra-simple solution. Obviously, this needs to only check required skills (probably by comparing to an array).*/
-				if(data[i].language == "Java"){
-					document.getElementById("java").checked = true;
-				}
-				if(data[i].language == "Python"){
-					document.getElementById("python").checked = true;
-				}
-				if(data[i].language == "C"){
-					document.getElementById("c").checked = true;
-				}
-				if(data[i].language == "C#"){
-					document.getElementById("csharp").checked = true;
-				}
-				if(data[i].language == "C++"){
-					document.getElementById("cplus").checked = true;
-				}
-				if(data[i].language == "PHP"){
-					document.getElementById("php").checked = true;
-				}
-				if(data[i].language == "HTML"){
-					document.getElementById("html").checked = true;
-				}
-				if(data[i].language == "CSS"){
-					document.getElementById("css").checked = true;
-				}
-				if(data[i].language == "JavaScript"){
-					document.getElementById("javascript").checked = true;
-				}
-				if(data[i].language == "SQL"){
-					document.getElementById("sql").checked = true;
-				}
-				if(data[i].language == "Pearl"){
-					document.getElementById("pearl").checked = true;
-				}
-				if(data[i].language == "Bash"){
-					document.getElementById("bash").checked = true;
-				}
-				if(data[i].language == "Batch"){
-					document.getElementById("batch").checked = true;
-				}
-				if(data[i].language == "R"){
-					document.getElementById("r").checked = true;
-				}
-				if(data[i].language == "Go"){
-					document.getElementById("go").checked = true;
-				}
-				if(data[i].language == "Ruby"){
-					document.getElementById("ruby").checked = true;
-				}
-				if(data[i].language == "Scala"){
-					document.getElementById("scala").checked = true;
-				}
-			}
-		}
-	})
+
+    if(username !== "" && username !== null){
+        $("#autofill-btn").attr("disabled", true);
+
+    	var resource = "https://api.github.com/users/" + username + "/repos";
+    	
+    	$.getJSON(resource, function(data){
+    		var i;
+    		for(i = 0; i < data.length; i++){
+
+    			/* Ignore repositories with no recognised language, and ignore forks. */
+    			if(data[i].language !== null && data[i].fork == false){
+
+                    /* Compare language in API, and check boxes accordingly. */
+    				if(data[i].language == "Java"){
+    					document.getElementById("java").checked = true;
+    				}
+    				else if(data[i].language == "Python"){
+    					document.getElementById("python").checked = true;
+    				}
+    				else if(data[i].language == "C"){
+    					document.getElementById("c").checked = true;
+    				}
+    				else if(data[i].language == "C#"){
+    					document.getElementById("csharp").checked = true;
+    				}
+    				else if(data[i].language == "C++"){
+    					document.getElementById("cplus").checked = true;
+    				}
+    				else if(data[i].language == "PHP"){
+    					document.getElementById("php").checked = true;
+    				}
+    				else if(data[i].language == "HTML"){
+    					document.getElementById("html").checked = true;
+    				}
+    				else if(data[i].language == "CSS"){
+    					document.getElementById("css").checked = true;
+    				}
+    				else if(data[i].language == "JavaScript"){
+    					document.getElementById("javascript").checked = true;
+    				}
+    				else if(data[i].language == "SQL"){
+    					document.getElementById("sql").checked = true;
+    				}
+    				else if(data[i].language == "Shell"){
+    					document.getElementById("bash").checked = true;
+    				}
+    				else if(data[i].language == "Batchfile"){
+    					document.getElementById("batch").checked = true;
+    				}
+    				else if(data[i].language == "R"){
+    					document.getElementById("r").checked = true;
+    				}
+    				else if(data[i].language == "Go"){
+    					document.getElementById("go").checked = true;
+    				}
+    				else if(data[i].language == "Ruby"){
+    					document.getElementById("ruby").checked = true;
+    				}
+    				else if(data[i].language == "Scala"){
+    					document.getElementById("scala").checked = true;
+    				}
+    			}
+    		}
+    	})
+        .then(function(){
+            $("#autofill-btn").attr("disabled", false);
+        })
+        .fail(function(){
+            $("#autofill-btn").attr("disabled", false);
+            document.getElementById("github-error-generic").style.display = "block";
+        });
+    }
+    else{
+        $("#autofill-btn").attr("disabled", false);
+        document.getElementById("github-error-username").style.display = "block";
+    }
 }
 
 /* Add EventListeners depending on current page loaded. */
