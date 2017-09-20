@@ -144,8 +144,8 @@
                         </div>
 
                         <hr>
-						
-						<!-- GitHub -->
+                        
+                        <!-- GitHub -->
                         <div class="form-group{{ $errors->has('github') ? ' has-error' : '' }}">
                             <label for="github" class="col-md-4 control-label"><i class="fa fa-github" aria-hidden="true"></i> GitHub Username</label>
 
@@ -159,18 +159,18 @@
                                 @endif
                             </div>
                         </div>
-						
-						<hr>
+                        
+                        <hr>
 
                         <h4 align="center">Skills</h4>
 
                         <p align="center">Please select any skills you have (by self assessment).</p>
-						
-						<div class="form-group">
-							<p align ="center">
-								<a href="javascript:void(0)" id="autofill-btn" class="btn btn-primary">
-									Autofill skills from GitHub
-								</a>
+                        
+                        <div class="form-group">
+                            <p align ="center">
+                                <a href="javascript:void(0)" id="autofill-btn" class="btn btn-primary">
+                                    Autofill skills from GitHub
+                                </a>
                             </p>
 
                             <p id="github-error-generic" class="text-danger" style="display: none" align="center">Please check your GitHub username.</p>

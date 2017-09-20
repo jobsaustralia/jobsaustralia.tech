@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller{
 
-	/* Send an email. */
+    /* Send an email. */
     public function send(Request $request){
         // Nothing here yet.
     }

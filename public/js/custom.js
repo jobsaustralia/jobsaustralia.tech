@@ -89,72 +89,72 @@ function autoFill(){
     document.getElementById("github-error-username").style.display = "none";
 
     /* Get GitHub username from document. */
-	var username = document.getElementById("github").value;
+    var username = document.getElementById("github").value;
 
     if(username !== "" && username !== null){
         $("#autofill-btn").attr("disabled", true);
 
-    	var resource = "https://api.github.com/users/" + username + "/repos";
-    	
-    	$.getJSON(resource, function(data){
-    		var i;
-    		for(i = 0; i < data.length; i++){
+        var resource = "https://api.github.com/users/" + username + "/repos";
+        
+        $.getJSON(resource, function(data){
+            var i;
+            for(i = 0; i < data.length; i++){
 
-    			/* Ignore repositories with no recognised language, and ignore forks. */
-    			if(data[i].language !== null && data[i].fork == false){
+                /* Ignore repositories with no recognised language, and ignore forks. */
+                if(data[i].language !== null && data[i].fork == false){
 
                     /* Compare language in API, and check boxes accordingly. */
-    				if(data[i].language == "Java"){
-    					document.getElementById("java").checked = true;
-    				}
-    				else if(data[i].language == "Python"){
-    					document.getElementById("python").checked = true;
-    				}
-    				else if(data[i].language == "C"){
-    					document.getElementById("c").checked = true;
-    				}
-    				else if(data[i].language == "C#"){
-    					document.getElementById("csharp").checked = true;
-    				}
-    				else if(data[i].language == "C++"){
-    					document.getElementById("cplus").checked = true;
-    				}
-    				else if(data[i].language == "PHP"){
-    					document.getElementById("php").checked = true;
-    				}
-    				else if(data[i].language == "HTML"){
-    					document.getElementById("html").checked = true;
-    				}
-    				else if(data[i].language == "CSS"){
-    					document.getElementById("css").checked = true;
-    				}
-    				else if(data[i].language == "JavaScript"){
-    					document.getElementById("javascript").checked = true;
-    				}
-    				else if(data[i].language == "SQL"){
-    					document.getElementById("sql").checked = true;
-    				}
-    				else if(data[i].language == "Shell"){
-    					document.getElementById("bash").checked = true;
-    				}
-    				else if(data[i].language == "Batchfile"){
-    					document.getElementById("batch").checked = true;
-    				}
-    				else if(data[i].language == "R"){
-    					document.getElementById("r").checked = true;
-    				}
-    				else if(data[i].language == "Go"){
-    					document.getElementById("go").checked = true;
-    				}
-    				else if(data[i].language == "Ruby"){
-    					document.getElementById("ruby").checked = true;
-    				}
-    				else if(data[i].language == "Scala"){
-    					document.getElementById("scala").checked = true;
-    				}
-    			}
-    		}
-    	})
+                    if(data[i].language == "Java"){
+                        document.getElementById("java").checked = true;
+                    }
+                    else if(data[i].language == "Python"){
+                        document.getElementById("python").checked = true;
+                    }
+                    else if(data[i].language == "C"){
+                        document.getElementById("c").checked = true;
+                    }
+                    else if(data[i].language == "C#"){
+                        document.getElementById("csharp").checked = true;
+                    }
+                    else if(data[i].language == "C++"){
+                        document.getElementById("cplus").checked = true;
+                    }
+                    else if(data[i].language == "PHP"){
+                        document.getElementById("php").checked = true;
+                    }
+                    else if(data[i].language == "HTML"){
+                        document.getElementById("html").checked = true;
+                    }
+                    else if(data[i].language == "CSS"){
+                        document.getElementById("css").checked = true;
+                    }
+                    else if(data[i].language == "JavaScript"){
+                        document.getElementById("javascript").checked = true;
+                    }
+                    else if(data[i].language == "SQL"){
+                        document.getElementById("sql").checked = true;
+                    }
+                    else if(data[i].language == "Shell"){
+                        document.getElementById("bash").checked = true;
+                    }
+                    else if(data[i].language == "Batchfile"){
+                        document.getElementById("batch").checked = true;
+                    }
+                    else if(data[i].language == "R"){
+                        document.getElementById("r").checked = true;
+                    }
+                    else if(data[i].language == "Go"){
+                        document.getElementById("go").checked = true;
+                    }
+                    else if(data[i].language == "Ruby"){
+                        document.getElementById("ruby").checked = true;
+                    }
+                    else if(data[i].language == "Scala"){
+                        document.getElementById("scala").checked = true;
+                    }
+                }
+            }
+        })
         .then(function(){
             $("#autofill-btn").attr("disabled", false);
         })
@@ -182,7 +182,7 @@ if(document.getElementById("profile") !== null){
 }
 else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
-	document.getElementById("autofill-btn").addEventListener("click", autoFill);
+    document.getElementById("autofill-btn").addEventListener("click", autoFill);
 }
 else if(document.getElementById("edit-profile") !== null){
     document.getElementById("autofill-btn").addEventListener("click", autoFill);
