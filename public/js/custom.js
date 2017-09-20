@@ -12,10 +12,10 @@ function toggleDisplay(){
 
 /* Function to toggle the display of each team member on the about page. */
 function toggleTeamDisplay(){
-    document.getElementById("aaron-content").style.display = "none";
-    document.getElementById("ozlem-content").style.display = "none";
     document.getElementById("kim-content").style.display = "none";
+    document.getElementById("aaron-content").style.display = "none";
     document.getElementById("melissa-content").style.display = "none";
+    document.getElementById("ozlem-content").style.display = "none";
     document.getElementById("dennis-content").style.display = "none";
     document.getElementById(event.target.id + "-content").style.display = "block";
 }
@@ -33,7 +33,7 @@ function randomiseTeam(){
         }
     }
 
-    var team = ["aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "kim,Kim Luu", "melissa,Melissa Nguyen", "dennis,Dennis Mihalache"];
+    var team = ["dennis,Dennis Mihalache", "kim,Kim Luu", "aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "melissa,Melissa Nguyen"];
     shuffle(team);
 
     var namesDiv = document.getElementById("names");
@@ -52,11 +52,11 @@ function randomiseTeam(){
 
     document.getElementById(team[0].split(",")[0] + "-content").style.display = "block";
 
-    document.getElementById("aaron").addEventListener("click", toggleTeamDisplay);
-    document.getElementById("ozlem").addEventListener("click", toggleTeamDisplay);
     document.getElementById("kim").addEventListener("click", toggleTeamDisplay);
     document.getElementById("melissa").addEventListener("click", toggleTeamDisplay);
+    document.getElementById("ozlem").addEventListener("click", toggleTeamDisplay);
     document.getElementById("dennis").addEventListener("click", toggleTeamDisplay);
+    document.getElementById("aaron").addEventListener("click", toggleTeamDisplay);
 }
 
 /* Function to automatically populate relevant fields when student checkbox is checked on registration page. */
@@ -77,18 +77,102 @@ function studentFill(){
     }
 }
 
+/* Function to submit POST data to server with form in the background. */
+function submitForm(){
+    event.preventDefault();
+    document.getElementById(event.target.id + "-form").submit();
+}
+
+/* Function to autofill skills from GitHub. */
+function autoFill(){
+	var username = document.getElementById("github").value;
+	var resource = "https://api.github.com/users/" + username + "/repos";
+	
+	$.getJSON(resource, function(data){
+		var i;
+		for(i = 0; i < data.length; i++){
+			/* Ignore repositories with no recognised language, and ignore forks. */
+			if(data[i].language !== null && data[i].fork == false){
+				/* This is an ultra-simple solution. Obviously, this needs to only check required skills (probably by comparing to an array).*/
+				if(data[i].language == "Java"){
+					document.getElementById("java").checked = true;
+				}
+				if(data[i].language == "Python"){
+					document.getElementById("python").checked = true;
+				}
+				if(data[i].language == "C"){
+					document.getElementById("c").checked = true;
+				}
+				if(data[i].language == "C#"){
+					document.getElementById("csharp").checked = true;
+				}
+				if(data[i].language == "C++"){
+					document.getElementById("cplus").checked = true;
+				}
+				if(data[i].language == "PHP"){
+					document.getElementById("php").checked = true;
+				}
+				if(data[i].language == "HTML"){
+					document.getElementById("html").checked = true;
+				}
+				if(data[i].language == "CSS"){
+					document.getElementById("css").checked = true;
+				}
+				if(data[i].language == "JavaScript"){
+					document.getElementById("javascript").checked = true;
+				}
+				if(data[i].language == "SQL"){
+					document.getElementById("sql").checked = true;
+				}
+				if(data[i].language == "Pearl"){
+					document.getElementById("pearl").checked = true;
+				}
+				if(data[i].language == "Bash"){
+					document.getElementById("bash").checked = true;
+				}
+				if(data[i].language == "Batch"){
+					document.getElementById("batch").checked = true;
+				}
+				if(data[i].language == "R"){
+					document.getElementById("r").checked = true;
+				}
+				if(data[i].language == "Go"){
+					document.getElementById("go").checked = true;
+				}
+				if(data[i].language == "Ruby"){
+					document.getElementById("ruby").checked = true;
+				}
+				if(data[i].language == "Scala"){
+					document.getElementById("scala").checked = true;
+				}
+			}
+		}
+	})
+}
+
 /* Add EventListeners depending on current page loaded. */
 if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("really-confirm-delete").addEventListener("click", toggleDisplay);
     document.getElementById("change-password").addEventListener("click", toggleDisplay);
+    document.getElementById("delete").addEventListener("click", submitForm);
+
+    if(document.getElementById("delete-resume") !== null){
+        document.getElementById("delete-resume").addEventListener("click", submitForm);
+    }
 }
 else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
+	document.getElementById("autofill-btn").addEventListener("click", autoFill);
 }
 else if(document.getElementById("team") !== null){
     document.addEventListener('DOMContentLoaded', randomiseTeam);
 }
 else if(document.getElementById("job") !== null){
     document.getElementById("apply").addEventListener("click", toggleDisplay);
+}
+
+/* Add EventListener to logout link. */
+if(document.getElementById("logout") !== null){
+    document.getElementById("logout").addEventListener("click", submitForm);
 }

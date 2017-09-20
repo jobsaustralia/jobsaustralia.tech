@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h3><i class="fa fa-briefcase" aria-hidden="true"></i> Your Applications</h3><br>
             @if (count($applications) > 0)
                 @foreach($applications as $application)
                 <div class="panel panel-default">
@@ -27,18 +26,25 @@
                 </div>
                 @endforeach
             @else
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
                 <!-- No applications div. Used to display message when user has no active applications. -->
-                <div align="center">
-                    <br><br>
-                    <p><i style="font-size: 200px" class="fa fa-ship " aria-hidden="true"></i></p>
-                    <br>
-                    <h2>No Applications Found.</h2>
-                    <p>This page will display your active applications.</p>
-                    <br>
-                    <p>
-                        <a href="{{ route('matches') }}" class="btn btn-primary">View matches</a>
-                    </p>
-                    <br><br>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong>Notice</strong></div>
+                    <div class="panel-body" align="center">
+                        <p><i style="font-size: 200px" class="fa fa-ship " aria-hidden="true"></i></p>
+                        <br>
+                        <h2>No Applications Found.</h2>
+                        <p>This page will display your active applications.</p>
+                        <br>
+                        <p>
+                            <a href="{{ route('matches') }}" class="btn btn-primary">View matches</a>
+                        </p>
+                    </div>
                 </div>
             @endif
         </div>

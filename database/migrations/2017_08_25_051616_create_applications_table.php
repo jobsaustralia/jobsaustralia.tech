@@ -27,6 +27,7 @@ class CreateApplicationsTable extends Migration
             $table->foreign('jobid')->references('id')->on('jobs')->onDelete('cascade');
 
             $table->text('message');
+			$table->boolean('rejected')->default(0);
 
             $table->timestamps();
         });

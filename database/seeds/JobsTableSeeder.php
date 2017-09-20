@@ -15,7 +15,6 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'id' => '5eddee25-eecb-4091-be1a-6d95efd0fac7',
             'title' => 'Software Developer',
-            'id' => '64b16ac6-b5b0-4083-bd78-0e5db84fb9d3',
             'description' => 'A dynamic company that delivers an online health and wellness platform to a diverse market, including corporations, health insurers, healthcare provider groups and educational institutions is looking for a developer to join their IT team.',
             'term' => 'permanent',
             'hours' => 'fulltime',
@@ -49,14 +48,16 @@ class JobsTableSeeder extends Seeder
             'ruby' => 1,
             'asp' => 1,
             'scala' => 0,
+<<<<<<< HEAD
             'employerid' => '3c530309-58c0-4ca8-8d17-559e03cfd89f'
+=======
+>>>>>>> origin/master
             'employerid' => 'db930f90-17a8-468a-b094-7416f0c63e99'
         ]);
 
         DB::table('jobs')->insert([
             'id' => 'd14cd514-863f-4cc0-9008-c51b4076732e',
             'title' => 'Help desk support',
-            'id' => 'c650f28e-13e1-4832-ba8b-dbdca2db161f',
             'description' => 'You will be required to provide an exceptional level of customer service whilst providing level 1 and some level 2 technical support to internal clients. The role will require you to work in a methodical and process driven way to troubleshoot issues, however you should have the aptitude to think outside the box and work autonomously should known procedures not yield results.',
             'term' => 'permanent',
             'hours' => 'parttime',
@@ -90,15 +91,18 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+<<<<<<< HEAD
             'employerid' => 'c4136b6b-fa8a-4310-b6ba-9796de38f7f4'
             'employerid' => '7c8b051d-62d7-4250-b679-4ffffc2d1d5f'
 
+=======
+            'employerid' => '7c8b051d-62d7-4250-b679-4ffffc2d1d5f'
+>>>>>>> origin/master
         ]);
 
         DB::table('jobs')->insert([
             'id' => 'ea5c6d59-8141-45c0-b1b9-98fdb885340d',
             'title' => 'SQL report writer',
-            'id' => '20569c26-758f-4f33-9835-9719a9a80aa9',
             'description' => 'This EXCELLENT role offers the opportunity for a dedicated IT support individual to provide 1st and 2nd end user support in a challenging and fast paced environment. Your experience in dealing directly with business owners and articulating IT issues is paramount as will be your technical understand of wide ranging business management functions.',
             'term' => 'permanent',
             'hours' => 'fulltime',
@@ -132,14 +136,16 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 1,
             'scala' => 0,
+<<<<<<< HEAD
             'employerid' => '5f21384a-a3f0-4cde-8d3a-f5ee33b8cf36'
+=======
+>>>>>>> origin/master
             'employerid' => '400fa8b2-f8f9-4c64-9b70-ea6ea2e1fe2d'
         ]);
 
         DB::table('jobs')->insert([
             'id' => '32488d83-0c92-4a44-a3b9-4febb2aa5465',
             'title' => 'Java Developer',
-            'id' => 'dedf1e10-3643-4bb0-a385-f3bfb2292d01',
             'description' => 'This a a fantastic opportunity for a keen technologist interested in the journey as much as the destination. Joining a cross functional team of 6-8 performing rapid prototyping of new features, enhancements to their responsive web, and mobile applications (Android and iOS). You will be working very closely with product management, designers and delivery team members to enhance the well-known suite of flagship products.',
             'term' => 'permanent',
             'hours' => 'fulltime',
@@ -172,8 +178,11 @@ class JobsTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
+<<<<<<< HEAD
             'scala' => 1,
             'employerid' => '16c4200e-a25f-4ec9-a484-a62dd294857a'
+=======
+>>>>>>> origin/master
             'scala' => 0,
             'employerid' => '5ed27969-c2cc-4d02-b7f6-c1bf0b19d613'
         ]);
@@ -181,7 +190,6 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'id' => '3f53d106-fc19-4ee3-89dd-a3faf14cc9e2',
             'title' => 'Project Manager',
-            'id' => '8ae4222c-1f7f-43bc-ab41-7508e6c7acc1',
             'description' => 'This role is responsible for engaging stakeholders and developing appropriate plans and strategies leading to stakeholder satisfaction. This will involve forming and leading diverse project teams, ensuring all project tasks are completed to schedule, budget, and customer requirements.',
             'term' => 'permanent',
             'hours' => 'fulltime',
@@ -215,7 +223,10 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+<<<<<<< HEAD
             'employerid' => '05210bc3-5ffd-4f6f-810f-5c4bb1326cbe'
+=======
+>>>>>>> origin/master
             'employerid' => '593e4d9f-e71e-468f-b38a-572afd5ba2f7'
         ]);
 
@@ -373,6 +384,7 @@ class JobsTableSeeder extends Seeder
             'asp' => 0,
             'scala' => 0,
             'employerid' => '3d7fb46d-489c-402e-b995-db4d3d158eb5'
+<<<<<<< HEAD
         ]);
 
         DB::table('jobs')->insert([
@@ -490,6 +502,8 @@ class JobsTableSeeder extends Seeder
             'asp' => 0,
             'scala' => 0,
             'employerid' => '5f721744-eac8-42e6-8e1b-b7a9d9e1a61d'
+=======
+>>>>>>> origin/master
         ]);
     }
 }

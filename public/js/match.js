@@ -143,11 +143,14 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
 function match(){
     /* Get filter from document. */
     if(document.getElementById("state") !== null){
-        var resource = "/api/jobs/state/" + document.getElementById("state").value;
+        var jobResource = "/api/jobs/state/" + document.getElementById("state").value;
     }
     else{
-        var resource = "/api/jobs/employer/" + document.getElementById("employerid").value;
+        var jobResource = "/api/jobs/employer/" + document.getElementById("employerid").value;
     }
+
+    /* Get CSRF token from document. */
+    var token = document.getElementsByName("csrf-token")[0].content;
 
     /* Arbitrary number; no. of fields compared. */
     var noOfBits = 25;
@@ -164,93 +167,104 @@ function match(){
     /* Array of percentage matches. */
     var percentageMatch = [];
 
+    /* Array to store jobs for later use. */
+    var jobs = [];
+
     /* Get current authenticated user data. */
-    $.getJSON("/api/user/", function(data){
+    $.getJSON("/api/user/token/" + token, function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala, 2);
     }).then(function(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
-        $.getJSON( resource, function(data){
-            var i;
-            for(i = 0; i < data.length; i++){
-                jobIndex[i] = i;
-                jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
-				
-				/* Find number of comparisons. */
-				var noOfComp = input | jobMatch[i];
-				
-				var bitComp = (noOfComp).toString(2);
-				
-				if(bitComp < 0){
-                    bitComp = (noOfComp >>> 0).toString(2);
-                    bitComp = bitComp.slice(-noOfBits);
-                }
-
-                var countComp = bitComp.replace(/[^1]/g, "").length;
-				
-				/* Find number of matches. */
-                var matchCalc = input & jobMatch[i];
-
-                var toBinary = (matchCalc).toString(2);
-
-                if(toBinary < 0){
-                    toBinary = (matchCalc >>> 0).toString(2);
-                    toBinary = toBinary.slice(-noOfBits);
-                }
-
-                var count = toBinary.replace(/[^1]/g, "").length;
-				
-				/* Calculate percentage match. */
-                percentageMatch[i] = (count / countComp) * 100;
-            }
-
-            /* Bubble sort. */
-            var swapped;
-
-            do{
-                swapped = false;
-
+        $.getJSON(jobResource + "/token/" + token, function(data){
+            if(data.length > 0){
                 var i;
-                for(i = 0; i < jobIndex.length-1; i++){
-                    if(percentageMatch[i] < percentageMatch[i+1]){
-                        var tempPer = percentageMatch[i];
-                        percentageMatch[i] = percentageMatch[i+1];
-                        percentageMatch[i+1] = tempPer;
+                for(i = 0; i < data.length; i++){
+                    /* Store jobs to storage array. */
+                    jobs[i] = data[i];
 
-                        var tempId = jobIndex[i];
-                        jobIndex[i] = jobIndex[i+1];
-                        jobIndex[i+1] = tempId;
+                    jobIndex[i] = i;
+                    jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala, 2);
+                    
+                    /* Find number of comparisons. */
+                    var noOfComp = input | jobMatch[i];
+                    
+                    var bitComp = (noOfComp).toString(2);
+                    
+                    if(bitComp < 0){
+                        bitComp = (noOfComp >>> 0).toString(2);
+                        bitComp = bitComp.slice(-noOfBits);
+                    }
 
-                        var tempJob = jobMatch[i];
-                        jobMatch[i] = jobMatch[i+1];
-                        jobMatch[i+1] = tempJob;
+                    var countComp = bitComp.replace(/[^1]/g, "").length;
+                    
+                    /* Find number of matches. */
+                    var matchCalc = input & jobMatch[i];
 
-                        swapped = true;
+                    var toBinary = (matchCalc).toString(2);
+
+                    if(toBinary < 0){
+                        toBinary = (matchCalc >>> 0).toString(2);
+                        toBinary = toBinary.slice(-noOfBits);
+                    }
+
+                    var count = toBinary.replace(/[^1]/g, "").length;
+                    
+                    /* Calculate percentage match. */
+                    percentageMatch[i] = (count / countComp) * 100;
+                    
+                    /* Check for overqualification; if yes, set match to 100%. */
+                    var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala;
+                    
+                    var countJob = bitJob.replace(/[^1]/g, "").length;
+                    
+                    if(count == countJob){
+                        percentageMatch[i] = 100;
                     }
                 }
+
+                /* Bubble sort. */
+                var swapped;
+
+                do{
+                    swapped = false;
+
+                    var i;
+                    for(i = 0; i < jobIndex.length-1; i++){
+                        if(percentageMatch[i] < percentageMatch[i+1]){
+                            var tempPer = percentageMatch[i];
+                            percentageMatch[i] = percentageMatch[i+1];
+                            percentageMatch[i+1] = tempPer;
+
+                            var tempId = jobIndex[i];
+                            jobIndex[i] = jobIndex[i+1];
+                            jobIndex[i+1] = tempId;
+
+                            var tempJob = jobMatch[i];
+                            jobMatch[i] = jobMatch[i+1];
+                            jobMatch[i+1] = tempJob;
+
+                            swapped = true;
+                        }
+                    }
+                }
+                while(swapped);
             }
-            while(swapped);
         })
         .then(function(){
 
             /* Display jobs. */
-            $.getJSON( resource, function(data){
-                if(data.length > 0){
-                    var i;
-                    for(i = 0; i < data.length; i++){
-                        var order = jobIndex[i];
-                        printJob(data[order].id, data[order].title, data[order].description, data[order].hours, data[order].rate, data[order].salary, data[order].startdate, data[order].state, data[order].city, data[order].employername, data[order].employerid, Math.round(percentageMatch[i]));
-                    }
+            if(jobs.length > 0){
+                var i;
+                for(i = 0; i < jobs.length; i++){
+                    var order = jobIndex[i];
+                    printJob(jobs[order].id, jobs[order].title, jobs[order].description, jobs[order].hours, jobs[order].rate, jobs[order].salary, jobs[order].startdate, jobs[order].state, jobs[order].city, jobs[order].employername, jobs[order].employerid, Math.round(percentageMatch[i]));
                 }
-                else{
-                    document.getElementById("loading").style.display = "none";
-                    document.getElementById("nomatches").style.display = "block";
-                }
-            })
-            .fail(function(){
+            }
+            else{
                 document.getElementById("loading").style.display = "none";
-                document.getElementById("error").style.display = "block";
-            });
+                document.getElementById("nomatches").style.display = "block";
+            }
         })
         .fail(function(){
             document.getElementById("loading").style.display = "none";

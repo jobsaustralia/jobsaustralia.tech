@@ -52,7 +52,7 @@
                                 <strong>It is impossible to recover an account, or its data, after deletion!</strong>
                             </p>
                             <p>
-                                <a class="text-danger" title="Clicking this will delete your account without further prompt." href="{{ route('delete') }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">I am <strong>positively certain</strong> I want to delete my account.</a>
+                                <a id="delete" class="text-danger" title="Clicking this will delete your account without further prompt." href="{{ route('delete') }}">I am <strong>positively certain</strong> I want to delete my account.</a>
                             </p>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
 
                 <div class="panel-body">
                     <p>Uploading a resume is optional.</p>
-                    <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a class="text-danger" href="{{ route('deleteResume') }}" onclick="event.preventDefault(); document.getElementById('delete-resume-form').submit();">Delete</a> @else None. @endif</p>
+                    <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a id="delete-resume" class="text-danger" href="{{ route('deleteResume') }}">Delete</a> @else None. @endif</p>
 
                     <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
