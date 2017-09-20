@@ -158,6 +158,10 @@
                                     Autofill skills from GitHub
                                 </a>
                             </p>
+
+                            <p id="github-error-generic" class="text-danger" style="display: none" align="center">Please check your GitHub username.</p>
+
+                            <p id="github-error-username" class="text-danger" style="display: none" align="center">Please enter your GitHub username.</p>
                         </div>
 
                         <!-- Skill: Java -->
