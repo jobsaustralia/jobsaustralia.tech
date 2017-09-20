@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div id="edit-profile" class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Your Profile</div>
 
@@ -130,10 +130,35 @@
                         </div>
 
                         <hr>
+                        
+                        <!-- GitHub -->
+                        <div class="form-group{{ $errors->has('github') ? ' has-error' : '' }}">
+                            <label for="github" class="col-md-4 control-label"><i class="fa fa-github" aria-hidden="true"></i> GitHub Username</label>
+
+                            <div class="col-md-6">
+                                <input id="github" type="text" class="form-control" name="github" pattern="[a-zA-Z0-9\- ]+" value="{{ Auth::user()->github }}" placeholder="Optional">
+
+                                @if ($errors->has('github'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('github') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr>
 
                         <h4 align="center">Skills</h4>
 
                         <p align="center">Please select any skills you have (by self assessment).</p>
+
+                        <div class="form-group">
+                            <p align ="center">
+                                <a href="javascript:void(0)" id="autofill-btn" class="btn btn-primary">
+                                    Autofill skills from GitHub
+                                </a>
+                            </p>
+                        </div>
 
                         <!-- Skill: Java -->
                         <div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">

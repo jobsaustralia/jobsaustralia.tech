@@ -41,6 +41,7 @@ class ProfileController extends Controller{
             'experience' => 'required|integer|min:0|max:100',
             'state' => 'required|string|in:vic,nsw,qld,wa,sa,tas,act,nt,oth',
             'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
+            'github' => 'max:40',
             'java' => 'boolean',
             'python' => 'boolean',
             'c' => 'boolean',
@@ -76,6 +77,7 @@ class ProfileController extends Controller{
         $user->experience=$request['experience'];
         $user->state=$request['state'];
         $user->city=$request['city'];
+        $user->github=$request['github'];
 
         $user->java=$request['java'];
         $user->python=$request['python'];

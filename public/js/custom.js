@@ -165,6 +165,9 @@ else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
 	document.getElementById("autofill-btn").addEventListener("click", autoFill);
 }
+else if(document.getElementById("edit-profile") !== null){
+    document.getElementById("autofill-btn").addEventListener("click", autoFill);
+}
 else if(document.getElementById("team") !== null){
     document.addEventListener('DOMContentLoaded', randomiseTeam);
 }
