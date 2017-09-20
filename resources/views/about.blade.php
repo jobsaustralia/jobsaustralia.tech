@@ -6,9 +6,9 @@
         <div id="team" class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                <h3><i class="fa fa-info-circle" aria-hidden="true"></i> About Us - The Team</h3>
-                <p>JobsAustralia.tech is a project for Programming Project 1 at RMIT University, in Semester Two of 2017.</p>
-                <p>Read about our five team members below, using the buttons to cycle through.</p>
+                    <p style="font-size: 145%"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> About Us - The Team</strong></p>
+                    <p>JobsAustralia.tech is a project for <a href="https://www.rmit.edu.au/courses/039985">Programming Project 1</a> at RMIT University, in Semester Two of 2017.</p>
+                    <p>Read about our five team members below, using the buttons to cycle through.</p>
                 </div>
             </div>
 

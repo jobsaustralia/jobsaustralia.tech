@@ -26,12 +26,6 @@
                 </div>
                 @endforeach
             @else
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
                 <!-- No applications div. Used to display message when user has no active applications. -->
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Notice</strong></div>
