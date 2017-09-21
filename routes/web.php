@@ -50,6 +50,8 @@ Route::get('/applications', 'ApplicationController@indexApplications')->name('ap
 
 Route::get('/resume', 'ResumeController@viewResume')->name('resume');
 
+Route::get('/application/delete/{id}', 'ApplicationController@indexDelete')->name('displayDeleteApplication');
+
 
 /* POST Controller Routes */
 
@@ -65,7 +67,7 @@ Route::post('/resume/upload', 'ResumeController@uploadResume')->name('uploadResu
 
 Route::post('/resume/delete', 'ResumeController@deleteResume')->name('deleteResume');
 
-Route::post('/application/delete', 'ApplicationController@deleteApp')->name('deleteApp');
+Route::post('/application/delete', 'ApplicationController@delete')->name('deleteApplication');
 
 
 /* Authentication Routes */

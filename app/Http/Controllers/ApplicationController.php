@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Application;
 use App\Employer;
 use App\Job;
+use App\User;
 
 use Auth;
 use Uuid;
@@ -65,19 +66,31 @@ class ApplicationController extends Controller{
         return view('applications')->with(compact('applications'));
     }
 
-    public function deleteApp(Request $request){
+    /* Display delete application page. */
+    public function indexDelete($id){
+        $application = Application::findOrFail($id);
+        $job = Job::findOrFail($application->jobid);
+        $application->jobtitle = $job->title;
         $user = Auth::user();
-        $id = $request['jobid'];
 
-     $applications = Application::where('userid', $user->id)->get();
-
-
-        if(Application::exists($applications)){
-            Application::Delete($applications);
+        if($application->userid == $user->id){
+            return view('delete-application', compact('application'));
         }
-
-        return Redirect::route('applications');
+        else{
+            return Redirect::route('applications');
+        }
     }
 
+    /* Delete application. */
+    public function delete(Request $request){
+        $id = $request['id'];
+        $application = Application::findOrFail($id);
+        $user = Auth::user();
 
+        if(User::findOrFail($application->userid) == $user){
+            Application::destroy($id);
+        }
+
+        return  Redirect::route('applications');
+    }
 }

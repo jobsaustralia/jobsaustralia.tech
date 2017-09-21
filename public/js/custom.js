@@ -193,6 +193,10 @@ else if(document.getElementById("team") !== null){
 else if(document.getElementById("job") !== null){
     document.getElementById("apply").addEventListener("click", toggleDisplay);
 }
+else if(document.getElementById("delete-application") !== null){
+    document.getElementById("delete-application-button").addEventListener("click", toggleDisplay);
+    document.getElementById("delete-application-confirm").addEventListener("click", submitForm);
+}
 
 /* Add EventListener to logout link. */
 if(document.getElementById("logout") !== null){
