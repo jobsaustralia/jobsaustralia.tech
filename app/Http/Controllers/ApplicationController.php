@@ -91,6 +91,6 @@ class ApplicationController extends Controller{
             Application::destroy($id);
         }
 
-        return  Redirect::route('applications');
+        return Redirect::route('applications');
     }
 }

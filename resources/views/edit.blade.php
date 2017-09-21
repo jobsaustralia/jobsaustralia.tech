@@ -164,31 +164,53 @@
                             <p id="github-error-username" class="text-danger" style="display: none" align="center">Please enter your GitHub username.</p>
                         </div>
 
-                        <!-- Skill: Java -->
-                        <div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">
-                            <label for="java" class="col-md-4 control-label">Java</label>
+                        <hr class="skill-divider">
+
+                        <h5 align="center">Languages</h5>
+
+                        <!-- Skill: ASP.NET -->
+                        <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
+                            <label for="asp" class="col-md-4 control-label">ASP.NET</label>
 
                             <div class="col-md-1">
-                                <input id="java" type="checkbox" class="form-control" name="java" value="1" autofocus {{ old('java', Auth::user()->java) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="asp-hidden" type="hidden" class="form-control" name="asp" value="0">
+                                <input id="asp" type="checkbox" class="form-control" name="asp" value="{{ old('asp', 1) }}" @if (Auth::user()->asp) checked @endif >
 
-                                @if ($errors->has('java'))
+                                @if ($errors->has('asp'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('java') }}</strong>
+                                        <strong>{{ $errors->first('asp') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <!-- Skill: Python -->
-                        <div class="form-group{{ $errors->has('python') ? ' has-error' : '' }}">
-                            <label for="python" class="col-md-4 control-label">Python</label>
+                        <!-- Skill: Batch -->
+                        <div class="form-group{{ $errors->has('batch') ? ' has-error' : '' }}">
+                            <label for="batch" class="col-md-4 control-label">Batch</label>
 
                             <div class="col-md-1">
-                                  <input id="python" type="checkbox" class="form-control" name="python" value="1" autofocus {{ old('python', Auth::user()->python) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="batch-hidden" type="hidden" class="form-control" name="batch" value="0">
+                                <input id="batch" type="checkbox" class="form-control" name="batch" value="{{ old('batch', 1) }}" @if (Auth::user()->batch) checked @endif >
 
-                                @if ($errors->has('python'))
+                                @if ($errors->has('batch'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('python') }}</strong>
+                                        <strong>{{ $errors->first('batch') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Bash -->
+                        <div class="form-group{{ $errors->has('bash') ? ' has-error' : '' }}">
+                            <label for="bash" class="col-md-4 control-label">Bash</label>
+
+                            <div class="col-md-1">
+                                <input id="bash-hidden" type="hidden" class="form-control" name="bash" value="0">
+                                <input id="bash" type="checkbox" class="form-control" name="bash" value="{{ old('bash', 1) }}" @if (Auth::user()->bash) checked @endif >
+
+                                @if ($errors->has('bash'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bash') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -199,7 +221,8 @@
                             <label for="c" class="col-md-4 control-label">C</label>
 
                             <div class="col-md-1">
-                                <input id="c" type="checkbox" class="form-control" name="c" value="1" autofocus {{ old('c', Auth::user()->c) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="c-hidden" type="hidden" class="form-control" name="c" value="0">
+                                <input id="c" type="checkbox" class="form-control" name="c" value="{{ old('c', 1) }}" @if (Auth::user()->c) checked @endif >
 
                                 @if ($errors->has('c'))
                                     <span class="help-block">
@@ -214,7 +237,8 @@
                             <label for="csharp" class="col-md-4 control-label">C#</label>
 
                             <div class="col-md-1">
-                                <input id="csharp" type="checkbox" class="form-control" name="csharp" value="1" autofocus {{ old('csharp', Auth::user()->csharp) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="csharp-hidden" type="hidden" class="form-control" name="csharp" value="0">
+                                <input id="csharp" type="checkbox" class="form-control" name="csharp" value="{{ old('csharp', 1) }}" @if (Auth::user()->csharp) checked @endif >
 
                                 @if ($errors->has('csharp'))
                                     <span class="help-block">
@@ -223,47 +247,18 @@
                                 @endif
                             </div>
                         </div>
-
+                            
                         <!-- Skill: C++ -->
                         <div class="form-group{{ $errors->has('cplus') ? ' has-error' : '' }}">
                             <label for="cplus" class="col-md-4 control-label">C++</label>
 
                             <div class="col-md-1">
-                                <input id="cplus" type="checkbox" class="form-control" name="cplus" value="1" autofocus {{ old('cplus', Auth::user()->cplus) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="cplus-hidden" type="hidden" class="form-control" name="cplus" value="0">
+                                <input id="cplus" type="checkbox" class="form-control" name="cplus" value="{{ old('cplus', 1) }}" @if (Auth::user()->cplus) checked @endif >
 
                                 @if ($errors->has('cplus'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('cplus') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: PHP -->
-                        <div class="form-group{{ $errors->has('php') ? ' has-error' : '' }}">
-                            <label for="php" class="col-md-4 control-label">PHP</label>
-
-                            <div class="col-md-1">
-                          <input id="php" type="checkbox" class="form-control" name="php" value="1" autofocus {{ old('php', Auth::user()->php) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('php'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('php') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: HTML -->
-                        <div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
-                            <label for="html" class="col-md-4 control-label">HTML</label>
-
-                            <div class="col-md-1">
-                                <input id="html" type="checkbox" class="form-control" name="html" value="1" autofocus {{ old('html', Auth::user()->html) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('html'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('html') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -274,11 +269,60 @@
                             <label for="css" class="col-md-4 control-label">CSS</label>
 
                             <div class="col-md-1">
-                              <input id="css" type="checkbox" class="form-control" name="css" value="1" autofocus {{ old('css', Auth::user()->css) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="css-hidden" type="hidden" class="form-control" name="css" value="0">
+                                <input id="css" type="checkbox" class="form-control" name="css" value="{{ old('css', 1) }}" @if (Auth::user()->css) checked @endif >
 
                                 @if ($errors->has('css'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('css') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Go -->
+                        <div class="form-group{{ $errors->has('go') ? ' has-error' : '' }}">
+                            <label for="go" class="col-md-4 control-label">Go</label>
+
+                            <div class="col-md-1">
+                                <input id="go-hidden" type="hidden" class="form-control" name="go" value="0">
+                                <input id="go" type="checkbox" class="form-control" name="go" value="{{ old('go', 1) }}" @if (Auth::user()->go) checked @endif >
+
+                                @if ($errors->has('go'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('go') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: HTML -->
+                        <div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
+                            <input id="html-hidden" type="hidden" class="form-control" name="html" value="0">
+                            <label for="html" class="col-md-4 control-label">HTML</label>
+
+                            <div class="col-md-1">
+                                <input id="html" type="checkbox" class="form-control" name="html" value="{{ old('html', 1) }}" @if (Auth::user()->html) checked @endif >
+
+                                @if ($errors->has('html'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('html') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Java -->
+                        <div class="form-group{{ $errors->has('java') ? ' has-error' : '' }}">
+                            <label for="java" class="col-md-4 control-label">Java</label>
+
+                            <div class="col-md-1">
+                                <input id="java-hidden" type="hidden" class="form-control" name="java" value="0">
+                                <input id="java" type="checkbox" class="form-control" name="java" value="{{ old('java', 1) }}" @if (Auth::user()->java) checked @endif >
+
+                                @if ($errors->has('java'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('java') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -289,7 +333,8 @@
                             <label for="javascript" class="col-md-4 control-label">JavaScript</label>
 
                             <div class="col-md-1">
-                                <input id="javascript" type="checkbox" class="form-control" name="javascript" value="1" autofocus {{ old('javascript', Auth::user()->javascript) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="javascript-hidden" type="hidden" class="form-control" name="javascript" value="0">
+                                <input id="javascript" type="checkbox" class="form-control" name="javascript" value="{{ old('javascript', 1) }}" @if (Auth::user()->javascript) checked @endif >
 
                                 @if ($errors->has('javascript'))
                                     <span class="help-block">
@@ -299,12 +344,109 @@
                             </div>
                         </div>
 
-                        <!-- Skill: SQL -->
+                        <!-- Skill: Pearl -->
+                        <div class="form-group{{ $errors->has('pearl') ? ' has-error' : '' }}">
+                            <label for="pearl" class="col-md-4 control-label">Pearl</label>
+
+                            <div class="col-md-1">
+                                <input id="pearl-hidden" type="hidden" class="form-control" name="pearl" value="0">
+                                <input id="pearl" type="checkbox" class="form-control" name="pearl" value="{{ old('pearl', 1) }}" @if (Auth::user()->pearl) checked @endif >
+
+                                @if ($errors->has('pearl'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pearl') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: PHP -->
+                        <div class="form-group{{ $errors->has('php') ? ' has-error' : '' }}">
+                            <label for="php" class="col-md-4 control-label">PHP</label>
+
+                            <div class="col-md-1">
+                                <input id="php-hidden" type="hidden" class="form-control" name="php" value="0">
+                                <input id="php" type="checkbox" class="form-control" name="php" value="{{ old('php', 1) }}" @if (Auth::user()->php) checked @endif >
+
+                                @if ($errors->has('php'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('php') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Python -->
+                        <div class="form-group{{ $errors->has('python') ? ' has-error' : '' }}">
+                            <label for="python" class="col-md-4 control-label">Python</label>
+
+                            <div class="col-md-1">
+                                <input id="python-hidden" type="hidden" class="form-control" name="python" value="0">
+                                <input id="python" type="checkbox" class="form-control" name="python" value="{{ old('python', 1) }}" @if (Auth::user()->python) checked @endif >
+
+                                @if ($errors->has('python'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('python') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: R -->
+                        <div class="form-group{{ $errors->has('r') ? ' has-error' : '' }}">
+                            <label for="r" class="col-md-4 control-label">R</label>
+
+                            <div class="col-md-1">
+                                <input id="r-hidden" type="hidden" class="form-control" name="r" value="0">
+                                <input id="r" type="checkbox" class="form-control" name="r" value="{{ old('r', 1) }}" @if (Auth::user()->r) checked @endif >
+
+                                @if ($errors->has('r'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('r') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Skill: Ruby -->
+                        <div class="form-group{{ $errors->has('ruby') ? ' has-error' : '' }}">
+                            <label for="ruby" class="col-md-4 control-label">Ruby</label>
+
+                            <div class="col-md-1">
+                                <input id="ruby-hidden" type="hidden" class="form-control" name="ruby" value="0">
+                                <input id="ruby" type="checkbox" class="form-control" name="ruby" value="{{ old('ruby', 1) }}" @if (Auth::user()->ruby) checked @endif >
+
+                                @if ($errors->has('ruby'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ruby') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Scala -->
+                        <div class="form-group{{ $errors->has('scala') ? ' has-error' : '' }}">
+                            <label for="scala" class="col-md-4 control-label">Scala</label>
+
+                            <div class="col-md-1">
+                                <input id="scala-hidden" type="hidden" class="form-control" name="scala" value="0">
+                                <input id="scala" type="checkbox" class="form-control" name="scala" value="{{ old('scala', 1) }}" @if (Auth::user()->scala) checked @endif >
+
+                                @if ($errors->has('scala'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('scala') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Skill: SQL -->                         
                         <div class="form-group{{ $errors->has('sql') ? ' has-error' : '' }}">
                             <label for="sql" class="col-md-4 control-label">SQL</label>
 
                             <div class="col-md-1">
-                                <input id="sql" type="checkbox" class="form-control" name="sql" value="1" autofocus {{ old('sql', Auth::user()->sql) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="sql-hidden" type="hidden" class="form-control" name="sql" value="0">
+                                <input id="sql" type="checkbox" class="form-control" name="sql" value="{{ old('sql', 1) }}" @if (Auth::user()->sql) checked @endif >
 
                                 @if ($errors->has('sql'))
                                     <span class="help-block">
@@ -314,57 +456,17 @@
                             </div>
                         </div>
 
-                        <!-- Skill: Unix -->
-                        <div class="form-group{{ $errors->has('unix') ? ' has-error' : '' }}">
-                            <label for="unix" class="col-md-4 control-label">Unix</label>
+                        <hr class="skill-divider">
 
-                            <div class="col-md-1">
-                                <input id="unix" type="checkbox" class="form-control" name="unix" value="1" autofocus {{ old('unix', Auth::user()->unix) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('unix'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('unix') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: Windows Server -->
-                        <div class="form-group{{ $errors->has('winserver') ? ' has-error' : '' }}">
-                            <label for="winserver" class="col-md-4 control-label">Windows Server</label>
-
-                            <div class="col-md-1">
-                                <input id="winserver" type="checkbox" class="form-control" name="winserver" value="1" autofocus {{ old('winserver', Auth::user()->winserver) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('winserver'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('winserver') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: Windows Desktop -->
-                        <div class="form-group{{ $errors->has('windesktop') ? ' has-error' : '' }}">
-                            <label for="windesktop" class="col-md-4 control-label">Windows Desktop</label>
-
-                            <div class="col-md-1">
-                                <input id="windesktop" type="checkbox" class="form-control" name="windesktop" value="1" autofocus {{ old('windesktop', Auth::user()->windesktop) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('windesktop'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('windesktop') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        <h5 align="center">Operating Systems</h5>
 
                         <!-- Skill: Linux Desktop -->
                         <div class="form-group{{ $errors->has('linuxdesktop') ? ' has-error' : '' }}">
                             <label for="linuxdesktop" class="col-md-4 control-label">Linux Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="linuxdesktop" type="checkbox" class="form-control" name="linuxdesktop" value="1" autofocus {{ old('linuxdesktop', Auth::user()->linuxdesktop) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="linuxdesktop-hidden" type="hidden" class="form-control" name="linuxdesktop" value="0">
+                                <input id="linuxdesktop" type="checkbox" class="form-control" name="linuxdesktop" value="{{ old('linuxdesktop', 1) }}" @if (Auth::user()->linuxdesktop) checked @endif >
 
                                 @if ($errors->has('linuxdesktop'))
                                     <span class="help-block">
@@ -379,7 +481,8 @@
                             <label for="macosdesktop" class="col-md-4 control-label">MacOS Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="macosdesktop" type="checkbox" class="form-control" name="macosdesktop" value="1" autofocus {{ old('macosdesktop', Auth::user()->macosdesktop) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="macosdesktop-hidden" type="hidden" class="form-control" name="macosdesktop" value="0">
+                                <input id="macosdesktop" type="checkbox" class="form-control" name="macosdesktop" value="{{ old('macosdesktop', 1) }}" @if (Auth::user()->macosdesktop) checked @endif >
 
                                 @if ($errors->has('macosdesktop'))
                                     <span class="help-block">
@@ -389,57 +492,65 @@
                             </div>
                         </div>
 
-                        <!-- Skill: Pearl -->
-                        <div class="form-group{{ $errors->has('pearl') ? ' has-error' : '' }}">
-                            <label for="pearl" class="col-md-4 control-label">Pearl</label>
+                        <!-- Skill: Unix -->
+                        <div class="form-group{{ $errors->has('unix') ? ' has-error' : '' }}">
+                            <label for="unix" class="col-md-4 control-label">Unix</label>
 
                             <div class="col-md-1">
-                                <input id="pearl" type="checkbox" class="form-control" name="pearl" value="1" autofocus {{ old('pearl', Auth::user()->pearl) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="unix-hidden" type="hidden" class="form-control" name="unix" value="0">
+                                <input id="unix" type="checkbox" class="form-control" name="unix" value="{{ old('unix', 1) }}" @if (Auth::user()->unix) checked @endif >
 
-                                @if ($errors->has('pearl'))
+                                @if ($errors->has('unix'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pearl') }}</strong>
+                                        <strong>{{ $errors->first('unix') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <!-- Skill: Bash -->
-                        <div class="form-group{{ $errors->has('bash') ? ' has-error' : '' }}">
-                            <label for="bash" class="col-md-4 control-label">Bash</label>
+                        <!-- Skill: Windows Desktop -->
+                        <div class="form-group{{ $errors->has('windesktop') ? ' has-error' : '' }}">
+                            <label for="windesktop" class="col-md-4 control-label">Windows Desktop</label>
 
                             <div class="col-md-1">
-                                <input id="bash" type="checkbox" class="form-control" name="bash" value="1" autofocus {{ old('bash', Auth::user()->bash) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="windesktop-hidden" type="hidden" class="form-control" name="windesktop" value="0">
+                                <input id="windesktop" type="checkbox" class="form-control" name="windesktop" value="{{ old('windesktop', 1) }}" @if (Auth::user()->windesktop) checked @endif >
 
-                                @if ($errors->has('bash'))
+                                @if ($errors->has('windesktop'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('bash') }}</strong>
+                                        <strong>{{ $errors->first('windesktop') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                       
+                        <!-- Skill: Windows Server -->
+                        <div class="form-group{{ $errors->has('winserver') ? ' has-error' : '' }}">
+                            <label for="winserver" class="col-md-4 control-label">Windows Server</label>
+
+                            <div class="col-md-1">
+                                <input id="winserver-hidden" type="hidden" class="form-control" name="winserver" value="0">
+                                <input id="winserver" type="checkbox" class="form-control" name="winserver" value="{{ old('winserver', 1) }}" @if (Auth::user()->winserver) checked @endif >
+
+                                @if ($errors->has('winserver'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('winserver') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <!-- Skill: Batch -->
-                        <div class="form-group{{ $errors->has('batch') ? ' has-error' : '' }}">
-                            <label for="batch" class="col-md-4 control-label">Batch</label>
+                        <hr class="skill-divider">
 
-                            <div class="col-md-1">
-                                <input id="batch" type="checkbox" class="form-control" name="batch" value="1" autofocus {{ old('batch', Auth::user()->batch) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('batch'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('batch') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        <h5 align="center">Networking</h5>
 
                         <!-- Skill: Cisco Networking -->
                         <div class="form-group{{ $errors->has('cisco') ? ' has-error' : '' }}">
                             <label for="cisco" class="col-md-4 control-label">Cisco Networking</label>
 
                             <div class="col-md-1">
-                              <input id="cisco" type="checkbox" class="form-control" name="cisco" value="1" autofocus {{ old('cisco', Auth::user()->cisco) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="cisco-hidden" type="hidden" class="form-control" name="cisco" value="0">
+                                <input id="cisco" type="checkbox" class="form-control" name="cisco" value="{{ old('cisco', 1) }}" @if (Auth::user()->cisco) checked @endif >
 
                                 @if ($errors->has('cisco'))
                                     <span class="help-block">
@@ -449,12 +560,17 @@
                             </div>
                         </div>
 
+                        <hr class="skill-divider">
+                        
+                        <h5 align="center">Others</h5>
+
                         <!-- Skill: Microsoft Office -->
                         <div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
                             <label for="office" class="col-md-4 control-label">Microsoft Office</label>
 
                             <div class="col-md-1">
-                                <input id="office" type="checkbox" class="form-control" name="office" value="1" autofocus {{ old('office', Auth::user()->office) == '1' ? 'checked="checked"' : '' }}>
+                                <input id="office-hidden" type="hidden" class="form-control" name="office" value="0">
+                                <input id="office" type="checkbox" class="form-control" name="office" value="{{ old('office', 1) }}" @if (Auth::user()->office) checked @endif >
 
                                 @if ($errors->has('office'))
                                     <span class="help-block">
@@ -464,79 +580,7 @@
                             </div>
                         </div>
 
-                        <!-- Skill: R -->
-                        <div class="form-group{{ $errors->has('r') ? ' has-error' : '' }}">
-                            <label for="r" class="col-md-4 control-label">R</label>
-
-                            <div class="col-md-1">
-                              <input id="r" type="checkbox" class="form-control" name="r" value="1" autofocus {{ old('r', Auth::user()->r) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('r'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('r') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: Go -->
-                        <div class="form-group{{ $errors->has('go') ? ' has-error' : '' }}">
-                            <label for="go" class="col-md-4 control-label">Go</label>
-
-                            <div class="col-md-1">
-                              <input id="go" type="checkbox" class="form-control" name="go" value="1" autofocus {{ old('go', Auth::user()->go) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('go'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('go') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: Ruby -->
-                        <div class="form-group{{ $errors->has('ruby') ? ' has-error' : '' }}">
-                            <label for="ruby" class="col-md-4 control-label">Ruby</label>
-
-                            <div class="col-md-1">
-                              <input id="ruby" type="checkbox" class="form-control" name="ruby" value="1" autofocus {{ old('ruby', Auth::user()->ruby) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('ruby'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('ruby') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: ASP.NET -->
-                        <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
-                            <label for="asp" class="col-md-4 control-label">ASP.NET</label>
-
-                            <div class="col-md-1">
-                              <input id="asp" type="checkbox" class="form-control" name="asp" value="1" autofocus {{ old('asp', Auth::user()->asp) == '1' ? 'checked="checked"' : '' }}>
-
-                                @if ($errors->has('asp'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('asp') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: Scala -->
-                        <div class="form-group{{ $errors->has('scala') ? ' has-error' : '' }}">
-                            <label for="scala" class="col-md-4 control-label">Scala</label>
-
-                            <div class="col-md-1">
-                              <input id="scala" type="checkbox" class="form-control" name="scala" value="1" autofocus {{ old('scala', Auth::user()->scala) == '1' ? 'checked="checked"' : '' }}>
-                                @if ($errors->has('scala'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('scala') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        <hr>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

@@ -1,3 +1,4 @@
+/* Static footer. */
 footer {
     position: fixed;
     bottom: 0;
@@ -8,7 +9,7 @@ footer {
     background-color: #1d262b;
     border-top: solid #d3e0e9;
     border-top-width: thin;
-	color: #CCC;
+    color: #CCC;
 }
 
 footer > p {
@@ -17,41 +18,48 @@ footer > p {
 
 /* Background. */
 body {
-	background-image: url("/img/networkDesign.jpg");
-	background-size: 100% auto;
+    background-image: url("/img/networkDesign.jpg");
+    background-size: 100% auto;
 }
 
 /* Nav bar. */
 .navbar-default {
-	background-color: #1d262b;
+    background-color: #1d262b;
 }
 
 /* jobsaustralia.tech nav bar font colour. */
 .navbar-default .navbar-brand {
-	color: #CCC;
+    color: #CCC;
 }
 
 /* Nav bar font colour. */
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
-	color: #CCC;
+    color: #CCC;
 }
 
 /* Panel header.  */
 .panel-default>.panel-heading {
-	background-color: #1d262b;
-	color: #CCC;
+    background-color: #1d262b;
+    color: #CCC;
 }
 
 /*.panel-default {
-	border-color: #1d262b;
+    border-color: #1d262b;
 }*/
 
 /* jobsaustralia.tech nav bar hover colour. */
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-	color: white;
+    color: white;
 }
 
 /* Nav bar hover colour. */
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-	color: white;
+    color: white;
+}
+
+/* Horizontal rule to divide skill categories. */
+hr.skill-divider {
+    margin-left: 75px;
+    margin-right: 75px;
+    border-top: 1px solid #f5f5f5;
 }

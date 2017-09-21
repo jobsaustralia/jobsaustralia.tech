@@ -177,9 +177,11 @@
 
                             <p id="github-error-username" class="text-danger" style="display: none" align="center">Please enter your GitHub username.</p>
                         </div>
-                        <hr>
+
+                        <hr class="skill-divider">
 
                         <h5 align="center">Languages</h5>
+
                         <!-- Skill: ASP.NET -->
                         <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
                             <label for="asp" class="col-md-4 control-label">ASP.NET</label>
@@ -468,9 +470,11 @@
                                 @endif
                             </div>
                         </div>
-                        <hr>
+
+                        <hr class="skill-divider">
 
                         <h5 align="center">Operating Systems</h5>
+
                         <!-- Skill: Linux Desktop -->
                         <div class="form-group{{ $errors->has('linuxdesktop') ? ' has-error' : '' }}">
                             <label for="linuxdesktop" class="col-md-4 control-label">Linux Desktop</label>
@@ -550,9 +554,11 @@
                                 @endif
                             </div>
                         </div>
-                        <hr>
+
+                        <hr class="skill-divider">
 
                         <h5 align="center">Networking</h5>
+
                         <!-- Skill: Cisco Networking -->
                         <div class="form-group{{ $errors->has('cisco') ? ' has-error' : '' }}">
                             <label for="cisco" class="col-md-4 control-label">Cisco Networking</label>
@@ -568,8 +574,9 @@
                                 @endif
                             </div>
                         </div>
-                        <hr>
-                        
+
+                        <hr class="skill-divider">
+
                         <h5 align="center">Others</h5>
                         <!-- Skill: Microsoft Office -->
                         <div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
@@ -585,7 +592,8 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>    
+                        </div>
+
                         <hr>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
