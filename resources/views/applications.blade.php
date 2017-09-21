@@ -18,7 +18,7 @@
                          <p>{{ $application->resume }}</p>
 
                         <p>
-                            <a href="#" class="btn btn-primary">
+                            <a href="#" class="btn btn-primary" action="{{ route('deleteApp') }}"  method="POST"> 
                                 Delete application
                             </a>
                         </p>
