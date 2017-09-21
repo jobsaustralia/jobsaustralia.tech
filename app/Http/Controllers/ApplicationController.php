@@ -64,4 +64,20 @@ class ApplicationController extends Controller{
 
         return view('applications')->with(compact('applications'));
     }
+
+    public function deleteApp(Request $request){
+        $user = Auth::user();
+        $id = $request['jobid'];
+
+     $applications = Application::where('userid', $user->id)->get();
+
+
+        if(Application::exists($applications)){
+            Application::Delete($applications);
+        }
+
+        return Redirect::route('applications');
+    }
+
+
 }
