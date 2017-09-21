@@ -68,6 +68,7 @@ class RegisterController extends Controller{
             'ruby' => 'required|boolean',
             'asp' => 'required|boolean',
             'scala' => 'required|boolean',
+            'cow' => 'required|boolean',
             'password' => 'required|string|min:6|confirmed'
         ]);
     }
@@ -109,6 +110,7 @@ class RegisterController extends Controller{
             'ruby' => $data['ruby'],
             'asp' => $data['asp'],
             'scala' => $data['scala'],
+            'cow' => $data['cow'],
             'password' => bcrypt($data['password'])
         ]);
     }

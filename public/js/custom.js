@@ -169,6 +169,14 @@ function autoFill(){
     }
 }
 
+/* Moo. */
+function moo(){
+    if(this.checked){
+        var audio = new Audio('/audio/moo.opus');
+        audio.play();
+    }
+}
+
 /* Add EventListeners depending on current page loaded. */
 if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
@@ -183,9 +191,11 @@ if(document.getElementById("profile") !== null){
 else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
     document.getElementById("autofill-btn").addEventListener("click", autoFill);
+    document.getElementById("cow").addEventListener("change", moo);
 }
 else if(document.getElementById("edit-profile") !== null){
     document.getElementById("autofill-btn").addEventListener("click", autoFill);
+    document.getElementById("cow").addEventListener("change", moo);
 }
 else if(document.getElementById("team") !== null){
     document.addEventListener('DOMContentLoaded', randomiseTeam);

@@ -51,6 +51,7 @@ class CreateUsersTable extends Migration
             $table->boolean('ruby');
             $table->boolean('asp');
             $table->boolean('scala');
+            $table->boolean('cow');
 
             $table->string('password');
             $table->rememberToken();

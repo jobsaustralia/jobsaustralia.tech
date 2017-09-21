@@ -264,6 +264,22 @@
                             </div>
                         </div>
 
+                        <!-- Skill: COW -->
+                        <div class="form-group{{ $errors->has('cow') ? ' has-error' : '' }}">
+                            <label for="cow" class="col-md-4 control-label">COW</label>
+
+                            <div class="col-md-1">
+                                <input id="cow-hidden" type="hidden" class="form-control" name="cow" value="0">
+                                <input id="cow" type="checkbox" class="form-control" name="cow" value="{{ old('cow', 1) }}" @if (Auth::user()->cow) checked @endif >
+                            
+                                @if ($errors->has('cow'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cow') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: CSS -->
                         <div class="form-group{{ $errors->has('css') ? ' has-error' : '' }}">
                             <label for="css" class="col-md-4 control-label">CSS</label>
