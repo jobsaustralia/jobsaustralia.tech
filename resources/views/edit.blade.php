@@ -154,7 +154,7 @@
 
                         <div class="form-group">
                             <p align ="center">
-                                <a href="javascript:void(0)" id="autofill-btn" class="btn btn-primary">
+                                <a id="autofill-btn" class="btn btn-primary">
                                     Autofill skills from GitHub
                                 </a>
                             </p>

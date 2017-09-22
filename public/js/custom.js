@@ -1,5 +1,7 @@
 /* Generic function to toggle the display of an element. */
 function toggleDisplay(){
+    event.preventDefault();
+
     var element = document.getElementById(event.target.id + "-content");
     
     if(element.style.display == "none"){
@@ -25,7 +27,7 @@ function randomiseTeam(){
     /* https://stackoverflow.com/a/6274381 */
     function shuffle(a){
         var j, x, i;
-        for (i = a.length; i; i--) {
+        for(i = a.length; i; i--){
             j = Math.floor(Math.random() * i);
             x = a[i - 1];
             a[i - 1] = a[j];
@@ -61,19 +63,10 @@ function randomiseTeam(){
 
 /* Function to automatically populate relevant fields when student checkbox is checked on registration page. */
 function studentFill(){
-    if(document.getElementById("student").checked){
+    if(this.checked){
         document.getElementById("title").value = "Student";
-        document.getElementById("title").readOnly = true;
         document.getElementById("sector").value = "None";
-        document.getElementById("sector").readOnly = true;
         document.getElementById("experience").value = 0;
-    }
-    else{
-        document.getElementById("title").value = null;
-        document.getElementById("title").readOnly = false;
-        document.getElementById("sector").value = null;
-        document.getElementById("sector").readOnly = false;
-        document.getElementById("experience").value = null;
     }
 }
 
@@ -85,6 +78,8 @@ function submitForm(){
 
 /* Function to autofill skills from GitHub. */
 function autoFill(){
+    event.preventDefault();
+
     document.getElementById("github-error-generic").style.display = "none";
     document.getElementById("github-error-username").style.display = "none";
 

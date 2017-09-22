@@ -42,7 +42,7 @@
 
                     <div id="confirm-delete-content" style="display: none;">
                         <p>
-                            Confirm deletion: <a id="really-confirm-delete" class="text-danger" href="javascript:void(0)">I really want to delete my account.</a>
+                            Confirm deletion: <a id="really-confirm-delete" class="text-danger" href="#">I really want to delete my account.</a>
                         </p>
 
                         <div id="really-confirm-delete-content" style="display: none;">
