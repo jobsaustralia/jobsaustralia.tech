@@ -48,6 +48,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 1,
             'asp' => 1,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => 'db930f90-17a8-468a-b094-7416f0c63e99'
         ]);
 
@@ -87,6 +88,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '7c8b051d-62d7-4250-b679-4ffffc2d1d5f'
         ]);
 
@@ -126,6 +128,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 1,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '400fa8b2-f8f9-4c64-9b70-ea6ea2e1fe2d'
         ]);
 
@@ -165,6 +168,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '5ed27969-c2cc-4d02-b7f6-c1bf0b19d613'
         ]);
 
@@ -204,6 +208,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '593e4d9f-e71e-468f-b38a-572afd5ba2f7'
         ]);
 
@@ -243,6 +248,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '753056e2-8123-4904-8f80-3f9a990e0d8b'
         ]);
 
@@ -282,6 +288,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '5f721744-eac8-42e6-8e1b-b7a9d9e1a61d'
         ]);
 
@@ -321,6 +328,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '3d7fb46d-489c-402e-b995-db4d3d158eb5'
         ]);
 
@@ -360,6 +368,7 @@ class JobsTableSeeder extends Seeder
             'ruby' => 0,
             'asp' => 0,
             'scala' => 0,
+            'cow' => 0,
             'employerid' => '3d7fb46d-489c-402e-b995-db4d3d158eb5'
         ]);
     }

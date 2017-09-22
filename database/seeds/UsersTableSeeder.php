@@ -46,7 +46,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
 
         DB::table('users')->insert([
@@ -83,7 +84,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
         
         DB::table('users')->insert([
@@ -120,7 +122,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
         
         DB::table('users')->insert([
@@ -157,7 +160,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
         
         DB::table('users')->insert([
@@ -194,7 +198,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
         
         DB::table('users')->insert([
@@ -231,7 +236,8 @@ class UsersTableSeeder extends Seeder
             'go' => 0,
             'ruby' => 0,
             'asp' => 0,
-            'scala' => 0
+            'scala' => 0,
+            'cow' => 0
         ]);
     }
 }

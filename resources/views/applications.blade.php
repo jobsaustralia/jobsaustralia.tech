@@ -18,7 +18,7 @@
                          <p>{{ $application->resume }}</p>
 
                         <p>
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ asset('application/delete/' . $application->id) }}" class="btn btn-danger"> 
                                 Delete application
                             </a>
                         </p>

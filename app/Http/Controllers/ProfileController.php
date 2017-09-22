@@ -67,6 +67,7 @@ class ProfileController extends Controller{
             'ruby' => 'boolean',
             'asp' => 'boolean',
             'scala' => 'boolean',
+            'cow' => 'boolean',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id
         ]);
 
@@ -104,6 +105,7 @@ class ProfileController extends Controller{
         $user->ruby=$request['ruby'];
         $user->asp=$request['asp'];
         $user->scala=$request['scala'];
+        $user->cow=$request['cow'];
 
         $user->save();
 

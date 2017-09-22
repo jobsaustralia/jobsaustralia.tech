@@ -52,6 +52,7 @@ class CreateJobsTable extends Migration
             $table->boolean('ruby');
             $table->boolean('asp');
             $table->boolean('scala');
+            $table->boolean('cow');
 
             $table->uuid('employerid');
             $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
