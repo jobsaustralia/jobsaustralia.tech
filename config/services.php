@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => 'mail.jobsaustralia.tech',
-        'secret' => 'key-832c796f4aeea3571c8e4ec11b9f5f46',
+        'domain' => env('MAIL_USERNAME'),
+        'secret' => env('MAIL_PASSWORD'),
     ],
 
     'ses' => [
