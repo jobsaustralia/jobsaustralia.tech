@@ -33,6 +33,14 @@ Route::get('/terms', function (){
     return view('terms');
 })->name('terms');
 
+/* Temporary demonstraton route for outgoing mail testing. */
+Route::get('mailtest', function(){
+    Mail::raw('This function demonstrates how to send outgoing emails to an address.', function($message){
+        $message->subject('This is a test.');
+        $message->to('s3481341@student.rmit.edu.au');
+    });
+});
+
 
 /* GET Controller Routes */
 
