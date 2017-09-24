@@ -166,16 +166,20 @@ function autoFill(){
 
 /* Function to (roughly) get the users location by their IP address using an external resource. */
 function getLocationByIP(){
-    /* This resource (freegeoip.net) may be blocked by some ad blocking and privacy software. In such a case, this will silently fail. */
-    var resource = "https://freegeoip.net/json/";
+    /* Respect do-not-track setting. */
+    if(navigator.doNotTrack !== "1"){
 
-    $.getJSON(resource, function(location){
-        /* Only autofill if country is detected as Australia. */
-        if(location.country_code == "AU"){
-            document.getElementById("state").value = location.region_code.toLowerCase();
-            document.getElementById("city").value = location.city;
-        }
-    });
+        /* This resource (freegeoip.net) may be blocked by some ad blocking and privacy software. In such a case, this will silently fail. */
+        var resource = "https://freegeoip.net/json/";
+
+        $.getJSON(resource, function(location){
+            /* Only autofill if country is detected as Australia. */
+            if(location.country_code == "AU"){
+                document.getElementById("state").value = location.region_code.toLowerCase();
+                document.getElementById("city").value = location.city;
+            }
+        });
+    }
 }
 
 /* Moo. */
