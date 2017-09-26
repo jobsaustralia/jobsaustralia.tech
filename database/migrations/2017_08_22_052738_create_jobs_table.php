@@ -54,6 +54,13 @@ class CreateJobsTable extends Migration
             $table->boolean('scala');
             $table->boolean('cow');
 
+            $table->integer('mineducation');
+            $table->integer('minexperience');
+
+            $table->string('rankone');
+            $table->string('ranktwo');
+            $table->string('rankthree');
+
             $table->uuid('employerid');
             $table->foreign('employerid')->references('id')->on('employers')->onDelete('cascade');
 

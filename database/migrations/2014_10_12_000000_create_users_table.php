@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->integer('experience');
+            $table->integer('education');
 			$table->string('github')->nullable();
 
             /* Skills */
