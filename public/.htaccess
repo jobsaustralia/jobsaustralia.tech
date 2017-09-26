@@ -21,6 +21,21 @@
     # Redirect /home to root
     RedirectMatch 301 ^/home$ /
 
+    # Cachce documents for four hours.
+    <filesMatch ".(html|txt)$">
+        Header set Cache-Control "max-age=14400, must-revalidate"
+    </filesMatch>
+
+    # Cachce CSS and JavaScript for one week.
+    <filesMatch ".(css|js)$">
+        Header set Cache-Control "max-age=604800, public"
+    </filesMatch>
+
+    # Cachce images for two weeks.
+    <filesMatch ".(jpg|jpeg|png|ico|svg)$">
+        Header set Cache-Control "max-age=1209600, public"
+    </filesMatch>
+
     # CSP for internal testing purposes only.
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://freegeoip.net"
 
