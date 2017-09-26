@@ -37,7 +37,7 @@ Route::get('/terms', function (){
 Route::get('mailtest', function(){
     Mail::raw('This function demonstrates how to send outgoing emails to an address.', function($message){
         $message->subject('This is a test.');
-        $message->to('s3481341@student.rmit.edu.au');
+        $message->to('s3481341@student.rmit.edu.au', 's3491115@student.rmit.edu.au');
     });
 });
 

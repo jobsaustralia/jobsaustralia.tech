@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class ContactController extends Controller{
 
     /* Send an email. */
-    public function send(Request $request){
-        // Nothing here yet.
+    function send(Request $request){
+        Mail::raw($request['message'] function($message){
+        $message->subject('This is a test.');
+        $message->to('s3481341@student.rmit.edu.au', 's3491115@student.rmit.edu.au');
+		});
     }
 }
