@@ -63,6 +63,63 @@
                     </form>
                 </div>
             </div>
+			
+			<div class="panel panel-default">
+                <div class="panel-heading">Notifications</div>
+
+                <div class="panel-body">
+                    <p>Please tick the email notifications you would like to receive.</p>
+						<hr>
+						<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
+                        {{ csrf_field() }}
+						<div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
+                            <label for="accepted" class="col-md-4 control-label">Notify me when I am accepted</label>
+
+                            <div class="col-md-1">
+                                <input id="accepted-hidden" type="hidden" class="form-control" name="accepted" value="0">
+                                <input id="accepted" type="checkbox" class="form-control" name="accepted" value="{{ old('accepted', 1) }}">
+                            
+                                @if ($errors->has('accepted'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('accepted') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						
+						
+                        <div class="form-group{{ $errors->has('rejected') ? ' has-error' : '' }}">
+                            <label for="rejected" class="col-md-4 control-label">Notify me when I am rejected</label>
+
+                            <div class="col-md-1">
+                                <input id="rejected-hidden" type="hidden" class="form-control" name="rejected" value="0">
+                                <input id="rejected" type="checkbox" class="form-control" name="rejected" value="{{ old('rejected', 1) }}">
+                            
+                                @if ($errors->has('rejected'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rejected') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('newjob') ? ' has-error' : '' }}">
+                            <label for="newjob" class="col-md-4 control-label">Notify me when a new job appears</label>
+
+                            <div class="col-md-1">
+                                <input id="newjob-hidden" type="hidden" class="form-control" name="newjob" value="0">
+                                <input id="newjob" type="checkbox" class="form-control" name="newjob" value="{{ old('newjob', 1) }}">
+                            
+                                @if ($errors->has('newjob'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('newjob') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						</div></div>
+			</form>
+			
 
             <div class="panel panel-default">
                 <div class="panel-heading">Upload Resume</div>
