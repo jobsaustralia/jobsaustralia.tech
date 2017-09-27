@@ -14,7 +14,10 @@
                     <p><strong>Sector:</strong> {{ Auth::user()->sector }}</p>
                     <p><strong>Experience:</strong> {{ Auth::user()->experience }} @if (Auth::user()->experience == 1) year @else years @endif</p>
                     <p><strong>Location:</strong> {{ Auth::user()->city }}, @if (Auth::user()->state == "vic") Victoria @elseif (Auth::user()->state == "nsw") New South Wales @elseif (Auth::user()->state == "qld") Queensland @elseif (Auth::user()->state == "wa") Western Australia @elseif (Auth::user()->state == "sa") South Australia @elseif (Auth::user()->state == "tas") Tasmania @elseif (Auth::user()->state == "act") Australian Capital Territory @elseif (Auth::user()->state == "nt") Northern Territory @elseif (Auth::user()->state == "oth") Other Australian Region @endif</p>
-                    @if (Auth::user()->github !== null) <p><strong><i class="fa fa-github" aria-hidden="true"></i> GitHub: <a href="https://github.com/{{ Auth::user()->github }}">{{ Auth::user()->github }}</a></strong></p> @endif
+
+                    @if (Auth::user()->github !== null) 
+                        <p><strong><i class="fa fa-github" aria-hidden="true"></i> GitHub: <a href="https://github.com/{{ Auth::user()->github }}">{{ Auth::user()->github }}</a></strong></p>
+                    @endif
 
                     <hr>
 
@@ -63,22 +66,25 @@
                     </form>
                 </div>
             </div>
-			
-			<div class="panel panel-default">
+
+            <div class="panel panel-default">
                 <div class="panel-heading">Notifications</div>
 
                 <div class="panel-body">
-                    <p>Please tick the email notifications you would like to receive.</p>
-						<hr>
-						<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
+                    <p>Please select the email notifications you would like to receive.</p>
+
+                    <hr>
+
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
                         {{ csrf_field() }}
-						<div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
+
+                        <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
                             <label for="accepted" class="col-md-4 control-label">Notify me when I am accepted</label>
 
                             <div class="col-md-1">
                                 <input id="accepted-hidden" type="hidden" class="form-control" name="accepted" value="0">
                                 <input id="accepted" type="checkbox" class="form-control" name="accepted" value="{{ old('accepted', 1) }}">
-                            
+
                                 @if ($errors->has('accepted'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('accepted') }}</strong>
@@ -86,15 +92,14 @@
                                 @endif
                             </div>
                         </div>
-						
-						
+
                         <div class="form-group{{ $errors->has('rejected') ? ' has-error' : '' }}">
                             <label for="rejected" class="col-md-4 control-label">Notify me when I am rejected</label>
 
                             <div class="col-md-1">
                                 <input id="rejected-hidden" type="hidden" class="form-control" name="rejected" value="0">
                                 <input id="rejected" type="checkbox" class="form-control" name="rejected" value="{{ old('rejected', 1) }}">
-                            
+
                                 @if ($errors->has('rejected'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('rejected') }}</strong>
@@ -109,7 +114,7 @@
                             <div class="col-md-1">
                                 <input id="newjob-hidden" type="hidden" class="form-control" name="newjob" value="0">
                                 <input id="newjob" type="checkbox" class="form-control" name="newjob" value="{{ old('newjob', 1) }}">
-                            
+
                                 @if ($errors->has('newjob'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('newjob') }}</strong>
@@ -117,9 +122,32 @@
                                 @endif
                             </div>
                         </div>
-						</div></div>
-			</form>
-			
+
+                        <div class="form-group{{ $errors->has('marketing') ? ' has-error' : '' }}">
+                            <label for="marketing" class="col-md-4 control-label">Send me occasional marketing emails</label>
+
+                            <div class="col-md-1">
+                                <input id="marketing-hidden" type="hidden" class="form-control" name="marketing" value="0">
+                                <input id="marketing" type="checkbox" class="form-control" name="marketing" value="{{ old('marketing', 1) }}">
+
+                                @if ($errors->has('marketing'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('marketing') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Upload Resume</div>
