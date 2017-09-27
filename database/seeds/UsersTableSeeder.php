@@ -139,7 +139,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'sa',
             'city' => 'adelaide',
             'experience' => 5,
-			'education' => 2,
+		'education' => 2,
             'java' => 1,
             'python' => 1,
             'c' => 1,
