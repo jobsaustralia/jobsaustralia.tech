@@ -54,7 +54,30 @@
                                 <input id="student" type="checkbox" class="form-control" value="1">
                             </div>
                         </div>
-                        
+						
+                        <!-- Education Level -->
+                        <div class="form-group{{ $errors->has('education') ? ' has-error' : '' }}">
+                            <label for="education" class="col-md-4 control-label">Education Level</label>
+
+                            <div class="col-md-6">
+                                <select id="education" name="education" class="form-control" value="{{ old('education') }}" required>
+                                    <option disabled selected value>Please select an option</option>
+                                    <option value="0">TAFE</option>
+                                    <option value="1">Diploma</option>
+                                    <option value="2">Associate degree</option>
+                                    <option value="3">Bachelor degree</option>
+                                    <option value="4">Masters degree</option>
+                                    <option value="5">PhD</option>
+                                </select>
+
+                                @if ($errors->has('education'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('education') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						
                         <!-- Job Title -->
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Job Title</label>
@@ -95,29 +118,6 @@
                                 @if ($errors->has('experience'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('experience') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Education Level -->
-                        <div class="form-group{{ $errors->has('education') ? ' has-error' : '' }}">
-                            <label for="education" class="col-md-4 control-label">Education Level</label>
-
-                            <div class="col-md-6">
-                                <select id="minducation" name="education" class="form-control" value="{{ old('education') }}" required>
-                                    <option disabled selected value>Please select an option</option>
-                                    <option value="0">TAFE</option>
-                                    <option value="1">Diploma</option>
-                                    <option value="2">Associate degree</option>
-                                    <option value="3">Bachelor degree</option>
-                                    <option value="4">Master degree</option>
-                                    <option value="5">PhD</option>
-                                </select>
-
-                                @if ($errors->has('education'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('education') }}</strong>
                                     </span>
                                 @endif
                             </div>
