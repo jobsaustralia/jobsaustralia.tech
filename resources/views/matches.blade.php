@@ -27,8 +27,6 @@
                 </div>
             </div>
 
-            <hr>
-
             <!-- NoScript div. Used to display message about JavaScript being disabled, or not working. -->
             <div id="noscript" class="panel panel-default">
                 <div class="panel-heading"><strong>Notice</strong></div>
