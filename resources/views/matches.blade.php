@@ -23,6 +23,30 @@
                                 <option value="oth" @if (Auth::user()->state == "oth") selected @endif >Other Australian Region</option>
                             </select>
                         </div>
+
+                        <label for="hours" class="col-md-4 control-label">Hours</label>
+
+                        <div class="col-md-6">
+                            <select id="hours" class="form-control">
+                                <option value="fulltime" @if (Auth::user()->hours == "fulltime") selected @endif >Full-time</option>
+                                <option value="parttime" @if (Auth::user()->state == "parttime") selected @endif >Part-time</option>
+                            </select>
+                        </div>
+
+                        <label for="Term" class="col-md-4 control-label">Term</label>
+
+                        <div class="col-md-6">
+                            <select id="term" class="form-control">
+                                <option value="fixed" @if (Auth::user()->term == "fixed") selected @endif >Fixed</option>
+                                <option value="permanent" @if (Auth::user()->term == "permanent") selected @endif >Permanent</option>
+                            </select>
+                        </div>
+
+                        <label for="salary" class="col-md-4 control-label">Salary</label>
+                        <div class="col-md-6">
+                           <input id="salary" type="number" min="18" max="200000" class="form-control" name="salary" value="{{ old('salary') }}">
+                        </div>
+
                     </div>
                 </div>
             </div>
