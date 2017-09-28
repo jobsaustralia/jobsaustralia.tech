@@ -11,8 +11,6 @@
                 </div>
             </div>
 
-            <hr>
-
             <input type="hidden" id="employerid" value="{{ $id }}" />
 
             <!-- NoScript div. Used to display message about JavaScript being disabled, or not working. -->
