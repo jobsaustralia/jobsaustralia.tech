@@ -112,7 +112,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
+    <!-- <script src="{{ asset('vendor/popper.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('vendor/sizzle.js') }}"></script> -->
     @if(Request::getHttpHost() == "jobsaustralia.tech")
         <script src="{{ asset('js/custom.min.js') }}"></script>
     @else
