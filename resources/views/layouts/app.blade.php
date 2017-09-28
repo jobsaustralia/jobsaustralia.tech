@@ -32,8 +32,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
-    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#1d272c">
 </head>
 <body>
     <div id="app">
@@ -114,8 +113,6 @@
     <!-- Scripts -->
     <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
-    <!-- <script src="{{ asset('vendor/popper.min.js') }}"></script> -->
-    <!-- <script src="{{ asset('vendor/sizzle.js') }}"></script> -->
     @if(Request::getHttpHost() == "jobsaustralia.tech")
         <script src="{{ asset('js/custom.min.js') }}"></script>
     @else
