@@ -19,7 +19,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @if(Request::getHttpHost() == "jobsaustralia.tech")
+        <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @endif
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/icomoon/style.css') }}" rel="stylesheet" type="text/css">
 
@@ -109,9 +113,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    @if(Request::getHttpHost() == "jobsaustralia.tech")
+        <script src="{{ asset('js/custom.min.js') }}"></script>
+    @else
+        <script src="{{ asset('js/custom.js') }}"></script>
+    @endif
     @if(Request::path() === 'matches' || substr(Request::path(), 0, 8) === 'employer')
-        <script src="{{ asset('js/match.js') }}"></script>
+        @if(Request::getHttpHost() == "jobsaustralia.tech")
+            <script src="{{ asset('js/match.min.js') }}"></script>
+        @else
+            <script src="{{ asset('js/match.js') }}"></script>
+        @endif
     @endif
 </body>
 </html>
