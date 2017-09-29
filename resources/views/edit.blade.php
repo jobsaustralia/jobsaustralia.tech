@@ -352,7 +352,7 @@
                             </div>
                         </div>
 
-                        <!-- Skill: Coffe Script -->
+                        <!-- Skill: Coffee Script -->
                         <div class="form-group{{ $errors->has('coffeescript') ? ' has-error' : '' }}">
                             <label for="coffeescript" class="col-md-4 control-label">Coffee Script</label>
 
@@ -917,22 +917,6 @@
                                 @if ($errors->has('ipv6'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('ipv6') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Skill: DNS -->
-                        <div class="form-group{{ $errors->has('dns') ? ' has-error' : '' }}">
-                            <label for="dns" class="col-md-4 control-label">DNS</label>
-
-                            <div class="col-md-1">
-                                <input id="dns-hidden" type="hidden" class="form-control" name="dns" value="0">
-                                <input id="dns" type="checkbox" class="form-control" name="dns" value="{{ old('dns', 1) }}" @if (Auth::user()->dns) checked @endif >
-
-                                @if ($errors->has('dns'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('dns') }}</strong>
                                     </span>
                                 @endif
                             </div>

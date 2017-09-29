@@ -237,17 +237,17 @@
                             </div>
                         </div>
 
-                        <!-- Skill: ActionScript -->
-                        <div class="form-group{{ $errors->has('actionscript') ? ' has-error' : '' }}">
-                            <label for="actionscript" class="col-md-4 control-label">ActionScript</label>
+                        <!-- Skill: AutoHotKey -->
+                        <div class="form-group{{ $errors->has('autohotkey') ? ' has-error' : '' }}">
+                            <label for="autohotkey" class="col-md-4 control-label">AutoHotKey</label>
 
                             <div class="col-md-1">
-                                <input id="actionscript-hidden" type="hidden" class="form-control" name="actionscript" value="0">
-                                <input id="actionscript" type="checkbox" class="form-control" name="actionscript" value="{{ old('actionscript', 1) }}">
+                                <input id="autohotkey-hidden" type="hidden" class="form-control" name="autohotkey" value="0">
+                                <input id="autohotkey" type="checkbox" class="form-control" name="autohotkey" value="{{ old('autohotkey', 1) }}">
                             
-                                @if ($errors->has('actionscript'))
+                                @if ($errors->has('autohotkey'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('actionscript') }}</strong>
+                                        <strong>{{ $errors->first('autohotkey') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -365,6 +365,22 @@
                             </div>
                         </div>
 
+                        <!-- Skill: Coffee Script -->
+                        <div class="form-group{{ $errors->has('coffeescript') ? ' has-error' : '' }}">
+                            <label for="coffeescript" class="col-md-4 control-label">Coffee Script</label>
+
+                            <div class="col-md-1">
+                                <input id="coffeescript-hidden" type="hidden" class="form-control" name="coffeescript" value="0">
+                                <input id="coffeescript" type="checkbox" class="form-control" name="coffeescript" value="{{ old('coffeescript', 1) }}">
+                            
+                                @if ($errors->has('coffeescript'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('coffeescript') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: CSS -->
                         <div class="form-group{{ $errors->has('css') ? ' has-error' : '' }}">
                             <label for="css" class="col-md-4 control-label">CSS</label>
@@ -381,6 +397,38 @@
                             </div>
                         </div>
 
+                        <!-- Skill: D -->
+                        <div class="form-group{{ $errors->has('d') ? ' has-error' : '' }}">
+                            <label for="d" class="col-md-4 control-label">D</label>
+
+                            <div class="col-md-1">
+                                <input id="d-hidden" type="hidden" class="form-control" name="d" value="0">
+                                <input id="d" type="checkbox" class="form-control" name="d" value="{{ old('d', 1) }}">
+                            
+                                @if ($errors->has('d'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('d') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: F# -->
+                        <div class="form-group{{ $errors->has('fsharp') ? ' has-error' : '' }}">
+                            <label for="fsharp" class="col-md-4 control-label">F#</label>
+
+                            <div class="col-md-1">
+                                <input id="fsharp-hidden" type="hidden" class="form-control" name="fsharp" value="0">
+                                <input id="fsharp" type="checkbox" class="form-control" name="fsharp" value="{{ old('fsharp', 1) }}">
+                            
+                                @if ($errors->has('fsharp'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fsharp') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: Go -->
                         <div class="form-group{{ $errors->has('go') ? ' has-error' : '' }}">
                             <label for="go" class="col-md-4 control-label">Go</label>
@@ -392,6 +440,22 @@
                                 @if ($errors->has('go'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('go') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Haskell -->
+                        <div class="form-group{{ $errors->has('haskell') ? ' has-error' : '' }}">
+                            <input id="haskell-hidden" type="hidden" class="form-control" name="haskell" value="0">
+                            <label for="haskell" class="col-md-4 control-label">Haskell</label>
+
+                            <div class="col-md-1">
+                                <input id="haskell" type="checkbox" class="form-control" name="haskell" value="{{ old('haskell', 1) }}">
+                            
+                                @if ($errors->has('haskell'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('haskell') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -445,17 +509,97 @@
                             </div>
                         </div>
 
-                        <!-- Skill: Pearl -->
-                        <div class="form-group{{ $errors->has('pearl') ? ' has-error' : '' }}">
-                            <label for="pearl" class="col-md-4 control-label">Pearl</label>
+                        <!-- Skill: Matlab -->
+                        <div class="form-group{{ $errors->has('matlab') ? ' has-error' : '' }}">
+                            <label for="matlab" class="col-md-4 control-label">Matlab</label>
 
                             <div class="col-md-1">
-                                <input id="pearl-hidden" type="hidden" class="form-control" name="pearl" value="0">
-                                <input id="pearl" type="checkbox" class="form-control" name="pearl" value="{{ old('pearl', 1) }}">
+                                <input id="matlab-hidden" type="hidden" class="form-control" name="matlab" value="0">
+                                <input id="matlab" type="checkbox" class="form-control" name="matlab" value="{{ old('matlab', 1) }}">
                             
-                                @if ($errors->has('pearl'))
+                                @if ($errors->has('matlab'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pearl') }}</strong>
+                                        <strong>{{ $errors->first('matlab') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Objective-C -->
+                        <div class="form-group{{ $errors->has('objectivec') ? ' has-error' : '' }}">
+                            <label for="objectivec" class="col-md-4 control-label">Objective-C</label>
+
+                            <div class="col-md-1">
+                                <input id="objectivec-hidden" type="hidden" class="form-control" name="objectivec" value="0">
+                                <input id="objectivec" type="checkbox" class="form-control" name="objectivec" value="{{ old('objectivec', 1) }}">
+                            
+                                @if ($errors->has('objectivec'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('objectivec') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Objective-C++ -->
+                        <div class="form-group{{ $errors->has('objectivecplus') ? ' has-error' : '' }}">
+                            <label for="objectivecplus" class="col-md-4 control-label">Objective-C++</label>
+
+                            <div class="col-md-1">
+                                <input id="objectivecplus-hidden" type="hidden" class="form-control" name="objectivecplus" value="0">
+                                <input id="objectivecplus" type="checkbox" class="form-control" name="objectivecplus" value="{{ old('objectivecplus', 1) }}">
+                            
+                                @if ($errors->has('objectivecplus'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('objectivecplus') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Pascal -->
+                        <div class="form-group{{ $errors->has('pascal') ? ' has-error' : '' }}">
+                            <label for="pascal" class="col-md-4 control-label">Pascal</label>
+
+                            <div class="col-md-1">
+                                <input id="pascal-hidden" type="hidden" class="form-control" name="pascal" value="0">
+                                <input id="pascal" type="checkbox" class="form-control" name="pascal" value="{{ old('pascal', 1) }}">
+                            
+                                @if ($errors->has('pascal'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pascal') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Perl -->
+                        <div class="form-group{{ $errors->has('perl') ? ' has-error' : '' }}">
+                            <label for="perl" class="col-md-4 control-label">Perl</label>
+
+                            <div class="col-md-1">
+                                <input id="perl-hidden" type="hidden" class="form-control" name="perl" value="0">
+                                <input id="perl" type="checkbox" class="form-control" name="perl" value="{{ old('perl', 1) }}">
+                            
+                                @if ($errors->has('perl'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('perl') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: PowerShell -->
+                        <div class="form-group{{ $errors->has('powershell') ? ' has-error' : '' }}">
+                            <label for="powershell" class="col-md-4 control-label">PowerShell</label>
+
+                            <div class="col-md-1">
+                                <input id="powershell-hidden" type="hidden" class="form-control" name="powershell" value="0">
+                                <input id="powershell" type="checkbox" class="form-control" name="powershell" value="{{ old('powershell', 1) }}">
+                            
+                                @if ($errors->has('powershell'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('powershell') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -526,6 +670,22 @@
                             </div>
                         </div>
 
+                        <!-- Skill: Rust -->
+                        <div class="form-group{{ $errors->has('rust') ? ' has-error' : '' }}">
+                            <label for="ruby" class="col-md-4 control-label">Rust</label>
+
+                            <div class="col-md-1">
+                                <input id="rust-hidden" type="hidden" class="form-control" name="rust" value="0">
+                                <input id="rust" type="checkbox" class="form-control" name="rust" value="{{ old('rust', 1) }}">
+                            
+                                @if ($errors->has('rust'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rust') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: Scala -->
                         <div class="form-group{{ $errors->has('scala') ? ' has-error' : '' }}">
                             <label for="scala" class="col-md-4 control-label">Scala</label>
@@ -557,6 +717,74 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Skill: Swift -->                         
+                        <div class="form-group{{ $errors->has('swift') ? ' has-error' : '' }}">
+                            <label for="swift" class="col-md-4 control-label">Swift</label>
+
+                            <div class="col-md-1">
+                                <input id="swift-hidden" type="hidden" class="form-control" name="swift" value="0">
+                                <input id="swift" type="checkbox" class="form-control" name="swift" value="{{ old('swift', 1) }}">
+                            
+                                @if ($errors->has('swift'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('swift') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: TypeScript -->                         
+                        <div class="form-group{{ $errors->has('typescript') ? ' has-error' : '' }}">
+                            <label for="typescript" class="col-md-4 control-label">TypeScript</label>
+
+                            <div class="col-md-1">
+                                <input id="typescript-hidden" type="hidden" class="form-control" name="typescript" value="0">
+                                <input id="typescript" type="checkbox" class="form-control" name="typescript" value="{{ old('typescript', 1) }}">
+                            
+                                @if ($errors->has('typescript'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('typescript') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Vue -->                         
+                        <div class="form-group{{ $errors->has('vue') ? ' has-error' : '' }}">
+                            <label for="vue" class="col-md-4 control-label">Vue</label>
+
+                            <div class="col-md-1">
+                                <input id="vue-hidden" type="hidden" class="form-control" name="vue" value="0">
+                                <input id="vue" type="checkbox" class="form-control" name="vue" value="{{ old('vue', 1) }}">
+                            
+                                @if ($errors->has('vue'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('vue') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: WebAssembly -->                         
+                        <div class="form-group{{ $errors->has('webassembly') ? ' has-error' : '' }}">
+                            <label for="webassembly" class="col-md-4 control-label">WebAssembly</label>
+
+                            <div class="col-md-1">
+                                <input id="webassembly-hidden" type="hidden" class="form-control" name="webassembly" value="0">
+                                <input id="webassembly" type="checkbox" class="form-control" name="webassembly" value="{{ old('webassembly', 1) }}">
+                            
+                                @if ($errors->has('webassembly'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('webassembly') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+
 
                         <hr class="skill-divider">
 
@@ -646,6 +874,22 @@
 
                         <h5 align="center">Networking</h5>
 
+                        <!-- Skill: DNS -->
+                        <div class="form-group{{ $errors->has('dns') ? ' has-error' : '' }}">
+                            <label for="dns" class="col-md-4 control-label">DNS</label>
+
+                            <div class="col-md-1">
+                                <input id="dns-hidden" type="hidden" class="form-control" name="dns" value="0">
+                                <input id="dns" type="checkbox" class="form-control" name="dns" value="{{ old('dns', 1) }}">
+                            
+                                @if ($errors->has('dns'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('dns') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: Cisco Networking -->
                         <div class="form-group{{ $errors->has('cisco') ? ' has-error' : '' }}">
                             <label for="cisco" class="col-md-4 control-label">Cisco Networking</label>
@@ -661,6 +905,123 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Skill: General Networking IPv4 -->
+                        <div class="form-group{{ $errors->has('ipv4') ? ' has-error' : '' }}">
+                            <label for="ipv4" class="col-md-4 control-label">General Networking IPv4</label>
+
+                            <div class="col-md-1">
+                                <input id="ipv4-hidden" type="hidden" class="form-control" name="ipv4" value="0">
+                                <input id="ipv4" type="checkbox" class="form-control" name="ipv4" value="{{ old('ipv4', 1) }}">
+                            
+                                @if ($errors->has('ipv4'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ipv4') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <!-- Skill: General Networking IPv6 -->
+                        <div class="form-group{{ $errors->has('ipv6') ? ' has-error' : '' }}">
+                            <label for="ipv6" class="col-md-4 control-label">General Networking IPv6</label>
+
+                            <div class="col-md-1">
+                                <input id="ipv6-hidden" type="hidden" class="form-control" name="ipv6" value="0">
+                                <input id="ipv6" type="checkbox" class="form-control" name="ipv6" value="{{ old('ipv6', 1) }}">
+                            
+                                @if ($errors->has('ipv6'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ipv6') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr class="skill-divider">
+
+                        <h5 align="center">Software</h5>
+                        <!-- Skill: Apache -->
+                        <div class="form-group{{ $errors->has('apache') ? ' has-error' : '' }}">
+                            <label for="apache" class="col-md-4 control-label">Apache</label>
+
+                            <div class="col-md-1">
+                                <input id="apache-hidden" type="hidden" class="form-control" name="apache" value="0">
+                                <input id="apache" type="checkbox" class="form-control" name="apache" value="{{ old('apache', 1) }}">
+                            
+                                @if ($errors->has('apache'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('apache') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: AWS -->
+                        <div class="form-group{{ $errors->has('aws') ? ' has-error' : '' }}">
+                            <label for="aws" class="col-md-4 control-label">AWS</label>
+
+                            <div class="col-md-1">
+                                <input id="aws-hidden" type="hidden" class="form-control" name="aws" value="0">
+                                <input id="aws" type="checkbox" class="form-control" name="aws" value="{{ old('aws', 1) }}">
+                            
+                                @if ($errors->has('aws'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('aws') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Docker -->
+                        <div class="form-group{{ $errors->has('docker') ? ' has-error' : '' }}">
+                            <label for="docker" class="col-md-4 control-label">Docker</label>
+
+                            <div class="col-md-1">
+                                <input id="docker-hidden" type="hidden" class="form-control" name="docker" value="0">
+                                <input id="docker" type="checkbox" class="form-control" name="docker" value="{{ old('docker', 1) }}">
+                            
+                                @if ($errors->has('docker'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('docker') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Nginx -->
+                        <div class="form-group{{ $errors->has('nginx') ? ' has-error' : '' }}">
+                            <label for="nginx" class="col-md-4 control-label">Nginx</label>
+
+                            <div class="col-md-1">
+                                <input id="nginx-hidden" type="hidden" class="form-control" name="nginx" value="0">
+                                <input id="nginx" type="checkbox" class="form-control" name="nginx" value="{{ old('nginx', 1) }}">
+                            
+                                @if ($errors->has('nginx'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('nginx') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: SaaS -->
+                        <div class="form-group{{ $errors->has('saas') ? ' has-error' : '' }}">
+                            <label for="saas" class="col-md-4 control-label">SaaS</label>
+
+                            <div class="col-md-1">
+                                <input id="saas-hidden" type="hidden" class="form-control" name="saas" value="0">
+                                <input id="saas" type="checkbox" class="form-control" name="saas" value="{{ old('saas', 1) }}">
+                            
+                                @if ($errors->has('saas'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('saas') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <hr class="skill-divider">
 
