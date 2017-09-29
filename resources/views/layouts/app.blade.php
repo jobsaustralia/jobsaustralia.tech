@@ -20,9 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @if(Request::getHttpHost() == "jobsaustralia.tech")
-        <link rel="preload" href="{{ asset('css/style.min.css') }}" rel="stylesheet" as="style">
+        <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @else
-        <link rel="preload" href="{{ asset('css/style.css') }}" rel="stylesheet" as="style">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @endif
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/icomoon/style.css') }}" rel="stylesheet" type="text/css">
