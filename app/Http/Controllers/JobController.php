@@ -50,7 +50,7 @@ class JobController extends Controller{
         $windesktop = $job->windesktop;
         $linuxdesktop = $job->linuxdesktop;
         $macosdesktop = $job->macosdesktop;
-        $pearl = $job->pearl;
+        $perl = $job->perl;
         $bash = $job->bash;
         $batch = $job->batch;
         $cisco = $job->cisco;
@@ -61,6 +61,29 @@ class JobController extends Controller{
         $asp = $job->asp;
         $scala = $job->scala;
         $cow = $job->cow;
+        $actionscript = $job->actionscript;
+        $assembly = $job->assembly;
+        $autohotkey = $job->autohotkey;
+        $d = $job->d;
+        $fsharp = $job->fsharp;
+        $haskell = $job->haskell;
+        $matlab = $job->matlab;
+        $objectivec = $job->objectivec;
+        $objectivecplus = $job->objectivecplus;
+        $pascal = $job->pascal;
+        $powershell = $job->powershell;
+        $rust = $job->rust;
+        $swift = $job->swift;
+        $typescript = $job->typescript;
+        $vue = $job->vue;
+        $webassembly = $job->webassembly;
+        $apache = $job->apache;
+        $aws = $job->aws;
+        $docker = $job->docker;
+        $nginx = $job->nginx;
+        $saas = $job->saas;
+        $ipv4 => $job->ipv4;
+        $ipv6 => $job->ipv6
 
 
         $employerid = $job->employerid;
