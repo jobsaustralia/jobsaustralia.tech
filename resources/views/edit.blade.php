@@ -402,16 +402,16 @@
                         </div>
 
                         <!-- Skill: F# -->
-                        <div class="form-group{{ $errors->has('f#') ? ' has-error' : '' }}">
-                            <label for="f#" class="col-md-4 control-label">F#</label>
+                        <div class="form-group{{ $errors->has('fsharp') ? ' has-error' : '' }}">
+                            <label for="fsharp" class="col-md-4 control-label">F#</label>
 
                             <div class="col-md-1">
-                                <input id="f#-hidden" type="hidden" class="form-control" name="f#" value="0">
-                                <input id="f#" type="checkbox" class="form-control" name="f#" value="{{ old('f#', 1) }}" @if (Auth::user()->f#) checked @endif >
+                                <input id="fsharp-hidden" type="hidden" class="form-control" name="fsharp" value="0">
+                                <input id="fsharp" type="checkbox" class="form-control" name="fsharp" value="{{ old('f#', 1) }}" @if (Auth::user()->fsharp) checked @endif >
                             
-                                @if ($errors->has('f#'))
+                                @if ($errors->has('fsharp'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('f#') }}</strong>
+                                        <strong>{{ $errors->first('fsharp') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -530,16 +530,16 @@
                         </div>
 
                         <!-- Skill: Objective-C++ -->
-                        <div class="form-group{{ $errors->has('objectivec++') ? ' has-error' : '' }}">
-                            <label for="objectivec++" class="col-md-4 control-label">Objective-C++</label>
+                        <div class="form-group{{ $errors->has('objectivecplus') ? ' has-error' : '' }}">
+                            <label for="objectivecplus" class="col-md-4 control-label">Objective-C++</label>
 
                             <div class="col-md-1">
-                                <input id="objectivec++-hidden" type="hidden" class="form-control" name="objectivec++" value="0">
-                                <input id="objectivec++" type="checkbox" class="form-control" name="objectivec++" value="{{ old('objectivec++', 1) }}" @if (Auth::user()->objectivec++) checked @endif >
+                                <input id="objectivecplus-hidden" type="hidden" class="form-control" name="objectivecplus" value="0">
+                                <input id="objectivecplus" type="checkbox" class="form-control" name="objectivecplus" value="{{ old('objectivecplus', 1) }}" @if (Auth::user()->objectivecplus) checked @endif >
                             
-                                @if ($errors->has('objectivec++'))
+                                @if ($errors->has('objectivecplus'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('objectivec++') }}</strong>
+                                        <strong>{{ $errors->first('objectivecplus') }}</strong>
                                     </span>
                                 @endif
                             </div>
