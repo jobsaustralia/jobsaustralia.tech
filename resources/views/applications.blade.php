@@ -30,7 +30,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Notice</strong></div>
                     <div class="panel-body" align="center">
-                        <p><i style="font-size: 200px" class="fa fa-ship " aria-hidden="true"></i></p>
+                        <p class="panel-notice-icon"><i class="fa fa-ship" aria-hidden="true"></i></p>
                         <br>
                         <h2>No Applications Found.</h2>
                         <p>This page will display your active applications.</p>

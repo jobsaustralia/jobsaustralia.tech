@@ -33,7 +33,7 @@
                         </button>
                     </p>
 
-                    <p id="change-password-content" style="display: none;">
+                    <p id="change-password-content" class="default-hide">
                         To change your password, Logout and select "Forgot Your Password".
                     </p>
 
@@ -43,12 +43,12 @@
                         </button>
                     </p>
 
-                    <div id="confirm-delete-content" style="display: none;">
+                    <div id="confirm-delete-content" class="default-hide">
                         <p>
                             Confirm deletion: <a id="really-confirm-delete" class="text-danger" href="#">I really want to delete my account.</a>
                         </p>
 
-                        <div id="really-confirm-delete-content" style="display: none;">
+                        <div id="really-confirm-delete-content" class="default-hide">
                             <p>
                                 <strong>Deleting your account will delete your current active job applications, and your resume.</strong>
                             </p>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <form id="delete-form" action="{{ route('delete') }}" method="POST" style="display: none;">
+                    <form id="delete-form" class="default-hide" action="{{ route('delete') }}" method="POST">
                         {{ csrf_field() }}
                     </form>
                 </div>
@@ -156,7 +156,7 @@
                     <p>Uploading a resume is optional.</p>
                     <p><strong>Current resume: </strong>@if (File::exists(storage_path('app/public/resumes/' . 'resume-' . Auth::user()->id . '.pdf'))) <a href="{{ route('resume') }}">Preview</a> &bull; <a id="delete-resume" class="text-danger" href="{{ route('deleteResume') }}">Delete</a> @else None. @endif</p>
 
-                    <form id="delete-resume-form" action="{{ route('deleteResume') }}" method="POST" style="display: none;">
+                    <form id="delete-resume-form" class="default-hide" action="{{ route('deleteResume') }}" method="POST">
                         {{ csrf_field() }}
                     </form>
 

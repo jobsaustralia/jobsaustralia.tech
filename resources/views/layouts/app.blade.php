@@ -91,7 +91,7 @@
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" class="default-hide" action="{{ route('logout') }}" method="POST">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>

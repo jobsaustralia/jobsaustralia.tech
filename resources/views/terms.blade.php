@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p style="font-size: 145%"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> Legal</strong></p>
+                    <p class="page-heading"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> Legal</strong></p>
                     <p>JobsAustralia.tech is published with a license, terms of use, and a privacy policy.</p>
                     <p>Please read this page before using the service.</p>
                 </div>

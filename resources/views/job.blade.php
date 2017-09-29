@@ -36,7 +36,7 @@
             </div>
 
             @if ($count == 0)
-                <div id="apply-content" class="panel panel-default" style="display: none;">
+                <div id="apply-content" class="panel panel-default default-hide">
                     <div class="panel-heading"><strong>Apply:</strong> Write a message to the employer</div>
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('apply') }}">

@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p style="font-size: 145%"><strong><i class="fa fa-life-ring" aria-hidden="true"></i> Support - Job Seekers FAQ</strong></p>
+                    <p class="page-heading"><strong><i class="fa fa-life-ring" aria-hidden="true"></i> Support - Job Seekers FAQ</strong></p>
                 </div>
             </div>
             <div class="panel panel-default">

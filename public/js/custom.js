@@ -4,11 +4,11 @@ function toggleDisplay(event){
 
     var element = document.getElementById(event.target.id + "-content");
     
-    if(element.style.display == "none"){
-        element.style.display = "block";
+    if(element.style.display == "block"){
+        element.style.display = "none";
     }
     else{
-        element.style.display = "none";
+        element.style.display = "block";
     }
 }
 

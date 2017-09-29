@@ -56,7 +56,7 @@
                 <div class="panel-heading"><strong>Notice</strong></div>
                 <div class="panel-body" align="center">
                     <br><br>
-                    <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                    <p class="panel-notice-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
                     <br>
                     <h2>Please enable JavaScript.</h2>
                     <p>JobsAustralia.tech requires JavaScirpt to perform matchmaking.</p>
@@ -64,22 +64,22 @@
                 </div>
             </div>
             <!-- Loading div. Used to display loading animation until first match is loaded to page. -->
-            <div id="loading" class="panel panel-default" style="display: none">
+            <div id="loading" class="panel panel-default default-hide">
                 <div class="panel-heading"><strong>Notice</strong></div>
                 <div class="panel-body" align="center">
                     <br><br>
-                    <p><i style="font-size: 200px" class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
+                    <p class="panel-notice-icon"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
                     <br>
                     <h2>Loading Matches.</h2>
                     <br><br>
                 </div>
             </div>
             <!-- No matches div. Used to display message when no matches are found. -->
-            <div id="nomatches" class="panel panel-default" style="display: none">
+            <div id="nomatches" class="panel panel-default default-hide">
                 <div class="panel-heading"><strong>Notice</strong></div>
                 <div class="panel-body" align="center">
                     <br><br>
-                    <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                    <p class="panel-notice-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
                     <br>
                     <h2>No Matches Found.</h2>
                     <p>Try again later.</p>
@@ -87,11 +87,11 @@
                 </div>
             </div>
             <!-- Error div. Used to display message when no matches are found. -->
-            <div id="error" class="panel panel-default" style="display: none">
+            <div id="error" class="panel panel-default default-hide">
                 <div class="panel-heading"><strong>Notice</strong></div>
                 <div class="panel-body" align="center">
                     <br><br>
-                    <p><i style="font-size: 200px" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+                    <p class="panel-notice-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
                     <br>
                     <h2>Error.</h2>
                     <p>An error occurred. Please try again later, and <a href="{{ route('contact') }}">report it to us</a> if this error reoccurs</p>

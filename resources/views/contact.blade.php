@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p style="font-size: 145%"><strong><i class="fa fa-envelope" aria-hidden="true"></i> Contact</strong></p>
+                    <p class="page-heading"><strong><i class="fa fa-envelope" aria-hidden="true"></i> Contact</strong></p>
                     <p>Use the form below to contact the <a href="{{ route('about') }}">team</a>.</p>
                     <p>Please refer to the <a href="{{ route('support') }}">support page</a> before contacting us for support.</p>
                 </div>
