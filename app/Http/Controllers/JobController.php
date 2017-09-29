@@ -83,9 +83,8 @@ class JobController extends Controller{
         $nginx = $job->nginx;
         $saas = $job->saas;
         $ipv4 => $job->ipv4;
-        $ipv6 => $job->ipv6
-
-
+        $ipv6 => $job->ipv6;
+        $dns => $job->dns;
         $employerid = $job->employerid;
         $employer = Employer::findOrFail($employerid);
 
@@ -94,7 +93,7 @@ class JobController extends Controller{
         /* Count the number of times the job seeker has applied to the job. */
         $count = Application::where('jobid', $id)->where('userid', Auth::user()->id)->get()->count();
 
-        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "term"=>$term, "hours"=>$hours, "salary"=>$salary, "rate"=>$rate, "startdate"=>$startdate, "state"=>$state, "city"=>$city, "count"=>$count, "employername"=>$employername, "employerid"=>$employerid, "java"=>$java, "python"=>$python, "c"=>$c, "csharp"=>$csharp, "cplus"=>$cplus, "php"=>$php, "html"=>$html, "css"=>$css, "javascript"=>$javascript, "sql"=>$sql, "unix"=>$unix, "winserver"=>$winserver, "windesktop"=>$windesktop, "linuxdesktop"=>$linuxdesktop, "macosdesktop"=>$macosdesktop, "perl"=>$perl, "bash"=>$bash, "batch"=>$batch, "cisco"=>$cisco, "office"=>$office, "r"=>$r, "go"=>$go, "ruby"=>$ruby, "asp"=>$asp, "scala"=>$scala, "cow"=>$cow, "actionscript"=>$actionscript, "assembly"=>$assembly, "autohotkey"=>$autohotkey, "coffeescript"=>$coffeescript, "d"=>$d, "fsharp"=>$fsharp, "haskell"=>$haskell, "matlab"=>$matlab, "objectivec"=>$objectivec, "objectivecplus"=>$objectivecplus, "pascal"=>$pascal, "powershell"=>$powershell, "rust"=>$rust, "swift"=>$swift, "typescript"=>$typescript, "vue"=>$vue, "webassembly"=>$webassembly, "apache"=>$apache, "aws"=>$aws, "docker"=>$docker, "nginx"=>$nginx, "saas"=>$saas, "ipv4"=>$ipv4, "ipv6"=>$ipv6]);
+        return view("job", ["id"=>$id, "title"=>$title, "description"=>$description, "term"=>$term, "hours"=>$hours, "salary"=>$salary, "rate"=>$rate, "startdate"=>$startdate, "state"=>$state, "city"=>$city, "count"=>$count, "employername"=>$employername, "employerid"=>$employerid, "java"=>$java, "python"=>$python, "c"=>$c, "csharp"=>$csharp, "cplus"=>$cplus, "php"=>$php, "html"=>$html, "css"=>$css, "javascript"=>$javascript, "sql"=>$sql, "unix"=>$unix, "winserver"=>$winserver, "windesktop"=>$windesktop, "linuxdesktop"=>$linuxdesktop, "macosdesktop"=>$macosdesktop, "perl"=>$perl, "bash"=>$bash, "batch"=>$batch, "cisco"=>$cisco, "office"=>$office, "r"=>$r, "go"=>$go, "ruby"=>$ruby, "asp"=>$asp, "scala"=>$scala, "cow"=>$cow, "actionscript"=>$actionscript, "assembly"=>$assembly, "autohotkey"=>$autohotkey, "coffeescript"=>$coffeescript, "d"=>$d, "fsharp"=>$fsharp, "haskell"=>$haskell, "matlab"=>$matlab, "objectivec"=>$objectivec, "objectivecplus"=>$objectivecplus, "pascal"=>$pascal, "powershell"=>$powershell, "rust"=>$rust, "swift"=>$swift, "typescript"=>$typescript, "vue"=>$vue, "webassembly"=>$webassembly, "apache"=>$apache, "aws"=>$aws, "docker"=>$docker, "nginx"=>$nginx, "saas"=>$saas, "ipv4"=>$ipv4, "ipv6"=>$ipv6, "dns"=>$dns]);
     }
 
     function employerProfile($id){

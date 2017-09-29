@@ -205,6 +205,54 @@
 
                         <h5 align="center">Languages</h5>
 
+                        <!-- Skill: ActionScript -->
+                        <div class="form-group{{ $errors->has('actionscript') ? ' has-error' : '' }}">
+                            <label for="actionscript" class="col-md-4 control-label">ActionScript</label>
+
+                            <div class="col-md-1">
+                                <input id="actionscript-hidden" type="hidden" class="form-control" name="actionscript" value="0">
+                                <input id="actionscript" type="checkbox" class="form-control" name="actionscript" value="{{ old('actionscript', 1) }}">
+                            
+                                @if ($errors->has('actionscript'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('actionscript') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: Assembly -->
+                        <div class="form-group{{ $errors->has('assembly') ? ' has-error' : '' }}">
+                            <label for="assembly" class="col-md-4 control-label">Assembly</label>
+
+                            <div class="col-md-1">
+                                <input id="assembly-hidden" type="hidden" class="form-control" name="assembly" value="0">
+                                <input id="assembly" type="checkbox" class="form-control" name="assembly" value="{{ old('assembly', 1) }}">
+                            
+                                @if ($errors->has('assembly'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('assembly') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: ActionScript -->
+                        <div class="form-group{{ $errors->has('actionscript') ? ' has-error' : '' }}">
+                            <label for="actionscript" class="col-md-4 control-label">ActionScript</label>
+
+                            <div class="col-md-1">
+                                <input id="actionscript-hidden" type="hidden" class="form-control" name="actionscript" value="0">
+                                <input id="actionscript" type="checkbox" class="form-control" name="actionscript" value="{{ old('actionscript', 1) }}">
+                            
+                                @if ($errors->has('actionscript'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('actionscript') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Skill: ASP.NET -->
                         <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
                             <label for="asp" class="col-md-4 control-label">ASP.NET</label>

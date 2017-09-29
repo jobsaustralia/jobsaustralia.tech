@@ -34,7 +34,7 @@ class ProfileController extends Controller{
         $user = Auth::user();
 
         /* Validate incoming data */
-        $this->validate($request, [
+        $this->validate($request,  [
             'name' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'title' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'sector' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
@@ -57,7 +57,7 @@ class ProfileController extends Controller{
             'windesktop' => 'boolean',
             'linuxdesktop' => 'boolean',
             'macosdesktop' => 'boolean',
-            'pearl' => 'boolean',
+            'perl' => 'boolean',
             'bash' => 'boolean',
             'batch' => 'boolean',
             'cisco' => 'boolean',
@@ -68,6 +68,31 @@ class ProfileController extends Controller{
             'asp' => 'boolean',
             'scala' => 'boolean',
             'cow' => 'boolean',
+            'actionscript' => 'boolean',
+            'assembly' => 'boolean',
+            'autohotkey' => 'boolean',
+            'coffeescript' => 'boolean',
+            'd' => 'boolean',
+            'fsharp' => 'boolean',
+            'haskell' => 'boolean',
+            'matlab' => 'boolean',
+            'objectivec' => 'boolean',
+            'objectivecplus' => 'boolean',
+            'pascal' => 'boolean',
+            'powershell' => 'boolean',
+            'rust' => 'boolean',
+            'swift' => 'boolean',
+            'typescript' => 'boolean',
+            'vue' => 'boolean',
+            'webassembly' => 'boolean',
+            'apache' => 'boolean',
+            'aws' => 'boolean',
+            'docker' => 'boolean',
+            'nginx' => 'boolean',
+            'saas' => 'boolean',
+            'ipv4' => 'boolean',
+            'ipv6' => 'boolean',
+            'dns' => 'boolean',                        
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id
         ]);
 
@@ -79,7 +104,6 @@ class ProfileController extends Controller{
         $user->state=$request['state'];
         $user->city=$request['city'];
         $user->github=$request['github'];
-
         $user->java=$request['java'];
         $user->python=$request['python'];
         $user->c=$request['c'];
@@ -95,7 +119,7 @@ class ProfileController extends Controller{
         $user->windesktop=$request['windesktop'];
         $user->linuxdesktop=$request['linuxdesktop'];
         $user->macosdesktop=$request['macosdesktop'];
-        $user->pearl=$request['pearl'];
+        $user->perl=$request['pearl'];
         $user->bash=$request['bash'];
         $user->batch=$request['batch'];
         $user->cisco=$request['cisco'];
@@ -106,6 +130,31 @@ class ProfileController extends Controller{
         $user->asp=$request['asp'];
         $user->scala=$request['scala'];
         $user->cow=$request['cow'];
+        $user->actionscript=$requesr['actionscript'];
+        $user->assembly=$request['assembly'];
+        $user->autohotkey=$request['autohotkey'];
+        $user->coffeescript=$request['coffeescript'];
+        $user->d=$request['d'];
+        $user->fsharp=$request['fsharp'];
+        $user->haskell=$request['haskell'];
+        $user->matlab=$request['matlab'];
+        $user->objectivec=$request['objectivec'];
+        $user->objectivecplus=$request['objectivecplus'];
+        $user->pascal=$request['pascal'];
+        $user->powershell=$request['powershell'];
+        $user->rust=$request['rust'];
+        $user->swift=$request['swift'];
+        $user->typescript=$request['typescript'];
+        $user->vue=$request['vue'];
+        $user->webassembly=$request['webassembly'];
+        $user->apache=$request['apache'];
+        $user->aws=$request['aws'];
+        $user->docker=$request['docker'];
+        $user->nginx=$request['nginx'];
+        $user->saas=$request['saas'];
+        $user->ipv4=$request['ipv4'];
+        $user->ipv6=$request['ipv6'];
+        $user->dns=$request['dns'];
 
         $user->save();
 
