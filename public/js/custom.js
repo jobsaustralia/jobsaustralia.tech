@@ -226,3 +226,19 @@ else if(document.getElementById("delete-application") !== null){
 if(document.getElementById("logout") !== null){
     document.getElementById("logout").addEventListener("click", submitForm);
 }
+
+function test(){
+    if(window.location.hostname == "jobsaustralia.tech"){
+        var resource = 'css/style.min.css';
+    }
+    else{
+        var resource = 'css/style.css';
+    }
+    var usedLaterScript = document.createElement('link');
+    usedLaterScript.href = resource;  
+    usedLaterScript.rel = "stylesheet";  
+    document.body.appendChild(usedLaterScript)
+}
+
+document.addEventListener('DOMContentLoaded', test);
+
