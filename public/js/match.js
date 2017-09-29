@@ -1,147 +1,164 @@
 /* Function to print job to panel in view. */
 function printJob(id, title, description, hours, rate, salary, startDate, state, city, employerName, employerId, percentageMatch){
-    var display = document.getElementById("jobs");
-
-    var panel = document.createElement("div");
-    panel.className = "panel panel-default";
-
-    var heading = document.createElement("div");
-    heading.className = "panel-heading";
-    heading.innerHTML += title + " &bull; ";
-
-    var match = document.createElement("strong");
-    match.innerHTML = percentageMatch + "&#37;";
-
-    var body = document.createElement("div");
-    body.className = "panel-body";
-
-    var p1 = document.createElement("p");
-    p1.innerHTML = description;
-
-    var hr1 = document.createElement("hr");
-
-    var p2 = document.createElement("p");
-    var p2Title = document.createElement("strong");
-
-    if(hours == "fulltime"){
-        p2.innerHTML = "Full time";
-    }
-    else if(hours == "parttime"){
-        p2.innerHTML = "Part time";
+    if(document.getElementById("job") !== null){
+        /* Print single percentageMatch to document if in single job view. */
+        document.getElementById("percentage-match").innerHTML = percentageMatch + "&#37;";
     }
     else{
-        p2.innerHTML = "Casual";
+        /* Print all jobs to document. */
+        var display = document.getElementById("jobs");
+
+        var panel = document.createElement("div");
+        panel.className = "panel panel-default";
+
+        var heading = document.createElement("div");
+        heading.className = "panel-heading";
+        heading.innerHTML += title + " &bull; ";
+
+        var match = document.createElement("strong");
+        match.innerHTML = percentageMatch + "&#37;";
+
+        var body = document.createElement("div");
+        body.className = "panel-body";
+
+        var p0 = document.createElement("p");
+        var marker = document.createElement("i");
+        var combinedLocation = document.createElement("strong");
+        marker.className = "fa fa-map-marker";
+        marker.ariaHidden = true;
+        combinedLocation.innerHTML = " " + city;
+
+        if(state == "vic"){
+            combinedLocation.innerHTML += ", Victoria";
+        }
+        else if(state == "nsw"){
+            combinedLocation.innerHTML += ", New South Wales";
+        }
+        else if(state == "qld"){
+            combinedLocation.innerHTML += ", Queensland";
+        }
+        else if(state == "wa"){
+            combinedLocation.innerHTML += ", Western Australia";
+        }
+        else if(state == "sa"){
+            combinedLocation.innerHTML += ", South Australia";
+        }
+        else if(state == "ta"){
+            combinedLocation.innerHTML += ", Tasmania";
+        }
+        else if(state == "act"){
+            combinedLocation.innerHTML += ", Australian Capital Territory";
+        }
+        else if(state == "nt"){
+            combinedLocation.innerHTML += ", Northern Territory";
+        }
+        else{
+            combinedLocation.innerHTML += ", Other Australian Region";
+        }
+
+        var p1 = document.createElement("p");
+        p1.innerHTML = description;
+
+        var hr1 = document.createElement("hr");
+
+        var p2 = document.createElement("p");
+        var p2Title = document.createElement("strong");
+
+        if(hours == "fulltime"){
+            p2.innerHTML = "Full time";
+        }
+        else if(hours == "parttime"){
+            p2.innerHTML = "Part time";
+        }
+        else{
+            p2.innerHTML = "Casual";
+        }
+
+        p2Title.innerHTML = "Hours: ";
+
+        var p3 = document.createElement("p");
+        var p3Title = document.createElement("strong");
+
+        /* https://stackoverflow.com/a/2901298 */
+        p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        if(rate == "hourly"){
+            p3.innerHTML += " per hour";
+        }
+        else if(rate == "weekly"){
+            p3.innerHTML += " per week";
+        }
+        else if(rate == "fortnightly"){
+            p3.innerHTML += " per fortnight";
+        }
+        else if(rate == "monthly"){
+            p3.innerHTML += " per month";
+        }
+        else{
+            p3.innerHTML += " per annum";
+        }
+
+        p3Title.innerHTML = "Salary: ";
+
+        var p4 = document.createElement("p");
+        var p4Title = document.createElement("strong");
+        p4.innerHTML = startDate;
+        p4Title.innerHTML = "Start date: ";
+
+        /* Don't print empoyer name to employer view document (to avoid redundancy). */
+        if(document.getElementById("employer") == null){
+            var p5 = document.createElement("p");
+            var p5Title = document.createElement("strong");
+            p5Title.innerHTML = "Employer: ";
+        }
+
+        var a1 = document.createElement("a");
+        a1.href = "/employer/" + employerId;
+        a1.innerHTML = employerName
+
+        var hr2 = document.createElement("hr");
+
+        var p7 = document.createElement("p");
+
+        var apply = document.createElement("a");
+        apply.className = "btn btn-primary";
+        apply.href = "/job/" + id;
+        apply.innerHTML = "View";
+
+        panel.appendChild(heading);
+        panel.appendChild(body);
+        heading.append(match);
+        body.append(p0);
+        p0.prepend(marker);
+        p0.append(combinedLocation);
+        body.append(p1);
+        body.append(hr1);
+        body.append(p2);
+        p2.prepend(p2Title);
+        body.append(p3);
+        p3.prepend(p3Title);
+        body.append(p4);
+        p4.prepend(p4Title);
+
+        /* Don't print empoyer name to employer view document (to avoid redundancy). */
+        if(document.getElementById("employer") == null){
+            body.append(p5);
+            p5.append(a1);
+            p5.prepend(p5Title);
+        }
+
+        body.append(hr2);
+        body.append(p7);
+        p7.append(apply);
+        display.appendChild(panel);
+
+        document.getElementById("loading").style.display = "none";
     }
-
-    p2Title.innerHTML = "Hours: ";
-
-    var p3 = document.createElement("p");
-    var p3Title = document.createElement("strong");
-
-    /* https://stackoverflow.com/a/2901298 */
-    p3.innerHTML = "&#36;" + salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    if(rate == "hourly"){
-        p3.innerHTML += " per hour";
-    }
-    else if(rate == "weekly"){
-        p3.innerHTML += " per week";
-    }
-    else if(rate == "fortnightly"){
-        p3.innerHTML += " per fortnight";
-    }
-    else if(rate == "monthly"){
-        p3.innerHTML += " per month";
-    }
-    else{
-        p3.innerHTML += " per annum";
-    }
-
-    p3Title.innerHTML = "Salary: ";
-
-    var p4 = document.createElement("p");
-    var p4Title = document.createElement("strong");
-    p4.innerHTML = startDate;
-    p4Title.innerHTML = "Start date: ";
-
-    var p5 = document.createElement("p");
-    var p5Title = document.createElement("strong");
-    p5.innerHTML = city;
-
-    if(state == "vic"){
-        p5.innerHTML += ", Victoria";
-    }
-    else if(state == "nsw"){
-        p5.innerHTML += ", New South Wales";
-    }
-    else if(state == "qld"){
-        p5.innerHTML += ", Queensland";
-    }
-    else if(state == "wa"){
-        p5.innerHTML += ", Western Australia";
-    }
-    else if(state == "sa"){
-        p5.innerHTML += ", South Australia";
-    }
-    else if(state == "ta"){
-        p5.innerHTML += ", Tasmania";
-    }
-    else if(state == "act"){
-        p5.innerHTML += ", Australian Capital Territory";
-    }
-    else if(state == "nt"){
-        p5.innerHTML += ", Northern Territory";
-    }
-    else{
-        p5.innerHTML += ", Other Australian Region";
-    }
-
-    p5Title.innerHTML = "Location: ";
-
-    var p6 = document.createElement("p");
-    var p6Title = document.createElement("strong");
-    p6Title.innerHTML = "Employer: ";
-
-    var a1 = document.createElement("a");
-    a1.href = "/employer/" + employerId;
-    a1.innerHTML = employerName
-
-    var hr2 = document.createElement("hr");
-
-    var p7 = document.createElement("p");
-
-    var apply = document.createElement("a");
-    apply.className = "btn btn-primary";
-    apply.href = "/job/" + id;
-    apply.innerHTML = "View";
-
-    panel.appendChild(heading);
-    panel.appendChild(body);
-    heading.append(match);
-    body.append(p1);
-    body.append(hr1);
-    body.append(p2);
-    p2.prepend(p2Title);
-    body.append(p3);
-    p3.prepend(p3Title);
-    body.append(p4);
-    p4.prepend(p4Title);
-    body.append(p5);
-    p5.prepend(p5Title);
-    body.append(p6);
-    p6.append(a1);
-    p6.prepend(p6Title);
-    body.append(hr2);
-    body.append(p7);
-    p7.append(apply);
-    display.appendChild(panel);
-
-    document.getElementById("loading").style.display = "none";
 }
 
 /* Function to perform matchmaking. */
 function match(){
-    /* Get filter from document. */
+    /* Get filter from matches document. */
     if(document.getElementById("filters") !== null){
         if(document.getElementById("rate").value == "any"){
             document.getElementById("salary").disabled = true;
@@ -160,6 +177,11 @@ function match(){
 
         var jobResource = "/api/jobs/state/" + document.getElementById("state").value + "/hours/" + document.getElementById("hours").value + "/term/" + document.getElementById("term").value + "/rate/" + document.getElementById("rate").value + "/salary/" + salary;
     }
+    /* Get job ID from single job document. */
+    else if(document.getElementById("job") !== null){
+        var jobResource = "/api/job/" + document.getElementById("jobid").value;
+    }
+    /* Get employer ID from employer view document. */
     else{
         var jobResource = "/api/jobs/employer/" + document.getElementById("employerid").value;
     }
@@ -277,29 +299,37 @@ function match(){
                 }
             }
             else{
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("nomatches").style.display = "block";
+                if(document.getElementById("job") == null){
+                    document.getElementById("loading").style.display = "none";
+                    document.getElementById("nomatches").style.display = "block";
+                }
             }
         })
         .fail(function(){
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("error").style.display = "block";
+            if(document.getElementById("job") == null){
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("error").style.display = "block";
+            }
         });
     })
     .fail(function(){
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("error").style.display = "block";
+        if(document.getElementById("job") == null){
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("error").style.display = "block";
+        }
     });
 }
 
 /* Initialisation function to test for JavaScript, display loading animation, and call match function. */
 function init(){
-    document.getElementById("jobs").innerHTML = "";
+    if(document.getElementById("job") == null){
+        document.getElementById("jobs").innerHTML = "";
 
-    document.getElementById("noscript").style.display = "none";
-    document.getElementById("nomatches").style.display = "none";
-    document.getElementById("error").style.display = "none";
-    document.getElementById("loading").style.display = "block";
+        document.getElementById("noscript").style.display = "none";
+        document.getElementById("nomatches").style.display = "none";
+        document.getElementById("error").style.display = "none";
+        document.getElementById("loading").style.display = "block";
+    }
 
     match();
 }

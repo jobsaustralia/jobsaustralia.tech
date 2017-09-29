@@ -113,4 +113,13 @@ class APIController extends Controller{
             return $unappliedJobs;
         }
     }
+
+    /* Return a single job by ID. */
+    public function getJob($id, $token){
+        if(Session::token() == $token){
+            $job = Job::where('id', $id)->get();
+
+            return $job;
+        }
+    }
 }

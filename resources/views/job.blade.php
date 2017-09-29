@@ -5,24 +5,24 @@
     <div class="row">
         <div @if ($count == 0) id="job" @endif class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong>{{ $title }}</strong> by <a href="{{ asset('employer/' . $employerid) }}"> {{ $employername }}</a></div>
+                <div class="panel-heading"><strong>{{ $title }}</strong> by <a href="{{ asset('employer/' . $employerid) }}"> {{ $employername }}</a> &bull; <strong id="percentage-match"></strong></div>
 
                 <div class="panel-body">
-					<p><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>{{ $city }}, @if ($state == "vic") Victoria @elseif ($state == "nsw") New South Wales @elseif ($state == "qld") Queensland @elseif ($state == "wa") Western Australia @elseif ($state == "sa") South Australia @elseif ($state == "tas") Tasmania @elseif ($state == "act") Australian Capital Territory @elseif ($state == "nt") Northern Territory @else Other Australian Region @endif</strong></p>
-					
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>{{ $city }}, @if ($state == "vic") Victoria @elseif ($state == "nsw") New South Wales @elseif ($state == "qld") Queensland @elseif ($state == "wa") Western Australia @elseif ($state == "sa") South Australia @elseif ($state == "tas") Tasmania @elseif ($state == "act") Australian Capital Territory @elseif ($state == "nt") Northern Territory @else Other Australian Region @endif</strong></p>
+
                     <p>{{ $description }}</p>
 
                     <hr>
-					
+
                     <p><strong>Term:</strong> @if ($term == "fixed") Fixed @else Permanent @endif </p>
                     <p><strong>Hours:</strong> @if ($hours == "fulltime") Full time @elseif ($hours == "parttime") Part time @else Casual @endif</p>
                     <p><strong>Salary:</strong> &#36;{{ number_format($salary) }} @if ($rate == "hourly") per hour @elseif ($rate == "weekly") per week @elseif ($rate == "monthly") per month @else per annum @endif </p>
                     <p><strong>Start Date:</strong> {{ $startdate }}</p>
-					
-					<hr>
-					
-					<p><strong>Required Skills:</strong> @if ($java) Java @endif @if ($python) &bull; Python @endif @if ($c) &bull; C @endif @if ($csharp) &bull; C Sharp @endif @if ($cplus) &bull; C++ @endif @if ($php) &bull; PHP @endif @if ($html) &bull; HTML @endif @if ($css) &bull; CSS @endif @if ($javascript) &bull; JavaScript @endif @if ($sql) &bull; SQL @endif @if ($unix) &bull; Unix @endif @if ($winserver) &bull; Windows Server @endif @if ($windesktop) &bull; Windows Server @endif @if ($linuxdesktop) &bull; Linux Desktop @endif @if ($macosdesktop) &bull; MacOS Desktop @endif @if ($pearl) &bull; Pearl @endif @if ($bash) &bull; Bash @endif @if ($batch) &bull; Batch @endif @if ($cisco) &bull; Cisco @endif @if ($office) &bull; Office @endif @if ($r) &bull; R @endif @if ($go) &bull; Go @endif @if ($ruby) &bull; Ruby @endif @if ($asp) &bull; ASP @endif @if ($scala) &bull; Scala @endif @if ($cow) &bull; COW @endif</p>
-					
+
+                    <hr>
+
+                    <p><strong>Required Skills:</strong> @if ($java) Java @endif @if ($python) &bull; Python @endif @if ($c) &bull; C @endif @if ($csharp) &bull; C Sharp @endif @if ($cplus) &bull; C++ @endif @if ($php) &bull; PHP @endif @if ($html) &bull; HTML @endif @if ($css) &bull; CSS @endif @if ($javascript) &bull; JavaScript @endif @if ($sql) &bull; SQL @endif @if ($unix) &bull; Unix @endif @if ($winserver) &bull; Windows Server @endif @if ($windesktop) &bull; Windows Server @endif @if ($linuxdesktop) &bull; Linux Desktop @endif @if ($macosdesktop) &bull; MacOS Desktop @endif @if ($pearl) &bull; Pearl @endif @if ($bash) &bull; Bash @endif @if ($batch) &bull; Batch @endif @if ($cisco) &bull; Cisco @endif @if ($office) &bull; Office @endif @if ($r) &bull; R @endif @if ($go) &bull; Go @endif @if ($ruby) &bull; Ruby @endif @if ($asp) &bull; ASP @endif @if ($scala) &bull; Scala @endif @if ($cow) &bull; COW @endif</p>
+                    
                     <hr>
 
                     <p>
@@ -42,7 +42,7 @@
                         <form class="form-horizontal" method="POST" action="{{ route('apply') }}">
                             {{ csrf_field() }}
 
-                            <input type="hidden" name="jobid" value="{{ $id }}" />
+                            <input id="jobid" type="hidden" name="jobid" value="{{ $id }}" />
 
                             <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
                                 <label for="cover-letter" class="col-md-4 control-label">Message</label>
