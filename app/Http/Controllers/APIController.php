@@ -7,6 +7,7 @@ use App\Employer;
 use App\Job;
 
 use Auth;
+use Carbon\Carbon;
 use Session;
 
 use App\Http\Controllers\Controller;
@@ -26,9 +27,33 @@ class APIController extends Controller{
     }
 
     /* Get all Jobs by state to which the job seeker has not applied. */
-    public function getJobsByState($state, $token){
+    public function getJobs($state, $hours, $term, $rate, $salary, $token){
         if(Session::token() == $token){
-            $jobs = Job::where('state', $state)->get();
+            if($hours == "any" && $term == "any" && $salary == "any"){
+                $jobs = Job::where('state', $state)->get();
+            }
+            else if($hours == "any" && $term == "any" && $salary !== "any"){
+                $jobs = Job::where('state', $state)->where('rate', $rate)->where('salary', '>=', $salary)->get();
+            }
+            else if($hours == "any" && $term !== "any" && $salary !== "any"){
+                $jobs = Job::where('state', $state)->where('term', $term)->where('rate', $rate)->where('salary', '>=', $salary)->get();
+            }
+            else if($hours == "any" && $term !== "any" && $salary == "any"){
+                $jobs = Job::where('state', $state)->where('term', $term)->get();
+            }
+            else if($hours !== "any" && $term == "any" && $salary == "any"){
+                $jobs = Job::where('state', $state)->where('hours', $hours)->get();
+            }
+            else if($hours !== "any" && $term !== "any" && $salary == "any"){
+                $jobs = Job::where('state', $state)->where('hours', $hours)->where('term', $term)->get();
+            }
+            else if($hours !== "any" && $term == "any" && $salary !== "any"){
+                $jobs = Job::where('state', $state)->where('hours', $hours)->where('rate', $rate)->where('salary', '>=', $salary)->get();
+            }
+            else{
+                $jobs = Job::where('state', $state)->where('hours', $hours)->where('term', $term)->where('rate', $rate)->where('salary', '>=', $salary)->get();
+            }
+
             $applications = Application::where('userid', Auth::user()->id)->get();
 
             /* Populate an array of job IDs to which the job seeker has applied. */
@@ -48,7 +73,9 @@ class APIController extends Controller{
                     $employer = Employer::findOrFail($job->employerid);
                     $job->employername = $employer->name;
 
-                    array_push($unappliedJobs, $job);
+                    if(Carbon::now()->format('Y-m-d') < $job->startdate){
+                        array_push($unappliedJobs, $job);
+                    }
                 }
             }
 

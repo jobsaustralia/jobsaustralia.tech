@@ -142,8 +142,23 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
 /* Function to perform matchmaking. */
 function match(){
     /* Get filter from document. */
-    if(document.getElementById("state") !== null){
-        var jobResource = "/api/jobs/state/" + document.getElementById("state").value;
+    if(document.getElementById("filters") !== null){
+        if(document.getElementById("rate").value == "any"){
+            document.getElementById("salary").disabled = true;
+            document.getElementById("salary").value = "";
+            var salary = "any";
+        }
+        else{
+            document.getElementById("salary").disabled = false;
+
+            if(event.target.id !== "salary"){
+                document.getElementById("salary").value = document.getElementById("salary").min;
+            }
+
+            var salary = document.getElementById("salary").value;
+        }
+
+        var jobResource = "/api/jobs/state/" + document.getElementById("state").value + "/hours/" + document.getElementById("hours").value + "/term/" + document.getElementById("term").value + "/rate/" + document.getElementById("rate").value + "/salary/" + salary;
     }
     else{
         var jobResource = "/api/jobs/employer/" + document.getElementById("employerid").value;
@@ -291,6 +306,10 @@ function init(){
 
 document.addEventListener('DOMContentLoaded', init);
 
-if(document.getElementById("state") !== null){
+if(document.getElementById("filters") !== null){
     document.getElementById("state").addEventListener('change', init);
+    document.getElementById("hours").addEventListener('change', init);
+    document.getElementById("term").addEventListener('change', init);
+    document.getElementById("rate").addEventListener('change', init);
+    document.getElementById("salary").addEventListener('change', init);
 }

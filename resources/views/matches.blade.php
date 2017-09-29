@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div id="filters" class="panel panel-default">
                 <div class="panel-heading">Filter Matches</div>
                 <div class="panel-body">
                     <div class="form-group">
@@ -22,31 +22,53 @@
                                 <option value="nt" @if (Auth::user()->state == "nt") selected @endif >Northern Teritory</option>
                                 <option value="oth" @if (Auth::user()->state == "oth") selected @endif >Other Australian Region</option>
                             </select>
-                        </div>
 
-                        <label for="hours" class="col-md-4 control-label">Hours</label>
-
-                        <div class="col-md-6">
-                            <select id="hours" class="form-control">
-                                <option value="fulltime" @if (Auth::user()->hours == "fulltime") selected @endif >Full-time</option>
-                                <option value="parttime" @if (Auth::user()->state == "parttime") selected @endif >Part-time</option>
-                            </select>
+                            <br>
                         </div>
 
                         <label for="Term" class="col-md-4 control-label">Term</label>
 
                         <div class="col-md-6">
                             <select id="term" class="form-control">
-                                <option value="fixed" @if (Auth::user()->term == "fixed") selected @endif >Fixed</option>
-                                <option value="permanent" @if (Auth::user()->term == "permanent") selected @endif >Permanent</option>
+                                <option value="any" selected>Any</option>
+                                <option value="fixed">Fixed</option>
+                                <option value="permanent">Permanent</option>
                             </select>
+
+                            <br>
+                        </div>
+
+                        <label for="hours" class="col-md-4 control-label">Hours</label>
+
+                        <div class="col-md-6">
+                            <select id="hours" class="form-control">
+                                <option value="any" selected="">Any</option>
+                                <option value="fulltime">Full-time</option>
+                                <option value="parttime">Part-time</option>
+                            </select>
+
+                            <br>
+                        </div>
+
+                        <label for="rate" class="col-md-4 control-label">Rate</label>
+
+                        <div class="col-md-6">
+                            <select id="rate" class="form-control">
+                                <option value="any" selected>Any</option>
+                                <option value="hourly">Hourly</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="fortnightly">Fortnightly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+
+                            <br>
                         </div>
 
                         <label for="salary" class="col-md-4 control-label">Salary</label>
                         <div class="col-md-6">
-                           <input id="salary" type="number" min="18" max="200000" class="form-control" name="salary" value="{{ old('salary') }}">
+                            <input id="salary" type="number" min="18" max="200000" class="form-control">
                         </div>
-
                     </div>
                 </div>
             </div>

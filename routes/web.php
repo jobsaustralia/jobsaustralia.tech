@@ -89,7 +89,7 @@ Auth::routes();
 Route::get('/api/user/token/{token}', 'APIController@getUser')->name('getUser');
 
 /* Return jobs by state. */
-Route::get('/api/jobs/state/{state}/token/{token}', 'APIController@getJobsByState')->name('getJobsByState');
+Route::get('/api/jobs/state/{state}/hours/{hours}/term/{term}/rate/{rate}/salary/{salary}/token/{token}', 'APIController@getJobs')->name('getJobs');
 
 /* Return jobs by state. */
 Route::get('/api/jobs/employer/{employerid}/token/{token}', 'APIController@getJobsByEmployer')->name('getJobsByEmployer');
