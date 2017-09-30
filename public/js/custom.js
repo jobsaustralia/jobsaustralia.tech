@@ -147,6 +147,66 @@ function autoFill(event){
                     else if(data[i].language == "Scala"){
                         document.getElementById("scala").checked = true;
                     }
+                    else if(data[i].language == "ActionScript"){
+                        document.getElementById("actionscript").checked = true;
+                    }
+                    else if(data[i].language == "AutoHotkey"){
+                        document.getElementById("autoHotkey").checked = true;
+                    }
+                    else if(data[i].language == "CoffeeScript"){
+                        document.getElementById("coffeescript").checked = true;
+                    }
+                    else if(data[i].language == "D"){
+                        document.getElementById("d").checked = true;
+                    }
+                    else if(data[i].language == "F#"){
+                        document.getElementById("fsharp").checked = true;
+                    }
+                    else if(data[i].language == "Haskell"){
+                        document.getElementById("haskell").checked = true;
+                    }
+                    else if(data[i].language == "Matlab"){
+                        document.getElementById("matlab").checked = true;
+                    }
+                    else if(data[i].language == "Objective-C"){
+                        document.getElementById("objectivec").checked = true;
+                    }
+                    else if(data[i].language == "Objective-C++"){
+                        document.getElementById("objectivecplus").checked = true;
+                    }
+                    else if(data[i].language == "Pascal"){
+                        document.getElementById("pascal").checked = true;
+                    }
+                    else if(data[i].language == "PowerShell"){
+                        document.getElementById("powershell").checked = true;
+                    }
+                    else if(data[i].language == "Rust"){
+                        document.getElementById("rust").checked = true;
+                    }
+                    else if(data[i].language == "Swift"){
+                        document.getElementById("swift").checked = true;
+                    }
+                    else if(data[i].language == "TypeScript"){
+                        document.getElementById("typescript").checked = true;
+                    }
+                    else if(data[i].language == "Vue"){
+                        document.getElementById("vue").checked = true;
+                    }
+                    else if(data[i].language == "WebAssembly"){
+                        document.getElementById("webassembly").checked = true;
+                    }
+                    else if(data[i].language == "ApacheConf"){
+                        document.getElementById("apache").checked = true;
+                    }
+                    else if(data[i].language == "Dockerfile"){
+                        document.getElementById("docker").checked = true;
+                    }
+                    else if(data[i].language == "Nginx"){
+                        document.getElementById("nginx").checked = true;
+                    }
+                    else if(data[i].language == "DNS Zone"){
+                        document.getElementById("dns").checked = true;
+                    }
                 }
             }
         })
