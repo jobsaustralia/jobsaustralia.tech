@@ -207,6 +207,9 @@ function autoFill(event){
                     else if(data[i].language == "DNS Zone"){
                         document.getElementById("dns").checked = true;
                     }
+                    else if(data[i].language == "Perl"){
+                        document.getElementById("perl").checked = true;
+                    }
                 }
             }
         })

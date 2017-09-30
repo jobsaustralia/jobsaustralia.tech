@@ -48,8 +48,7 @@
                                 <label for="cover-letter" class="col-md-4 control-label">Message</label>
 
                                 <div class="col-md-6">
-                                        <textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus>
-                                        </textarea>
+                                        <textarea id="message" name="message" rows="5" cols="30" class="form-control" value="{{ old('message') }}" required autofocus></textarea>
                                     @if ($errors->has('message'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('message') }}</strong>
