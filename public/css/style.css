@@ -79,3 +79,9 @@ hr.skill-divider {
 .index-ad-panel {
     font-size: 100px;
 }
+
+/* Style matching skills in job view as bold and green. */
+.skill-match {
+    font-weight: bold;
+    color: green;
+}
