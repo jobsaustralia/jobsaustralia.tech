@@ -130,7 +130,7 @@ class ProfileController extends Controller{
         $user->asp=$request['asp'];
         $user->scala=$request['scala'];
         $user->cow=$request['cow'];
-        $user->actionscript=$requesr['actionscript'];
+        $user->actionscript=$request['actionscript'];
         $user->assembly=$request['assembly'];
         $user->autohotkey=$request['autohotkey'];
         $user->coffeescript=$request['coffeescript'];

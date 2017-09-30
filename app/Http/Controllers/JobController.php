@@ -82,9 +82,9 @@ class JobController extends Controller{
         $docker = $job->docker;
         $nginx = $job->nginx;
         $saas = $job->saas;
-        $ipv4 => $job->ipv4;
-        $ipv6 => $job->ipv6;
-        $dns => $job->dns;
+        $ipv4 = $job->ipv4;
+        $ipv6 = $job->ipv6;
+        $dns = $job->dns;
         $employerid = $job->employerid;
         $employer = Employer::findOrFail($employerid);
 
