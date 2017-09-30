@@ -64,6 +64,7 @@ class JobController extends Controller{
         $actionscript = $job->actionscript;
         $assembly = $job->assembly;
         $autohotkey = $job->autohotkey;
+        $coffeescript = $job->coffeescript;
         $d = $job->d;
         $fsharp = $job->fsharp;
         $haskell = $job->haskell;
