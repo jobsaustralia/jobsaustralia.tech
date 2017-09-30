@@ -755,12 +755,12 @@
                         </div>
 
                         <!-- Skill: WebAssembly -->
-                        <div class="form-group{{ $errors->has('webassmbly') ? ' has-error' : '' }}">
-                            <label for="webassmbly" class="col-md-4 control-label">WebAssembly</label>
+                        <div class="form-group{{ $errors->has('webassembly') ? ' has-error' : '' }}">
+                            <label for="webassembly" class="col-md-4 control-label">WebAssembly</label>
 
                             <div class="col-md-1">
-                                <input id="webassmbly-hidden" type="hidden" class="form-control" name="webassmbly" value="0">
-                                <input id="webassmbly" type="checkbox" class="form-control" name="webassmbly" value="{{ old('webassmbly-hidden', 1) }}" @if (Auth::user()->webassembly) checked @endif >
+                                <input id="webassembly-hidden" type="hidden" class="form-control" name="webassembly" value="0">
+                                <input id="webassembly" type="checkbox" class="form-control" name="webassembly" value="{{ old('webassembly-hidden', 1) }}" @if (Auth::user()->webassembly) checked @endif >
 
                                 @if ($errors->has('webassemblh'))
                                     <span class="help-block">

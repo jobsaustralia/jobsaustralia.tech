@@ -119,7 +119,7 @@ class ProfileController extends Controller{
         $user->windesktop=$request['windesktop'];
         $user->linuxdesktop=$request['linuxdesktop'];
         $user->macosdesktop=$request['macosdesktop'];
-        $user->perl=$request['pearl'];
+        $user->perl=$request['perl'];
         $user->bash=$request['bash'];
         $user->batch=$request['batch'];
         $user->cisco=$request['cisco'];
