@@ -990,27 +990,6 @@
                             </div>
                         </div>
 
-                        <!-- Skill: SaaS -->
-                        <div class="form-group{{ $errors->has('saas') ? ' has-error' : '' }}">
-                            <label for="saas" class="col-md-4 control-label">SaaS</label>
-
-                            <div class="col-md-1">
-                                <input id="saas-hidden" type="hidden" class="form-control" name="saas" value="0">
-                                <input id="saas" type="checkbox" class="form-control" name="saas" value="{{ old('saas', 1) }}" @if (Auth::user()->saas) checked @endif >
-
-                                @if ($errors->has('saas'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('saas') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
-                        <hr class="skill-divider">
-                        
-                        <h5 align="center">Others</h5>
-
                         <!-- Skill: Microsoft Office -->
                         <div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
                             <label for="office" class="col-md-4 control-label">Microsoft Office</label>
@@ -1022,6 +1001,22 @@
                                 @if ($errors->has('office'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('office') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: SaaS -->
+                        <div class="form-group{{ $errors->has('saas') ? ' has-error' : '' }}">
+                            <label for="saas" class="col-md-4 control-label">SaaS</label>
+
+                            <div class="col-md-1">
+                                <input id="saas-hidden" type="hidden" class="form-control" name="saas" value="0">
+                                <input id="saas" type="checkbox" class="form-control" name="saas" value="{{ old('saas', 1) }}" @if (Auth::user()->saas) checked @endif >
+
+                                @if ($errors->has('saas'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('saas') }}</strong>
                                     </span>
                                 @endif
                             </div>

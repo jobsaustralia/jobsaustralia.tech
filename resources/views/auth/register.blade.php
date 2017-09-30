@@ -782,10 +782,6 @@
                             </div>
                         </div>
 
-
-
-
-
                         <hr class="skill-divider">
 
                         <h5 align="center">Operating Systems</h5>
@@ -908,7 +904,7 @@
 
                         <!-- Skill: General Networking IPv4 -->
                         <div class="form-group{{ $errors->has('ipv4') ? ' has-error' : '' }}">
-                            <label for="ipv4" class="col-md-4 control-label">General Networking IPv4</label>
+                            <label for="ipv4" class="col-md-4 control-label">General Networking (IPv4)</label>
 
                             <div class="col-md-1">
                                 <input id="ipv4-hidden" type="hidden" class="form-control" name="ipv4" value="0">
@@ -922,10 +918,9 @@
                             </div>
                         </div>
 
-
                         <!-- Skill: General Networking IPv6 -->
                         <div class="form-group{{ $errors->has('ipv6') ? ' has-error' : '' }}">
-                            <label for="ipv6" class="col-md-4 control-label">General Networking IPv6</label>
+                            <label for="ipv6" class="col-md-4 control-label">General Networking (IPv6)</label>
 
                             <div class="col-md-1">
                                 <input id="ipv6-hidden" type="hidden" class="form-control" name="ipv6" value="0">
@@ -1006,26 +1001,6 @@
                             </div>
                         </div>
 
-                        <!-- Skill: SaaS -->
-                        <div class="form-group{{ $errors->has('saas') ? ' has-error' : '' }}">
-                            <label for="saas" class="col-md-4 control-label">SaaS</label>
-
-                            <div class="col-md-1">
-                                <input id="saas-hidden" type="hidden" class="form-control" name="saas" value="0">
-                                <input id="saas" type="checkbox" class="form-control" name="saas" value="{{ old('saas', 1) }}">
-                            
-                                @if ($errors->has('saas'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('saas') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
-                        <hr class="skill-divider">
-
-                        <h5 align="center">Others</h5>
                         <!-- Skill: Microsoft Office -->
                         <div class="form-group{{ $errors->has('office') ? ' has-error' : '' }}">
                             <label for="office" class="col-md-4 control-label">Microsoft Office</label>
@@ -1037,6 +1012,22 @@
                                 @if ($errors->has('office'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('office') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Skill: SaaS -->
+                        <div class="form-group{{ $errors->has('saas') ? ' has-error' : '' }}">
+                            <label for="saas" class="col-md-4 control-label">SaaS</label>
+
+                            <div class="col-md-1">
+                                <input id="saas-hidden" type="hidden" class="form-control" name="saas" value="0">
+                                <input id="saas" type="checkbox" class="form-control" name="saas" value="{{ old('saas', 1) }}">
+                            
+                                @if ($errors->has('saas'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('saas') }}</strong>
                                     </span>
                                 @endif
                             </div>
