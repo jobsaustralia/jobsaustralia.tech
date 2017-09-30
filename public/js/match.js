@@ -190,7 +190,7 @@ function match(){
     var token = document.getElementsByName("csrf-token")[0].content;
 
     /* Arbitrary number; no. of fields compared. */
-    var noOfBits = 26;
+    var noOfBits = 51;
 
     /* Input value (needs to be grabbed from user). */
     var input;
@@ -209,7 +209,7 @@ function match(){
 
     /* Get current authenticated user data. */
     $.getJSON("/api/user/token/" + token, function(data){
-        input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala + data.cow, 2);
+        input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.pearl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala + data.cow + data.actionscript + data.assembly + data.autohotkey + data.coffeescript + data.d + data.fsharp + data.haskell + data.matlab + data.objectivec + data.objectivecplus + data.pascal + data.powershell + data.rust + data.swift + data.typescript + data.vue + data.webassembly + data.apache + data.aws + data.docker + data.nginx + data.saas + data.ipv4 + data.ipv6 + data.dns, 2);
     }).then(function(){
 
         /* Populate values into jobIndex, jobMatch and percentageMatch arrays. */
@@ -221,7 +221,7 @@ function match(){
                     jobs[i] = data[i];
 
                     jobIndex[i] = i;
-                    jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow, 2);
+                    jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data.actionscript + data.assembly + data.autohotkey + data.coffeescript + data.d + data.fsharp + data.haskell + data.matlab + data.objectivec + data.objectivecplus + data.pascal + data.powershell + data.rust + data.swift + data.typescript + data.vue + data.webassembly + data.apache + data.aws + data.docker + data.nginx + data.saas + data.ipv4 + data.ipv6 + data.dns, 2);
                     
                     /* Find number of comparisons. */
                     var noOfComp = input | jobMatch[i];
@@ -251,7 +251,7 @@ function match(){
                     percentageMatch[i] = (count / countComp) * 100;
                     
                     /* Check for overqualification; if yes, set match to 100%. */
-                    var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow;
+                    var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].pearl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data[i].actionscript + data[i].assembly + data[i].autohotkey + data[i].coffeescript + data[i].d + data[i].fsharp + data[i].haskell + data[i].matlab + data[i].objectivec + data[i].objectivecplus + data[i].pascal + data[i].powershell + data[i].rust + data[i].swift + data[i].typescript + data[i].vue + data[i].webassembly + data[i].apache + data[i].aws + data[i].docker + data[i].nginx + data[i].saas + data[i].ipv4 + data[i].ipv6 + data[i].dns;
                     
                     var countJob = bitJob.replace(/[^1]/g, "").length;
                     
