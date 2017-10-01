@@ -58,8 +58,6 @@ Route::get('/applications', 'ApplicationController@indexApplications')->name('ap
 
 Route::get('/resume', 'ResumeController@viewResume')->name('resume');
 
-Route::get('/application/delete/{id}', 'ApplicationController@indexDelete')->name('displayDeleteApplication');
-
 
 /* POST Controller Routes */
 
