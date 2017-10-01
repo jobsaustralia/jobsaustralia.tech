@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['SERVER_NAME'] == "jobsaustralia.tech"){
+if(isset($_SERVER['SERVER_NAME']) &&  $_SERVER['SERVER_NAME'] == "jobsaustralia.tech"){
     return [
 
         /*
