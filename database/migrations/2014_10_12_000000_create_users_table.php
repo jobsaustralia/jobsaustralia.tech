@@ -79,6 +79,9 @@ class CreateUsersTable extends Migration
             $table->boolean('ipv6');
             $table->boolean('dns');
 
+            $table->boolean('notifynewjob')->default(1);
+            $table->boolean('notifymarketing')->default(0);
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
