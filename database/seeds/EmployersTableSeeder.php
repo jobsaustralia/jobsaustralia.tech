@@ -18,6 +18,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'info@rmit.dev',
             'state' => 'vic',
             'city' => 'Melbourne',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -27,6 +29,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'admin@caymenaudits.dev',
             'state' => 'vic',
             'city' => 'Melbourne',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -36,6 +40,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'admin@republic.dev',
             'state' => 'nsw',
             'city' => 'Sydney',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -45,6 +51,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'admin@snotflix.dev',
             'state' => 'nsw',
             'city' => 'Wollongong',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -54,6 +62,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'info@edison.dev',
             'state' => 'wa',
             'city' => 'Broome',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -63,6 +73,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'info@yrphruwc.dev',
             'state' => 'vic',
             'city' => 'Melbourne',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -72,6 +84,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'info@microsoftware.dev',
             'state' => 'sa',
             'city' => 'Adelaide',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -81,6 +95,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'contact@solarandwindintheground.dev',
             'state' => 'nt',
             'city' => 'Darwin',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
 
@@ -90,6 +106,8 @@ class EmployersTableSeeder extends Seeder
             'email' => 'info@itstoohot.dev',
             'state' => 'qld',
             'city' => 'Brisbane',
+            'notifyapply' => 0,
+            'notifymarketing' => 0,
             'password' => bcrypt('secret')
         ]);
     }
