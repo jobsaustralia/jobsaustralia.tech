@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'vic',
             'city' => 'Mordialloc',
             'experience' => 2,
-			'education' => 5,
+            'education' => 5,
             'java' => 1,
             'python' => 0,
             'c' => 0,
@@ -74,6 +74,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
 
         DB::table('users')->insert([
@@ -86,7 +88,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'vic',
             'city' => 'Melbourne',
             'experience' => 3,
-			'education' => 0,
+            'education' => 0,
             'java' => 0,
             'python' => 0,
             'c' => 0,
@@ -138,6 +140,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
         
         DB::table('users')->insert([
@@ -150,7 +154,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'wa',
             'city' => 'Perth',
             'experience' => 2,
-			'education' => 1,
+            'education' => 1,
             'java' => 0,
             'python' => 0,
             'c' => 0,
@@ -202,6 +206,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
         
         DB::table('users')->insert([
@@ -214,7 +220,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'sa',
             'city' => 'adelaide',
             'experience' => 5,
-		'education' => 2,
+            'education' => 2,
             'java' => 1,
             'python' => 1,
             'c' => 1,
@@ -266,6 +272,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
         
         DB::table('users')->insert([
@@ -278,7 +286,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'vic',
             'city' => 'Melbourne',
             'experience' => 4,
-			'education' => 1,
+            'education' => 1,
             'java' => 1,
             'python' => 0,
             'c' => 1,
@@ -330,6 +338,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
         
         DB::table('users')->insert([
@@ -342,7 +352,7 @@ class UsersTableSeeder extends Seeder
             'state' => 'vic',
             'city' => 'Melbourne',
             'experience' => 1,
-			'education' => 2,
+            'education' => 2,
             'java' => 1,
             'python' => 0,
             'c' => 0,
@@ -394,6 +404,8 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
+            'notifymarketing' => 0,
+            'notifynewjob' => 1,
         ]);
     }
 }
