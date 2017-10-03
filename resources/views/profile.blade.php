@@ -75,45 +75,15 @@
 
                     <hr>
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('uploadResume') }}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('updateNotificationSettings') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('asp') ? ' has-error' : '' }}">
-                            <label for="accepted" class="col-md-4 control-label">Notify me when I am accepted</label>
-
-                            <div class="col-md-1">
-                                <input id="accepted-hidden" type="hidden" class="form-control" name="accepted" value="0">
-                                <input id="accepted" type="checkbox" class="form-control" name="accepted" value="{{ old('accepted', 1) }}">
-
-                                @if ($errors->has('accepted'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('accepted') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('rejected') ? ' has-error' : '' }}">
-                            <label for="rejected" class="col-md-4 control-label">Notify me when I am rejected</label>
-
-                            <div class="col-md-1">
-                                <input id="rejected-hidden" type="hidden" class="form-control" name="rejected" value="0">
-                                <input id="rejected" type="checkbox" class="form-control" name="rejected" value="{{ old('rejected', 1) }}">
-
-                                @if ($errors->has('rejected'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('rejected') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('newjob') ? ' has-error' : '' }}">
-                            <label for="newjob" class="col-md-4 control-label">Notify me when a new job appears</label>
+                            <label for="newjob" class="col-md-4 control-label">Notify me when an interesting new job appears</label>
 
                             <div class="col-md-1">
                                 <input id="newjob-hidden" type="hidden" class="form-control" name="newjob" value="0">
-                                <input id="newjob" type="checkbox" class="form-control" name="newjob" value="{{ old('newjob', 1) }}">
+                                <input id="newjob" type="checkbox" class="form-control" name="newjob" value="1" @if (Auth::user()->notifynewjob) checked @endif >
 
                                 @if ($errors->has('newjob'))
                                     <span class="help-block">
@@ -128,7 +98,7 @@
 
                             <div class="col-md-1">
                                 <input id="marketing-hidden" type="hidden" class="form-control" name="marketing" value="0">
-                                <input id="marketing" type="checkbox" class="form-control" name="marketing" value="{{ old('marketing', 1) }}">
+                                <input id="marketing" type="checkbox" class="form-control" name="marketing" value="1" @if (Auth::user()->notifymarketing) checked @endif >
 
                                 @if ($errors->has('marketing'))
                                     <span class="help-block">
