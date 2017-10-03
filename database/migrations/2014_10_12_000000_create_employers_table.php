@@ -20,6 +20,8 @@ class CreateEmployersTable extends Migration
             $table->string('email')->unique();
             $table->string('state');
             $table->string('city');
+            $table->boolean('notifyapply')->default(0);
+            $table->boolean('notifymarketing')->default(0);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
