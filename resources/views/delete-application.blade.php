@@ -26,7 +26,7 @@
                     <br>
 
                     <p id="delete-application-button-content" class="default-hide" align="center">
-                        Confirm deletion: <a id="delete-application-confirm" class="text-danger" href="{{ route('deleteApplication') }}">I really want to delete this job.</a>
+                        Confirm deletion: <a id="delete-application-confirm" class="text-danger" href="{{ route('deleteApplication') }}">I really want to delete this application.</a>
                     </p>
 
                     <form id="delete-application-confirm-form" class="default-hide" action="{{ route('deleteApplication') }}" method="POST">
