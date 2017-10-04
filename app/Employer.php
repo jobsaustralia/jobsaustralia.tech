@@ -11,7 +11,7 @@ class Employer extends Model{
      *
      * @var array
      */
-    protected $fillable = ['id', 'name', 'email', 'state', 'city'];
+    protected $fillable = ['id', 'name', 'email', 'state', 'city', 'notifymarketing', 'notifyapply'];
 
     /**
      * The attributes that should be hidden for arrays.
