@@ -90,8 +90,3 @@ hr.skill-divider {
     font-weight: bold;
     color: green;
 }
-
-/* Expired panel background. */
-.expired {
-    background-image: url("img/expired.svg");
-}
