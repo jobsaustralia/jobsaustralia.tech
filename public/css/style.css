@@ -68,6 +68,7 @@ hr.skill-divider {
 /* Font size for page headings. */
 .page-heading {
     font-size: 145%;
+    margin: 0 0;
 }
 
 /* Font size for notice icons. */
