@@ -90,3 +90,28 @@ hr.skill-divider {
     font-weight: bold;
     color: green;
 }
+
+/* Adjust font size of navigation branding depending on device width. */
+@media (max-width: 370px) {
+    .navbar-brand {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 340px) {
+    .navbar-brand {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 310px) {
+    .navbar-brand {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 275px) {
+    .navbar-brand {
+        font-size: 10px;
+    }
+}
