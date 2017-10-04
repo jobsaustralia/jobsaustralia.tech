@@ -8,6 +8,7 @@ use App\Job;
 use App\User;
 
 use Auth;
+use Mail;
 use Uuid;
 
 use App\Http\Controllers\Controller;
@@ -44,6 +45,18 @@ class ApplicationController extends Controller{
                 'jobid' => $id,
                 'message' => $request['message']
             ]);
+
+            $employer = Employer::findOrFail($job->employerid);
+
+            /* Send a notification email to the employer depending on preference. */
+            if($employer->notifyapply){
+                $email = $employer->email;
+
+                Mail::raw('A job seeker has applied a your job on JobsAustralia.tech!' . "\n\n" . $request['message'], function($message) use($email){
+                    $message->subject('Job application received');
+                    $message->to($email);
+                });
+            }
         }
 
         return Redirect::route('applications');
