@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
       DB::table('users')->insert([
             'id' => '2f9e1caf-7408-4535-a376-bdfd89767845',
             'name' => 'Aaron Horler',
-            'email' => 'aaron@aaronhorler.dev',
+            'email' => 's3481341@student.rmit.edu.au',
             'password' => bcrypt('secret'),
             'title' => 'Student',
             'sector' => 'Information Technology',
@@ -74,14 +74,14 @@ class UsersTableSeeder extends Seeder
             'ipv4' => 0,
             'ipv6' => 0,
             'dns' => 0,
-            'notifymarketing' => 0,
+            'notifymarketing' => 1,
             'notifynewjob' => 1,
         ]);
 
         DB::table('users')->insert([
             'id' => 'a4ca6a90-c70e-4035-b019-b8a09949c913',
             'name' => 'Bob Smith',
-            'email' => 'bobsmith@gmail.com',
+            'email' => 'bobsmith@gmail.dev',
             'password' => bcrypt('secret'),
             'title' => 'Business analyst',
             'sector' => 'Information Technology',
@@ -147,7 +147,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => '4238b75b-034c-4c80-92f1-0188a03806df',
             'name' => 'Dean Winchester',
-            'email' => 'deanwinchester@live.com',
+            'email' => 'deanwinchester@live.dev',
             'password' => bcrypt('secret'),
             'title' => 'Programmer',
             'sector' => 'Information Technology',
@@ -213,7 +213,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 'c033ac4a-4a33-4790-a380-1f84a708193c',
             'name' => 'Kara Danvers',
-            'email' => 'karad@gmail.com',
+            'email' => 'karad@gmail.dev',
             'password' => bcrypt('secret'),
             'title' => 'Software Developer',
             'sector' => 'Information Technology',
@@ -279,7 +279,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 'b91da612-2d95-4363-90e5-1908be164fbf',
             'name' => 'Alec Lightwood',
-            'email' => 'alightwood@gmail.com',
+            'email' => 'alightwood@gmail.dev',
             'password' => bcrypt('secret'),
             'title' => 'Consultant',
             'sector' => 'Information Technology',
@@ -345,7 +345,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => '9dbfbe3f-d151-4be6-8cba-730afeb971fc',
             'name' => 'Jillian Banks',
-            'email' => 'jillianbanks@gmail.com',
+            'email' => 'jillianbanks@gmail.dev',
             'password' => bcrypt('secret'),
             'title' => 'Project Manager',
             'sector' => 'Information Technology',
