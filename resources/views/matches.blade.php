@@ -90,7 +90,7 @@
                 <div class="panel-heading"><strong>Notice</strong></div>
                 <div class="panel-body" align="center">
                     <br><br>
-                    <p class="panel-notice-icon"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
+                    <p class="panel-notice-icon-animated"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></p>
                     <br>
                     <h2>Loading Matches.</h2>
                     <br><br>

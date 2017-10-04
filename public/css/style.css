@@ -75,6 +75,11 @@ hr.skill-divider {
     font-size: 200px;
 }
 
+/* Font size for animated notice icons. */
+.panel-notice-icon-animated {
+    font-size: 75px;
+}
+
 /* Font size for feature advertisement icons on the home page. */
 .index-ad-panel {
     font-size: 100px;
