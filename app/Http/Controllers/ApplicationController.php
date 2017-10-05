@@ -49,7 +49,7 @@ class ApplicationController extends Controller{
             $employer = Employer::findOrFail($job->employerid);
 
             /* Send a notification email to the employer depending on preference. */
-            if($employer->notifyapply){
+            if($employer->notifyapply && substr($employer->email, -4) !== ".dev"){
                 $email = $employer->email;
 
                 Mail::raw('A job seeker has applied a your job on JobsAustralia.tech!' . "\n\n" . $request['message'], function($message) use($email){

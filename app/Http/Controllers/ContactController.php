@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Mail;
 
+use App\Mail\Contact;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -12,37 +14,24 @@ class ContactController extends Controller{
 
     /* Send an email to each team member. */
     function send(Request $request){
+
+        /* Email data. */
+        $title = "Contact form submission";
         $email = $request['email'];
+        $content = $request['message'];
+        $name = $request['name'];
+        $ip = request()->ip();
 
-        Mail::raw($request['message'] . "\n\n" . 'From: ' . $request['name'] . "\n\n" . 'IP: ' . request()->ip(), function($message) use($email){
-            $message->subject('Contact form submission');
-            $message->to('s3481341@student.rmit.edu.au');
-            $message->replyTo($email);
-        });
+        /* Queue emails. */
+        Mail::to('s3481341@student.rmit.edu.au')->queue(new Contact($email, $title, $content, $name, $ip));
 
-        Mail::raw($request['message'] . "\n\n" . 'From: ' . $request['name'] . "\n\n" . 'IP: ' . request()->ip(), function($message) use($email){
-            $message->subject('Contact form submission');
-            $message->to('s3434719@student.rmit.edu.au');
-            $message->replyTo($email);
-        });
+        Mail::to('s3434719@student.rmit.edu.au')->queue(new Contact($email, $title, $content, $name, $ip));
 
-        Mail::raw($request['message'] . "\n\n" . 'From: ' . $request['name'] . "\n\n" . 'IP: ' . request()->ip(), function($message) use($email){
-            $message->subject('Contact form submission');
-            $message->to('s3491115@student.rmit.edu.au');
-            $message->replyTo($email);
-        });
+        Mail::to('s3491115@student.rmit.edu.au')->queue(new Contact($email, $title, $content, $name, $ip));
 
-        Mail::raw($request['message'] . "\n\n" . 'From: ' . $request['name'] . "\n\n" . 'IP: ' . request()->ip(), function($message) use($email){
-            $message->subject('Contact form submission');
-            $message->to('s3476694@student.rmit.edu.au');
-            $message->replyTo($email);
-        });
+        Mail::to('s3476694@student.rmit.edu.au')->queue(new Contact($email, $title, $content, $name, $ip));
 
-        Mail::raw($request['message'] . "\n\n" . 'From: ' . $request['name'] . "\n\n" . 'IP: ' . request()->ip(), function($message) use($email){
-            $message->subject('Contact form submission');
-            $message->to('s3536578@student.rmit.edu.au');
-            $message->replyTo($email);
-        });
+        Mail::to('s3536578@student.rmit.edu.au')->queue(new Contact($email, $title, $content, $name, $ip));
 
         return Redirect::route('contact');
     }
