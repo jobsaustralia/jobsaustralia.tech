@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Application;
 use App\Employer;
 use App\Job;
+use App\Mail\Apply;
 use App\User;
 
 use Auth;
@@ -38,8 +39,10 @@ class ApplicationController extends Controller{
         if($count == 0){
             $job = Job::findOrFail($id);
 
+            $appid = Uuid::generate();
+
             Application::create([
-                'id' => Uuid::generate(),
+                'id' => $appid,
                 'userid' => Auth::user()->id,
                 'employerid' => $job->employerid,
                 'jobid' => $id,
@@ -47,15 +50,14 @@ class ApplicationController extends Controller{
             ]);
 
             $employer = Employer::findOrFail($job->employerid);
+            $email = $employer->email;
 
             /* Send a notification email to the employer depending on preference. */
-            if($employer->notifyapply && substr($employer->email, -4) !== ".dev"){
-                $email = $employer->email;
+            if($employer->notifyapply && substr($email, -4) !== ".dev"){
+                $link = "https://employ.jobsaustralia.tech/application/" . $appid;
+                $title = $job->title;
 
-                Mail::raw('A job seeker has applied a your job on JobsAustralia.tech!' . "\n\n" . $request['message'], function($message) use($email){
-                    $message->subject('Job application received');
-                    $message->to($email);
-                });
+                Mail::to($email)->queue(new Apply($link, $title));
             }
         }
 
