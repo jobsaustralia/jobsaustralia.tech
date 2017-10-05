@@ -41,18 +41,8 @@
                     <p class="index-ad-panel"><i class="fa fa-users" aria-hidden="true"></i></p>
                     <p>&bull; Match your skills and strengths with current job vacancies.</p>
                     <p>&bull; Connect you with employers and jobs that complement your abilities.</p>
-                    <p>&bull; Market you to employers or work environment that is the most suitable for you.</p>
-                    <p>&bull; Help you to find a job in the field that you're passionate about.</p>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong>The guideline</strong></div>
-                <div class="panel-body" align="center">
-                    <p class="index-ad-panel"><i class="fa fa-compass" aria-hidden="true"></i></p>
-                    <p><strong>Step 1:</strong> Register yourself with JobsAustralia.tech</p>
-                    <p><strong>Step 2:</strong> Create your own profile without having to submit your resume or cover letter. However, it is recommended that you pay high attention to listing your IT skills.</p>
-                    <p><strong>Step 3:</strong> Wait for your notifications whenever we find you a great match with an employer!</p>
+                    <p>&bull; Market youself to employers or work environments that are the most suitable for you.</p>
+                    <p>&bull; Help you to find a job in the field that you're most passionate about.</p>
                 </div>
             </div>
         </div>
