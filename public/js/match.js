@@ -127,29 +127,29 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
 
         panel.appendChild(heading);
         panel.appendChild(body);
-        heading.append(match);
-        body.append(p0);
-        p0.prepend(marker);
-        p0.append(combinedLocation);
-        body.append(p1);
-        body.append(hr1);
-        body.append(p2);
-        p2.prepend(p2Title);
-        body.append(p3);
-        p3.prepend(p3Title);
-        body.append(p4);
-        p4.prepend(p4Title);
+        $(heading).append(match);
+        $(body).append(p0);
+        $(p0).prepend(marker);
+        $(p0).append(combinedLocation);
+        $(body).append(p1);
+        $(body).append(hr1);
+        $(body).append(p2);
+        $(p2).prepend(p2Title);
+        $(body).append(p3);
+        $(p3).prepend(p3Title);
+        $(body).append(p4);
+        $(p4).prepend(p4Title);
 
         /* Don't print empoyer name to employer view document (to avoid redundancy). */
         if(document.getElementById("employer") == null){
-            body.append(p5);
-            p5.append(a1);
-            p5.prepend(p5Title);
+            $(body).append(p5);
+            $(p5).append(a1);
+            $(p5).prepend(p5Title);
         }
 
-        body.append(hr2);
-        body.append(p7);
-        p7.append(apply);
+        $(body).append(hr2);
+        $(body).append(p7);
+        $(p7).append(apply);
         display.appendChild(panel);
 
         document.getElementById("loading").style.display = "none";
