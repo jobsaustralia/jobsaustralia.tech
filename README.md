@@ -18,7 +18,7 @@ Our Linux deployment script is [here](https://github.com/jobsaustralia/scripts-c
 
 **Clone the repository**
 
-`git clone https://github.com/jobsaustralia/jobsaustralia.tech.git`
+`git clone -b laravel-5.5 https://github.com/jobsaustralia/jobsaustralia.tech.git`
 
 `cd jobsaustralia.tech`
 
