@@ -1,6 +1,6 @@
 {
     "name": "jobsaustralia/jobsaustralia.tech",
-    "description": "Match-making for job seekers in the Australian IT sector.",
+    "description": "Matchmaking for job seekers in the Australian IT sector.",
     "keywords": ["rmit", "jobs"],
     "license": "MIT",
     "type": "project",
