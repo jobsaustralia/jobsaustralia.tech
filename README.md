@@ -1,6 +1,6 @@
 # JobsAustralia.tech Job Seekers
 
-Job matchmaking for job seekers in the Australian IT sector - written in Laravel 5.4.
+Job matchmaking for job seekers in the Australian IT sector - written in Laravel 5.4 (and [5.5](https://github.com/jobsaustralia/jobsaustralia.tech/tree/laravel-5.5)).
 
 ## Contributors
 
