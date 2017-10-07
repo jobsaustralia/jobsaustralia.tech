@@ -8,9 +8,16 @@
     <meta name="author" content="Aaron Horler, Ozlem Kirmizi, Kim Luu, Melissa Nguyen, and Dennis Mihalache.">
     <meta name="url" content="{{ Request::url() }}">
 
+    <!-- Geo tags -->
+    <meta name="geo.region" content="AU-VIC">
+    <meta name="geo.placename" content="Melbourne">
+    <meta name="geo.position" content="-37.80742;144.963795">
+    <meta name="ICBM" content="-37.80742, 144.963795">
+
     <!-- Privacy -->
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="x-dns-prefetch-control" content="off">
+    <meta name="format-detection" content="telephone=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,6 +33,8 @@
     @endif
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/icomoon/style.css') }}" rel="stylesheet" type="text/css">
+
+    <link rel="license" href="/terms">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">

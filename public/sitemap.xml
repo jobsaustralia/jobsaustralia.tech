@@ -5,6 +5,10 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://jobsaustralia.tech/about</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
     <loc>https://jobsaustralia.tech/support/</loc>
     <changefreq>monthly</changefreq>
   </url>
