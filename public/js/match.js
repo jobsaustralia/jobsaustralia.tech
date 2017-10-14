@@ -85,6 +85,9 @@ function printJob(id, title, description, hours, rate, salary, startDate, state,
         if(rate == "hourly"){
             p3.innerHTML += " per hour";
         }
+        else if(rate == "daily"){
+            p3.innerHTML += " per day";
+        }
         else if(rate == "weekly"){
             p3.innerHTML += " per week";
         }

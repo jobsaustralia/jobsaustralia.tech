@@ -49,15 +49,18 @@ class ApplicationController extends Controller{
                 'message' => $request['message']
             ]);
 
-            $employer = Employer::findOrFail($job->employerid);
-            $email = $employer->email;
+            /* Check that mail is configured before attempting to send. */
+            if(env('MAIL_USERNAME') !== null){
+                $employer = Employer::findOrFail($job->employerid);
+                $email = $employer->email;
 
-            /* Send a notification email to the employer depending on preference. */
-            if($employer->notifyapply && substr($email, -4) !== ".dev"){
-                $link = "https://employ.jobsaustralia.tech/application/" . $appid;
-                $title = $job->title;
+                /* Send a notification email to the employer depending on preference. */
+                if($employer->notifyapply && substr($email, -4) !== ".dev"){
+                    $link = "https://employ.jobsaustralia.tech/application/" . $appid;
+                    $title = $job->title;
 
-                Mail::to($email)->queue(new Apply($link, $title));
+                    Mail::to($email)->queue(new Apply($link, $title));
+                }
             }
         }
 

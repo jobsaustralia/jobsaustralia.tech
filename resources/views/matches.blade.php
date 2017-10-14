@@ -33,6 +33,7 @@
                                 <option value="any" selected>Any</option>
                                 <option value="fixed">Fixed</option>
                                 <option value="permanent">Permanent</option>
+                                <option value="contract">Contract</option>
                             </select>
 
                             <br>
@@ -56,6 +57,7 @@
                             <select id="rate" class="form-control">
                                 <option value="any" selected>Any</option>
                                 <option value="hourly">Hourly</option>
+                                <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="fortnightly">Fortnightly</option>
                                 <option value="monthly">Monthly</option>
