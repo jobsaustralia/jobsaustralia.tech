@@ -325,6 +325,68 @@ function moo(){
     }
 }
 
+function populateSkills(){
+    function writeSkill(name, value, category){
+        var programmingSkillDiv = document.getElementById("skills-languages");
+        var osSkillDiv = document.getElementById("skills-oses");
+        var networkingSkillDiv = document.getElementById("skills-networking");
+        var softwareSkillDiv = document.getElementById("skills-software");
+
+        var formGroup = document.createElement("div");
+        formGroup.className = "form-group";
+        //formGroup.className = "form-group{{ $errors->has('actionscript') ? ' has-error' : '' }}";
+
+        var label = document.createElement("label");
+        label.for = value;
+        label.className = "col-md-4 control-label";
+        label.innerHTML = name;
+
+        var inputDiv = document.createElement("div");
+        inputDiv.className = "col-md-1";
+
+        var hiddenInput = document.createElement("input");
+        hiddenInput.id = value + "-hidden";
+        hiddenInput.type = "hidden";
+        hiddenInput.className = "form-control";
+        hiddenInput.name = value;
+        hiddenInput.value = "0";
+
+        var input = document.createElement("input");
+        input.id = value;
+        input.type = "checkbox";
+        input.className = "form-control";
+        input.name = value;
+        input.value = "0";
+        //input.value = "{{ old('actionscript', 1) }}";
+
+        formGroup.appendChild(label);
+        inputDiv.appendChild(hiddenInput);
+        inputDiv.appendChild(input);
+        formGroup.appendChild(inputDiv);
+
+        if(category == "programming"){
+            programmingSkillDiv.appendChild(formGroup);
+        }
+        else if(category == "operatingsystem"){
+            osSkillDiv.appendChild(formGroup);
+        }
+        else if(category == "networking"){
+            networkingSkillDiv.appendChild(formGroup);
+        }
+        else{
+            softwareSkillDiv.appendChild(formGroup);
+        }
+    }
+
+    $.getJSON("/json/skills.json", function(skills){
+        for(i = 0; i < skills.length; i++){
+            writeSkill(skills[i].name, skills[i].value, skills[i].category);
+        }
+    }).then(function(){
+        document.getElementById("cow").addEventListener("change", moo); 
+    });
+}
+
 /* Add EventListeners depending on current page loaded. */
 if(document.getElementById("profile") !== null){
     document.getElementById("confirm-delete").addEventListener("click", toggleDisplay);
@@ -339,8 +401,8 @@ if(document.getElementById("profile") !== null){
 else if(document.getElementById("register") !== null){
     document.getElementById("student").addEventListener("change", studentFill);
     document.getElementById("autofill-btn").addEventListener("click", autoFill);
-    document.getElementById("cow").addEventListener("change", moo);
     document.addEventListener('DOMContentLoaded', getLocationByIP);
+    document.addEventListener('DOMContentLoaded', populateSkills);
 }
 else if(document.getElementById("edit-profile") !== null){
     document.getElementById("autofill-btn").addEventListener("click", autoFill);
