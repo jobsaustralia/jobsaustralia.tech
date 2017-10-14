@@ -311,6 +311,10 @@ function applySalaryLogic(){
         salary.min = "10000";
         salary.max = "200000";
     }
+    else if(rate.value == "daily"){
+        salary.min = "50";
+        salary.max = "2000";
+    }
 }
 
 /* Moo. */
