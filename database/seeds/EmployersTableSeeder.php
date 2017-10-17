@@ -3,18 +3,11 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployersTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+class EmployersTableSeeder extends Seeder{
+    public function run(){
         DB::table('employers')->insert([
             'id' => '400fa8b2-f8f9-4c64-9b70-ea6ea2e1fe2d',
-            'name' => 'Royal Melbourne Institute of Tetanus Shots',
+            'name' => 'Royal Melbourne Institute of Employment',
             'email' => 'info@rmit.dev',
             'state' => 'vic',
             'city' => 'Melbourne',
@@ -47,8 +40,8 @@ class EmployersTableSeeder extends Seeder
 
         DB::table('employers')->insert([
             'id' => '5ed27969-c2cc-4d02-b7f6-c1bf0b19d613',
-            'name' => 'Snotflix Australia',
-            'email' => 'admin@snotflix.dev',
+            'name' => 'Seeds Australia',
+            'email' => 'admin@seed.dev',
             'state' => 'nsw',
             'city' => 'Wollongong',
             'notifyapply' => 0,
@@ -69,7 +62,7 @@ class EmployersTableSeeder extends Seeder
 
         DB::table('employers')->insert([
             'id' => '753056e2-8123-4904-8f80-3f9a990e0d8b',
-            'name' => 'Yarra River Pollution (Human Remains and other Unwanted Waste) Commission',
+            'name' => 'Yarra River Pollution Commission',
             'email' => 'info@yrphruwc.dev',
             'state' => 'vic',
             'city' => 'Melbourne',

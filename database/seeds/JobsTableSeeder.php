@@ -3,15 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class JobsTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+class JobsTableSeeder extends Seeder{
+    public function run(){
         DB::table('jobs')->insert([
             'id' => '5eddee25-eecb-4091-be1a-6d95efd0fac7',
             'title' => 'Software Developer',
@@ -20,7 +13,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 70000,
-            'startdate' => '2017-10-01',
+            'startdate' => '2017-12-01',
             'state' => 'vic',
             'city' => 'Melbourne',
             'java' => 1,
@@ -66,7 +59,7 @@ class JobsTableSeeder extends Seeder
             'typescript' => 0,
             'vue' => 0,
             'webassembly' => 0,
-            'apache' => 0,
+            'apache' => 1,
             'aws' => 0,
             'docker' => 0,
             'nginx' => 0,
@@ -85,7 +78,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'parttime',
             'rate' => 'hourly',
             'salary' => 30,
-            'startdate' => '2017-10-01',
+            'startdate' => '2017-12-01',
             'state' => 'nsw',
             'city' => 'Sydney',
             'java' => 1,
@@ -144,7 +137,7 @@ class JobsTableSeeder extends Seeder
 
         DB::table('jobs')->insert([
             'id' => 'ea5c6d59-8141-45c0-b1b9-98fdb885340d',
-            'title' => 'SQL report writer',
+            'title' => 'SQL report writer, and programmer',
             'description' => 'This EXCELLENT role offers the opportunity for a dedicated IT support individual to provide 1st and 2nd end user support in a challenging and fast paced environment. Your experience in dealing directly with business owners and articulating IT issues is paramount as will be your technical understand of wide ranging business management functions.',
             'term' => 'permanent',
             'hours' => 'fulltime',
@@ -155,7 +148,7 @@ class JobsTableSeeder extends Seeder
             'ranktwo' => "education",
             'rankthree' => "experience",
             'salary' => 65000,
-            'startdate' => '2017-10-01',
+            'startdate' => '2017-12-01',
             'state' => 'vic',
             'city' => 'Melbourne',
             'java' => 1,
@@ -220,7 +213,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 90000,
-            'startdate' => '2017-10-01',
+            'startdate' => '2017-12-01',
             'state' => 'nsw',
             'city' => 'Wollongong',
             'java' => 1,
@@ -285,7 +278,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 100000,
-            'startdate' => '2017-10-15',
+            'startdate' => '2017-12-01',
             'state' => 'wa',
             'city' => 'Broome',
             'java' => 1,
@@ -345,12 +338,12 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'id' => '4eecd43c-882e-4b39-b62a-a812d934f73e',
             'title' => 'System Administrator',
-            'description' => 'This role is responsible for managing Windows and Linux systems at the Desktop and Server level. Experience in Bash, and Active Directory are required. No graduates.',
+            'description' => 'This role is responsible for managing Windows and Linux systems at the Desktop and Server level. Experience in Bash, and Active Directory are required.',
             'term' => 'permanent',
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 150000,
-            'startdate' => '2017-10-15',
+            'startdate' => '2017-12-01',
             'state' => 'vic',
             'city' => 'Melbourne',
             'java' => 0,
@@ -415,7 +408,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 98000,
-            'startdate' => '2017-10-15',
+            'startdate' => '2017-12-01',
             'state' => 'sa',
             'city' => 'Adelaide',
             'java' => 0,
@@ -480,7 +473,7 @@ class JobsTableSeeder extends Seeder
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 200000,
-            'startdate' => '2017-10-15',
+            'startdate' => '2017-12-01',
             'state' => 'vic',
             'city' => 'Melbourne',
             'java' => 0,
@@ -539,13 +532,13 @@ class JobsTableSeeder extends Seeder
 
         DB::table('jobs')->insert([
             'id' => '0d92b9ee-a5ee-4843-bdd8-994031584142',
-            'title' => 'Electronic Entomologist specialising in C++',
-            'description' => 'This is a research role where you will study the link between circuits and insects, and be required in write unrelated software in C++. Applicants will need 20 years experience in Windows 10, and will benefit from being able to speak Swahili.',
+            'title' => 'Programmer specialising in C++',
+            'description' => 'Development for Windows front-end applications. Applicants will need 20 years experience in Windows 10, and will benefit from being able to speak Swahili.',
             'term' => 'permanent',
             'hours' => 'fulltime',
             'rate' => 'annually',
             'salary' => 56000,
-            'startdate' => '2017-10-15',
+            'startdate' => '2017-12-01',
             'state' => 'qld',
             'city' => 'Brisbane',
             'java' => 0,
