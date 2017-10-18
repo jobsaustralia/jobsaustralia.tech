@@ -340,7 +340,7 @@ class UsersTableSeeder extends Seeder{
             'notifynewjob' => 0
         ]);
 
-        /* This user is indentionally overqualified. */ 
+        /* This user is intentionally overqualified. */ 
         DB::table('users')->insert([
             'id' => '9dbfbe3f-d151-4be6-8cba-730afeb971fc',
             'name' => 'Ada Lovelace',
