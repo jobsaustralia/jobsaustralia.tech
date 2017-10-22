@@ -36,9 +36,6 @@
         Header set Cache-Control "max-age=1209600, public"
     </filesMatch>
 
-    # CSP for internal testing purposes only.
-    Header always set Content-Security-Policy "default-src 'none'; child-src 'none'; connect-src 'self' https://api.github.com https://freegeoip.net; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'none'; sandbox allow-forms allow-popups allow-same-origin allow-scripts; script-src 'self'; style-src 'self' 'sha256-JW5uZv0Kcs4EnIoQJqdJJFP9HOH6hgd8icyuha3WlUI=' 'sha256-BYc9LFyz9out28kCQ3Nbtwf/lYv6DZW5gLpzDy5Rvf0=' https://fonts.googleapis.com"
-
     # Force HTTPS
     RewriteCond %{HTTPS} off
     RewriteCond %{SERVER_NAME} =jobsaustralia.tech [OR]
