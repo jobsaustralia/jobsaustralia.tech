@@ -224,43 +224,98 @@ function match(){
                     jobs[i] = data[i];
 
                     jobIndex[i] = i;
-                    jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].perl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data.actionscript + data.assembly + data.autohotkey + data.coffeescript + data.d + data.fsharp + data.haskell + data.matlab + data.objectivec + data.objectivecplus + data.pascal + data.powershell + data.rust + data.swift + data.typescript + data.vue + data.webassembly + data.apache + data.aws + data.docker + data.nginx + data.saas + data.ipv4 + data.ipv6 + data.dns, 2);
+                    jobMatch[i] = parseInt("" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].perl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data[i].actionscript + data[i].assembly + data[i].autohotkey + data[i].coffeescript + data[i].d + data[i].fsharp + data[i].haskell + data[i].matlab + data[i].objectivec + data[i].objectivecplus + data[i].pascal + data[i].powershell + data[i].rust + data[i].swift + data[i].typescript + data[i].vue + data[i].webassembly + data[i].apache + data[i].aws + data[i].docker + data[i].nginx + data[i].saas + data[i].ipv4 + data[i].ipv6 + data[i].dns, 2);
+
+                    /* Handle JavaScript 32-bit limit on bitwise operations. */
+                    if(input.toString(2).length > 32 && jobMatch[i].toString(2).length > 32){
+
+                        /* Trim bit sequence into chunks of 32-bits maximum. */
+                        var inputTrimArray = input.toString(2).match(/.{1,32}/g);
+                        var jobMatchTrimArray = jobMatch[i].toString(2).match(/.{1,32}/g);
+
+                        /* Number of comparisons (OR operator). */
+                        /*var noOfCompOne = parseInt("" + inputTrimArray[0], 2) | parseInt("" + jobMatchTrimArray[0], 2);
+
+                        var bitCompOne = (noOfCompOne).toString(2);
                     
-                    /* Find number of comparisons. */
-                    var noOfComp = input | jobMatch[i];
-                    
-                    var bitComp = (noOfComp).toString(2);
-                    
-                    if(bitComp < 0){
-                        bitComp = (noOfComp >>> 0).toString(2);
-                        bitComp = bitComp.slice(-noOfBits);
+                        if(bitCompOne < 0){
+                            bitCompOne = (noOfCompOne >>> 0).toString(2);
+                            //bitCompOne = bitCompOne.slice(-noOfBits);
+                        }
+
+                        var noOfCompTwo = parseInt("" + inputTrimArray[1], 2) | parseInt("" + jobMatchTrimArray[1], 2);
+
+                        var bitCompTwo = (noOfCompTwo).toString(2);
+
+                        if(bitCompTwo < 0){
+                            bitCompTwo = (noOfCompTwo >>> 0).toString(2);
+                            //bitCompOne = bitCompOne.slice(-noOfBits);
+                        }
+
+                        var bitComp = bitCompOne + bitCompTwo;*/
+
+                        /* Find number of matches (AND operator). */ 
+                        var matchCalcOne = parseInt("" + inputTrimArray[0], 2) & parseInt("" + jobMatchTrimArray[0], 2);
+
+                        var toBinaryOne = (matchCalcOne).toString(2);
+
+                        if(toBinaryOne < 0){
+                            toBinaryOne = (matchCalcOne >>> 0).toString(2);
+                            //toBinaryOne = toBinaryOne.slice(-noOfBits);
+                        }
+
+                        var matchCalcTwo = parseInt("" + inputTrimArray[1], 2) & parseInt("" + jobMatchTrimArray[1], 2);
+
+                        var toBinaryTwo = (matchCalcTwo).toString(2);
+
+                        if(toBinaryTwo < 0){
+                            toBinaryTwo = (matchCalcTwo >>> 0).toString(2);
+                            //toBinaryOne = toBinaryOne.slice(-noOfBits);
+                        }
+
+                        /* Un-trim bit sequence. */
+                        var toBinary = toBinaryOne + toBinaryTwo;
+                    }
+                    else{
+                        /* Number of comparisons (OR operator). */
+                        /*var noOfComp = input | jobMatch[i];
+
+                        var bitComp = (noOfComp).toString(2);
+
+                        if(bitComp < 0){
+                            bitComp = (noOfComp >>> 0).toString(2);
+                            bitComp = bitComp.slice(-noOfBits);
+                        }*/
+
+                        /* Find number of matches (AND operator). */
+                        var matchCalc = input & jobMatch[i];
+
+                        var toBinary = (matchCalc).toString(2);
+
+                        if(toBinary < 0){
+                            toBinary = (matchCalc >>> 0).toString(2);
+                            toBinary = toBinary.slice(-noOfBits);
+                        }
                     }
 
-                    var countComp = bitComp.replace(/[^1]/g, "").length;
-                    
-                    /* Find number of matches. */
-                    var matchCalc = input & jobMatch[i];
-
-                    var toBinary = (matchCalc).toString(2);
-
-                    if(toBinary < 0){
-                        toBinary = (matchCalc >>> 0).toString(2);
-                        toBinary = toBinary.slice(-noOfBits);
-                    }
+                    //var countComp = bitComp.replace(/[^1]/g, "").length;
 
                     var count = toBinary.replace(/[^1]/g, "").length;
-                    
+
                     /* Calculate percentage match. */
-                    percentageMatch[i] = (count / countComp) * 100;
-                    
+                    //percentageMatch[i] = (count / countComp) * 100;
+                    var reqSkillCount = jobMatch[i].toString(2).replace(/[^1]/g, "").length;
+
+                    percentageMatch[i] = (count / reqSkillCount) * 100;
+
                     /* Check for overqualification; if yes, set match to 100%. */
-                    var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].perl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data[i].actionscript + data[i].assembly + data[i].autohotkey + data[i].coffeescript + data[i].d + data[i].fsharp + data[i].haskell + data[i].matlab + data[i].objectivec + data[i].objectivecplus + data[i].pascal + data[i].powershell + data[i].rust + data[i].swift + data[i].typescript + data[i].vue + data[i].webassembly + data[i].apache + data[i].aws + data[i].docker + data[i].nginx + data[i].saas + data[i].ipv4 + data[i].ipv6 + data[i].dns;
-                    
+                    /*var bitJob = "" + data[i].java + data[i].python + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].javascript + data[i].sql + data[i].unix + data[i].winserver + data[i].windesktop + data[i].linuxdesktop + data[i].macosdesktop + data[i].perl + data[i].bash + data[i].batch + data[i].cisco + data[i].office + data[i].r + data[i].go + data[i].ruby + data[i].asp + data[i].scala + data[i].cow + data[i].actionscript + data[i].assembly + data[i].autohotkey + data[i].coffeescript + data[i].d + data[i].fsharp + data[i].haskell + data[i].matlab + data[i].objectivec + data[i].objectivecplus + data[i].pascal + data[i].powershell + data[i].rust + data[i].swift + data[i].typescript + data[i].vue + data[i].webassembly + data[i].apache + data[i].aws + data[i].docker + data[i].nginx + data[i].saas + data[i].ipv4 + data[i].ipv6 + data[i].dns;
+
                     var countJob = bitJob.replace(/[^1]/g, "").length;
-                    
+
                     if(count == countJob){
                         percentageMatch[i] = 100;
-                    }
+                    }*/
                 }
 
                 /* Bubble sort. */
