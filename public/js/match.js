@@ -210,6 +210,11 @@ function match(){
     /* Array to store jobs for later use. */
     var jobs = [];
 
+    var noOfCompArray = [];
+    var bitCompArray = [];
+    var matchCalcArray = [];
+    var toBinaryArray = [];
+
     /* Get current authenticated user data. */
     $.getJSON("/api/user/token/" + token, function(data){
         input = parseInt("" + data.java + data.python + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.javascript + data.sql + data.unix + data.winserver + data.windesktop + data.linuxdesktop + data.macosdesktop + data.perl + data.bash + data.batch + data.cisco + data.office + data.r + data.go + data.ruby + data.asp + data.scala + data.cow + data.actionscript + data.assembly + data.autohotkey + data.coffeescript + data.d + data.fsharp + data.haskell + data.matlab + data.objectivec + data.objectivecplus + data.pascal + data.powershell + data.rust + data.swift + data.typescript + data.vue + data.webassembly + data.apache + data.aws + data.docker + data.nginx + data.saas + data.ipv4 + data.ipv6 + data.dns, 2);
@@ -233,48 +238,35 @@ function match(){
                         var inputTrimArray = input.toString(2).match(/.{1,32}/g);
                         var jobMatchTrimArray = jobMatch[i].toString(2).match(/.{1,32}/g);
 
-                        /* Number of comparisons (OR operator). */
-                        var noOfCompOne = parseInt("" + inputTrimArray[0], 2) | parseInt("" + jobMatchTrimArray[0], 2);
+                        var maxLength = Math.max(inputTrimArray.length, jobMatchTrimArray.length);
 
-                        var bitCompOne = (noOfCompOne).toString(2);
-                    
-                        if(bitCompOne < 0){
-                            bitCompOne = (noOfCompOne >>> 0).toString(2);
-                            bitCompOne = bitCompOne.slice(-noOfBits);
+                        var x;
+                        for(x = 0; x < maxLength; x++){
+
+                            /* Number of comparisons (OR operator). */
+                            noOfCompArray[x] = parseInt("" + inputTrimArray[x], 2) | parseInt("" + jobMatchTrimArray[x], 2);
+
+                            bitCompArray[x] = (noOfCompArray[x]).toString(2);
+
+                            if(bitCompArray[x] < 0){
+                                bitCompArray[x] = (noOfCompArray[x] >>> 0).toString(2);
+                                bitCompArray[x] = bitCompArray[x].slice(-noOfBits);
+                            }
+
+                            /* Find number of matches (AND operator). */ 
+                            matchCalcArray[x] = parseInt("" + inputTrimArray[x], 2) & parseInt("" + jobMatchTrimArray[x], 2);
+
+                            toBinaryArray[x] = (matchCalcArray[x]).toString(2);
+
+                            if(toBinaryArray[x] < 0){
+                                toBinaryArray[x] = (matchCalcArray[x] >>> 0).toString(2);
+                                toBinaryArray[x] = toBinaryArray[x].slice(-noOfBits);
+                            }
                         }
 
-                        var noOfCompTwo = parseInt("" + inputTrimArray[1], 2) | parseInt("" + jobMatchTrimArray[1], 2);
-
-                        var bitCompTwo = (noOfCompTwo).toString(2);
-
-                        if(bitCompTwo < 0){
-                            bitCompTwo = (noOfCompTwo >>> 0).toString(2);
-                            bitCompTwo = bitCompOne.slice(-noOfBits);
-                        }
-
-                        var bitComp = bitCompOne + bitCompTwo;
-
-                        /* Find number of matches (AND operator). */ 
-                        var matchCalcOne = parseInt("" + inputTrimArray[0], 2) & parseInt("" + jobMatchTrimArray[0], 2);
-
-                        var toBinaryOne = (matchCalcOne).toString(2);
-
-                        if(toBinaryOne < 0){
-                            toBinaryOne = (matchCalcOne >>> 0).toString(2);
-                            toBinaryOne = toBinaryOne.slice(-noOfBits);
-                        }
-
-                        var matchCalcTwo = parseInt("" + inputTrimArray[1], 2) & parseInt("" + jobMatchTrimArray[1], 2);
-
-                        var toBinaryTwo = (matchCalcTwo).toString(2);
-
-                        if(toBinaryTwo < 0){
-                            toBinaryTwo = (matchCalcTwo >>> 0).toString(2);
-                            toBinaryTwo = toBinaryOne.slice(-noOfBits);
-                        }
-
-                        /* Un-trim bit sequence. */
-                        var toBinary = toBinaryOne + toBinaryTwo;
+                        /* Un-trim bit sequences. */
+                        var toBinary = toBinaryArray.join("");
+                        var bitComp = bitCompArray.join("");
                     }
                     else{
                         /* Number of comparisons (OR operator). */
