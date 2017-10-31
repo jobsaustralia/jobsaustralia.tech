@@ -190,10 +190,10 @@ function match(){
     }
 
     /* Get CSRF token from document. */
-    var token = document.getElementsByName("csrf-token")[0].content;
+    const token = document.getElementsByName("csrf-token")[0].content;
 
     /* Arbitrary number; no. of fields compared. */
-    var noOfBits = 51;
+    const noOfBits = 51;
 
     /* Input value (needs to be grabbed from user). */
     var input;
@@ -210,6 +210,7 @@ function match(){
     /* Array to store jobs for later use. */
     var jobs = [];
 
+    /* Arrays to handle 32-bit limitation on bitwise operations. */
     var noOfCompArray = [];
     var bitCompArray = [];
     var matchCalcArray = [];
@@ -238,6 +239,7 @@ function match(){
                         var inputTrimArray = input.toString(2).match(/.{1,32}/g);
                         var jobMatchTrimArray = jobMatch[i].toString(2).match(/.{1,32}/g);
 
+                        /* Determine largest bit sequence. */
                         var maxLength = Math.max(inputTrimArray.length, jobMatchTrimArray.length);
 
                         var x;
@@ -246,8 +248,10 @@ function match(){
                             /* Number of comparisons (OR operator). */
                             noOfCompArray[x] = parseInt("" + inputTrimArray[x], 2) | parseInt("" + jobMatchTrimArray[x], 2);
 
+                            /* Convert to bit sequence. */
                             bitCompArray[x] = (noOfCompArray[x]).toString(2);
 
+                            /* Handle sub-zero bit sequences. */
                             if(bitCompArray[x] < 0){
                                 bitCompArray[x] = (noOfCompArray[x] >>> 0).toString(2);
                                 bitCompArray[x] = bitCompArray[x].slice(-noOfBits);
@@ -256,8 +260,10 @@ function match(){
                             /* Find number of matches (AND operator). */ 
                             matchCalcArray[x] = parseInt("" + inputTrimArray[x], 2) & parseInt("" + jobMatchTrimArray[x], 2);
 
+                            /* Convert to bit sequence. */
                             toBinaryArray[x] = (matchCalcArray[x]).toString(2);
 
+                            /* Handle sub-zero bit sequences. */
                             if(toBinaryArray[x] < 0){
                                 toBinaryArray[x] = (matchCalcArray[x] >>> 0).toString(2);
                                 toBinaryArray[x] = toBinaryArray[x].slice(-noOfBits);
@@ -272,8 +278,10 @@ function match(){
                         /* Number of comparisons (OR operator). */
                         var noOfComp = input | jobMatch[i];
 
+                        /* Convert to bit sequence. */
                         var bitComp = (noOfComp).toString(2);
 
+                        /* Handle sub-zero bit sequences. */
                         if(bitComp < 0){
                             bitComp = (noOfComp >>> 0).toString(2);
                             bitComp = bitComp.slice(-noOfBits);
@@ -282,16 +290,20 @@ function match(){
                         /* Find number of matches (AND operator). */
                         var matchCalc = input & jobMatch[i];
 
+                        /* Convert to bit sequence. */
                         var toBinary = (matchCalc).toString(2);
 
+                        /* Handle sub-zero bit sequences. */
                         if(toBinary < 0){
                             toBinary = (matchCalc >>> 0).toString(2);
                             toBinary = toBinary.slice(-noOfBits);
                         }
                     }
 
+                    /* Count the number of comparisons. */
                     var countComp = bitComp.replace(/[^1]/g, "").length;
 
+                    /* Count the number of matches. */
                     var count = toBinary.replace(/[^1]/g, "").length;
 
                     /* Calculate percentage match. */
