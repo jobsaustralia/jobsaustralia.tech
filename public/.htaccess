@@ -21,18 +21,23 @@
     # Redirect /home to root
     RedirectMatch 301 ^/home$ /
 
-    # Cachce documents for four hours.
+    # Cache documents for four hours.
     <filesMatch ".(html|txt)$">
         Header set Cache-Control "max-age=14400, must-revalidate"
     </filesMatch>
 
-    # Cachce CSS and JavaScript for one week.
+    # Cache CSS and JavaScript for one week.
     <filesMatch ".(css|js)$">
         Header set Cache-Control "max-age=604800, public"
     </filesMatch>
 
-    # Cachce images for two weeks.
+    # Cache images for two weeks.
     <filesMatch ".(jpg|jpeg|png|ico|svg)$">
+        Header set Cache-Control "max-age=1209600, public"
+    </filesMatch>
+
+    # Cache fonts for two weeks.
+    <filesMatch ".(ttf|.woff|.woff2)$">
         Header set Cache-Control "max-age=1209600, public"
     </filesMatch>
 
