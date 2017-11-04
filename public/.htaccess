@@ -43,7 +43,7 @@
 
     # Implement CSP via htaccess in development environments.
     <If "req('Host') = 'jobsaustralia.dev'">
-        Header always set Content-Security-Policy "default-src 'none'; base-uri 'self'; child-src 'none'; connect-src 'self' https://api.github.com https://freegeoip.net; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'none'; sandbox allow-forms allow-popups allow-same-origin allow-scripts; script-src 'self'; style-src 'self' 'sha256-JW5uZv0Kcs4EnIoQJqdJJFP9HOH6hgd8icyuha3WlUI=' 'sha256-BYc9LFyz9out28kCQ3Nbtwf/lYv6DZW5gLpzDy5Rvf0=' https://fonts.googleapis.com"
+        Header always set Content-Security-Policy "default-src 'none'; base-uri 'none'; connect-src 'self' https://api.github.com https://freegeoip.net; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; frame-src 'none'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'none'; sandbox allow-forms allow-popups allow-same-origin allow-scripts; script-src 'self'; style-src 'self' 'sha256-JW5uZv0Kcs4EnIoQJqdJJFP9HOH6hgd8icyuha3WlUI=' 'sha256-BYc9LFyz9out28kCQ3Nbtwf/lYv6DZW5gLpzDy5Rvf0=' https://fonts.googleapis.com; worker-src 'none'"
     </If>
 
     # Force HTTPS
