@@ -141,7 +141,7 @@ class UsersTableSeeder extends Seeder{
 
         DB::table('users')->insert([
             'id' => '4238b75b-034c-4c80-92f1-0188a03806df',
-            'name' => 'Dennis Mihalache',
+            'name' => 'Redacted',
             'email' => 's3434719@student.rmit.edu.au',
             'password' => bcrypt('secret'),
             'title' => 'Programmer',

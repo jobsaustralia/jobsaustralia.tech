@@ -57,13 +57,13 @@
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/rmit-s3476694-melissa-nguyen">GitHub</a></p>
                     </div>
                 </div>
-                <div id="dennis-content" class="panel-body default-hide">
+                <div id="redacted-content" class="panel-body default-hide">
                     <div align="center">
                         <p>
-                            <img src="{{ asset('img/dennis.png') }}"></img>
+                            <img src="{{ asset('img/redacted.png') }}"></img>
                         </p>
                         <hr>
-                        <p>Dennis is in their last semester of the <strong>Bachelor of Information Technology</strong>.</p>
+                        <p>Redacted is in their last semester of the <strong>Bachelor of Information Technology</strong>.</p>
                         <p><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/d473">GitHub</a></p>
                     </div>
                 </div>

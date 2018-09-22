@@ -17,7 +17,7 @@
                 <div class="panel-body">
                     <p><strong><a href="{{ asset('LICENSE') }}">MIT License</a></strong></p>
 
-                    <p>Copyright (c) 2017 Aaron Horler, Dennis Mihalache, Kim Luu, Melissa Nguyen, and Ozlem Kirmizi (as JobsAustralia.tech at RMIT University).</p>
+                    <p>Copyright (c) 2017 Aaron Horler, Redacted, Kim Luu, Melissa Nguyen, and Ozlem Kirmizi (as JobsAustralia.tech at RMIT University).</p>
 
                     <p>Permission is hereby granted, free of charge, to any person obtaining a copy
                     of this software and associated documentation files (the "Software"), to deal

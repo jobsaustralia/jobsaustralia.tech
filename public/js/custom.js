@@ -18,7 +18,7 @@ function toggleTeamDisplay(event){
     document.getElementById("aaron-content").style.display = "none";
     document.getElementById("melissa-content").style.display = "none";
     document.getElementById("ozlem-content").style.display = "none";
-    document.getElementById("dennis-content").style.display = "none";
+    document.getElementById("redacted-content").style.display = "none";
     document.getElementById(event.target.id + "-content").style.display = "block";
 }
 
@@ -35,7 +35,7 @@ function randomiseTeam(){
         }
     }
 
-    var team = ["dennis,Dennis Mihalache", "kim,Kim Luu", "aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "melissa,Melissa Nguyen"];
+    var team = ["redacted,Redacted", "kim,Kim Luu", "aaron,Aaron Horler", "ozlem,Ozlem Kirmizi", "melissa,Melissa Nguyen"];
     shuffle(team);
 
     var namesDiv = document.getElementById("names");
@@ -57,7 +57,7 @@ function randomiseTeam(){
     document.getElementById("kim").addEventListener("click", toggleTeamDisplay);
     document.getElementById("melissa").addEventListener("click", toggleTeamDisplay);
     document.getElementById("ozlem").addEventListener("click", toggleTeamDisplay);
-    document.getElementById("dennis").addEventListener("click", toggleTeamDisplay);
+    document.getElementById("redacted").addEventListener("click", toggleTeamDisplay);
     document.getElementById("aaron").addEventListener("click", toggleTeamDisplay);
 }
 
